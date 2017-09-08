@@ -20,6 +20,7 @@
 |Clova Speech Synthesis	|POST	|N|	https://openapi.naver.com/v1/voice/tts.bin|	MP3	|텍스트를 입력받은 후 지정된 음색과 속도로 음성 합성한 오디오 데이터를 반환(한,영,일,중)|
 |Clova Face Recognition	|POST|N |https://openapi.naver.com/v1/vision/face| JSON	|입력된 사진을 입력받아 얼굴윤곽/부위/표정을 리턴|
 |Clova Face Recognition	|POST|N |https://openapi.naver.com/v1/vision/celebrity| JSON	|입력된 사진을 입력받아 유명인 닮음도를 리턴|
+|데이터랩 통합검색 트렌드|POST|	N	|https://openapi.naver.com/v1/datalab/search|	JSON|	통합검색어 트렌드 조회|
 |캡차(이미지)	|GET|	N	|https://openapi.naver.com/v1/captcha/nkey|	JSON|	캡차 키 발급/입력값 비교|
 |캡차(이미지)	|GET|	N	|https://openapi.naver.com/v1/captcha/ncaptcha.bin	|JPG|	캡차 이미지 요청|
 |지도	|GET	|N|	https://openapi.map.naver.com/openapi/v3/maps.js?clientId=CLIENT_ID	|-|	네이버 지도|
