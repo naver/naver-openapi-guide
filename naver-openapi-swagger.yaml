@@ -1,0 +1,1190 @@
+swagger: '2.0'
+info:
+  description: >-
+    Naver Open API - Restful spec. You can find out more about Naver Open API at
+    [https://developers.naver.com](https://developers.naver.com)
+  version: 1.1.0
+  title: Naver Open API
+  termsOfService: 'https://developers.naver.com/products/terms'
+host: openapi.naver.com
+basePath: /
+tags:
+  - name: Clova
+    description: Naver A.I platform and APIs
+    externalDocs:
+      description: Find out more
+      url: 'https://developers.naver.com/products/clova/cic'
+  - name: Papago
+    description: Naver Machine Learning Translation APIs
+  - name: Naver Login
+    description: Login with Naver Id
+  - name: Naver Services
+    description: 'Naver data trend, search, shorten url, captcha APIs'
+  - name: Maps
+    description: 'Naver Mpas JS, geocode, static map APIs'
+schemes:
+  - https
+paths:
+  /v1/vision/face:
+    post:
+      tags:
+        - Clova
+      summary: 얼굴감지 API
+      description: 얼굴 이미지를 입력하면 얼굴 감지 결과를 리턴합니다.
+      operationId: vision.face
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - name: image
+          in: formData
+          description: 이미지
+          required: true
+          type: file
+      responses:
+        '200':
+          description: OK
+      security:
+        - clientId: []
+        - clientSecret: []
+  /v1/vision/celebrity:
+    post:
+      tags:
+        - Clova
+      summary: 유명인 얼굴인식 API
+      description: 얼굴 이미지를 입력하면 유명인과의 닮은 정도를 리턴합니다.
+      operationId: vision.celebrity
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - name: image
+          in: formData
+          description: 이미지
+          required: true
+          type: file
+      responses:
+        '200':
+          description: OK
+      security:
+        - clientId: []
+        - clientSecret: []
+  /v1/datalab/search:
+    post:
+      tags:
+        - Naver Services
+      summary: 네이버 통합 검색어 트렌드 API
+      description: 입력된 주제어와 해당하는 검색어 그룹에 대하여 네이버 통합검색에 대한 기간별 트렌드 데이터를 리턴합니다.
+      operationId: search.datalab
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: ''
+          description: 검색 정보 요청 JSON
+          required: true
+          schema:
+            $ref: '#/definitions/DatalabSearchReq'
+      responses:
+        '405':
+          description: Invalid input
+      security:
+        - clientId: []
+        - clientSecret: []
+  '/v1/search/{serviceid}':
+    get:
+      tags:
+        - Naver Services
+      summary: '기본 검색 API: 블로그/뉴스/책/백과사전/카페글/지식iN/웹문서/이미지/쇼핑/전문자료/성인검색어 판별 /오타변환'
+      description: '네이버 블로그/뉴스/책/백과사전/카페글/지식iN/웹문서/이미지/쇼핑/전문자료/성인검색어 판별 /오타변환 대상 검색입니다. '
+      operationId: search.service
+      consumes:
+        - plain/text
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: serviceid
+          in: path
+          description: >-
+            검색대상<br/> 블로그-> blog, 뉴스-> news, 책-> book, 백과사전->encyc,
+            카페글->cafearticle, 지식인->kin, 웹문서->webkr, 이미지->image, 쇼핑->shop,
+            전문자료->doc, 성인검색어 판별->adult, 오타변환->errata
+          required: true
+          default: blog
+          type: string
+        - name: query
+          in: query
+          description: 검색어(UTF-8인코딩 필요)
+          required: true
+          default: 진주
+          type: string
+        - name: display
+          in: query
+          description: >-
+            검색결과 출력건수 (10 ~ 100) <br/> *적용 대상: blog/ news/ book/ encyc/
+            cafearticle/ kin/ webkr/ image/ shop/ doc <br/>* 비적용 대상: adult/
+            errata
+          required: false
+          default: 10
+          type: integer
+        - name: start
+          in: query
+          description: >-
+            검색 시작 위치 (1~ 1000)<br/> * 주의:**1000 이상은 불가**<br/> * 적용 대상: blog/
+            news/ book/ encyc/ cafearticle/ kin/ webkr/ image/ shop/ doc<br/>*
+            비적용 대상: adult/ errata
+          required: false
+          default: 1
+          type: integer
+        - name: sort
+          in: query
+          description: >-
+            정렬 옵션: sim (유사도순), date (날짜순)<br/> * 적용 대상: blog/ news/ book/
+            cafearticle/ kin /image/ shop <br/> * 비적용 대상: encyc/ webkr/
+            doc/adult/ errata <br/> - shop 추가 옵션: asc(가격오름차순) ,dsc(가격내림차순)<br/>
+            - book 추가 옵션: count(판매량순)
+          required: false
+          default: sim
+          type: string
+        - name: filter
+          in: query
+          description: >-
+            이미지 사이즈 필터 옵션 (***이미지 검색만 해당!!!***)<br/>사이즈 필터 옵션: all(전체), large(큰
+            사이즈), medium(중간 사이즈), small(작은 사이즈)
+          required: false
+          default: all
+          type: string
+      responses:
+        '405':
+          description: Invalid input
+      security:
+        - clientId: []
+        - clientSecret: []
+  /v1/search/book_adv:
+    get:
+      tags:
+        - Naver Services
+      summary: 네이버 책 상세 검색 API
+      description: >-
+        책을 다양한 옵션으로 상세하게 검색할 수 있는 API입니다. <br/>책 제목(d_titl), 저자명(d_auth),
+        목차(d_cont), ISBN(d_isbn), 출판사(d_publ) 5개 항목 중에서 1개 이상 값을 입력해야 합니다.
+      operationId: search.book_adv
+      consumes:
+        - plain/text
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: d_titl
+          in: query
+          description: 책 제목
+          required: false
+          default: api
+          type: string
+        - name: d_auth
+          in: query
+          description: 저자명
+          required: false
+          default: okgosu
+          type: string
+        - name: d_cont
+          in: query
+          description: 목차 검색
+          required: false
+          default: 서문
+          type: string
+        - name: d_isbn
+          in: query
+          description: ISBN 검색
+          required: false
+          default: '9788960771291'
+          type: string
+        - name: d_publ
+          in: query
+          description: 출판사 검색
+          required: false
+          default: 에이콘
+          type: string
+        - name: d_dafr
+          in: query
+          description: '출간 시작일(예: 20000203)'
+          required: false
+          default: '20000203'
+          type: string
+        - name: d_dato
+          in: query
+          description: '출간 종료일(예:20000203)'
+          required: false
+          default: '20000203'
+          type: string
+        - name: d_catg
+          in: query
+          description: >-
+            책 검색 카테고리 :
+            [상세목록링크](https://developers.naver.com/inc/devcenter/downloads/categoryList.txt)
+          required: false
+          default: '100'
+          type: string
+      responses:
+        '405':
+          description: Invalid input
+      security:
+        - clientId: []
+        - clientSecret: []
+  /v1/search/local:
+    get:
+      tags:
+        - Naver Services
+      summary: 네이버 지역 검색 API
+      description: >-
+        네이버 지역 서비스에 등록된 각 지역별 업체 및 상호 검색 결과를 출력해주는 검색API 입니다. <br/>(**주의 : 특정 위치
+        기반 검색은 지원 안합니다.**)
+      operationId: search.local
+      consumes:
+        - plain/text
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: query
+          in: query
+          description: 검색어(UTF-8인코딩 필요)
+          required: true
+          default: 진주
+          type: string
+        - name: display
+          in: query
+          description: 검색결과 출력건수 (10 ~ 100)
+          required: false
+          default: 10
+          type: integer
+        - name: start
+          in: query
+          description: '검색 시작 위치 (1~ 1000, [**1000 이상은 불가**])'
+          required: false
+          default: 1
+          type: integer
+        - name: sort
+          in: query
+          description: '정렬 옵션: random(유사도순), comment(카페/블로그 리뷰 개수 순)'
+          required: false
+          default: random
+          type: string
+      responses:
+        '405':
+          description: Invalid input
+      security:
+        - clientId: []
+        - clientSecret: []
+  /v1/search/movie:
+    get:
+      tags:
+        - Naver Services
+      summary: 네이버 영화 검색 API
+      description: >-
+        네이버 지역 서비스에 등록된 각 지역별 업체 및 상호 검색 결과를 출력해주는 검색API 입니다. <br/>(**주의 : 특정 위치
+        기반 검색은 지원 안합니다.**)
+      operationId: search.movie
+      consumes:
+        - plain/text
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: query
+          in: query
+          description: 검색어(UTF-8인코딩 필요)
+          required: true
+          default: starwars
+          type: string
+        - name: display
+          in: query
+          description: 검색결과 출력건수 (10 ~ 100)
+          required: false
+          default: 10
+          type: integer
+        - name: start
+          in: query
+          description: '검색 시작 위치 (1~ 1000, [**1000 이상은 불가**])'
+          required: false
+          default: 1
+          type: integer
+        - name: genre
+          in: query
+          description: >-
+            영화장르 검색 옵션<br/>1: 드라마 2: 판타지 3: 서부 4: 공포 5: 로맨스 6: 모험 7: 스릴러 8: 느와르
+            9: 컬트 10: 다큐멘터리 11: 코미디 12: 가족 13: 미스터리 14: 전쟁 15: 애니메이션 16: 범죄 17:
+            뮤지컬 18: SF 21: 에로 22: 서스펜스 23: 서사 24: 블랙코미디 25: 실험 26: 영화카툰 27: 영화음악
+            28: 영화패러디포스터
+          required: false
+          default: ''
+          type: string
+        - name: country
+          in: query
+          description: >-
+            검색 대상 국가 코드 (대문자만 가능)<br/>한국 (KR), 일본 (JP), 미국 (US), 홍콩 (HK), 영국
+            (GB), 프랑스 (FR), 기타 (ETC)
+          required: false
+          default: ''
+          type: string
+        - name: yearfrom
+          in: query
+          description: 영화제작년도 (최대) <br/>yearfrom과 yearto는 함께 사용
+          required: false
+          default: 2017
+          type: integer
+        - name: yearto
+          in: query
+          description: 영화제작년도 (최소) <br/>yearfrom과 yearto는 함께 사용
+          required: false
+          default: 2017
+          type: integer
+      responses:
+        '405':
+          description: Invalid input
+      security:
+        - clientId: []
+        - clientSecret: []
+  /v1/util/shorturl:
+    get:
+      tags:
+        - Naver Services
+      summary: 네이버 단축 URL API
+      description: 입력된 URL을 me2.do 형태로 짧은 URL로 변환해주는 REST API입니다.
+      operationId: util.shorturl
+      consumes:
+        - plain/text
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: url
+          in: query
+          description: 단축하고자 하는 원본 URL
+          required: true
+          default: 'https://developers.naver.com'
+          type: string
+      responses:
+        '405':
+          description: Invalid input
+      security:
+        - clientId: []
+        - clientSecret: []
+  /v1/captcha/nkey:
+    get:
+      tags:
+        - Naver Services
+      summary: 이미지 캡차 API - 키발급/비교
+      description: 캡차 키 발급/입력값 비교하는 REST API입니다.
+      operationId: captcha.nkey
+      consumes:
+        - plain/text
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: code
+          in: query
+          description: '0: 키발급,  1:키와 입력값 비교'
+          required: true
+          default: 0
+          type: integer
+      responses:
+        '405':
+          description: Invalid input
+      security:
+        - clientId: []
+        - clientSecret: []
+  /v1/captcha/ncaptcha.bin:
+    get:
+      tags:
+        - Naver Services
+      summary: 이미지 캡차 API - 캡차 이미지 요청
+      description: 캡차 키 발급 후 캡차 이미지를 요청하는 REST API입니다.
+      operationId: captcha.ncaptcha
+      consumes:
+        - plain/text
+      produces:
+        - image/jpeg
+      parameters:
+        - name: code
+          in: query
+          description: 캡차 키 발급 API 호출로 받은 키 값
+          required: true
+          type: string
+      responses:
+        '405':
+          description: Invalid input
+      security:
+        - clientId: []
+        - clientSecret: []
+  /v1/captcha/skey:
+    get:
+      tags:
+        - Naver Services
+      summary: 음성 캡차 API - 키발급/비교
+      description: 캡차 키 발급/입력값 비교하는 REST API입니다.
+      operationId: captcha.skey
+      consumes:
+        - plain/text
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: code
+          in: query
+          description: '0: 키발급,  1:키와 입력값 비교'
+          required: true
+          default: 0
+          type: integer
+      responses:
+        '405':
+          description: Invalid input
+      security:
+        - clientId: []
+        - clientSecret: []
+  /v1/captcha/scaptcha:
+    get:
+      tags:
+        - Naver Services
+      summary: 음성 캡차 API - 캡차 음성 요청
+      description: 캡차 키 발급 후 캡차 음성을 요청하는 REST API입니다.
+      operationId: captcha.scaptcha
+      consumes:
+        - plain/text
+      produces:
+        - voice/wav
+      parameters:
+        - name: code
+          in: query
+          description: 캡차 키 발급 API 호출로 받은 키 값
+          required: true
+          type: string
+      responses:
+        '405':
+          description: Invalid input
+      security:
+        - clientId: []
+        - clientSecret: []
+  /v1/papago/n2mt:
+    post:
+      tags:
+        - Papago
+      summary: Papago NMT 번역 API
+      description: 텍스트값을 입력받으면 번역 결과를 리턴합니다.
+      operationId: papago.nmt
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: source
+          in: formData
+          description: >-
+            번역 소스 텍스트의 언어 설정: ko : 한국어 en : 영어 zh-CN : 중국어 간체 kr<->en, ko <->
+            zh-CN 만 가능
+          required: true
+          default: ko
+          type: string
+        - name: target
+          in: formData
+          description: '번역 대상 언어, 가능한 값은 source 파라미터와 동일'
+          required: true
+          default: ko
+          type: string
+        - name: text
+          in: formData
+          description: 번역할 문장이며 UTF-8만 지원
+          required: true
+          default: 나는 한국인입니다.
+          type: string
+      responses:
+        '405':
+          description: Invalid input
+      security:
+        - clientId: []
+        - clientSecret: []
+  /v1/language/translate:
+    post:
+      tags:
+        - Papago
+      summary: Papago SMT 번역 API
+      description: 텍스트값을 입력받으면 번역 결과를 리턴합니다.
+      operationId: papago.smt
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: source
+          in: formData
+          description: >-
+            번역 소스 텍스트의 언어 설정: (ko:한국어, en:영어, ja:일본어, zh-CN:중국어(간체),
+            zh-TW:중국어(번체)
+          required: true
+          default: ko
+          type: string
+        - name: target
+          in: formData
+          description: '번역 대상 언어, 가능한 값은 source 파라미터와 동일'
+          required: true
+          default: ko
+          type: string
+        - name: text
+          in: formData
+          description: 번역할 문장이며 UTF-8만 지원
+          required: true
+          default: 나는 한국인입니다.
+          type: string
+      responses:
+        '405':
+          description: Invalid input
+      security:
+        - clientId: []
+        - clientSecret: []
+  /v1/krdict/romanization:
+    get:
+      tags:
+        - Papago
+      summary: 한글인명 - 로마자 변환
+      description: >-
+        '한글로 된 이름을 로마자 표기로 변환해주는 API입니다. 현행 로마자 표기법을 따라 변환한 이름과 통계적으로 많이 사용되고 있는
+        로마자 이름도 함께 제안 받을 수 있습니다.'
+      operationId: papago.romanization
+      consumes:
+        - plain/text
+      produces:
+        - application/json
+      parameters:
+        - name: query
+          in: query
+          description: 로마자로 바꾸려는 한글 이름 (UTF-8)
+          required: true
+          type: string
+      responses:
+        '405':
+          description: Invalid input
+      security:
+        - clientId: []
+        - clientSecret: []
+  /v1/voice/tts.bin:
+    post:
+      tags:
+        - Clova
+      summary: 텍스트를 음성으로 변환
+      description: 입력된 텍스트를 성우의 낭독 음성으로 합성해 주는 REST API입니다.
+      operationId: voice.tts
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - audio/mpeg
+      parameters:
+        - name: speaker
+          in: formData
+          description: >-
+            음성 합성할 목소리 설정: ( mijin:미진(한국어, 여성), jinho:진호(한국어, 남성),
+            clara:클라라(영어,여성), matt:매튜(영어, 남성), yuri:유리(일본어, 여성), shinji:신지(일본어,
+            남성),  meimei:메이메이(중국어, 여성))
+          required: true
+          default: mijin
+          type: string
+        - name: speed
+          in: formData
+          description: '-5 ~ 5 사이 정수로 -5면 0.5배 빠른, 5면 0.5배 느린, 0이면 정상 속도의 목소리로 합성'
+          required: true
+          default: '0'
+          type: string
+        - name: text
+          in: formData
+          description: 음성합성할 문장이며 UTF-8만 지원
+          required: true
+          default: 음성합성 테스트 입니다.
+          type: string
+      responses:
+        '405':
+          description: Invalid input
+      security:
+        - clientId: []
+        - clientSecret: []
+  /v1/map/geocode:
+    get:
+      tags:
+        - Maps
+      summary: 주소->좌표 변환 API
+      description: >-
+        지번 또는 도로명 주소와 같이 실제 존재하는 주소에 대한 좌표를 검색합니다. (건물명 또는 아파트명 검색 불가) 지번주소가
+        같더라도, 도로명 주소가 다른 경우가 존재할 수 있습니다.
+      operationId: maps.geocode
+      consumes:
+        - plain/text
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: query
+          in: query
+          description: 검색할 주소값 (UTF-8인코딩 필요)
+          required: true
+          default: 불정로 6
+          type: string
+        - name: encoding
+          in: query
+          description: '출력 결과 인코딩 값 (utf-8, euc-kr)'
+          required: false
+          default: utf-8
+          type: string
+        - name: coordType
+          in: query
+          description: '출력 좌표 체계 값(latlng(위경도), tm128(카텍) )'
+          required: false
+          default: 1
+          type: string
+        - name: callback
+          in: query
+          description: >-
+            output이 json일 경우, jsonp 방식으로 호출하기 위한 callback 함수명. callback 파라미터를
+            지정할 경우에만 jsonp 호출이 가능
+          required: false
+          default: ''
+          type: string
+      responses:
+        '405':
+          description: Invalid input
+      security:
+        - clientId: []
+        - clientSecret: []
+  /v1/map/reversegeocode:
+    get:
+      tags:
+        - Maps
+      summary: 좌표-> 주소 변환 API
+      description: 좌표에 대한 지번 또는 도로명 주소를 검색합니다.
+      operationId: maps.reversegeocode
+      consumes:
+        - plain/text
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: query
+          in: query
+          description: '검색할 좌표 값 (x,y 형식)'
+          required: true
+          default: '127.1141382,37.3599968'
+          type: string
+        - name: encoding
+          in: query
+          description: '출력 결과 인코딩 값 (utf-8, euc-kr)'
+          required: false
+          default: utf-8
+          type: string
+        - name: coordType
+          in: query
+          description: '출력 좌표 체계 값(latlng(위경도), tm128(카텍) )'
+          required: false
+          default: 1
+          type: string
+        - name: callback
+          in: query
+          description: >-
+            output이 json일 경우, jsonp 방식으로 호출하기 위한 callback 함수명. callback 파라미터를
+            지정할 경우에만 jsonp 호출이 가능
+          required: false
+          default: ''
+          type: string
+      responses:
+        '405':
+          description: Invalid input
+      security:
+        - clientId: []
+        - clientSecret: []
+  /v1/map/staticmap.bin:
+    get:
+      tags:
+        - Maps
+      summary: 지정된 좌표의 네이버 지도 이미지를 출력
+      description: 지정된 좌표의 네이버 지도 이미지를 출력
+      operationId: maps.staticmap
+      consumes:
+        - plain/text
+      produces:
+        - image/jpeg
+        - image/png
+      parameters:
+        - name: clientId
+          in: query
+          description: 애플리케이션 등록 시 발급받은 클라이언트 아이디 값
+          required: true
+          type: string
+        - name: url
+          in: query
+          description: 등록한 애플리케이션의 서비스 URL 값
+          required: true
+          type: string
+        - name: scale
+          in: query
+          description: '화면 배율<br/>1: 기본 타일 사이즈(256), 2:고해상도 타일 사이즈(512)'
+          default: 1
+          required: false
+          type: integer
+        - name: crs
+          in: query
+          description: >-
+            좌표체계<br/> 1. EPSG:4326 : WGS84 경위도 2. NHN:2048 : UTMK 3. NHN:128 :
+            카텍 TM128 4. EPSG:4258 : GRS80 경위도 5. EPSG:4162 : Bessel 경위도 6.
+            EPSG:2096 : Korea East Belt 7. EPSG:2097 : Korea Central Belt 8.
+            EPSG:2098 : Korea West Belt 9. EPSG:3857 or EPSG:9009 13 : Google
+            Maps
+          default: 'EPSG:4326'
+          required: false
+          type: string
+        - name: exception
+          in: query
+          description: >-
+            예외 발생시 처리방법<br/> 1. json: json 포맷으로 에러 정보를 반환한다. 2. blank : 빈 이미지를
+            반환한다. format이 png일 때는 투명 이미지, jpg(jpeg)일 때는 흰 색의 불투명 이미지를 반환한다. 3.
+            xml : utf-8인코딩형식으로 에러 정보를 담은 xml파일을 반환한다. 4. inimage : 에러 정보가 포함된
+            이미지를 반환한다.
+          default: json
+          required: false
+          type: string
+        - name: center
+          in: query
+          description: >-
+            이미지의 중심 좌표(X좌표, Y좌표) <br/>이 중심 좌표를 기준으로 요청한 w, h 픽셀 크기로 이미지를 생성한다.
+            crs 파라미터의 좌표체계 정의를 따른다. 참고로 경위도 좌표 체계인 경우 입력 형식은 <경도,위도>이다. ex)
+            center=127.1141382,37.3599968
+          required: false
+          type: string
+        - name: level
+          in: query
+          description: 네이버지도 서비스에 정의되어 있는 줌 레벨이다. (1~14)
+          default: 1
+          required: false
+          type: integer
+        - name: x
+          in: query
+          description: 가로 이미지 크기(픽셀 단위)이다. (1 ~ 640)
+          required: false
+          type: integer
+        - name: 'y'
+          in: query
+          description: 세로 이미지 크기(픽셀 단위)이다. (1 ~ 640)
+          default: 1
+          required: false
+          type: integer
+        - name: baselayer
+          in: query
+          description: >-
+            base 지도 레이어<br/>  1. default : 일반 지도 2. satellite : 위성 지도 3.
+            bl_vc_bg: 주기가 없는 배경 지도 ex) baselayer=default
+          required: false
+          type: string
+        - name: overlayer
+          in: query
+          description: >-
+            overlay 지도 레이어<br/> 생략하거나 여러 개의 레이어를 조합 가능하며, 콤마 구분자로 순서대로 중첩해서 지도
+            이미지를 표시한다. 1. anno_satellite: 위성 겹침 지도 2. traffic: 실시간 교통 3.
+            bicycle: 자전거 4. roadview: 거리뷰 ex)overlayers=anno_satellite,bicycle
+          required: false
+          type: string
+        - name: format
+          in: query
+          description: '이미지 형식: png / jpeg(jpg) 포맷을 지원한다.'
+          default: png
+          required: false
+          type: string
+        - name: markers
+          in: query
+          description: >-
+            지도 상에 핀을 표시<br/> marker 요청 변수 개수만큼 핀을 표시하며 값이 없으면 표현하지 않는다. crs
+            파라미터에서 설정한 좌표 체계를 따른다.  콤마를 구분자로 순서대로 2개 단위로 좌표 값을 끊어서 하나의 마커로 표시한다.
+            ex) 2개 요청 markers=127.1141382,37.3599968,127.1141382,37.3599968
+          required: false
+          type: string
+        - name: markers_ab
+          in: query
+          description: >-
+            지도 상에 알파벳(A~J) 핀을 표시<br/> 콤마를 구분자로 A~J 순서대로 2개 단위로 좌표 값을 끊어서 하나의 마커로
+            표시하며 좌표 값은 crs 파라미터의 좌표체계 정의를 따른다.ex) A, B 알파벳 마커 요청
+            markers=127.1141382,37.3599968,127.1141382,37.3599968
+          required: false
+          type: string
+      responses:
+        '405':
+          description: Invalid input
+      security:
+        - clientId: []
+        - clientSecret: []
+  /v1/nid/me:
+    get:
+      tags:
+        - Naver Login
+      summary: 네이버 회원 프로필 조회
+      description: >-
+        '네이버 로그인을 통해 인증받은 받고 정보 제공에 동의한 회원에 대해 회원 메일 주소, 별명, 프로필 사진, 생일, 연령대 값을
+        조회할 수 있는 로그인 오픈 API입니다'
+      operationId: nid.me
+      consumes:
+        - plain/text
+      produces:
+        - application/json
+      responses:
+        '405':
+          description: Invalid input
+      security:
+        - accessToken: []
+  /blog/writePost:
+    post:
+      tags:
+        - Naver Login
+      summary: 블로그 글쓰기
+      description: 네이버 로그인을 통해 인증받은 사용자의 블로그에 글쓰가능한 오픈 API입니다
+      operationId: blog.writePost
+      consumes:
+        - application/x-www-form-urlencoded
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - name: title
+          in: formData
+          description: 포스트 제목
+          required: true
+          type: string
+        - name: contents
+          in: formData
+          description: 본문 내용
+          required: true
+          type: string
+        - name: image
+          in: formData
+          description: >-
+            이미지 첨부파일 <br/> - image 파라미터를 사용할 때는 데이터를 multipart 형식으로 전송해야 한다. -
+            이미지 파일을 2개 이상 첨부할 때는 파라미터를 중복해서 사용한다.
+          required: false
+          type: file
+        - name: categoryNo
+          in: formData
+          description: 글이 작성될 카테고리 번호
+          default: 첫 번째 카테고리
+          required: false
+          type: integer
+        - name: options.openType
+          in: formData
+          default: all
+          description: >-
+            공개 설정 <br/> - all: 공개 - closed: 비공개 - neighbor: 이웃공개-
+            agreedNeighbor: 서로이웃공개 
+          required: false
+          type: string
+        - name: options.allowComment
+          in: formData
+          default: true
+          description: 덧글 허용
+          required: false
+          type: string
+        - name: options.allowSympathy
+          in: formData
+          default: true
+          description: 공감 허용
+          required: false
+          type: string
+        - name: options.scrapType
+          in: formData
+          default: link
+          description: >-
+            다른 블로그/카페로 스크랩 허용.<br/> - content : 본문 스크랩 허용- link : 링크 스크랩 허용 -
+            closed : 스크랩 불허
+          required: false
+          type: string
+        - name: options.allowSend
+          in: formData
+          default: true
+          description: 외부 보내기 허용
+          required: false
+          type: string
+        - name: options.allowSearch
+          in: formData
+          default: true
+          description: 검색 허용
+          required: false
+          type: string
+      responses:
+        '405':
+          description: Invalid input
+      security:
+        - accessToken: []
+  /blog/listCategory:
+    get:
+      tags:
+        - Naver Login
+      summary: 블로그 카테고리 조회
+      description: 네이버 로그인을 통해 인증받은 사용자의 블로그의 카테고리를 조회하는 오픈 API입니다
+      operationId: blog.listCategory
+      consumes:
+        - plain/text
+      produces:
+        - application/json
+      responses:
+        '405':
+          description: Invalid input
+      security:
+        - accessToken: []
+  '/v1/cafe/{clubid}/members':
+    post:
+      tags:
+        - Naver Login
+      summary: 특정 카페 가입하기
+      description: 네이버 로그인을 통해 인증받은 사용자 계정으로 clubid로 지정된 카페에 가입하는 API입니다
+      operationId: cafe.members
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: clubid
+          in: path
+          description: >-
+            카페 아이디 <br/> 카페 관리 페이지와 같이 카페 내 이동 시 clubid로 표현되는 파라미터는 카페의 고유
+            아이디입니다. (http://cafe.naver.com/ManageHome.nhn?clubid=14447337 의
+            14447337값이 clubid입니다.)
+          required: true
+          type: string
+        - name: nickname
+          in: formData
+          description: 카페에 가입할 때 지정할 별명 - -8 인코딩하여 요청
+          required: true
+          type: string
+      responses:
+        '405':
+          description: Invalid input
+      security:
+        - accessToken: []
+  '/v1/cafe/{clubid}/menu/{menuid}/articles':
+    post:
+      tags:
+        - Naver Login
+      summary: 특정 카페 게시판에 글쓰기
+      description: 네이버 로그인을 통해 인증받은 사용자 계정으로 clubid로 지정된 카페의 menuid로 지정된 게시판에 글을 쓰는 API입니다
+      operationId: cafe.articles
+      consumes:
+        - application/x-www-form-urlencoded
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - name: clubid
+          in: path
+          description: >-
+            카페 아이디 <br/> 카페 관리 페이지와 같이 카페 내 이동 시 clubid로 표현되는 파라미터는 카페의 고유
+            아이디입니다. (http://cafe.naver.com/ManageHome.nhn?clubid=14447337 의
+            14447337값이 clubid입니다.)
+          required: true
+          type: string
+        - name: menuid
+          in: path
+          description: 게시판 아이디
+          required: true
+          type: string
+        - name: subject
+          in: formData
+          description: 게시글 제목 - UTF-8 인코딩하여 요청
+          required: true
+          type: string
+        - name: image
+          in: formData
+          description: >-
+            이미지 첨부파일 <br/> - image 파라미터를 사용할 때는 데이터를 multipart 형식으로 전송해야 한다. -
+            이미지 파일을 2개 이상 첨부할 때는 파라미터를 중복해서 사용한다.
+          required: false
+          type: file
+        - name: openyn
+          in: formData
+          default: false
+          description: '게시글 공개 설정: <br/>- true: 전체 공개 - false: 멤버 공개'
+          required: false
+          type: string
+        - name: searchopen
+          in: formData
+          default: true
+          description: >-
+            게시글 검색 설정 <br/>- true: 네이버에서 검색 허용 - false: 네이버에서 검색 허용 안 함 <br/>-
+            openyn 파라미터를 true로 설정하면 searchopen 파라미터는 true로 설정된다.
+          required: false
+          type: string
+        - name: replyyn
+          in: formData
+          default: true
+          description: '게시글 덧글 설정 <br/>- true: 덧글 허용 - false: 덧글 허용 안 함'
+          required: false
+          type: string
+        - name: metoo
+          in: formData
+          default: true
+          description: '블로그, 카페 보내기 설정 <br/>- true: 보내기 허용 - false: 보내기 허용 안 함'
+          required: false
+          type: string
+        - name: autosourcing
+          in: formData
+          default: true
+          description: '게시글 자동 출처 설정 <br/>- true: 자동 출처 사용 - false: 자동 출처 사용 안 함'
+          required: false
+          type: string
+        - name: rclick
+          in: formData
+          default: true
+          description: >-
+            마우스 오른쪽 버튼 사용 설정 <br/>- true: 마우스 오른쪽 버튼 사용 허용 - false: 마우스 오른쪽 버튼
+            사용 허용 안 함
+          required: false
+          type: string
+        - name: ccl
+          in: formData
+          default: true
+          description: 'CCL 사용 설정 <br/>- true: CCL 사용 - false: CCL 사용 안 함'
+          required: false
+          type: string
+      responses:
+        '405':
+          description: Invalid input
+      security:
+        - accessToken: []
+  /calendar/createSchedule.json:
+    post:
+      tags:
+        - Naver Login
+      summary: 캘린더 일정 추가
+      description: 네이버 로그인을 통해 인증받은 사용자의 캘린더에 일정을 추가하는 오픈 API입니다
+      operationId: calendar.createSchedule
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: calendarId
+          in: formData
+          description: 유니크한 캘린더 아이디값<br/> 캘린더ID.defaultCalendarId를 입력하면 기본 캘린더에 일정이 생성된다.
+          required: true
+          type: string
+        - name: scheduleIcalString
+          in: formData
+          description: >-
+            iCalendar 데이터 <br/>[예시]  <br/>BEGIN:VCALENDAR <br/>VERSION:2.0
+            <br/>PRODID:Naver Calendar <br/>CALSCALE:GREGORIAN
+            <br/>BEGIN:VTIMEZONE <br/>TZID:Asia/Seoul <br/>BEGIN:STANDARD
+            <br/>DTSTART:19700101T000000 <br/>TZNAME:GMT+09:00
+            <br/>TZOFFSETFROM:+0900 <br/>TZOFFSETTO:+0900 <br/>END:STANDARD
+            <br/>END:VTIMEZONE <br/>BEGIN:VEVENT <br/>SEQUENCE:0
+            <br/>CLASS:PUBLIC <br/>TRANSP:OPAQUE
+            <br/>UID:6E12DA93-8B43-4576-9A8A-31B4BDC8
+            <br/>DTSTART;TZID=Asia/Seoul:20140905T110000
+            <br/>DTEND;TZID=Asia/Seoul:20140905T120000 <br/>SUMMARY:매주반복 샘플
+            <br/>DESCRIPTION:상세 설명영역 <br/>LOCATION:여기에서
+            <br/>RRULE:FREQ=WEEKLY;BYDAY=FR;INTERVAL=1;UNTIL=20141030
+            <br/>ORGANIZER;CN=별명:mailto:userid@sample.com
+            <br/>ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;CN=참석자:mailto:userId2@sample.com
+            <br/>CREATED:20140905T015408Z <br/>LAST-MODIFIED:20140905T015408Z
+            <br/>DTSTAMP:20140905T015409Z <br/>END:VEVENT <br/>END:VCALENDAR
+          required: true
+          type: string
+      responses:
+        '405':
+          description: Invalid input
+      security:
+        - accessToken: []
+securityDefinitions:
+  accessToken:
+    type: apiKey
+    name: token
+    in: header
+    description: 네이버 로그인을 거치는 API호출시 필요합니다.
+  clientId:
+    type: apiKey
+    name: X-Naver-Client-Id
+    in: header
+    description: 애플리케이션 등록시 발급되는 ClientID값입니다.
+  clientSecret:
+    type: apiKey
+    name: X-Naver-Client-Secret
+    in: header
+    description: 애플리케이션 등록시 발급되는 ClientSecret값입니다.
+definitions:
+  DatalabSearchReq:
+    type: object
+    description: '네이버 통합 검색어 트렌드 API 요청을 위한 JSON '
+    properties:
+      startDate:
+        type: string
+        description: (필수) 구간 시작 날짜 (2016.01.01 부터 제공)
+        example: '2017-01-01'
+      endDate:
+        type: string
+        description: (필수)구간 종료 날짜
+        example: '2017-04-30'
+      timeUnit:
+        type: string
+        description: '(필수)구간 단위 (date, week, month)'
+        example: month
+      keywordGroups:
+        type: object
+        description: '(필수)주제어,검색어 그룹 (최대 5개 그룹 지원)'
+        properties:
+          groupName:
+            type: string
+            description: (필수)주제어(검색어 그룹핑)
+            example: 한글
+          keywords:
+            type: array
+            description: (필수)해당 그룹에 속하는 검색어 리스트 (그룹당 최대 20개 검색어 지원)
+            example: '["한글", "korean"]'
+      device:
+        type: string
+        description: '(선택) PC/모바일 필터 : pc/mo'
+        example: mo
+      gender:
+        type: string
+        description: '(선택) 성별 필터 : m/f'
+        example: F
+      ages:
+        type: string
+        description: '(선택) 나이 필터 : 1~11, 구간 정보는 아래 참조'
+        example: '1'
+  tts:
+    type: string
+    properties:
+      speaker:
+        type: string
+        example: mijin
+      speed:
+        type: integer
+        example: 0
+      text:
+        type: string
+        example: Naver TTS api 테스트입니다.
+  search:
+    type: string
+    properties:
+      query:
+        type: string
+        example: 네이버 개발자센터
+  ApiResponse:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      type:
+        type: string
+      message:
+        type: string
+externalDocs:
+  description: Find out more about Naver APIs
+  url: 'https://developers.naver.com'
