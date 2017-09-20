@@ -9,6 +9,7 @@
 ```java
 {% include 'https://raw.githubusercontent.com/naver/naver-openapi-guide/draft/sample/java/APIExamMemberProfile.java' %}
 ```
+- [github에서 보기](https://github.com/naver/naver-openapi-guide/blob/draft/sample/java/APIExamMemberProfile.java)
 
 ## 비로그인 방식 오픈 API 호출 예
 
@@ -19,3 +20,4 @@
 ```java
 {% include 'https://raw.githubusercontent.com/naver/naver-openapi-guide/draft/sample/java/APIExamTranslateNMT.java' %}
 ```
+- [github에서 보기](https://github.com/naver/naver-openapi-guide/blob/draft/sample/java/APIExamTranslateNMT.java)
