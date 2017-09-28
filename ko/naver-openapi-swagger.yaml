@@ -3,7 +3,7 @@ info:
   description: >-
     Naver Open API - Restful spec. You can find out more about Naver Open API at
     [https://developers.naver.com](https://developers.naver.com)
-  version: 1.2.0
+  version: 1.1.0
   title: Naver Open API
   termsOfService: 'https://developers.naver.com/products/terms'
 host: openapi.naver.com
@@ -29,7 +29,7 @@ paths:
     post:
       tags:
         - Clova
-      summary: Clova Face Recognition (얼굴감지)
+      summary: 얼굴감지 API
       description: 얼굴 이미지를 입력하면 얼굴 감지 결과를 리턴합니다.
       operationId: vision.face
       consumes:
@@ -52,7 +52,7 @@ paths:
     post:
       tags:
         - Clova
-      summary: Clova Face Recognition (유명인 얼굴인식)
+      summary: 유명인 얼굴인식 API
       description: 얼굴 이미지를 입력하면 유명인과의 닮은 정도를 리턴합니다.
       operationId: vision.celebrity
       consumes:
@@ -71,50 +71,11 @@ paths:
       security:
         - clientId: []
         - clientSecret: []
-  /v1/voice/tts.bin:
-    post:
-      tags:
-        - Clova
-      summary: Clova Speech Synthesis (음성합성)
-      description: 입력된 텍스트를 성우의 낭독 음성으로 합성해 주는 REST API입니다.
-      operationId: voice.tts
-      consumes:
-        - application/x-www-form-urlencoded
-      produces:
-        - audio/mpeg
-      parameters:
-        - name: speaker
-          in: formData
-          description: >-
-            음성 합성할 목소리 설정: ( mijin:미진(한국어, 여성), jinho:진호(한국어, 남성),
-            clara:클라라(영어,여성), matt:매튜(영어, 남성), yuri:유리(일본어, 여성), shinji:신지(일본어,
-            남성),  meimei:메이메이(중국어, 여성))
-          required: true
-          default: mijin
-          type: string
-        - name: speed
-          in: formData
-          description: '-5 ~ 5 사이 정수로 -5면 0.5배 빠른, 5면 0.5배 느린, 0이면 정상 속도의 목소리로 합성'
-          required: true
-          default: '0'
-          type: string
-        - name: text
-          in: formData
-          description: 음성합성할 문장이며 UTF-8만 지원
-          required: true
-          default: 음성합성 테스트 입니다.
-          type: string
-      responses:
-        '405':
-          description: Invalid input
-      security:
-        - clientId: []
-        - clientSecret: []
   /v1/datalab/search:
     post:
       tags:
         - Naver Services
-      summary: Search-통합 검색어 트렌드
+      summary: 네이버 통합 검색어 트렌드 API
       description: 입력된 주제어와 해당하는 검색어 그룹에 대하여 네이버 통합검색에 대한 기간별 트렌드 데이터를 리턴합니다.
       operationId: search.datalab
       consumes:
@@ -138,7 +99,7 @@ paths:
     get:
       tags:
         - Naver Services
-      summary: Search-기본 검색
+      summary: '기본 검색 API: 블로그/뉴스/책/백과사전/카페글/지식iN/웹문서/이미지/쇼핑/전문자료/성인검색어 판별 /오타변환'
       description: '네이버 블로그/뉴스/책/백과사전/카페글/지식iN/웹문서/이미지/쇼핑/전문자료/성인검색어 판별 /오타변환 대상 검색입니다. '
       operationId: search.service
       consumes:
@@ -208,7 +169,7 @@ paths:
     get:
       tags:
         - Naver Services
-      summary: Search-책 상세 검색
+      summary: 네이버 책 상세 검색 API
       description: >-
         책을 다양한 옵션으로 상세하게 검색할 수 있는 API입니다. <br/>책 제목(d_titl), 저자명(d_auth),
         목차(d_cont), ISBN(d_isbn), 출판사(d_publ) 5개 항목 중에서 1개 이상 값을 입력해야 합니다.
@@ -279,7 +240,7 @@ paths:
     get:
       tags:
         - Naver Services
-      summary: Search-지역 검색
+      summary: 네이버 지역 검색 API
       description: >-
         네이버 지역 서비스에 등록된 각 지역별 업체 및 상호 검색 결과를 출력해주는 검색API 입니다. <br/>(**주의 : 특정 위치
         기반 검색은 지원 안합니다.**)
@@ -324,7 +285,7 @@ paths:
     get:
       tags:
         - Naver Services
-      summary: Search-영화 검색
+      summary: 네이버 영화 검색 API
       description: >-
         네이버 지역 서비스에 등록된 각 지역별 업체 및 상호 검색 결과를 출력해주는 검색API 입니다. <br/>(**주의 : 특정 위치
         기반 검색은 지원 안합니다.**)
@@ -393,7 +354,7 @@ paths:
     get:
       tags:
         - Naver Services
-      summary: Util-단축 URL
+      summary: 네이버 단축 URL API
       description: 입력된 URL을 me2.do 형태로 짧은 URL로 변환해주는 REST API입니다.
       operationId: util.shorturl
       consumes:
@@ -418,7 +379,7 @@ paths:
     get:
       tags:
         - Naver Services
-      summary: Captcha-이미지 캡차 키발급/비교
+      summary: 이미지 캡차 API - 키발급/비교
       description: 캡차 키 발급/입력값 비교하는 REST API입니다.
       operationId: captcha.nkey
       consumes:
@@ -443,7 +404,7 @@ paths:
     get:
       tags:
         - Naver Services
-      summary: Captcha-이미지 캡차 요청
+      summary: 이미지 캡차 API - 캡차 이미지 요청
       description: 캡차 키 발급 후 캡차 이미지를 요청하는 REST API입니다.
       operationId: captcha.ncaptcha
       consumes:
@@ -466,7 +427,7 @@ paths:
     get:
       tags:
         - Naver Services
-      summary: Captcha-음성 캡차 키발급/비교
+      summary: 음성 캡차 API - 키발급/비교
       description: 캡차 키 발급/입력값 비교하는 REST API입니다.
       operationId: captcha.skey
       consumes:
@@ -491,7 +452,7 @@ paths:
     get:
       tags:
         - Naver Services
-      summary: Captcha-음성 캡차 요청
+      summary: 음성 캡차 API - 캡차 음성 요청
       description: 캡차 키 발급 후 캡차 음성을 요청하는 REST API입니다.
       operationId: captcha.scaptcha
       consumes:
@@ -592,7 +553,7 @@ paths:
     get:
       tags:
         - Papago
-      summary: 한글인명-로마자 변환
+      summary: 한글인명 - 로마자 변환
       description: >-
         '한글로 된 이름을 로마자 표기로 변환해주는 API입니다. 현행 로마자 표기법을 따라 변환한 이름과 통계적으로 많이 사용되고 있는
         로마자 이름도 함께 제안 받을 수 있습니다.'
@@ -613,11 +574,50 @@ paths:
       security:
         - clientId: []
         - clientSecret: []
+  /v1/voice/tts.bin:
+    post:
+      tags:
+        - Clova
+      summary: 텍스트를 음성으로 변환
+      description: 입력된 텍스트를 성우의 낭독 음성으로 합성해 주는 REST API입니다.
+      operationId: voice.tts
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - audio/mpeg
+      parameters:
+        - name: speaker
+          in: formData
+          description: >-
+            음성 합성할 목소리 설정: ( mijin:미진(한국어, 여성), jinho:진호(한국어, 남성),
+            clara:클라라(영어,여성), matt:매튜(영어, 남성), yuri:유리(일본어, 여성), shinji:신지(일본어,
+            남성),  meimei:메이메이(중국어, 여성))
+          required: true
+          default: mijin
+          type: string
+        - name: speed
+          in: formData
+          description: '-5 ~ 5 사이 정수로 -5면 0.5배 빠른, 5면 0.5배 느린, 0이면 정상 속도의 목소리로 합성'
+          required: true
+          default: '0'
+          type: string
+        - name: text
+          in: formData
+          description: 음성합성할 문장이며 UTF-8만 지원
+          required: true
+          default: 음성합성 테스트 입니다.
+          type: string
+      responses:
+        '405':
+          description: Invalid input
+      security:
+        - clientId: []
+        - clientSecret: []
   /v1/map/geocode:
     get:
       tags:
         - Maps
-      summary: Maps 주소->좌표 변환
+      summary: 주소->좌표 변환 API
       description: >-
         지번 또는 도로명 주소와 같이 실제 존재하는 주소에 대한 좌표를 검색합니다. (건물명 또는 아파트명 검색 불가) 지번주소가
         같더라도, 도로명 주소가 다른 경우가 존재할 수 있습니다.
@@ -664,7 +664,7 @@ paths:
     get:
       tags:
         - Maps
-      summary: Maps 좌표->주소 변환
+      summary: 좌표-> 주소 변환 API
       description: 좌표에 대한 지번 또는 도로명 주소를 검색합니다.
       operationId: maps.reversegeocode
       consumes:
@@ -709,7 +709,7 @@ paths:
     get:
       tags:
         - Maps
-      summary: Maps-StaticMap (약도 출력)
+      summary: 지정된 좌표의 네이버 지도 이미지를 출력
       description: 지정된 좌표의 네이버 지도 이미지를 출력
       operationId: maps.staticmap
       consumes:
@@ -827,7 +827,7 @@ paths:
     get:
       tags:
         - Naver Login
-      summary: Naver Login-회원 프로필 조회
+      summary: 네이버 회원 프로필 조회
       description: >-
         '네이버 로그인을 통해 인증받은 받고 정보 제공에 동의한 회원에 대해 회원 메일 주소, 별명, 프로필 사진, 생일, 연령대 값을
         조회할 수 있는 로그인 오픈 API입니다'
@@ -845,7 +845,7 @@ paths:
     post:
       tags:
         - Naver Login
-      summary: Naver Login-블로그 글쓰기
+      summary: 블로그 글쓰기
       description: 네이버 로그인을 통해 인증받은 사용자의 블로그에 글쓰가능한 오픈 API입니다
       operationId: blog.writePost
       consumes:
@@ -926,7 +926,7 @@ paths:
     get:
       tags:
         - Naver Login
-      summary: Naver Login-블로그 카테고리 조회
+      summary: 블로그 카테고리 조회
       description: 네이버 로그인을 통해 인증받은 사용자의 블로그의 카테고리를 조회하는 오픈 API입니다
       operationId: blog.listCategory
       consumes:
@@ -942,7 +942,7 @@ paths:
     post:
       tags:
         - Naver Login
-      summary: Naver Login-카페 가입
+      summary: 특정 카페 가입하기
       description: 네이버 로그인을 통해 인증받은 사용자 계정으로 clubid로 지정된 카페에 가입하는 API입니다
       operationId: cafe.members
       consumes:
@@ -972,7 +972,7 @@ paths:
     post:
       tags:
         - Naver Login
-      summary: Naver Login-카페 글쓰기
+      summary: 특정 카페 게시판에 글쓰기
       description: 네이버 로그인을 통해 인증받은 사용자 계정으로 clubid로 지정된 카페의 menuid로 지정된 게시판에 글을 쓰는 API입니다
       operationId: cafe.articles
       consumes:
@@ -1061,7 +1061,7 @@ paths:
     post:
       tags:
         - Naver Login
-      summary: Naver Login-캘린더 추가
+      summary: 캘린더 일정 추가
       description: 네이버 로그인을 통해 인증받은 사용자의 캘린더에 일정을 추가하는 오픈 API입니다
       operationId: calendar.createSchedule
       consumes:
@@ -1143,8 +1143,7 @@ definitions:
             example: 한글
           keywords:
             type: array
-            items:
-              description: (필수)해당 그룹에 속하는 검색어 리스트 (그룹당 최대 20개 검색어 지원)
+            description: (필수)해당 그룹에 속하는 검색어 리스트 (그룹당 최대 20개 검색어 지원)
             example: '["한글", "korean"]'
       device:
         type: string
