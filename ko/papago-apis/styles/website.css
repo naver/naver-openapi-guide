@@ -1,0 +1,24 @@
+@charset "UTF-8";
+.danger {
+ background-color: #ffdddd;
+ border-left: 8px solid #f44336;
+ padding: 15px 6px 2px 15px;
+ margin-bottom: 60px;
+ line-height: 1.4;
+}
+
+.info {
+ background-color: #ddffdd;
+ border-left: 8px solid #4CAF50;
+ padding: 15px 6px 2px 15px;
+ margin-bottom: 60px;
+ line-height: 1.4;
+}
+
+.note {
+ background-color: #ffffcc;
+ border-left: 8px solid #ffeb3b;
+ padding: 15px 6px 2px 15px;
+ margin-bottom: 60px;
+ line-height: 1.4;
+}
