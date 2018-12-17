@@ -21,7 +21,7 @@ public class APIExamDatalabTrend {
 
             con.setDoOutput(true);
             DataOutputStream wr = new DataOutputStream(con.getOutputStream());
-            wr.write(body.getBytes());
+            wr.writeBytes(body);
             wr.flush();
             wr.close();
 
