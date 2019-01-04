@@ -67,6 +67,8 @@ Papago NMT 번역에서 사용하는 언어 코드는 다음과 같습니다.
 |한국어(ko)|&rarr;|프랑스어(fr)|\||프랑스어(fr)|&rarr;|한국어(ko)|
 |영어(en)|&rarr;|일본어(ja)|\||일본어(ja)|&rarr;|영어(en)|
 |영어(en)|&rarr;|프랑스어(fr)|\||프랑스어(fr)|&rarr;|영어(en)|
+|영어(en)|&rarr;|중국어 간체(zh-CN)|\||중국어 간체(zh-CN)|&rarr;|영어(en)|
+|영어(en)|&rarr;|중국어 번체(zh-TW)|\||중국어 번체(zh-TW)|&rarr;|영어(en)|
 |일본어(ja)|&rarr;|중국어 간체(zh-CN)|\||중국어 간체(zh-CN)|&rarr;|일본어(ja)|\|
 |일본어(ja)|&rarr;|중국어 번체(zh-TW)|\||중국어 번체(zh-TW)|&rarr;|일본어(ja)|
 |중국어 간체(zh-CN)|&rarr;|중국어 번체(zh-TW)|\||중국어 번체(zh-TW)|&rarr;|중국어 간체(zh-CN)|
