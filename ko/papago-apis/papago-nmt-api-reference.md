@@ -30,6 +30,7 @@ POST
 |source|String|Y|원본 언어(source language)의 언어 코드|
 |target|String|Y|목적 언어(target language)의 언어 코드|
 |text|String|Y|번역할 텍스트. 1회 호출 시 최대 5,000자까지 번역할 수 있습니다.|
+|honorific|Boolean|N|높임말 여부. 영한 번역 시에만 적용됩니다. 기본값은 false.|
 
 Papago NMT 번역에서 사용하는 언어 코드는 다음과 같습니다.
 
