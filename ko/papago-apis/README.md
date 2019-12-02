@@ -4,8 +4,7 @@
 
 파파고가 제공하는 API는 다음과 같습니다.
 
-* [Papago NMT 번역](https://developers.naver.com/products/nmt): 파파고의 인공 신경망 기반 기계 번역 기술로 텍스트를 번역한 결과를 반환하는 RESTful API입니다.
-* [Papago SMT 번역](https://developers.naver.com/products/translator): 파파고의 통계 기반 기계 번역 기술로 텍스트를 번역한 결과를 반환하는 RESTful API입니다.
+* [Papago 번역](https://developers.naver.com/products/nmt): 파파고의 인공 신경망 기반 기계 번역 기술(NMT, neural machine translation)로 텍스트를 번역한 결과를 반환하는 RESTful API입니다.
 * [언어 감지](https://developers.naver.com/products/detectLangs): 입력된 텍스트의 언어를 감지해 주는 RESTful API입니다.
 * [한글 인명-로마자 변환](https://developers.naver.com/products/roman): 한글로 된 이름을 로마자 표기로 변환한 결과를 반환하는 RESTful API입니다.
 
@@ -17,14 +16,10 @@
 
 파파고 API 적용 가이드의 내용은 다음과 같습니다.
 
-* [Papago NMT 번역](papago-nmt-overview.md)
+* [Papago 번역](papago-nmt-overview.md)
    - [개요](papago-nmt-overview.md)
    - [API 레퍼런스](papago-nmt-api-reference.md)
    - [구현 예제](papago-nmt-example-code.md)
-* [Papago SMT 번역](papago-smt-overview.md)
-   - [개요](papago-smt-overview.md)
-   - [API 레퍼런스](papago-smt-api-reference.md)
-   - [구현 예제](papago-smt-example-code.md)
 * [언어 감지](papago-detectlangs-overview.md)
    - [개요](papago-detectlangs-overview.md)
    - [API 레퍼런스](papago-detectlangs-api-reference.md)

@@ -1,6 +1,6 @@
-# Papago NMT 번역 API 구현 예제
+# Papago 번역 API 구현 예제
 
-다음은 각 언어별 Papago NMT 번역 API 구현 예제입니다.
+다음은 각 언어별 Papago 번역 API 구현 예제입니다.
 
 - [Java](#java)
 - [PHP](#php)

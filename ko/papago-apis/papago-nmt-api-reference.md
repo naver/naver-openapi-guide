@@ -1,4 +1,4 @@
-# Papago NMT 번역 API 레퍼런스
+# Papago 번역 API 레퍼런스
 
 - [인공 신경망 기반 기계 번역](#인공-신경망-기반-기계-번역)
 - [오류 코드](#오류-코드)
@@ -7,7 +7,7 @@
 
 ### 설명
 
-인공 신경망 기반의 기계 번역 결과를 반환합니다.
+인공 신경망 기반의 기계 번역(NMT, neural machine translation) 결과를 반환합니다.
 
 ### 요청 URL
 
@@ -31,7 +31,7 @@ POST
 |target|String|Y|목적 언어(target language)의 언어 코드|
 |text|String|Y|번역할 텍스트. 1회 호출 시 최대 5,000자까지 번역할 수 있습니다.|
 
-Papago NMT 번역에서 사용하는 언어 코드는 다음과 같습니다.
+Papago 번역에서 사용하는 언어 코드는 다음과 같습니다.
 
 |언어 코드|언어|
 |---|---|
@@ -144,7 +144,7 @@ curl "https://openapi.naver.com/v1/papago/n2mt" \
 </div>  
 
 <div class="note"><p><strong>403 오류</strong></p>
-<p>개발자 센터에 등록한 애플리케이션에서 Papago NMT 번역을 사용하도록 설정하지 않았다면 'API 권한 없음'을 의미하는 403 오류가 발생할 수 있습니다. 403 오류가 발생했다면 네이버 개발자 센터의 <strong><a href="https://developers.naver.com/apps/#/list" target="_blank">Application &gt; 내 애플리케이션</a></strong> 메뉴에서 오류가 발생한 애플리케이션의 <strong>API 설정</strong> 탭을 클릭한 다음 <strong>Papago NMT 번역</strong>이 선택돼 있는지 확인해 보십시오.</p>
+<p>개발자 센터에 등록한 애플리케이션에서 Papago 번역을 사용하도록 설정하지 않았다면 'API 권한 없음'을 의미하는 403 오류가 발생할 수 있습니다. 403 오류가 발생했다면 네이버 개발자 센터의 <strong><a href="https://developers.naver.com/apps/#/list" target="_blank">Application &gt; 내 애플리케이션</a></strong> 메뉴에서 오류가 발생한 애플리케이션의 <strong>API 설정</strong> 탭을 클릭한 다음 <strong>Papago 번역</strong>이 선택돼 있는지 확인해 보십시오.</p>
 </div>
 
 <div class="info"><p><strong>참고</strong></p>

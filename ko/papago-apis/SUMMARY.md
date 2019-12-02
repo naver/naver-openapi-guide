@@ -2,14 +2,10 @@
 
 ## [파파고](README.md)
 
-* [Papago NMT 번역](papago-nmt-overview.md)
+* [Papago 번역](papago-nmt-overview.md)
    * [개요](papago-nmt-overview.md)
    * [API 레퍼런스](papago-nmt-api-reference.md)
    * [구현 예제](papago-nmt-example-code.md)
-* [Papago SMT 번역](papago-smt-overview.md)
-   * [개요](papago-smt-overview.md)
-   * [API 레퍼런스](papago-smt-api-reference.md)
-   * [구현 예제](papago-smt-example-code.md)
 * [언어 감지](papago-detectlangs-overview.md)
    * [개요](papago-detectlangs-overview.md)
    * [API 레퍼런스](papago-detectlangs-api-reference.md)
