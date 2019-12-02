@@ -7,7 +7,7 @@
 
 ### 설명
 
-인공 신경망 기반의 기계 번역(NMT, neural machine translation) 결과를 반환합니다.
+인공 신경망 기반의 기계 번역(NMT, Neural Machine Translation) 결과를 반환합니다.
 
 ### 요청 URL
 
