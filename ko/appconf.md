@@ -30,7 +30,7 @@
 
 <div class="danger">
 	<p><strong>주의</strong></p>
-	<p>애플리케이션 개발 상태를 '서비스 적용'으로 하기 위해서는 반드시 검수요청을 등록해야 합니다. <a href="/docs/login/verify/">검수 요청 등록 가이드</a>를 참고하십시오.</p>
+	<p>애플리케이션 개발 상태를 '서비스 적용'으로 하기 위해서는 반드시 검수요청을 등록해야 합니다. <a href="https://developers.naver.com/docs/login/verify/">검수 요청 등록 가이드</a>를 참고하십시오.</p>
 </div>  
 
 ## 멤버 관리
