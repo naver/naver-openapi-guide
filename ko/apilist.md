@@ -61,10 +61,7 @@
 -	[지도](https://developers.naver.com/docs/map/javascriptv3/): 웹 서비스나 애플리케이션에 네이버 지도를 활용할 수 있게 하는 API입니다.
 -	[캡차(이미지)](https://developers.naver.com/docs/utils/captcha/): 네이버 서비스에서 사용하는 이미지 캡차 기능을 외부 서비스에 사용할 수 있게 하는 API입니다.
 -	[Clova Face Recognition](https://developers.naver.com/products/clova/face/): 입력된 사진 이미지 속의 얼굴을 인식하거나 얼굴 감지를 이용한 애플리케이션을 만들 수 있게 하는 API입니다.
--	[Clova Speech Recognition](https://developers.naver.com/docs/labs/vrecog/): 음성 데이터(한국어, 영어, 일어, 중국어(간체))를 인식해 텍스트를 반환하는 API입니다. 
--	[Clova Speech Synthesis](https://developers.naver.com/docs/labs/tts/): 입력된 텍스트를 성우의 낭독 음성(한국어, 영어, 일본어, 중국어(간체))으로 변환해 반환하는 API입니다.
--	[Papago NMT 번역](https://developers.naver.com/products/nmt/): 인공 신경망 기술 기반의 기계 번역 결과를 반환하는 API입니다(지원 언어: 영어, 중국어(간체)).
--	[Papago SMT 번역](https://developers.naver.com/products/translator/): 통계 기반의 기계 번역 결과를 반환하는 API입니다(지원 언어: 영어, 일본어, 중국어(간체, 번체)).
+-	[Papago 번역](https://developers.naver.com/products/nmt/): 인공 신경망 기술 기반의 기계 번역 결과를 반환하는 API입니다.
 
 ### 검색
 
@@ -132,30 +129,10 @@
 |`https://openapi.naver.com/v1/vision/face`|POST|JSON|입력된 사진에서 얼굴 윤곽, 부위, 표정을 반환합니다.|
 |`https://openapi.naver.com/v1/vision/celebrity`|POST|JSON|입력된 사진과 닮은 유명인의 이름과 닮은 정도를 반환합니다.|
 
-### Clova Speech Recognition
+### Papago 번역
 
-Clova Speech Recognition API는 SDK 형태로 제공되며, 별도의 요청 URL이 없습니다. Clova Speech Recognition API 사용에 관한 자세한 내용은 "[Clova Speech Recognition API 가이드](https://developers.naver.com/docs/clova/api/#/CSR/API_Guide.md)"를 참고하십시오.
-
-### Clova Speech Synthesis
-
-다음은 Clova Speech Synthesis API에서 사용하는 주요 요청 URL과 메서드, 응답 형식입니다.
-
-|요청 URL|메서드|응답 형식|설명|
-|------|--|--|------|
-|`https://openapi.naver.com/v1/voice/tts.bin`|POST|MP3|입력된 텍스트를 성우의 낭독 음성으로 반환합니다.|
-
-### Papago NMT 번역
-
-다음은 Papago NMT 번역 API에서 사용하는 주요 요청 URL과 메서드, 응답 형식입니다.
+다음은 Papago 번역 API에서 사용하는 주요 요청 URL과 메서드, 응답 형식입니다.
 
 |요청 URL|메서드|응답 형식|설명|
 |------|--|--|------|
 |`https://openapi.naver.com/v1/papago/n2mt`|POST|JSON|인공 신경망 기반의 기계 번역 결과(영어, 중국어(간체))를 반환합니다.|
-
-### Papago SMT 번역
-
-다음은 Papago SMT 번역 API에서 사용하는 주요 요청 URL과 메서드, 응답 형식입니다.
-
-|요청 URL|메서드|응답 형식|설명|
-|------|--|--|------|
-|`https://openapi.naver.com/v1/language/translate`|POST|JSON|통계 기반의 기계 번역 결과(영어, 일본어, 중국어(간체, 번체))를 반환합니다.|
