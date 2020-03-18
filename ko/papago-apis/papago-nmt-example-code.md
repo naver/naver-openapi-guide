@@ -18,10 +18,10 @@
 ## Java
 
 ```java
-{% include "https://raw.githubusercontent.com/naver/naver-openapi-guide/master/sample/java/APIExamTranslateNMT.java" %}
+{% include "https://raw.githubusercontent.com/naver/naver-openapi-guide/master/sample/java/ApiExamTranslateNmt.java" %}
 ```
 
-- [GitHub에서 보기](https://github.com/naver/naver-openapi-guide/blob/master/sample/java/APIExamTranslateNMT.java)
+- [GitHub에서 보기](https://github.com/naver/naver-openapi-guide/blob/master/sample/java/ApiExamTranslateNmt.java)
 
 ## PHP
 
