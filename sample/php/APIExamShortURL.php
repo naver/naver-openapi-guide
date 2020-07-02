@@ -6,7 +6,7 @@
   $postvars = "url=".$encText;
   //$url = "https://openapi.naver.com/v1/util/shorturl";
   //$is_post = true;
-  $url = "https://openapi.naver.com/v1/util/shorturl?url=" + $encText ;
+  $url = "https://openapi.naver.com/v1/util/shorturl?url=".$encText ;
   $is_post = false;
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_URL, $url);
