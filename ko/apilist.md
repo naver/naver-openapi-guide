@@ -8,9 +8,9 @@
 
 다음과 같은 네이버 오픈API가 로그인 방식 오픈 API입니다. 회원 기본 정보 조회, 카페 가입 및 글쓰기, 캘린더 일정 담기 등의 기능을 구현할 때 로그인 방식 오픈 API를 사용합니다.
 
--	[네이버 아이디로 로그인](https://developers.naver.com/products/login/api/): 별도의 아이디와 비밀번호 없이 네이버 아이디로 간편하게 외부 서비스에 로그인할 수 있게 하는 API입니다.
--	[카페](https://developers.naver.com/products/cafe/): 외부 서비스에서 네이버 카페에 가입하거나 게시글을 등록할 수 있게 하는 API입니다.
--	[캘린더](https://developers.naver.com/products/calendar/): 외부 서비스에 네이버 캘린더에 일정을 등록할 수 있게 하는 API입니다.
+- [네이버 아이디로 로그인](https://developers.naver.com/products/login/api/): 별도의 아이디와 비밀번호 없이 네이버 아이디로 간편하게 외부 서비스에 로그인할 수 있게 하는 API입니다.
+- [카페](https://developers.naver.com/products/cafe/): 외부 서비스에서 네이버 카페에 가입하거나 게시글을 등록할 수 있게 하는 API입니다.
+- [캘린더](https://developers.naver.com/products/calendar/): 외부 서비스에 네이버 캘린더에 일정을 등록할 수 있게 하는 API입니다.
 
 ### 네이버 아이디로 로그인
 
@@ -45,13 +45,40 @@
 
 다음과 같은 네이버 오픈API가 비로그인 방식 오픈 API입니다.
 
--	[검색](https://developers.naver.com/docs/search/blog/): 네이버 검색 결과를 뉴스, 백과사전, 블로그, 쇼핑, 영화, 웹 문서, 전문정보, 지식iN, 책, 카페글 등 분야별로 볼 수 있는 API입니다. 그 외에 지역 검색 결과와 성인 검색어 판별 기능, 오타 변환 기능을 제공합니다.
--	[공유하기](https://developers.naver.com/docs/share/navershare/): 콘텐츠를 네이버 블로그, 네이버 카페, PHOLAR에 공유할 수 있게 하는 API입니다.
--	[단축URL](https://developers.naver.com/docs/utils/shortenurl/): 원본 URL을 `http://me2.do/example`과 같은 형태의 짧은 URL로 반환받을 수 있는 API입니다.
--	[지도](https://developers.naver.com/docs/map/javascriptv3/): 웹 서비스나 애플리케이션에 네이버 지도를 활용할 수 있게 하는 API입니다.
--	[캡차(이미지)](https://developers.naver.com/docs/utils/captcha/): 네이버 서비스에서 사용하는 이미지 캡차 기능을 외부 서비스에 사용할 수 있게 하는 API입니다.
--	[Clova Face Recognition](https://developers.naver.com/products/clova/face/): 입력된 사진 이미지 속의 얼굴을 인식하거나 얼굴 감지를 이용한 애플리케이션을 만들 수 있게 하는 API입니다.
--	[Papago 번역](https://developers.naver.com/products/nmt/): 인공 신경망 기술 기반의 기계 번역 결과를 반환하는 API입니다.
+- [클린봇](https://developers.naver.com/docs/cleanbot/): 댓글의 텍스트를 분석해 악성 댓글을 탐지할 수 있는 API입니다.
+- [데이터랩](https://developers.naver.com/docs/datalab/search/): [네이버 데이터랩](https://datalab.naver.com/)의 [검색어 트렌드](https://datalab.naver.com/keyword/trendSearch.naver)와 [쇼핑인사이트](https://datalab.naver.com/shoppingInsight/sCategory.naver)를 API로 실행할 수 있게 하는 API입니다.
+- [검색](https://developers.naver.com/docs/search/blog/): 네이버 검색 결과를 뉴스, 백과사전, 블로그, 쇼핑, 영화, 웹 문서, 전문정보, 지식iN, 책, 카페글 등 분야별로 볼 수 있는 API입니다. 그 외에 지역 검색 결과와 성인 검색어 판별 기능, 오타 변환 기능을 제공합니다.
+- [단축URL](https://developers.naver.com/docs/utils/shortenurl/): 원본 URL을 `http://me2.do/example`과 같은 형태의 짧은 URL로 반환받을 수 있는 API입니다.
+- [이미지 캡차](https://developers.naver.com/docs/utils/captcha/overview/): 네이버 서비스에서 사용하는 이미지 캡차 기능을 외부 서비스에 사용할 수 있게 하는 API입니다.
+- [음성 캡차](https://developers.naver.com/docs/utils/scaptcha/overview/): 네이버 서비스에서 사용하는 음성 캡차 기능을 외부 서비스에 사용할 수 있게 하는 API입니다.
+- [네이버 공유하기](https://developers.naver.com/docs/share/navershare/): 콘텐츠를 네이버 블로그, 네이버 카페, PHOLAR에 공유할 수 있게 하는 API입니다.
+- [네이버 오픈메인](https://developers.naver.com/docs/openmain/): 웹 페이지를 네이버 메인에 추가할 수 있게 하는 플러그인입니다.
+- [Clova Face Recognition](https://developers.naver.com/products/clova/face/): 입력된 사진 이미지 속의 얼굴을 인식하거나 얼굴 감지를 이용한 애플리케이션을 만들 수 있게 하는 API입니다.
+- [Papago 번역](https://developers.naver.com/products/nmt/): 인공 신경망 기술 기반의 기계 번역 결과를 반환하는 API입니다.
+
+### 클린봇
+
+다음은 클린봇 API에서 사용하는 주요 요청 URL과 메서드, 응답 형식입니다.
+
+|요청 URL|메서드|응답 형식|설명|
+|------|--|--|------|
+|`https://openapi.naver.com/v1/cleanbot/analyze`|POST|JSON|텍스트에 불쾌한 표현이 있는지 분석한 결과를 반환합니다.|
+
+### 데이터랩
+
+다음은 데이터랩 API에서 사용하는 주요 요청 URL과 메서드, 응답 형식입니다.
+
+|요청 URL|메서드|응답 형식|설명|
+|------|--|--|------|
+|`https://openapi.naver.com/v1/datalab/search`|POST|JSON|그룹으로 묶은 검색어에 대한 네이버 통합검색에서 검색 추이 데이터를 반환합니다.|
+|`https://openapi.naver.com/v1/datalab/shopping/categories`|POST|JSON|네이버 통합검색의 쇼핑 영역과 [네이버쇼핑](https://shopping.naver.com/)에서의 검색 클릭 추이를 쇼핑 분야별로 조회한 데이터를 반환합니다.|
+|`https://openapi.naver.com/v1/datalab/shopping/category/device`|POST|JSON|네이버 통합검색의 쇼핑 영역과 [네이버쇼핑](https://shopping.naver.com/)에서 특정 쇼핑 분야의 검색 클릭 추이를 기기별(PC, 모바일)로 조회한 데이터를 JSON 형식으로 반환합니다.|POST|JSON|
+|`https://openapi.naver.com/v1/datalab/shopping/category/gender`|POST|JSON|네이버 통합검색의 쇼핑 영역과 [네이버쇼핑](https://shopping.naver.com/)에서 특정 쇼핑 분야의 검색 클릭 추이를 사용자의 성별로 조회한 데이터를 JSON 형식으로 반환합니다.|
+|`https://openapi.naver.com/v1/datalab/shopping/category/age`|POST|JSON|네이버 통합검색의 쇼핑 영역과 [네이버쇼핑](https://shopping.naver.com/)에서 특정 쇼핑 분야의 검색 클릭 추이를 사용자의 연령별로 조회한 데이터를 JSON 형식으로 반환합니다.|
+|`https://openapi.naver.com/v1/datalab/shopping/category/keywords`|POST|JSON|네이버 통합검색의 쇼핑 영역과 [네이버쇼핑](https://shopping.naver.com/)에서 특정 쇼핑 분야의 검색 클릭 추이를 검색 키워드별로 조회한 데이터를 반환합니다.|
+|`https://openapi.naver.com/v1/datalab/shopping/category/keyword/device`|POST|JSON|네이버 통합검색의 쇼핑 영역과 [네이버쇼핑](https://shopping.naver.com/)에서 특정 쇼핑 분야와 검색 키워드의 검색 클릭 추이를 기기별(PC, 모바일)로 조회한 데이터를 JSON 형식으로 반환합니다.|
+|`https://openapi.naver.com/v1/datalab/shopping/category/keyword/gender`|POST|JSON|네이버 통합검색의 쇼핑 영역과 [네이버쇼핑](https://shopping.naver.com/)에서 특정 쇼핑 분야와 검색 키워드의 검색 클릭 추이를 사용자의 성별로 조회한 데이터를 JSON 형식으로 반환합니다.|
+|`https://openapi.naver.com/v1/datalab/shopping/category/keyword/age`|POST|JSON|네이버 통합검색의 쇼핑 영역과 [네이버쇼핑](https://shopping.naver.com/)에서 특정 쇼핑 분야와 검색 키워드의 검색 클릭 추이를 사용자의 연령별로 조회한 데이터를 JSON 형식으로 반환합니다.|
 
 ### 검색
 
@@ -74,14 +101,6 @@
 |`https://openapi.naver.com/v1/search/errata`|GET|JSON, XML|입력한 검색어의 한영 오류를 변환한 결과를 반환합니다.|
 |`https://openapi.naver.com/v1/search/local`|GET|JSON, XML|네이버 지역 서비스에 등록된 지역별 업체 및 상호 검색 결과를 반환합니다.|
 
-### 공유하기
-
-다음은 공유하기 API에서 사용하는 주요 요청 URL과 메서드, 응답 형식입니다.
-
-|요청 URL|메서드|응답 형식|설명|
-|------|--|--|------|
-|`http://share.naver.com/web/shareView.nhn`|GET|-|콘텐츠를 네이버 블로그, 네이버 카페, PHOLAR에 공유합니다.|
-
 ### 단축URL
 
 다음은 단축URL API에서 사용하는 주요 요청 URL과 메서드, 응답 형식입니다.
@@ -90,25 +109,31 @@
 |------|--|--|------|
 |`https://openapi.naver.com/v1/util/shorturl`|GET/POST|JSON, XML|입력된 URL을 `http://me2.do/example`과 같은 형태의 짧은 URL로 변환한 결과를 반환합니다.|
 
-### 지도
+### 이미지 캡차
 
-다음은 지도 API에서 사용하는 주요 요청 URL과 메서드, 응답 형식입니다.
-
-|요청 URL|메서드|응답 형식|설명|
-|------|--|--|------|
-|`https://openapi.map.naver.com/openapi/v3/maps.js?clientId=CLIENT_ID`|GET|-|웹 페이지에 네이버 지도 화면을 출력합니다.|
-|`https://openapi.naver.com/v1/map/geocode`|GET|JSON, XML|주소를 좌표로 변환한 결과를 반환합니다.|
-|`https://openapi.naver.com/v1/map/reversegeocode`|GET|JSON, XML|좌표를 주소로 변환한 결과를 반환합니다.|
-|`https://openapi.naver.com/v1/map/staticmap.bin`|GET|JPG, PNG|지정된 좌표의 네이버 지도 이미지를 출력합니다.|
-
-### 캡차(이미지)
-
-다음은 캡차 API에서 사용하는 주요 요청 URL과 메서드, 응답 형식입니다.
+다음은 이미지 캡차 API에서 사용하는 주요 요청 URL과 메서드, 응답 형식입니다.
 
 |요청 URL|메서드|응답 형식|설명|
 |------|--|--|------|
 |`https://openapi.naver.com/v1/captcha/ncaptcha.bin`|GET|JPG|캡차 이미지를 요청합니다.|
 |`https://openapi.naver.com/v1/captcha/nkey`|GET|JSON|캡차 키를 발급하거나 입력값을 비교한 결과를 반환합니다.|
+
+### 음성 캡차
+
+다음은 음성 캡차 API에서 사용하는 주요 요청 URL과 메서드, 응답 형식입니다.
+
+|요청 URL|메서드|응답 형식|설명|
+|------|--|--|------|
+|`https://openapi.naver.com/v1/captcha/scaptcha`|GET|WAV|캡차 음성을 요청합니다.|
+|`https://openapi.naver.com/v1/captcha/skey`|GET|JSON|캡차 키를 발급하거나 입력값을 비교한 결과를 반환합니다.|
+
+### 네이버 공유하기
+
+다음은 네이버 공유하기 API에서 사용하는 주요 요청 URL과 메서드, 응답 형식입니다.
+
+|요청 URL|메서드|응답 형식|설명|
+|------|--|--|------|
+|`http://share.naver.com/web/shareView.nhn`|GET|-|콘텐츠를 네이버 블로그, 네이버 카페, PHOLAR에 공유합니다.|
 
 ### Clova Face Recognition
 
