@@ -45,7 +45,7 @@
 
 다음과 같은 네이버 오픈API가 비로그인 방식 오픈 API입니다.
 
-- [클린봇](https://developers.naver.com/docs/cleanbot/): 댓글의 텍스트를 분석해 악성 댓글을 탐지할 수 있는 API입니다.
+- [클린봇](https://developers.naver.com/docs/cleanbot/analyze/): 댓글의 텍스트를 분석해 악성 댓글을 탐지할 수 있는 API입니다.
 - [데이터랩](https://developers.naver.com/docs/datalab/search/): [네이버 데이터랩](https://datalab.naver.com/)의 [검색어 트렌드](https://datalab.naver.com/keyword/trendSearch.naver)와 [쇼핑인사이트](https://datalab.naver.com/shoppingInsight/sCategory.naver)를 API로 실행할 수 있게 하는 API입니다.
 - [검색](https://developers.naver.com/docs/search/blog/): 네이버 검색 결과를 뉴스, 백과사전, 블로그, 쇼핑, 영화, 웹 문서, 전문정보, 지식iN, 책, 카페글 등 분야별로 볼 수 있는 API입니다. 그 외에 지역 검색 결과와 성인 검색어 판별 기능, 오타 변환 기능을 제공합니다.
 - [단축URL](https://developers.naver.com/docs/utils/shortenurl/): 원본 URL을 `http://me2.do/example`과 같은 형태의 짧은 URL로 반환받을 수 있는 API입니다.
