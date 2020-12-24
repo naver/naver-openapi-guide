@@ -45,7 +45,6 @@
 
 다음과 같은 네이버 오픈API가 비로그인 방식 오픈 API입니다.
 
-- [클린봇](https://developers.naver.com/docs/cleanbot/analyze/): 댓글의 텍스트를 분석해 악성 댓글을 탐지할 수 있는 API입니다.
 - [데이터랩](https://developers.naver.com/docs/datalab/search/): [네이버 데이터랩](https://datalab.naver.com/)의 [검색어 트렌드](https://datalab.naver.com/keyword/trendSearch.naver)와 [쇼핑인사이트](https://datalab.naver.com/shoppingInsight/sCategory.naver)를 API로 실행할 수 있게 하는 API입니다.
 - [검색](https://developers.naver.com/docs/search/blog/): 네이버 검색 결과를 뉴스, 백과사전, 블로그, 쇼핑, 영화, 웹 문서, 전문정보, 지식iN, 책, 카페글 등 분야별로 볼 수 있는 API입니다. 그 외에 지역 검색 결과와 성인 검색어 판별 기능, 오타 변환 기능을 제공합니다.
 - [단축URL](https://developers.naver.com/docs/utils/shortenurl/): 원본 URL을 `https://me2.do/example`과 같은 형태의 짧은 URL로 반환받을 수 있는 API입니다.
@@ -55,14 +54,6 @@
 - [네이버 오픈메인](https://developers.naver.com/docs/openmain/): 웹 페이지를 네이버 메인에 추가할 수 있게 하는 플러그인입니다.
 - [Clova Face Recognition](https://developers.naver.com/products/clova/face/): 입력된 사진 이미지 속의 얼굴을 인식하거나 얼굴 감지를 이용한 애플리케이션을 만들 수 있게 하는 API입니다.
 - [Papago 번역](https://developers.naver.com/products/nmt/): 인공 신경망 기술 기반의 기계 번역 결과를 반환하는 API입니다.
-
-### 클린봇
-
-다음은 클린봇 API에서 사용하는 주요 요청 URL과 메서드, 응답 형식입니다.
-
-|요청 URL|메서드|응답 형식|설명|
-|------|--|--|------|
-|`https://openapi.naver.com/v1/cleanbot/analyze`|POST|JSON|텍스트에 불쾌한 표현이 있는지 분석한 결과를 반환합니다.|
 
 ### 데이터랩
 
