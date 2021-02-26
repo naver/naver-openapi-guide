@@ -6,7 +6,7 @@
 * [성인 검색어 판별](adult/adult.md#성인검색어판별)
 * [백과사전](encyclopedia/encyclopedia.md#백과사전)
 * [영화](movie/movie.md#영화)
-* [카페글](cafeartice/cafeartice.md#카페글)
+* [카페글](cafearticle/cafearticle.md#카페글)
 * [지식iN](kin/kin.md#지식iN)
 * [지역](local/local.md#지역)
 * [오타변환](errata/errata.md#오타변환)
