@@ -15,11 +15,11 @@
             href="/docs/common/apicall" class="color_p2 underline ">Client ID와 Client Secret 값을 같이 전송</a>해 주시면 활용 가능합니다.
     </p>
     <div class="buttons2">
-        <a class="btn_b_hi3" href="{{{ paths.app.register }}}?defaultScope=search">오픈 API 이용 신청 &gt;</a>
+        <a class="btn_b_hi3" href="/apps/#/register?defaultScope=search">오픈 API 이용 신청 &gt;</a>
     </div>
     <h3 class="h_sub">1. 준비사항</h3>
     <ul class="list_type1">
-        <li>애플리케이션 등록: 네이버 오픈 API로 개발하시려면 먼저 <a href="{{{ paths.app.register }}}?defaultScope=search" class="color_p2 underline">'Application-애플리케이션
+        <li>애플리케이션 등록: 네이버 오픈 API로 개발하시려면 먼저 <a href="/apps/#/register?defaultScope=search" class="color_p2 underline">'Application-애플리케이션
             등록'</a> 메뉴에서 애플리케이션을 등록하셔야 합니다. <br>
             <a href="/docs/common/register" class="color_p2 underline">[자세한 방법 보기] &gt;</a></li>
         <li>클라이언트 ID와 secret 확인: <a href="/appinfo" class="color_p2 underline">'내 애플리케이션'</a>에서 등록한 애플리케이션을 선택하면 Client
