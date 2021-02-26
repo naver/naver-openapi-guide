@@ -1,5 +1,3 @@
-# 백과사전
-
 <html lang="ko">
 <head>
     <title>NAVER Developers - 검색 API 백과사전 검색 개발가이드</title>
@@ -298,7 +296,6 @@ curl "https://openapi.naver.com/v1/search/encyc.xml?query=%EC%A3%BC%EC%8B%9D&dis
     &lt;/channel&gt;
 &lt;/rss&gt;
 </pre>
-
     </div>
     <br>
     <br>
