@@ -56,7 +56,7 @@ description: 네이버아이디로그인 개발가이드
 네아로를 이용할 수 있는 오픈 API는 계속해서 추가할 예정입니다.<br/>
 자세한 내용은 개발자 센터의 API 사용 가이드를 참고해 주세요. 
 
-[API 사용가이드 바로가기 >](../common/openapiguide/apilist.md)
+[API 사용가이드 바로가기 >](../../common/openapiguide/apilist.md)
 
 
 ### 2.2.4 서비스 이용 통계 제공 
@@ -95,7 +95,7 @@ oAuth2.0 오픈소스 라이브러리를 이용하여 다양한 개발 환경에
 
 [iOS 개발가이드 바로가기 >](/ios/ios.md)
 
-[Andorid 개발가이드 바로가기 >](/web/web.md)
+[Andorid 개발가이드 바로가기 >](/android/android.md)
 
 ### 2.3.3 브라우저 및 모바일 OS 호환성
 
@@ -144,7 +144,7 @@ oAuth2.0 오픈소스 라이브러리를 이용하여 다양한 개발 환경에
 네아로를 적용하기 위해서는 먼저 'Application-애플리케이션 등록' 메뉴에서 애플리케이션을 등록하여야 합니다.<br/>
 애플리케이션 등록에 대한 가이드는 아래의 링크에서 확인이 가능합니다.
 
-[애플리케이션 등록 가이드 바로가기 >](../common/openapiguide/appregister.md)
+[애플리케이션 등록 가이드 바로가기 >](../../common/openapiguide/appregister.md)
 
 
 ### 3.1.3 필수 항목 확인
@@ -175,7 +175,7 @@ oAuth2.0 오픈소스 라이브러리를 이용하여 다양한 개발 환경에
 
 네아로 적용과 관련된 여러가지 궁금한 사항들은 FAQ 페이지에서 찾아보실 수 있습니다.
 
-[FAQ 바로가기 >](../../products/intro/faq)
+[FAQ 바로가기 >](../../../products/intro/faq)
 
 ## 3.2 네아로 버튼 적용 가이드
 
@@ -580,7 +580,7 @@ curl  -XGET "https://openapi.naver.com/v1/nid/me" \
 이제 카페 API를 통해 서비스에서부터 공식카페까지 자연스럽게 연결할 수 있습니다.<br/>
 대한민국 대표 커뮤니티, 네이버 카페의 접근성을 높여 운영하시는 서비스의 커뮤니티를 더욱 알차게 만들어 보세요! 
 
-[카페 오픈 API 소개 바로가기 >](../../products/cafe)
+[카페 오픈 API 소개 바로가기 >](../../../products/cafe)
 
 [카페 오픈 API 개발가이드 바로가기 >](/cafe-api/cafe-api.md)
 
@@ -589,7 +589,7 @@ curl  -XGET "https://openapi.naver.com/v1/nid/me" \
 캘린더 API를 통해 네아로 연동 유저의 네이버 캘린더에 일정을 등록하고 일정 미리 알림을 받을 수 있습니다.<br/>
 1200만 다운로드에 빛나는 1위 캘린더앱 ‘네이버 캘린더’를 통해 유저에게 주요 일정도 홍보하고 서비스 참여도도 높이세요! 
 
-[캘린더 오픈 API 소개 바로가기 >](../../products/calendar)
+[캘린더 오픈 API 소개 바로가기 >](../../../products/calendar)
 
 [캘린더 오픈 API 개발가이드 바로가기 >](/calendar-api/calendar-api.md)
 
