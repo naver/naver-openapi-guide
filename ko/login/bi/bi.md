@@ -35,12 +35,12 @@
         네이버의 아이덴티티가 효과적으로 강조되는 녹색 배경의 버튼을 사용할 것을 권장합니다.
     </p>
     <div class="img_area">
-        <img alt="네이버 로그인 버튼 가이드, 완성형, 축약형, 아이콘형, 로그아웃형 4가지 유형이 있으며, 각 유형마다 녹색 배경인 그린 타입과, 흰색 배경인 화이트 타입이 있다. 유형별 버튼 형태는 다음과 같다. 완성: N 네이버 아이디로 로그인, 축약: N 로그인, 아이콘: N, 로그아웃: N 로그아웃" src="/inc/devcenter/images/cont/img_naverid05.png">
+        <img alt="네이버 로그인 버튼 가이드, 완성형, 축약형, 아이콘형, 로그아웃형 4가지 유형이 있으며, 각 유형마다 녹색 배경인 그린 타입과, 흰색 배경인 화이트 타입이 있다. 유형별 버튼 형태는 다음과 같다. 완성: N 네이버 아이디로 로그인, 축약: N 로그인, 아이콘: N, 로그아웃: N 로그아웃" src="./images/img_naverid05.png">
     </div>
     <h3 class="h_sub">2. 디자인 사양</h3>
     <p class="p_desc">로그인 버튼에 사용하는 색상과 글꼴은 다음의 규정을 따릅니다.</p>
     <div class="img_area">
-        <img alt="네이버 로그인 버튼 디자인 가이드, 자세한 내용은 다음에 나오는 표 참고" src="/inc/devcenter/images/cont/img_naverid06.png">
+        <img alt="네이버 로그인 버튼 디자인 가이드, 자세한 내용은 다음에 나오는 표 참고" src="./images/img_naverid06.png">
     </div>
     <h4 class="h_subsub">2.1. 녹색 배경 버튼</h4>
     <table border="1" class="tbl_h">
@@ -108,22 +108,22 @@
         단, 네이버 아이콘이 있는 유지 구간의 가로, 세로 비율은 유지해야 합니다.
     </p>
     <div class="img_area">
-        <img alt="네이버 로그인 버튼 크기 변경 가이드, 좌측 N 아이콘 구간은 유지 구간, 우측 네이버 아이디로 로그인 변경 구간이다." src="/inc/devcenter/images/cont/img_naverid07.png">
+        <img alt="네이버 로그인 버튼 크기 변경 가이드, 좌측 N 아이콘 구간은 유지 구간, 우측 네이버 아이디로 로그인 변경 구간이다." src="./images/img_naverid07.png">
     </div>
     <h3 class="h_sub">4. 메시지 변경</h3>
     <p class="p_desc">버튼에 표시되는 메시지는 네이버 아이디로 로그인 목적에 부합한다면 한글이나 영문 상관 없이 변경할 수 있습니다.</p>
     <div class="img_area">
-        <img alt="버튼에 들어가는 유도 문구는 '네이버 아이디로 로그인' 목적에 부합하는 문구에 한해 국문/영문 상관없이 변경이 가능합니다." src="/inc/devcenter/images/cont/img_naverid08.png">
+        <img alt="버튼에 들어가는 유도 문구는 '네이버 아이디로 로그인' 목적에 부합하는 문구에 한해 국문/영문 상관없이 변경이 가능합니다." src="./images/img_naverid08.png">
     </div>
     <h3 class="h_sub">5. 버튼 디자인 변경</h3>
     <p class="p_desc">네이버 로그인 버튼은 네이버 고유의 이미지를 해치지 않는 범위 내에서 유연하게 디자인을 변경할 수 있습니다.</p>
     <div class="img_area">
-        <img alt="유연하게 디자인이 변경된 버튼들 모습" src="/inc/devcenter/images/cont/img_naverid09.png">
+        <img alt="유연하게 디자인이 변경된 버튼들 모습" src="./images/img_naverid09.png">
     </div>
     <h3 class="h_sub">6. 다른 버튼과 함께 사용</h3>
     <p class="p_desc">네이버 로그인 버튼을 다른 로그인 버튼과 함께 사용할 때는 다른 로그인 버튼의 크기와 비슷하거나 유사한 시각적 효과를 나타내야 합니다.</p>
     <div class="img_area">
-        <img alt="네이버 로그인 버튼 적용 시 다른 타사 로그인 버튼의 크기와 비슷하거나 유사한 시각적인 효과를 가져야 합니다." src="/inc/devcenter/images/cont/img_naverid10.png">
+        <img alt="네이버 로그인 버튼 적용 시 다른 타사 로그인 버튼의 크기와 비슷하거나 유사한 시각적인 효과를 가져야 합니다." src="./images/img_naverid10.png">
     </div>
     <h3 class="h_sub">7. 금지 규정</h3>
     <p class="p_desc">
@@ -131,12 +131,12 @@
         다음은 가이드를 벗어나 사용한 예입니다.
     </p>
     <div class="img_area">
-        <img alt="가이드를 벗어나 사용한 버튼들 모습" src="/inc/devcenter/images/cont/img_naverid11.png">
+        <img alt="가이드를 벗어나 사용한 버튼들 모습" src="./images/img_naverid11.png">
     </div>
     <h3 class="h_sub">8. 색상 규정</h3>
     <p class="p_desc">로그인 버튼에 사용하는 색상값은 다음과 같습니다.</p>
     <div class="img_area">
-        <img alt="GREEN COLOR, PANTONE 361, RGB 30/200/0, CMYK 70/0/100/0, HEX #1EC800" src="/inc/devcenter/images/cont/img_naverid12.png">
+        <img alt="GREEN COLOR, PANTONE 361, RGB 30/200/0, CMYK 70/0/100/0, HEX #1EC800" src="./images/img_naverid12.png">
     </div>
     <br>
     <br>

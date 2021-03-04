@@ -20,7 +20,7 @@
     <h3 class="h_sub">1. Windows 애플리케이션에서의 '네이버 아이디로 로그인' 절차</h3>
     <p class="p_desc">네이버 아이디로 로그인은 OAuth 기반의 사용자 인증 기능을 제공해 네이버가 아닌 다른 서비스나 애플리케이션에서 네이버의 사용자 인증 기능을 이용할 수 있게 하는 서비스입니다. 네이버 아이디로 로그인을 사용하면 서비스나 애플리케이션 사용자는 네이버 아이디와 비밀번호로 로그인할 수 있습니다. Windows 애플리케이션에서 네이버 아이디로 로그인을 통해 로그인하는 기본 절차는 다음과 같습니다.</p>
     <div class="img_area_w">
-        <div class="img_area"><img alt="" src="/inc/devcenter/images/cont/img_naverid_windows01.png"><span>&lt;그림 1-1&gt; 네이버 아이디로 로그인 기본 절차</span></div>
+        <div class="img_area"><img alt="" src="./images/img_naverid_windows01.png"><span>&lt;그림 1-1&gt; 네이버 아이디로 로그인 기본 절차</span></div>
     </div>
     <h3 class="h_sub">2. 내 애플리케이션 등록 (Client등록)</h3>
     <p class="p_desc">
@@ -118,7 +118,7 @@ void CNaverOAuthDlg::OnNavigateComplete(LPDISPATCH pDisp, LPCTSTR szUrl)
     </pre>
     </div>
     <h3 class="h_sub">DEMO Application UI</h3>
-    <div class="img_area"><img alt="" src="/inc/devcenter/images/cont/img_naverid_windows02.png"></div>
+    <div class="img_area"><img alt="" src="./images/img_naverid_windows02.png"></div>
     <ul class="list_type5">
         <li>① 최초 인증 URL을 보여주는 필드</li>
         <li>② 인증 테스트 후 Callback 페이지로부터 전달된 결과 값</li>
