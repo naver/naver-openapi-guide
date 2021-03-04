@@ -15,7 +15,7 @@
         별도의 아이디나 비밀번호를 기억할 필요 없이 네이버 아이디로 간편하고 안전하게 서비스에 로그인할 수 있어, 가입이 귀찮거나 가입한 계정이 생각나지 않아 서비스를 이탈하는 사용자를 잡고 싶다면 네이버 아이디로 로그인을 사용해 보세요.
     </p>
     <div class="buttons2">
-        <a class="btn_b_hi3" href="/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
+        <a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
     </div>
     <br>
     <div class="img_area"><img alt="" src="./images/img_naverid01.png"></div>

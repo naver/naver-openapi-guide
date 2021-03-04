@@ -9,7 +9,7 @@
 <div class="con">
     <p class="p_desc">네이버 로그인을 통해 인증받은 받고 정보 제공에 동의한 회원에 대해 회원 메일 주소, 별명, 프로필 사진, 생일, 연령대 값을 조회할 수 있는 로그인 오픈 API입니다. API 호출 결과로 네이버 아이디값은 제공하지 않으며, 대신 'id'라는 애플리케이션당 유니크한 일련번호값을 이용해서 자체적으로 회원정보를 구성하셔야 합니다. 기존 REST API처럼 요청 URL과 요청 변수로 호출하는 방법은 동일하나, OAuth 2.0 인증 기반이므로 추가적으로 <a href="/docs/login/api" class="color_p2 underline">네이버 로그인 API</a>를 통해 접근 토큰(access token)을 발급받아, HTTP로 호출할 때 Header에 접근 토큰 값을 전송</a>해 주시면 활용 가능합니다.</p>
     <div class="buttons2">
-        <a class="btn_b_hi3" href="/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
+        <a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
     </div>
     <h3 class="h_sub">API 호출 예제</h3>
     <div class="p_desc"> 예제 실행 전에 아래 <em class="color_p3">1.준비사항</em> 항목들을 꼭 체크하시길 바랍니다.</div>
@@ -228,7 +228,7 @@ namespace NaverAPI_Guide
     </div>
     <h3 class="h_sub">1. 준비사항</h3>
     <ul class="list_type1">
-        <li>애플리케이션 등록: 네이버 오픈 API로 개발하시려면 먼저 <a href="/apps/#/register?api=nvlogin"  class="color_p2 underline">'Application-애플리케이션 등록'</a> 메뉴에서 애플리케이션을 등록하셔야 합니다. <br>
+        <li>애플리케이션 등록: 네이버 오픈 API로 개발하시려면 먼저 <a href="https://developers.naver.com/apps/#/register?api=nvlogin"  class="color_p2 underline">'Application-애플리케이션 등록'</a> 메뉴에서 애플리케이션을 등록하셔야 합니다. <br>
             <a href="/docs/common/register"  class="color_p2 underline">[자세한 방법 보기] &gt;</a></li>
         <li>클라이언트 ID와 secret 확인: <a href="/appinfo" class="color_p2 underline">'내 애플리케이션'</a>에서 등록한 애플리케이션을 선택하면 Client ID와 Client Secret 값을 확인할 수 있습니다.</li>
         <li>API 권한 설정: <a href="/appinfo" class="color_p2 underline">'내 애플리케이션'</a>의 'API 권한관리' 탭에서 사용하려는 API가 체크되어 있는지 확인합니다. 체크되어 있지 않을 경우 403 에러(API 권한 없음)가 발생하니 주의하시기 바랍니다.

@@ -15,7 +15,7 @@
         또한 프런트엔드에서 사용하는 JavaScript를 사용해도 적용할 수 있습니다.
     </p>
     <div class="buttons2">
-        <a class="btn_b_hi3" href="/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
+        <a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
     </div>
     <h3 class="h_sub">API 호출 예제</h3>
     <div class="p_desc"> 예제 실행 전에 아래 <em class="color_p3">1.준비사항</em> 항목들을 꼭 체크하시길 바랍니다.</div>

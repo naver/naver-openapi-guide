@@ -15,7 +15,7 @@
         애플리케이션의 상황에 맞게 버튼 이미지의 디자인을 변경할 수 있지만 네이버 고유의 아이덴티티를 유지할 수 있도록 이 가이드에 제시된 디자인을 최대한 유지하는 것을 권장합니다.<br>
     </p>
     <div class="buttons2">
-        <a class="btn_b_hi3" href="/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
+        <a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
     </div>
     <br>
     <ul class="list_type1">

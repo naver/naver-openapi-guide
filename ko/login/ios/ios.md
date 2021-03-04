@@ -14,7 +14,7 @@
     <br>
     <div class="buttons2">
         <a class="btn_b_hi3" href="/docs/login/sdks">라이브러리 보기 &gt;</a>
-        <a class="btn_b_hi3" href="/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
+        <a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
     </div>
     <h3 class="h_sub">1. 요구 사항</h3>
     <p class="p_desc">네이버 아이디로 로그인 라이브러리를 사용하려면 다음과 같은 환경이 필요합니다.</p>

@@ -11,7 +11,7 @@
         카페 API는 애플리케이션에서 네이버 아이디로 로그인한 사용자가 네이버 카페에 가입하거나 가입한 카페의 통합 게시판에 게시글을 쓸 수 있는 기능을 제공하는 API입니다. 카페 API는 네이버 아이디로 로그인에 등록한 애플리케이션에 사용할 수 있으며, 네이버 아이디로 로그인의 OAuth 2.0을 이용해 손쉽게 사용자를 인증을 구현할 수 있습니다. 이 튜토리얼에서는 네이버 아이디로 로그인과 카페 API를 활용해 네이버 카페에 가입하고 카페에 게시글을 쓰는 웹 애플리케이션을 PHP로 구현하는 방법을 설명합니다. 이 튜토리얼을 따라하면 카페 API를 사용하는 기본적인 방법을 익힐 수 있을 것입니다.
     </p>
     <div class="buttons2">
-        <a class="btn_b_hi3" href="/apps/#/register?api=cafe">오픈 API 이용 신청 &gt;</a>
+        <a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register?api=cafe">오픈 API 이용 신청 &gt;</a>
     </div>
     <h3 class="h_sub">사전 준비</h3>
     <p class="p_desc">
@@ -20,7 +20,7 @@
     <h4 class="h_subsub">웹 애플리케이션 등록</h4>
     <p class="p_desc">
         카페 API를 사용하려면 네이버 아이디로 로그인에 웹 애플리케이션을 등록해 클라이언트 아이디와 클라이언트 시크릿을 받아야 합니다.<br>
-        <a href="/apps/#/register" target="_blank" title="새창" class="color_p2 underline">네이버 아이디로 로그인 새 애플리케이션 등록 &gt;</a>
+        <a href="https://developers.naver.com/apps/#/register" target="_blank" title="새창" class="color_p2 underline">네이버 아이디로 로그인 새 애플리케이션 등록 &gt;</a>
     </p>
     <h4 class="h_subsub">PHP 설정</h4>
     <ul class="list_type1">
