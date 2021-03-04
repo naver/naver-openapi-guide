@@ -15,12 +15,7 @@
         HTTP로 호출할 때 Header에 접근 토큰을 같이 전송해 주시면 활용 가능합니다.
     </p>
     <div class="buttons2">
-        <!-- {{#env.billing}} -->
         <a class="btn_b_hi3" href="/apps/#/register?api=cafe">오픈 API 이용 신청 &gt;</a>
-        <!-- {{/env.billing}}
-        {{^env.billing}}
-        <a class="btn_b_hi3" href="/apps/#/register">오픈 API 이용 신청 &gt;</a>
-        {{/env.billing}} -->
     </div>
     <h3 class="h_sub">0.API 호출 예제</h3>
     <div class="p_desc"> 예제 실행 전에 아래 <em class="color_p3">1.준비사항</em> 항목들을 꼭 체크하시길 바랍니다.</div>
