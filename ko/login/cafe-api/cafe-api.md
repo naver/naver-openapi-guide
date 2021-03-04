@@ -7,9 +7,6 @@
 </head>
 <body>
 <div class="con">
-    <div class="h_page_area">
-        <h2 class="h_page">카페 가입 · 글쓰기 API 명세 </h2>
-    </div>
     <p class="p_desc">
         네이버 카페에 가입 또는 카페 게시판에 글을 올릴 수 있는 로그인 오픈 API입니다. 기존 REST API처럼 요청 URL과 요청 변수로 호출하는 방법은 동일하나, OAuth 2.0 인증 기반이므로 추가적으로 <a class="color_p2 underline" href="/docs/login/api">네이버 로그인 API</a>를 통해 접근 토큰(access token)을 발급받아,
         HTTP로 호출할 때 Header에 접근 토큰을 같이 전송해 주시면 활용 가능합니다.

@@ -7,9 +7,6 @@
 </head>
 <body>
 <div class="con">
-    <div class="h_page_area">
-        <h2 class="h_page">네이버 회원 프로필 조회 API 명세 </h2>
-    </div>
     <p class="p_desc">네이버 로그인을 통해 인증받은 받고 정보 제공에 동의한 회원에 대해 회원 메일 주소, 별명, 프로필 사진, 생일, 연령대 값을 조회할 수 있는 로그인 오픈 API입니다. API 호출 결과로 네이버 아이디값은 제공하지 않으며, 대신 'id'라는 애플리케이션당 유니크한 일련번호값을 이용해서 자체적으로 회원정보를 구성하셔야 합니다. 기존 REST API처럼 요청 URL과 요청 변수로 호출하는 방법은 동일하나, OAuth 2.0 인증 기반이므로 추가적으로 <a href="/docs/login/api" class="color_p2 underline">네이버 로그인 API</a>를 통해 접근 토큰(access token)을 발급받아, HTTP로 호출할 때 Header에 접근 토큰 값을 전송</a>해 주시면 활용 가능합니다.</p>
     <div class="buttons2">
         <a class="btn_b_hi3" href="/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>

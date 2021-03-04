@@ -8,7 +8,6 @@
 <body>
 <div class="con">
     <div class="h_page_area">
-        <h2 class="h_page">튜토리얼</h2>
         <div class="side_menu"></div>
     </div>
     <h3 class="h_sub">사전 준비</h3>

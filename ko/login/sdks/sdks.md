@@ -15,7 +15,6 @@
 <body>
 <div class="con this_page">
     <div class="h_page_area">
-        <h2 class="h_page">SDK 다운로드</h2>
         <div class="side_menu"></div>
     </div>
     <h3 class="h_sub">1. Android용 네이버 아이디로 로그인 라이브러리</h3>

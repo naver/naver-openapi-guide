@@ -8,7 +8,6 @@
 <body>
 <div class="con">
     <div class="h_page_area">
-        <h2 class="h_page">외부 SDK 다운로드</h2>
         <div class="side_menu"></div>
     </div>
     <div class="blockquote_area">
