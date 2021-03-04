@@ -47,34 +47,34 @@
     <p class="p_desc">
         네이버에 로그인하지 않은 사용자가 시작 페이지에 접속하면 네이버 로그인 페이지로 이동합니다.
     </p>
-    <div class="img_area"><img alt="" src="/inc/devcenter/images/tutorial/img_guide_cafe_tutorial1.gif"></div>
+    <div class="img_area"><img alt="" src="./images/img_guide_cafe_tutorial1.gif"></div>
     <p class="p_desc">
         네이버에 로그인한 사용자가 시작 페이지에 접속하면 정보 이용 동의를 구하는 페이지로 이동합니다.
     </p>
-    <div class="img_area"><img alt="" src="/inc/devcenter/images/tutorial/img_guide_cafe_tutorial2.png"></div>
+    <div class="img_area"><img alt="" src="./images/img_guide_cafe_tutorial2.png"></div>
     <h4 class="h_sub">시작 페이지 메뉴</h4>
     <p class="p_desc">
         인증이 정상적으로 완료되면 카페 가입 페이지와 카페 게시글 쓰기 페이지로 이동하는 링크가 시작 페이지에 나타납니다.
     </p>
-    <div class="img_area"><img alt="" src="/inc/devcenter/images/tutorial/img_guide_cafe_tutorial3.gif"></div>
+    <div class="img_area"><img alt="" src="./images/img_guide_cafe_tutorial3.gif"></div>
     <h4 class="h_sub">카페 가입 요청 페이지</h4>
     <p class="p_desc">
         시작 페이지에서 카페 가입 메뉴를 선택하면 카페 가입 요청 페이지로 이동합니다.
         가입을 요청할 때는 가입할 카페 아이디와 카페에서 사용할 별명을 입력합니다.
     </p>
     <h5 class="h_5">카페 가입 요청 페이지</h5>
-    <div class="img_area"><img alt="" src="/inc/devcenter/images/tutorial/img_guide_cafe_tutorial4.gif"></div>
+    <div class="img_area"><img alt="" src="./images/img_guide_cafe_tutorial4.gif"></div>
     <h5 class="h_5">카페 가입 요청 페이지</h5>
-    <div class="img_area"><img alt="" src="/inc/devcenter/images/tutorial/img_guide_cafe_tutorial5.gif"></div>
+    <div class="img_area"><img alt="" src="./images/img_guide_cafe_tutorial5.gif"></div>
     <h4 class="h_sub">카페 글쓰기 페이지</h4>
     <p class="p_desc">
         시작 페이지에서 글쓰기 페이지 메뉴를 선택하면 카페 글쓰기 페이지로 이동합니다.
         글을 게시할 게시판 아이디와 글의 제목, 글의 내용을 입력합니다. 이미지도 포함해서 글을 작성할 수 있습니다.
     </p>
     <h5 class="h_5">카페 글쓰기 페이지</h5>
-    <div class="img_area"><img alt="" src="/inc/devcenter/images/tutorial/img_guide_cafe_tutorial6.gif"></div>
+    <div class="img_area"><img alt="" src="./images/img_guide_cafe_tutorial6.gif"></div>
     <h5 class="h_5">카페 글쓰기 결과 페이지</h5>
-    <div class="img_area"><img alt="" src="/inc/devcenter/images/tutorial/img_guide_cafe_tutorial7.gif"></div>
+    <div class="img_area"><img alt="" src="./images/img_guide_cafe_tutorial7.gif"></div>
     <h3 class="h_sub">2. 카페 API 개발하기</h3>
     <p class="p_desc">
         카페 API를 활용한 서비스를 개발하기 위해 다음과 같은 파일을 작성합니다.
