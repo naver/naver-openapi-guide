@@ -12,7 +12,7 @@
     </div>
     <p class="p_desc">
         한/영 키를 잘못 설정하고 검색하셨을 경우, 입력하신 검색어를 자동으로 변환/추천해 주는 REST API입니다. 비로그인 오픈 API이므로 GET으로 호출할 때 HTTP Header에 애플리케이션 등록
-        시 발급받은 <a href="/docs/common/apicall" class="color_p2 underline ">Client ID와 Client Secret 값을 같이 전송</a>해 주시면 활용
+        시 발급받은 <a href="https://developers.naver.com/docs/common/apicall" class="color_p2 underline ">Client ID와 Client Secret 값을 같이 전송</a>해 주시면 활용
         가능합니다.
     </p>
     <div class="buttons2">

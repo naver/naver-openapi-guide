@@ -11,8 +11,7 @@
         <h2 class="h_page">검색 &gt; 성인 검색어 판별</h2>
     </div>
     <p class="p_desc">
-        입력한 검색어가 성인 검색어이면 1, 아니면 0을 리턴하는 REST API입니다. 비로그인 오픈 API이므로 GET으로 호출할 때 HTTP Header에 애플리케이션 등록 시 발급받은 <a
-            href="/docs/common/apicall" class="color_p2 underline">Client ID와 Client Secret 값을 같이 전송</a>해 주시면 활용 가능합니다.
+        입력한 검색어가 성인 검색어이면 1, 아니면 0을 리턴하는 REST API입니다. 비로그인 오픈 API이므로 GET으로 호출할 때 HTTP Header에 애플리케이션 등록 시 발급받은 <a href="https://developers.naver.com/docs/common/apicall" class="color_p2 underline">Client ID와 Client Secret 값을 같이 전송</a>해 주시면 활용 가능합니다.
     </p>
     <div class="buttons2">
         <a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register?defaultScope=search">오픈 API 이용 신청 &gt;</a>

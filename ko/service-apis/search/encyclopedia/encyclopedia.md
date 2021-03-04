@@ -9,8 +9,7 @@
         <h2 class="h_page">검색 &gt; 백과 사전</h2>
     </div>
     <p class="p_desc">
-        네이버 백과사전 검색 결과를 출력해주는 REST API입니다. 비로그인 오픈 API이므로 GET으로 호출할 때 HTTP Header에 애플리케이션 등록 시 발급받은 <a
-            href="/docs/common/apicall" class="color_p2 underline">Client ID와 Client Secret 값을 같이 전송</a>해 주시면 활용 가능합니다.
+        네이버 백과사전 검색 결과를 출력해주는 REST API입니다. 비로그인 오픈 API이므로 GET으로 호출할 때 HTTP Header에 애플리케이션 등록 시 발급받은 <a href="https://developers.naver.com/docs/common/apicall" class="color_p2 underline">Client ID와 Client Secret 값을 같이 전송</a>해 주시면 활용 가능합니다.
         백과사전 검색 대상은 다음과 같습니다.<br>
         : 두산백과 doopedia, 네이버 백과사전, 네이버 테마백과, 네이버캐스트, 위키백과, 향토문화대전, 한국역대인물종합정보, 자연도감식물정보, 자연도감동물정보, 음식재료정보, 용어사전
     </p>

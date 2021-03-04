@@ -12,7 +12,7 @@
     </div>
     <p class="p_desc">
         네이버 학술 논문, 레포트, 전문 기관의 보고서 등 전문자료 서비스의 검색 결과를 출력해주는 REST API입니다. 비로그인 오픈 API이므로 GET으로 호출할 때 HTTP Header에 애플리케이션
-        등록 시 발급받은 <a href="/docs/common/apicall" class="color_p2 underline ">Client ID와 Client Secret 값을 같이 전송</a>해 주시면
+        등록 시 발급받은 <a href="https://developers.naver.com/docs/common/apicall" class="color_p2 underline ">Client ID와 Client Secret 값을 같이 전송</a>해 주시면
         활용 가능합니다.
     </p>
     <div class="buttons2">
