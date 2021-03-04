@@ -577,7 +577,7 @@ Authorization: Bearer AAAAOLtP40eH6P5S4Z4FpFl77n3FD5I+W3ost3oDZq/nbcS+7MAYXwX<br
     <h3 class="h_sub">2. JavaScript로 네이버 아이디로 로그인 적용하기</h3>
     <p class="p_desc">네이버 아이디로 로그인은 손쉽게 웹 애플리케이션에 네이버 아이디로 로그인을 적용할 수 있게 JavaScript용 네이버 아이디로 로그인 라이브러리를 제공합니다. JavaScript용 라이브러리를 사용하면 HTML 페이지 내부에 JavaScript 코드를 삽입하는 것만으로도 네이버 아이디로 로그인을 적용할 수 있습니다.</p>
     <ul class="list_type1">
-        <li><a class="color_p2 underline" href="/docs/login/sdks">JavaScript용 네이버 아이디로 로그인 라이브러리 다운로드 &gt;</a></li>
+        <li><a class="color_p2 underline" href="/sdks/sdks.md">JavaScript용 네이버 아이디로 로그인 라이브러리 다운로드 &gt;</a></li>
     </ul>
     <h4 class="h_subsub">2.1. 요구 사항</h4>
     <p class="p_desc">
@@ -625,7 +625,7 @@ Authorization: Bearer AAAAOLtP40eH6P5S4Z4FpFl77n3FD5I+W3ost3oDZq/nbcS+7MAYXwX<br
         로그인 버튼을 수정해서 사용할 때는 사용 가이드에 제시된 디자인을 최대한 유지하는 것을 권장합니다.
     </p>
     <ul class="list_type1">
-        <li><a class="color_p2 underline" href="/docs/login/bi">네이버 아이디로 로그인 버튼 이미지 다운로드 &gt;</a></li>
+        <li><a class="color_p2 underline" href="/bi/bi.md">네이버 아이디로 로그인 버튼 이미지 다운로드 &gt;</a></li>
     </ul>
     <p class="p_desc">다음은 웹 페이지에 로그인 버튼을 추가하고 로그인 함수를 호출하는 코드 예입니다. {YOUR_CLIENT_ID}는 애플리케이션을 등록하고 발급받은 클라이언트 아이디입니다. {YOUR_REDIRECT_URL}는 애플리케이션을 등록할 때 Callback URL에 설정한 URL입니다.사이트 간 요청 위조를 방지하기 위해 상태 토큰을 생성하는 코드도 추가됐습니다.</p>
     <p class="p_desc">2.2.1. client_id 와 redirect_uri 등록</p>

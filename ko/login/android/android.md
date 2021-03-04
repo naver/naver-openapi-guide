@@ -152,7 +152,7 @@ mOAuthLoginButton.setBgResourceId(R.drawable.img_loginbtn_usercustom);
     <div class="blockquote_area">
         <em class="warning"><i class="xi-info-suqare"></i>주의</em>
         <p>OAuthLoginButton 객체를 이용할 때 네이버 아이디로 로그인 버튼의 디자인은 반드시 네이버 아이디로 로그인 버튼 사용 가이드를 따라야 합니다.</p>
-        <p><a class="color_p2 underline" href="/docs/login/bi">네이버 아이디로 로그인 버튼 사용 가이드 &gt;</a></p>
+        <p><a class="color_p2 underline" href="/bi/bi.md">네이버 아이디로 로그인 버튼 사용 가이드 &gt;</a></p>
     </div>
     <h4 class="h_subsub">5.2. startOAuthLoginActivity() 메서드를 이용한 로그인</h4>
     <p class="p_desc">OAuthLogin.startOAuthLoginActivity() 메서드를 직접 실행해 로그인하면 먼저 갱신 토큰이 있는지 확인합니다.</p>

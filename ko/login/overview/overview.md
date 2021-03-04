@@ -49,7 +49,7 @@
     <h4 class="h_subsub">2.2. 애플리케이션 개발</h4>
     <p class="p_desc">네이버 아이디로 로그인을 이용하기 위한 정보를 확인하고 등록한 환경에 맞는 개발가이드를 참고해 애플리케이션을 개발합니다.</p>
     <ul class="list_type1">
-        <li><a class="color_p2 underline" href="/docs/login/api">API 명세 &gt;</a><a class="color_p2 underline" href="/docs/login/sdks">/SDK 다운로드 &gt;</a></li>
+        <li><a class="color_p2 underline" href="/docs/login/api">API 명세 &gt;</a><a class="color_p2 underline" href="/sdks/sdks.md">/SDK 다운로드 &gt;</a></li>
         <li><a class="color_p2 underline" href="/docs/login/android">Android 애플리케이션 개발 가이드 &gt;</a></li>
         <li><a class="color_p2 underline" href="/docs/login/ios">iOS 애플리케이션 개발 가이드 &gt;</a></li>
         <li><a class="color_p2 underline" href="/docs/login/windows">Windows 애플리케이션 개발 가이드 &gt;</a></li>

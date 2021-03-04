@@ -120,7 +120,7 @@ oAuth2.0 오픈소스 라이브러리를 이용하여 다양한 개발 환경에
 
 ***개발 환경에 따라서 다양한 3rdParty opensource library가 제공되고 있습니다.***
 
-[3rdParty opensource library 바로가기 >](/docs/login/sdks_external)
+[3rdParty opensource library 바로가기 >](/sdks_external/sdks_external.md)
 
 # 3. 네아로 적용
 
@@ -237,7 +237,7 @@ oAuth2.0 오픈소스 라이브러리를 이용하여 다양한 개발 환경에
 
 네아로는 JavaScript와 Android, iOS를 지원하는 SDK를 제공합니다. SDK에는 샘플 애플리케이션이 포함되어 있으며 이를 이용해 로그인 인증부터 API 호출까지 매우 쉽게 구현할 수 있습니다.
 
-[네아로 SDK 다운로드 >](/docs/login/sdks)
+[네아로 SDK 다운로드 >](/sdks/sdks.md)
 
 또한 모바일 애플리케이션을 개발할 때 SDK를 이용하면 네이버 앱을 이용한 간편 로그인을 사용할 수 있어 사용자가 훨씬 편하게 로그인할 수 있습니다. 
 
@@ -246,7 +246,7 @@ oAuth2.0 오픈소스 라이브러리를 이용하여 다양한 개발 환경에
 네아로는 애플리케이션에 사용할 수 있는 네이버 로그인 버튼 기본 이미지를 제공합니다.<br/>
 애플리케이션의 상황에 맞게 버튼 이미지의 디자인을 변경할 수 있지만 네이버 고유의 아이덴티티를 유지할수 있도록 다음의 가이드라인을 최대로 유지하는것을 권장합니다.
 
-[로그인 버튼 사용 가이드 바로가기 >](/docs/login/bi)
+[로그인 버튼 사용 가이드 바로가기 >](/bi/bi.md)
 
 iOS SDK 또는 Android SDK를 이용하여 네아로를 적용한 경우에는 SDK 자체에서 버튼 리소스를 제공하고 있습니다.
 
