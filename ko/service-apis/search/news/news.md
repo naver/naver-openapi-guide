@@ -20,7 +20,7 @@
     <ul class="list_type1">
         <li>애플리케이션 등록: 네이버 오픈 API로 개발하시려면 먼저<a href="http://developers.naver.com/apps/#/register?defaultScope=search" class="color_p2 underline">
             'Application-애플리케이션 등록' </a>메뉴에서 애플리케이션을 등록하셔야 합니다. <br>
-            <a href="/docs/common/register" class="color_p2 underline">[자세한 방법 보기] &gt;</a></li>
+            <a href="https://developers.naver.com/docs/common/register" class="color_p2 underline">[자세한 방법 보기] &gt;</a></li>
         <li>클라이언트 ID와 secret 확인: <a href="/appinfo" class="color_p2 underline">'내 애플리케이션'</a>에서 등록한 애플리케이션을 선택하면 Client
             ID와 Client Secret 값을 확인할 수 있습니다.
         </li>
