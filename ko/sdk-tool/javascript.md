@@ -8,7 +8,6 @@
 <body>
 <div class="con">
     <div class="h_page_area">
-        <h2 class="h_page v2">JavaScript 라이브러리</h2>
         <div class="side_menu"></div>
     </div>
     <p class="p_desc">자바스크립트 개발에 필요한 라이브러리 모음입니다.</p>

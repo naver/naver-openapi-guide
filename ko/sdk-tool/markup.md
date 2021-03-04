@@ -8,7 +8,6 @@
 <body>
 <div class="con">
     <div class="h_page_area">
-        <h2 class="h_page v2">마크업툴</h2>
         <div class="side_menu"></div>
     </div>
     <p class="p_desc">마크업 개발시 참고할 수 있는 코딩 규칙과 유용한 도구를 제공합니다.</p>

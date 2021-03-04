@@ -7,7 +7,6 @@
 <body>
 <div class="con">
     <div class="h_page_area">
-        <h2 class="h_page v2">에디터 ⁄ 위키</h2>
         <div class="side_menu"></div>
     </div>
     <p class="p_desc">개발전용 폰트, 컨텐츠관리, FrontEnd 에디터, 이미지 편집도구와 같은 저작도구를 제공합니다.</p>

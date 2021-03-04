@@ -8,7 +8,6 @@
 <body>
 <div class="con">
     <div class="h_page_area">
-        <h2 class="h_page v2">성능측정</h2>
         <div class="side_menu"></div>
     </div>
     <p class="p_desc">다양한 테스트 환경 구성 및 관리 기능을 포함한 테스트 자동화 프레임워크</p>

@@ -8,7 +8,6 @@
 <body>
 <div class="con">
     <div class="h_page_area">
-        <h2 class="h_page v2">테스트 ⁄ 코드분석</h2>
         <div class="side_menu"></div>
     </div>
     <p class="p_desc">다양한 테스트 환경구성 및 관리기능을 포함한 테스트 자동화 프레임워크를 제공합니다.</p>

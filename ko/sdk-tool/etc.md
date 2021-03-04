@@ -8,7 +8,6 @@
 <body>
 <div class="con">
     <div class="h_page_area">
-        <h2 class="h_page v2">기타 라이브러리</h2>
         <div class="side_menu"></div>
     </div>
     <p class="p_desc">보안, 컴포넌트, 프레임워크, 서버관리와 같은 개발작업에 도움을 주는 도구들을 제공합니다.</p>

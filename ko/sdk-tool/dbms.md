@@ -8,7 +8,6 @@
 <body>
 <div class="con">
     <div class="h_page_area">
-        <h2 class="h_page v2">스토리지/DBMS</h2>
         <div class="side_menu"></div>
     </div>
     <p class="p_desc">대용량데이터를 저장/처리하는 플랫폼들을 제공합니다.</p>

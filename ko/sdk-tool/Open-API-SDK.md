@@ -8,7 +8,6 @@
 <body>
 <div class="con">
     <div class="h_page_area">
-        <h2 class="h_page v2">Open API SDK 목록</h2>
         <div class="side_menu"></div>
     </div>
     <p class="p_desc">네이버 Open API 개발을 위한 SDK 목록입니다.</p>
