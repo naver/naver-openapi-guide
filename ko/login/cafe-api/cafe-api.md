@@ -15,12 +15,12 @@
         HTTP로 호출할 때 Header에 접근 토큰을 같이 전송해 주시면 활용 가능합니다.
     </p>
     <div class="buttons2">
-        {{#env.billing}}
+        <!-- {{#env.billing}} -->
         <a class="btn_b_hi3" href="/apps/#/register?api=cafe">오픈 API 이용 신청 &gt;</a>
-        {{/env.billing}}
+        <!-- {{/env.billing}}
         {{^env.billing}}
         <a class="btn_b_hi3" href="/apps/#/register">오픈 API 이용 신청 &gt;</a>
-        {{/env.billing}}
+        {{/env.billing}} -->
     </div>
     <h3 class="h_sub">0.API 호출 예제</h3>
     <div class="p_desc"> 예제 실행 전에 아래 <em class="color_p3">1.준비사항</em> 항목들을 꼭 체크하시길 바랍니다.</div>
@@ -764,12 +764,12 @@ namespace NaverAPI_Guide
     <h3 class="h_sub">1. 준비사항</h3>
     <ul class="list_type1">
         <li>애플리케이션 등록: 네이버 오픈 API로 개발하시려면 먼저
-            {{#env.billing}}
+            <!-- {{#env.billing}} -->
             <a href="/apps/#/register?api=cafe" class="color_p2 underline">'Application-애플리케이션 등록'</a>
-            {{/env.billing}}
+            <!-- {{/env.billing}}
             {{^env.billing}}
             <a href="/apps/#/register" class="color_p2 underline">'Application-애플리케이션 등록'</a>
-            {{/env.billing}}
+            {{/env.billing}} -->
             메뉴에서 애플리케이션을 등록하셔야 합니다. <br>
             <a href="/docs/common/register"  class="color_p2 underline">[자세한 방법 보기] &gt;</a></li>
         <li>클라이언트 ID와 secret 확인: <a href="/appinfo" class="color_p2 underline">'내 애플리케이션'</a>에서 등록한 애플리케이션을 선택하면 Client ID와 Client Secret 값을 확인할 수 있습니다.</li>
