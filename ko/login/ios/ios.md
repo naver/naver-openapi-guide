@@ -32,7 +32,7 @@
     <p class="p_desc">애플리케이션에서 OAuth 2.0으로 네이버 아이디로 로그인을 사용할 때 애플리케이션과 네이버 앱, 네이버 서버 사이에 인증을 요청하고 인증 코드(authentication code)와 접근 토큰(access token)을 획득하는 과정, 오픈 API를 호출하는 과정은 다음과 같습니다.</p>
     <h4 class="h_subsub">3.1. 인증 코드 획득</h4>
     <div class="img_area">
-        <img alt="인증 코드 획득 과정" src="/inc/devcenter/images/cont/img_naverid14.gif">
+        <img alt="인증 코드 획득 과정" src="./images/img_naverid14.gif">
     </div>
     <p class="p_desc">
         사용자가 애플리케이션에서 네이버 아이디로 로그인할 때 애플리케이션은 네이버 앱에 OAuth 2.0 인증을 요청합니다. 네이버 앱은 간편 로그인 프로세스를 거쳐 인증 코드를 획득하고, 획득한 인증 코드를 애플리케이션의 URL Scheme을 통해 애플리케이션에 반환합니다.
@@ -40,12 +40,12 @@
     </p>
     <h4 class="h_subsub">3.2. 접근 코드 획득</h4>
     <div class="img_area">
-        <img alt="접근 코드 획득 과정" src="/inc/devcenter/images/cont/img_naverid15.gif">
+        <img alt="접근 코드 획득 과정" src="./images/img_naverid15.gif">
     </div>
     <p class="p_desc">인증 코드 획득에 성공하면 네이버 서버에서 접근 토큰과 갱신 토큰(refresh token)을 받아옵니다. 서버 호출 결과로 값을 받으면 델리게이트를 호출하고 호출 성공 여부를 판단합니다. 호출에 성공하면 접근 토큰으로 오픈 API를 호출할 수 있습니다.</p>
     <h4 class="h_subsub">3.3. 오픈 API 호출</h4>
     <div class="img_area">
-        <img alt="오픈 API 호출 과정" src="/inc/devcenter/images/cont/img_naverid16.gif">
+        <img alt="오픈 API 호출 과정" src="./images/img_naverid16.gif">
     </div>
     <p class="p_desc">오픈 API를 호출할 때 애플리케이션에서는 접근 토큰을 사용해 인증 헤더(authorization header) 문자열을 구성해야 합니다. 이렇게 구성된 문자열은 오픈 API 호출 시 HTTP Header 필드에 추가해 서버로 함께 전송합니다.</p>
     <h3 class="h_sub">4. 개발 환경 설정</h3>

@@ -343,7 +343,7 @@ namespace NaverAPI_Guide
     <h3 class="h_sub">1. PHP와 Java로 네이버 아이디로 로그인 적용하기</h3>
     <p class="p_desc">웹 애플리케이션에서는 API 형식에 맞게 접근 토큰을 요청하는 API를 호출하고 응답을 받아 네이버 아이디로 로그인 기능을 이용할 수 있습니다. 여기서는 대표적인 서버 사이드 언어인 PHP와 Java로 "네이버 아이디로 로그인"을 웹 애플리케이션에 구현하는 방법을 설명합니다.</p>
     <ul class="list_type1">
-        <li><a class="color_p2 underline" href="/docs/login/api">네이버 아이디로 로그인 API 명세 &gt;</a></li>
+        <li><a class="color_p2 underline" href="/api/api.md">네이버 아이디로 로그인 API 명세 &gt;</a></li>
     </ul>
     <h4 class="h_subsub">1.1. 세션 유지 및 위조 방지용 상태 토큰 생성</h4>
     <p class="p_desc">웹 애플리케이션은 브라우저를 기반으로 작동하기 때문에 사이트 간 요청 위조(cross-site request forgery, 이하 CSRF) 공격 위험이 있습니다. CSRF 공격을 방지하기 위해 애플리케이션과 사용자 간의 상태를 보유하는 고유한 세션 토큰을 만들어야 합니다. 나중에 인증 과정의 결괏값으로 전달하는 세션 토큰과 일치하는지 확인해 사용자가 요청하지 않은 '비정상적인 요청'인지 확인할 수 있습니다. 이 세션 토큰을 '상태 토큰'(state token) 이라 하며, 상태 토큰의 값은 사용자가 네이버 로그인을 진행하는 동안 유지되어야 하며 고유한 값이어야 합니다. 다음은 상태 토큰을 생성하는 코드를 PHP와 Java로 구현한 예입니다. 생성한 상태 토큰은 세션이나 별도의 저장 공간에 저장하도록 합니다.</p>

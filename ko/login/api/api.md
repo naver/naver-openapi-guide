@@ -12,7 +12,7 @@
     </div>
     <p class="p_desc">'네이버 아이디로 로그인 API는 네이버 로그인 인증 요청 API, 접근 토큰 발급/갱신/삭제 요청API로 구성되어 있습니다. 네이버 로그인 인증 요청 API는 여러분의 웹 또는 앱에 네이버 로그인 화면을 띄우는 API입니다. 이용자가 네이버 회원 인증에 성공하면 API로부터 받은 code 값을 이용해서 접근 토큰 발급 요청 API를 호출합니다. 접근 토큰 발급 요청 API를 통해 받은 접근 토큰(access token) 값은 다음과 같이 회원 프로필 조회를 비롯하여 여러가지 로그인 오픈 API를 호출하는데 사용할 수 있습니다.</p>
     <div class="p_desc">
-        로그인 오픈 API : 접근 토큰값을 이용해 호출 가능한 API 들로서 HTTP로 호출할 때 Header에 접근 토큰(access token)과 함께 애플리케이션 등록 시 발급받은 <a href="/docs/common/apicall" class="color_p2 underline">Client ID와 Client Secret 값을 같이 전송</a>해 주시면 활용 가능합니다.
+        로그인 오픈 API : 접근 토큰값을 이용해 호출 가능한 API 들로서 HTTP로 호출할 때 Header에 접근 토큰(access token)과 함께 애플리케이션 등록 시 발급받은 <a href="../../common/apicall" class="color_p2 underline">Client ID와 Client Secret 값을 같이 전송</a>해 주시면 활용 가능합니다.
         <ul class="list_type1">
             <li>회원 프로필 조회</li>
             <li>카페 가입 / 글쓰기</li>
@@ -346,9 +346,9 @@ namespace NaverAPI_Guide
     <h3 class="h_sub">1. 준비사항</h3>
     <ul class="list_type1">
         <li>애플리케이션 등록: 네이버 오픈 API로 개발하시려면 먼저 <a href="https://developers.naver.com/apps/#/register?api=nvlogin" class="color_p2 underline">'Application-애플리케이션 등록'</a> 메뉴에서 애플리케이션을 등록하셔야 합니다. <br>
-            <a href="/docs/common/register"  class="color_p2 underline">[자세한 방법 보기] &gt;</a></li>
-        <li>클라이언트 ID와 secret 확인: <a href="/appinfo" class="color_p2 underline">'내 애플리케이션'</a>에서 등록한 애플리케이션을 선택하면 Client ID와 Client Secret 값을 확인할 수 있습니다.</li>
-        <li>API 권한 설정: <a href="/appinfo" class="color_p2 underline">'내 애플리케이션'</a>의 'API 권한관리' 탭에서 사용하려는 API가 체크되어 있는지 확인합니다. 체크되어 있지 않을 경우 403 에러(API 권한 없음)가 발생하니 주의하시기 바랍니다.
+            <a href="../../common/register"  class="color_p2 underline">[자세한 방법 보기] &gt;</a></li>
+        <li>클라이언트 ID와 secret 확인: <a href="https://developers.naver.com/appinfo" class="color_p2 underline">'내 애플리케이션'</a>에서 등록한 애플리케이션을 선택하면 Client ID와 Client Secret 값을 확인할 수 있습니다.</li>
+        <li>API 권한 설정: <a href="https://developers.naver.com/appinfo" class="color_p2 underline">'내 애플리케이션'</a>의 'API 권한관리' 탭에서 사용하려는 API가 체크되어 있는지 확인합니다. 체크되어 있지 않을 경우 403 에러(API 권한 없음)가 발생하니 주의하시기 바랍니다.
         </li>
     </ul>
     <h3 class="h_sub">2. API 기본 정보</h3>

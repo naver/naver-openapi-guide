@@ -126,7 +126,7 @@ mOAuthLoginModule.init(
     <h3 class="h_sub">5. 로그인</h3>
     <p class="p_desc">로그인은 두 가지 방법으로 구현합니다. 첫 번째는 OAuthLoginButton 객체로 네이버 아이디로 로그인 버튼을 레이아웃에 추가하는 방법이고, 두 번째는 OAuthLogin.startOAuthLoginActivity() 메서드를 직접 실행하는 방법입니다.</p>
     <div class="img_area">
-        <img alt="네이버 아이디로 로그인 화면" src="/inc/devcenter/images/cont/img_naverid13.gif">
+        <img alt="네이버 아이디로 로그인 화면" src="./images/img_naverid13.gif">
     </div>
     <h4 class="h_subsub">5.1. OAuthLoginButton 객체로 버튼 추가</h4>
     <p class="p_desc">OAuthLoginButton 객체로 네이버 아이디로 로그인 버튼을 추가하는 방법은 다음과 같습니다.</p>

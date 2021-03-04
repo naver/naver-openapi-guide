@@ -8,7 +8,7 @@
 <body>
 <div class="con">
     <p class="p_desc">
-        네이버 카페에 가입 또는 카페 게시판에 글을 올릴 수 있는 로그인 오픈 API입니다. 기존 REST API처럼 요청 URL과 요청 변수로 호출하는 방법은 동일하나, OAuth 2.0 인증 기반이므로 추가적으로 <a class="color_p2 underline" href="/docs/login/api">네이버 로그인 API</a>를 통해 접근 토큰(access token)을 발급받아,
+        네이버 카페에 가입 또는 카페 게시판에 글을 올릴 수 있는 로그인 오픈 API입니다. 기존 REST API처럼 요청 URL과 요청 변수로 호출하는 방법은 동일하나, OAuth 2.0 인증 기반이므로 추가적으로 <a class="color_p2 underline" href="/api/api.md">네이버 로그인 API</a>를 통해 접근 토큰(access token)을 발급받아,
         HTTP로 호출할 때 Header에 접근 토큰을 같이 전송해 주시면 활용 가능합니다.
     </p>
     <div class="buttons2">
@@ -757,9 +757,9 @@ namespace NaverAPI_Guide
     <ul class="list_type1">
         <li>애플리케이션 등록: 네이버 오픈 API로 개발하시려면 먼저
             <a href="https://developers.naver.com/apps/#/register?api=cafe" class="color_p2 underline">'Application-애플리케이션 등록'</a>메뉴에서 애플리케이션을 등록하셔야 합니다. <br>
-            <a href="/docs/common/register"  class="color_p2 underline">[자세한 방법 보기] &gt;</a></li>
-        <li>클라이언트 ID와 secret 확인: <a href="/appinfo" class="color_p2 underline">'내 애플리케이션'</a>에서 등록한 애플리케이션을 선택하면 Client ID와 Client Secret 값을 확인할 수 있습니다.</li>
-        <li>API 권한 설정: <a href="/appinfo" class="color_p2 underline">'내 애플리케이션'</a>의 'API 권한관리' 탭에서 사용하려는 API가 체크되어 있는지 확인합니다. 체크되어 있지 않을 경우 403 에러(API 권한 없음)가 발생하니 주의하시기 바랍니다.
+            <a href="../../common/register"  class="color_p2 underline">[자세한 방법 보기] &gt;</a></li>
+        <li>클라이언트 ID와 secret 확인: <a href="https://developers.naver.com/appinfo" class="color_p2 underline">'내 애플리케이션'</a>에서 등록한 애플리케이션을 선택하면 Client ID와 Client Secret 값을 확인할 수 있습니다.</li>
+        <li>API 권한 설정: <a href="https://developers.naver.com/appinfo" class="color_p2 underline">'내 애플리케이션'</a>의 'API 권한관리' 탭에서 사용하려는 API가 체크되어 있는지 확인합니다. 체크되어 있지 않을 경우 403 에러(API 권한 없음)가 발생하니 주의하시기 바랍니다.
         </li>
     </ul>
     <h3 class="h_sub">2. API 기본 정보</h3>
@@ -1066,7 +1066,7 @@ namespace NaverAPI_Guide
         </tbody>
     </table>
     <h3 class="h_sub">5. 에러 코드</h3>
-    <div class="p_desc"> 공통 에러 코드는 <a href="/docs/common/common_error" class="color_p2 underline">여기</a>를 참조하세요.</div>
+    <div class="p_desc"> 공통 에러 코드는 <a href="https://developers.naver.com/docs/utils/common_error" class="color_p2 underline">여기</a>를 참조하세요.</div>
     <table border="1" class="tbl_h">
         <caption><span class="blind">에러 코드 설명 표</span></caption>
         <colgroup>

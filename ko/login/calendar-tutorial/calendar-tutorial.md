@@ -17,7 +17,7 @@
         Application.java의 main method를 실행 하시면 서버가 시작됩니다.
     </p>
     <div class="buttons2">
-        <a class="btn_n" href="./file/calendar_openApi_sample.tar.gz"><i class="xi-download"></i> 샘플코드 다운로드</a>
+        <a class="btn_n" href="https://developers.naver.com/inc/devcenter/lib/calendar_openApi_sample.tar"><i class="xi-download"></i> 샘플코드 다운로드</a>
         <a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register?api=calendar">오픈 API 이용 신청 &gt;</a>
     </div>
     <h3 class="h_sub">1. 인증단계</h3>
@@ -25,7 +25,7 @@
         <li>네이버 Open Api 사용을 위해서는 미리 2단계의 인증을 받아야 합니다.</li>
         <li>첫 번째. 로그인한 사용자에게 OAuth를 사용해서, 특정 서비스를 사용하겠다는 동의</li>
         <li>두 번째. 동의한 사용자인경우, 오픈 API를 사용하기 위한 accessToken 획득</li>
-        <li>상세 설명은<a href="/docs/login/overview" target="_blank" title="새창" class="color_p2 underline">"네이버 아이디로 로그인 개발가이드"</a>로 대체합니다.</li>
+        <li>상세 설명은<a href="/overview/overview.md" target="_blank" title="새창" class="color_p2 underline">"네이버 아이디로 로그인 개발가이드"</a>로 대체합니다.</li>
     </ul>
     <h3 class="h_sub">2. 설명 (샘플 프로젝트 중 CalendarController.java 파일에 대한 설명입니다.)</h3>
     <h4 class="h_subsub">2.1. index.nhn &ndash; OAuth 인증이 없는 사용자가 접근할 경우, 인증 페이지로 redirect합니다.</h4>
