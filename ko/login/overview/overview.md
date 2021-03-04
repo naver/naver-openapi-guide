@@ -39,8 +39,8 @@
         네이버 아이디로 로그인을 이용할 수 있는 오픈 API는 계속해서 추가할 예정입니다. 자세한 내용은 개발자 센터의 API 사용 가이드를 참고해 주세요.
     </p>
     <ul class="list_type1">
-        <li><a class="color_p2 underline" href="/docs/cafe/api">카페 가입 글쓰기 API &gt;</a></li>
-        <li><a class="color_p2 underline" href="/docs/calendar/api">캘린더 일정 담기 API &gt;</a></li>
+        <li><a class="color_p2 underline" href="/cafe-api/cafe-api.md">카페 가입 글쓰기 API &gt;</a></li>
+        <li><a class="color_p2 underline" href="/calendar-api/calendar-api.md">캘린더 일정 담기 API &gt;</a></li>
     </ul>
     <h3 class="h_sub">2. 적용 절차</h3>
     <p class="p_desc">네이버 아이디로 로그인은 다음과 같은 절차를 거쳐 서비스에 적용할 수 있습니다.</p>
@@ -49,11 +49,11 @@
     <h4 class="h_subsub">2.2. 애플리케이션 개발</h4>
     <p class="p_desc">네이버 아이디로 로그인을 이용하기 위한 정보를 확인하고 등록한 환경에 맞는 개발가이드를 참고해 애플리케이션을 개발합니다.</p>
     <ul class="list_type1">
-        <li><a class="color_p2 underline" href="/docs/login/api">API 명세 &gt;</a><a class="color_p2 underline" href="/sdks/sdks.md">/SDK 다운로드 &gt;</a></li>
-        <li><a class="color_p2 underline" href="/docs/login/android">Android 애플리케이션 개발 가이드 &gt;</a></li>
-        <li><a class="color_p2 underline" href="/docs/login/ios">iOS 애플리케이션 개발 가이드 &gt;</a></li>
-        <li><a class="color_p2 underline" href="/docs/login/windows">Windows 애플리케이션 개발 가이드 &gt;</a></li>
-        <li><a class="color_p2 underline" href="/docs/login/web">웹 애플리케이션 개발 가이드 &gt;</a></li>
+        <li><a class="color_p2 underline" href="/api/api.md">API 명세 &gt;</a><a class="color_p2 underline" href="/sdks/sdks.md">/SDK 다운로드 &gt;</a></li>
+        <li><a class="color_p2 underline" href="/android/android.md">Android 애플리케이션 개발 가이드 &gt;</a></li>
+        <li><a class="color_p2 underline" href="/ios/ios.md">iOS 애플리케이션 개발 가이드 &gt;</a></li>
+        <li><a class="color_p2 underline" href="/windows/windows.md">Windows 애플리케이션 개발 가이드 &gt;</a></li>
+        <li><a class="color_p2 underline" href="/web/web.md">웹 애플리케이션 개발 가이드 &gt;</a></li>
     </ul>
     <h4 class="h_subsub">2.3. 서비스 적용</h4>
     <p class="p_desc">개발을 완료하면 서비스에 네이버 아이디로 로그인을 적용합니다.</p>
