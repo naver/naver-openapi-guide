@@ -19,12 +19,7 @@
     </p>
     <div class="buttons2">
         <a class="btn_n" href="./file/calendar_openApi_sample.tar.gz"><i class="xi-download"></i> 샘플코드 다운로드</a>
-		<!-- {{#env.billing}} -->
         <a class="btn_b_hi3" href="/apps/#/register?api=calendar">오픈 API 이용 신청 &gt;</a>
-		<!-- {{/env.billing}}
-		{{^env.billing}}
-        <a class="btn_b_hi3" href="/apps/#/register">오픈 API 이용 신청 &gt;</a>
-		{{/env.billing}} -->
     </div>
     <h3 class="h_sub">1. 인증단계</h3>
     <ul class="list_type1">
