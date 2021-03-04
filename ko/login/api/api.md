@@ -83,13 +83,13 @@
 &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-					</pre>
+                    </pre>
     </div>
     </div>
     <div style="display:none" id="tutorial1">
     <div class="code_area">
-				   <pre class="prettyprint">
-					   <br>
+                    <pre class="prettyprint">
+                        <br>
 네이버 로그인 접근토큰 획득 예제는 2개의 프로그램으로 구성되어 있습니다. (naverlogin.jsp, callback.jsp)
 1. naverlogin.jsp
 &lt;%@ page import="java.net.URLEncoder" %&gt;
@@ -171,13 +171,13 @@
   %&gt;
   &lt;/body&gt;
 &lt;/html&gt;
-					</pre>
+                    </pre>
     </div>
     </div>
     <div style="display:none" id="tutorial2">
     <div class="code_area">
-					<pre class="prettyprint">
-						 <br>
+                    <pre class="prettyprint">
+                        <br>
 네이버 로그인 접근토큰 획득 예제는 2개의 파일로 구성되어 있습니다. (naverlogin.php, callback.php)
 1. naverlogin.php
 &lt;?php
@@ -213,12 +213,12 @@
     echo "Error 내용:".$response;
   }
 ?&gt;
-				   </pre>
+                    </pre>
     </div>
     </div>
     <div style="display:none" id="tutorial3">
     <div class="code_area">
-		<pre class="prettyprint"><br>
+        <pre class="prettyprint"><br>
 네이버 로그인 Node.js 예제는 1개의 파일로 로그인요청 및 콜백 처리를 모두합니다.
 var express = require('express');
 var app = express();
@@ -255,12 +255,12 @@ app.get('/naverlogin', function (req, res) {
  app.listen(3000, function () {
    console.log('http://127.0.0.1:3000/naverlogin app listening on port 3000!');
  });
-		</pre>
+        </pre>
     </div>
     </div>
     <div style="display:none" id="tutorial4">
     <div class="code_area">
-		<pre class="prettyprint"><br>
+        <pre class="prettyprint"><br>
 네이버 로그인 접근토큰 획득 예제는 3개의 파일로 구성되어 있습니다. (naverlogin.aspx, callback.aspx, callback.aspx.cs)
 1. naverlogin.aspx
 &lt;%@ Page Language="C#" AutoEventWireup="true" %&gt;
@@ -341,7 +341,7 @@ namespace NaverAPI_Guide
         }
     }
 }
-		</pre>
+        </pre>
     </div>
     </div>
     <h3 class="h_sub">1. 준비사항</h3>
@@ -785,64 +785,64 @@ namespace NaverAPI_Guide
     </div>
     <h5 class="h_subsub">6.1.1. 네이버 아이디로 로그인 인증 요청</h5>
     <div class="code_area">
-						<pre class="prettyprint prettyprinted">
+                        <pre class="prettyprint prettyprinted">
 https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=jyvqXeaVOVmV&redirect_uri=http%3A%2F%2Fservice.redirect.url%2Fredirect&state=hLiDdL2uhPtsftcU
-						</pre>
+                        </pre>
     </div>
     <h5 class="h_subsub">6.1.2. 접근 토큰 발급 요청</h5>
     <div class="code_area">
-						<pre class="prettyprint prettyprinted">
+                        <pre class="prettyprint prettyprinted">
 https://nid.naver.com/oauth2.0/token?grant_type=authorization_code&client_id=jyvqXeaVOVmV&client_secret=527300A0_COq1_XV33cf&code=EIc5bFrl4RibFls1&state=9kgsGTfH4j7IyAkg
-						</pre>
+                        </pre>
     </div>
     <h5 class="h_subsub">6.1.3. 접근 토큰 갱신 요청</h5>
     <div class="code_area">
-						<pre class="prettyprint prettyprinted">
+                        <pre class="prettyprint prettyprinted">
 https://nid.naver.com/oauth2.0/token?grant_type=refresh_token&client_id=jyvqXeaVOVmV&client_secret=527300A0_COq1_XV33cf&refresh_token=c8ceMEJisO4Se7uGCEYKK1p52L93bHXLn
-						</pre>
+                        </pre>
     </div>
     <h5 class="h_subsub">6.1.4. 접근 토큰 삭제 요청</h5>
     <div class="code_area">
-						<pre class="prettyprint prettyprinted">
+                        <pre class="prettyprint prettyprinted">
 https://nid.naver.com/oauth2.0/token?grant_type=delete&client_id=jyvqXeaVOVmV&client_secret=527300A0_COq1_XV33cf&access_token=c8ceMEJisO4Se7uGCEYKK1p52L93bHXLnaoETis9YzjfnorlQwEisqemfpKHUq2gY&service_provider=NAVER
-						</pre>
+                        </pre>
     </div>
     <h4 class="h_subsub">6.2 응답 예시</h4>
     <h5 class="h_subsub">6.2.1. 네이버 아이디로 로그인 인증 요청</h5>
     <div class="code_area">
-						<pre class="prettyprint prettyprinted">
+                        <pre class="prettyprint prettyprinted">
 http://콜백URL/redirect?code={code값}&state={state값}
-						</pre>
+                        </pre>
     </div>
     <h5 class="h_subsub">6.2.2. 접근 토큰 발급 요청</h5>
     <div class="code_area">
-						<pre class="prettyprint">
+                        <pre class="prettyprint">
 {
     "access_token":"AAAAQosjWDJieBiQZc3to9YQp6HDLvrmyKC+6+iZ3gq7qrkqf50ljZC+Lgoqrg",
     "refresh_token":"c8ceMEJisO4Se7uGisHoX0f5JEii7JnipglQipkOn5Zp3tyP7dHQoP0zNKHUq2gY",
     "token_type":"bearer",
     "expires_in":"3600"
 }
-						</pre>
+                        </pre>
     </div>
     <h5 class="h_subsub">6.2.3. 접근 토큰 갱신 요청</h5>
     <div class="code_area">
-						<pre class="prettyprint">
+                        <pre class="prettyprint">
 {
     "access_token":"AAAAQjbRkysCNmMdQ7kmowPrjyRNIRYKG2iGHhbGawP0xfuYwjrE2WTI3p44SNepkFXME/NlxfamcJKPmUU4dSUhz+R2CmUqnN0lGuOcbEw6iexg",
     "token_type":"bearer",
     "expires_in":"3600"
 }
-						</pre>
+                        </pre>
     </div>
     <h5 class="h_subsub">6.2.4. 접근 토큰 삭제 요청</h5>
     <div class="code_area">
-						<pre class="prettyprint">
+                        <pre class="prettyprint">
 {
     "access_token":"c8ceMEjfnorlQwEisqemfpM1Wzw7aGp7JnipglQipkOn5Zp3tyP7dHQoP0zNKHUq2gY",
     "result":"success"
 }
-						</pre>
+                        </pre>
     </div>
     <br>
     <br>

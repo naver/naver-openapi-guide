@@ -66,7 +66,7 @@ varTarget = "_self";
     </div>
     <h4 class="h_subsub">인증이 성공한 후 redirect되는 Callbcck 페이지로부터 Access Token 얻어오기</h4>
     <div class="code_area">
-    <pre class="prettyprint">/*=============================================================================
+<pre class="prettyprint">/*=============================================================================
 IWebBrowser2 객체로부터 브라우저의 Document를 얻고, Document에서 <BADY>태그에 대한
 객체에 접근해서 CallBack 페이지에서 전달된 json 데이타를 얻어 오는 함수
 ===============================================================================*/
@@ -115,8 +115,8 @@ void CNaverOAuthDlg::OnNavigateComplete(LPDISPATCH pDisp, LPCTSTR szUrl)
 {
 	if(CallbackUrlExtractHtml(pDisp, szUrl) == TRUE)
 		EndDialog(IDOK);
-    </pre>
-    </div>
+</pre>
+</div>
     <h3 class="h_sub">DEMO Application UI</h3>
     <div class="img_area"><img alt="" src="./images/img_naverid_windows02.png"></div>
     <ul class="list_type5">

@@ -97,8 +97,8 @@ public class ApiExamMemberProfile {
         }
     }
 }
-
-				   </pre>
+<br>
+                    </pre>
     </div>
     </div>
     <div style="display:none" id="tutorial1">
@@ -127,8 +127,8 @@ public class ApiExamMemberProfile {
     echo "Error 내용:".$response;
   }
 ?&gt;
-
-				   </pre>
+<br>
+                    </pre>
     </div>
     </div>
     <div style="display:none" id="tutorial2">
@@ -162,8 +162,8 @@ app.get('/member', function (req, res) {
  app.listen(3000, function () {
    console.log('http://127.0.0.1:3000/member app listening on port 3000!');
  });
-
-	   </pre>
+<br>
+        </pre>
     </div>
     </div>
     <div style="display:none" id="tutorial3">
@@ -185,8 +185,8 @@ if(rescode==200):
     print(response_body.decode('utf-8'))
 else:
     print("Error Code:" + rescode)
-
-	   </pre>
+<br>
+        </pre>
     </div>
     </div>
     <div style="display:none" id="tutorial4">
@@ -226,7 +226,7 @@ namespace NaverAPI_Guide
         }
     }
 }
-	   </pre>
+        </pre>
     </div>
     </div>
     <h3 class="h_sub">1. 준비사항</h3>
@@ -435,18 +435,18 @@ namespace NaverAPI_Guide
     <h3 class="h_sub">7. 예시 </h3>
     <h4 class="h_subsub">요청 예시</h4>
     <div class="code_area">
-						<pre class="prettyprint">
+                        <pre class="prettyprint">
 GET v1/nid/me HTTP/1.1
 Host: openapi.naver.com
 User-Agent: curl/7.43.0
 Accept: */*
 Content-Type: application/xml
 Authorization: Bearer {네이버 아이디로 로그인 인증 후 받은 접근 토큰 값}
-						</pre>
+                        </pre>
     </div>
     <h4 class="h_subsub">응답 예시</h4>
     <div class="code_area">
-						<pre class="prettyprint">
+                        <pre class="prettyprint">
 {
   "resultcode": "00",
   "message": "success",
@@ -461,7 +461,7 @@ Authorization: Bearer {네이버 아이디로 로그인 인증 후 받은 접근
     "birthday": "10-01"
   }
 }
-						</pre>
+                        </pre>
     </div>
     <br>
     <br>

@@ -29,7 +29,7 @@
     </ul>
     <div id="tutorial0">
     <div class="code_area">
-		<pre class="prettyprint">
+        <pre class="prettyprint">
 <br>네이버 로그인 JavaScript 예제는 2개의 파일로 구성되어 있습니다. (naverlogin.html, callback.html)
 1. APIExamNaverLogin.html
 &lt;!doctype html&gt;
@@ -78,13 +78,13 @@
 &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-					</pre>
+                    </pre>
     </div>
     </div>
     <div style="display:none" id="tutorial1" >
     <div class="code_area">
-				   <pre class="prettyprint">
-					   <br>
+                    <pre class="prettyprint">
+                        <br>
 네이버 로그인 접근토큰 획득 예제는 2개의 프로그램으로 구성되어 있습니다. (naverlogin.jsp, callback.jsp)
 1. naverlogin.jsp
 <%@ page import="java.net.URLEncoder" %>
@@ -166,13 +166,13 @@
   %>
   &lt;/body&gt;
 &lt;/html&gt;
-					</pre>
+                    </pre>
     </div>
     </div>
     <div style="display:none" id="tutorial2">
     <div class="code_area">
-					<pre class="prettyprint">
-						 <br>
+                    <pre class="prettyprint">
+                        <br>
 네이버 로그인 접근토큰 획득 예제는 2개의 파일로 구성되어 있습니다. (naverlogin.php, callback.php)
 1. naverlogin.php
 &lt;?php
@@ -208,13 +208,13 @@
     echo "Error 내용:".$response;
   }
 ?&gt;
-
-				   </pre>
+<br>
+                    </pre>
     </div>
     </div>
     <div style="display:none" id="tutorial3">
     <div class="code_area">
-		<pre class="prettyprint">
+        <pre class="prettyprint">
 <br>네이버 로그인 Node.js 예제는 1개의 파일로 로그인요청 및 콜백 처리를 모두합니다.
 var express = require('express');
 var app = express();
@@ -251,13 +251,13 @@ app.get('/naverlogin', function (req, res) {
  app.listen(3000, function () {
    console.log('http://127.0.0.1:3000/naverlogin app listening on port 3000!');
  });
-
-		</pre>
+<br>
+        </pre>
     </div>
     </div>
     <div style="display:none" id="tutorial4">
     <div class="code_area">
-		<pre class="prettyprint"><br>
+        <pre class="prettyprint"><br>
 네이버 로그인 접근토큰 획득 예제는 3개의 파일로 구성되어 있습니다. (naverlogin.aspx, callback.aspx, callback.aspx.cs)
 1. naverlogin.aspx
 &lt;%@ Page Language="C#" AutoEventWireup="true" %&gt;
@@ -338,7 +338,7 @@ namespace NaverAPI_Guide
         }
     }
 }
-		</pre>
+        </pre>
     </div>
     </div>
     <h3 class="h_sub">1. PHP와 Java로 네이버 아이디로 로그인 적용하기</h3>
@@ -365,7 +365,7 @@ $state = generate_state();
 $session->set_state($state);
 return $state;
 </pre>
-    </div>
+</div>
     <p class="p_desc">Java로 구현한 상태 토큰 생성 코드 예</p>
     <div class="code_area">
 <pre class="prettyprint">// CSRF 방지를 위한 상태 토큰 생성 코드
@@ -383,7 +383,7 @@ String state = generateState();
 request.session().attribute("state", state);
 return state;
 </pre>
-    </div>
+</div>
     <h4 class="h_subsub">1.2. 네이버 아이디로 로그인 인증 요청문 생성</h4>
     <p class="p_desc">상태 토큰을 정상적으로 생성했다면 네이버 로그인 페이지를 호출하는 인증 요청문(authentication request)을 생성하도록 합니다. 인증 요청문은 URL 형식으로 되어 있으며 네이버가 제공하는 인증 URL과 클라이언트 아이디, 상태 토큰으로 이루어져 있습니다. 인증 과정은 모두 HTTPS 통신으로 이루어지며 인증 요청문 형식은 다음과 같습니다.</p>
     <p class="p_desc">1.2.1. 인증 요청문 형식</p>
@@ -442,7 +442,7 @@ if( $state != $stored_state ) {
     return RESPONSE_SUCCESS; //200 success
 }
 </pre>
-    </div>
+</div>
     <p class="p_desc">1.4.3. Java로 구현한 상태 코드 검증 예</p>
     <div class="code_area">
 <pre class="prettyprint">// CSRF 방지를 위한 상태 토큰 검증 검증
@@ -460,10 +460,9 @@ if( !state.euals( storedState ) ) {
     Return RESPONSE_SUCCESS; //200 success
 }
 </pre>
-    </div>
+</div>
     <h4 class="h_subsub">1.5. 접근 토큰 요청</h4>
     <p class="p_desc">상태 토큰에 대한 검증이 성공적으로 끝났다면 응답으로 전달받은 인증 코드를 이용해 최종 인증 값인 접근 토큰을 발급받습니다. 인증 코드는 "IpoXcXsQxoYNseP3"와 같이 랜덤으로 생성된 값입니다. 인증 코드는 접근 토큰을 발급할 때 1번만 사용하며 이미 사용한 인증 코드는 더 이상 사용할 수 없습니다. 접근 토큰 요청 과정은 모두 서버 간 HTTPS 통신으로 이루어지며 완성된 요청문은 다음과 같은 URL 형식입니다.</p>
-
     <p class="p_desc">1.5.1. 접근 토큰 발급 요청문 형식</p>
     <div class="code_area">
         <pre class="prettyprint">https://nid.naver.com/oauth2.0/token?client_id={클라이언트 아이디}&amp;client_secret={클라이언트 시크릿}&amp;grant_type=authorization_code&amp;state={상태 토큰}&amp;code={인증 코드}</pre>
