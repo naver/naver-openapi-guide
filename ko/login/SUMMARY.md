@@ -4,7 +4,7 @@
 * [검수 가이드](verify/verify.md)
 * [개발 가이드](devguide/devguide.md)
     * [네아로 개발가이드](devguide/devguide.md)
-    * [체험하기](https://static.nid.naver.com/oauth/naverOAuthExp.nhn)
+    * [체험하기](https://static.nid.naver.com/oauth/naverOAuthExp.nhn?targt=_blank)
     * [로그인 버튼 사용 가이드](bi/bi.md)
 * [API 명세](api/api.md)
     * [로그인 API 명세](api/api.md)
