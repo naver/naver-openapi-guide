@@ -17,7 +17,7 @@
         Application.java의 main method를 실행 하시면 서버가 시작됩니다.
     </p>
     <div class="buttons2">
-        <a class="btn_n" href="https://developers.naver.com/inc/devcenter/lib/calendar_openApi_sample.tar"><i class="xi-download"></i> 샘플코드 다운로드</a>
+        <a class="btn_n" href="https://developers.naver.com/inc/devcenter/lib/calendar_openApi_sample.tar.gz"><i class="xi-download"></i> 샘플코드 다운로드</a>
         <a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register?api=calendar">오픈 API 이용 신청 &gt;</a>
     </div>
     <h3 class="h_sub">1. 인증단계</h3>
