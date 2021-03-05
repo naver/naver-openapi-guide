@@ -159,10 +159,10 @@
     }
   %>
   &lt;/body&gt;
-&lt;/html&gt;
-</pre>
-    </div>
-    </div>
+&lt;/html&gt;</pre>
+</div>
+</div>
+
 <div id="tutorial2">
 <div class="code_area">
 <h5>PHP</h5>
