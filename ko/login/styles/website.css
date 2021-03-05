@@ -30,3 +30,11 @@
   font-size: 20px;
   font-weight: bold;
 }
+
+.xi-tags:before {
+  content: none;
+}
+
+.button-green-o .xi-tags:before {
+  content: "\ea37";
+}
