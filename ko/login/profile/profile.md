@@ -13,16 +13,10 @@
     </div>
     <h3 class="h_sub">API 호출 예제</h3>
     <div class="p_desc"> 예제 실행 전에 아래 <em class="color_p3">1.준비사항</em> 항목들을 꼭 체크하시길 바랍니다.</div>
-    <ul class="tab_menu menu5">
-        <li class="on"><a class="cursor">Java</a></li>
-        <li><a class="cursor">PHP</a></li>
-        <li><a class="cursor">Node.js</a></li>
-        <li><a class="cursor">Python</a></li>
-        <li><a class="cursor">C#</a></li>
-    </ul>
     <div id="tutorial0">
     <div class="code_area">
-				   <pre class="prettyprint">
+    <h5>Java</h5>
+<pre class="prettyprint">
 <br>// 네이버 API 예제 - 회원프로필 조회
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -95,12 +89,13 @@ public class ApiExamMemberProfile {
     }
 }
 <br>
-                    </pre>
+</pre>
     </div>
     </div>
-    <div style="display:none" id="tutorial1">
+    <div id="tutorial1">
     <div class="code_area">
-					<pre class="prettyprint">
+    <h5>PHP</h5>
+<pre class="prettyprint">
 <br>// 네이버 API 예제 - 회원프로필 조회
 &lt;?php
   $token = "YOUR_ACCESS_TOKEN";
@@ -128,9 +123,10 @@ public class ApiExamMemberProfile {
                     </pre>
     </div>
     </div>
-    <div style="display:none" id="tutorial2">
+    <div id="tutorial2">
     <div class="code_area">
-       <pre class="prettyprint">
+    <h5>Node.js</h5>
+<pre class="prettyprint">
 <br>// 네이버 API 예제 - 회원프로필 조회
 var express = require('express');
 var app = express();
@@ -163,9 +159,10 @@ app.get('/member', function (req, res) {
         </pre>
     </div>
     </div>
-    <div style="display:none" id="tutorial3">
+    <div id="tutorial3">
     <div class="code_area">
-       <pre class="prettyprint">
+    <h5>Python</h5>
+<pre class="prettyprint">
 <br>// 네이버 API 예제 - 회원프로필 조회
 import os
 import sys
@@ -186,9 +183,10 @@ else:
         </pre>
     </div>
     </div>
-    <div style="display:none" id="tutorial4">
+    <div id="tutorial4">
     <div class="code_area">
-       <pre class="prettyprint"><br>
+    <h5>C#</h5>
+<pre class="prettyprint"><br>
 using System;
 using System.Net;
 using System.Text;

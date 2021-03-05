@@ -24,17 +24,10 @@
     </div>
     <h3 class="h_sub">API 호출 예제</h3>
     <div class="p_desc"> 예제 실행 전에 아래 <em class="color_p3">1.준비사항</em> 항목들을 꼭 체크하시길 바랍니다.</div>
-    <!-- <ul class="tab_menu menu5">
-        <li class="on"><a class="cursor">JavaScript</a></li>
-        <li><a class="cursor">JSP</a></li>
-        <li><a class="cursor">PHP</a></li>
-        <li><a class="cursor">Node.js</a></li>
-        <li><a class="cursor">ASP.Net</a></li>
-    </ul> -->
     <div id="tutorial0">
-    <div class="code_area">
-<pre class="prettyprint"><br>
+<div class="code_area">
 <h5>JavaScript</h5>
+<pre class="prettyprint"><br>
 네이버 로그인 JavaScript 예제는 2개의 파일로 구성되어 있습니다. (naverlogin.html, callback.html)
 1. APIExamNaverLogin.html
 &lt;!doctype html&gt;
@@ -86,10 +79,10 @@
                     </pre>
     </div>
     </div>
-    <div style="display:none" id="tutorial1">
+    <div id="tutorial1">
     <div class="code_area">
-                    <pre class="prettyprint">
-                        <br>
+    <h5>JSP</h5>
+<pre class="prettyprint"><br>
 네이버 로그인 접근토큰 획득 예제는 2개의 프로그램으로 구성되어 있습니다. (naverlogin.jsp, callback.jsp)
 1. naverlogin.jsp
 &lt;%@ page import="java.net.URLEncoder" %&gt;
@@ -171,13 +164,13 @@
   %&gt;
   &lt;/body&gt;
 &lt;/html&gt;
-                    </pre>
+</pre>
+</div>
     </div>
-    </div>
-    <div style="display:none" id="tutorial2">
+    <div id="tutorial2">
     <div class="code_area">
-                    <pre class="prettyprint">
-                        <br>
+    <h5>PHP</h5>
+<pre class="prettyprint"><br>
 네이버 로그인 접근토큰 획득 예제는 2개의 파일로 구성되어 있습니다. (naverlogin.php, callback.php)
 1. naverlogin.php
 &lt;?php
@@ -216,9 +209,10 @@
                     </pre>
     </div>
     </div>
-    <div style="display:none" id="tutorial3">
+    <div id="tutorial3">
     <div class="code_area">
-        <pre class="prettyprint"><br>
+    <h5>Node.js</h5>
+<pre class="prettyprint"><br>
 네이버 로그인 Node.js 예제는 1개의 파일로 로그인요청 및 콜백 처리를 모두합니다.
 var express = require('express');
 var app = express();
@@ -255,12 +249,13 @@ app.get('/naverlogin', function (req, res) {
  app.listen(3000, function () {
    console.log('http://127.0.0.1:3000/naverlogin app listening on port 3000!');
  });
-        </pre>
+</pre>
+</div>
     </div>
-    </div>
-    <div style="display:none" id="tutorial4">
+    <div id="tutorial4">
     <div class="code_area">
-        <pre class="prettyprint"><br>
+    <h5>ASP.NET</h5>
+<pre class="prettyprint"><br>
 네이버 로그인 접근토큰 획득 예제는 3개의 파일로 구성되어 있습니다. (naverlogin.aspx, callback.aspx, callback.aspx.cs)
 1. naverlogin.aspx
 &lt;%@ Page Language="C#" AutoEventWireup="true" %&gt;
@@ -341,7 +336,7 @@ namespace NaverAPI_Guide
         }
     }
 }
-        </pre>
+</pre>
     </div>
     </div>
     <h3 class="h_sub">1. 준비사항</h3>

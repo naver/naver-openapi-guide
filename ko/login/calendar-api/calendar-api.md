@@ -16,16 +16,10 @@
     </div>
     <h3 class="h_sub">API 호출 예제</h3>
     <div class="p_desc"> 예제 실행 전에 아래 <em class="color_p3">1.준비사항</em> 항목들을 꼭 체크하시길 바랍니다.</div>
-    <ul class="tab_menu menu5">
-        <li class="on"><a class="cursor">Java</a></li>
-        <li><a class="cursor">PHP</a></li>
-        <li><a class="cursor">Node.js</a></li>
-        <li><a class="cursor">Python</a></li>
-        <li><a class="cursor">C#</a></li>
-    </ul>
     <div id="tutorial0">
     <div class="code_area">
-       <pre class="prettyprint">// 네이버 API 예제 - 캘린더 일정 추가하기
+    <h5>Java</h5>
+<pre class="prettyprint">// 네이버 API 예제 - 캘린더 일정 추가하기
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
@@ -108,9 +102,10 @@ public class APIExamCalendar {
 }</pre>
     </div>
     </div>
-    <div style="display:none" id="tutorial1">
-    <div class="code_area">
-        <pre class="prettyprint">// 네이버 캘린더 Open API 예제 - 일정추가
+    <div id="tutorial1">
+    <h5>PHP</h5>
+<div class="code_area">
+<pre class="prettyprint">// 네이버 캘린더 Open API 예제 - 일정추가
 &lt;?php
   $token = "YOUR_ACCESS_TOKEN";
   $header = "Bearer ".$token; // Bearer 다음에 공백 추가
@@ -172,9 +167,10 @@ public class APIExamCalendar {
 ?&gt;</pre>
     </div>
     </div>
-    <div  style="display:none" id="tutorial2">
-    <div class="code_area">
-       <pre class="prettyprint">// 네이버 API 예제 - 캘린더 일정 추가하기
+    <div id="tutorial2">
+    <h5>Node.js</h5>
+<div class="code_area">
+<pre class="prettyprint">// 네이버 API 예제 - 캘린더 일정 추가하기
 var express = require('express');
 var app = express();
 var token = "YOUR_ACCESS_TOKEN";
@@ -240,7 +236,9 @@ app.get('/calendar', function (req, res) {
  });</pre>
     </div>
     </div>
-    <div style="display:none" id="tutorial3">
+    <div id="tutorial3">
+    <h5>Python</h5>
+
     <div class="code_area">
        <pre class="prettyprint"># 네이버 API 예제 - 캘린더 일정 추가하기
 import os
@@ -301,8 +299,9 @@ else:
     print("Error Code:" + rescode)</pre>
     </div>
     </div>
-    <div style="display:none" id="tutorial4">
+    <div id="tutorial4">
     <div class="code_area">
+    
        <pre class="prettyprint">// 네이버 API 예제 - 캘린더 일정 추가하기
 using System;
 using System.Net;
