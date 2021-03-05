@@ -19,16 +19,10 @@
     </div>
     <h3 class="h_sub">API 호출 예제</h3>
     <div class="p_desc"> 예제 실행 전에 아래 <em class="color_p3">1.준비사항</em> 항목들을 꼭 체크하시길 바랍니다.</div>
-    <ul class="tab_menu menu5">
-        <li class="on"><a class="cursor">JavaScript</a></li>
-        <li><a class="cursor">JSP</a></li>
-        <li><a class="cursor">PHP</a></li>
-        <li><a class="cursor">Node.js</a></li>
-        <li><a class="cursor">ASP.Net</a></li>
-    </ul>
     <div id="tutorial0">
     <div class="code_area">
-        <pre class="prettyprint">
+    <h5>JavaScript</h5>
+<pre class="prettyprint">
 <br>네이버 로그인 JavaScript 예제는 2개의 파일로 구성되어 있습니다. (naverlogin.html, callback.html)
 1. APIExamNaverLogin.html
 &lt;!doctype html&gt;
@@ -53,7 +47,7 @@
   	naver_id_login.init_naver_id_login();
   &lt;/script&gt;
 &lt;/html&gt;
-
+<br>
 2. callback.html
 &lt;!doctype html&gt;
 &lt;html lang="ko"&gt;
@@ -77,13 +71,14 @@
 &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-                    </pre>
+</pre>
     </div>
     </div>
-    <div style="display:none" id="tutorial1" >
+    <div id="tutorial1" >
     <div class="code_area">
-                    <pre class="prettyprint">
-                        <br>
+    <h5>JSP</h5>
+<pre class="prettyprint">
+<br>
 네이버 로그인 접근토큰 획득 예제는 2개의 프로그램으로 구성되어 있습니다. (naverlogin.jsp, callback.jsp)
 1. naverlogin.jsp
 <%@ page import="java.net.URLEncoder" %>
@@ -109,7 +104,7 @@
   &lt;a href="&lt;%=apiURL%>">&lt;img height="50" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/>&lt;/a>
   &lt;/body>
 &lt;/html>
-
+<br>
 2. callback.jsp
 <%@ page import="java.net.URLEncoder" %>
 <%@ page import="java.net.URL" %>
@@ -165,13 +160,14 @@
   %>
   &lt;/body&gt;
 &lt;/html&gt;
-                    </pre>
+</pre>
     </div>
     </div>
-    <div style="display:none" id="tutorial2">
+    <div id="tutorial2">
     <div class="code_area">
-                    <pre class="prettyprint">
-                        <br>
+    <h5>PHP</h5>
+<pre class="prettyprint">
+<br>
 네이버 로그인 접근토큰 획득 예제는 2개의 파일로 구성되어 있습니다. (naverlogin.php, callback.php)
 1. naverlogin.php
 &lt;?php
@@ -181,7 +177,7 @@
   $state = "RAMDOM_STATE";
   $apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=".$client_id."&redirect_uri=".$redirectURI."&state=".$state;
 ?&gt;&lt;a href="&lt;?php echo $apiURL ?&gt;"&gt;&lt;img height="50" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/&gt;&lt;/a&gt;
-
+<br>
 2. callback.php
 &lt;?php
   // 네이버 로그인 콜백 예제
@@ -208,12 +204,13 @@
   }
 ?&gt;
 <br>
-                    </pre>
+</pre>
     </div>
     </div>
-    <div style="display:none" id="tutorial3">
+    <div id="tutorial3">
     <div class="code_area">
-        <pre class="prettyprint">
+<h5>Node.js</h5>
+<pre class="prettyprint">
 <br>네이버 로그인 Node.js 예제는 1개의 파일로 로그인요청 및 콜백 처리를 모두합니다.
 var express = require('express');
 var app = express();
@@ -251,12 +248,13 @@ app.get('/naverlogin', function (req, res) {
    console.log('http://127.0.0.1:3000/naverlogin app listening on port 3000!');
  });
 <br>
-        </pre>
+</pre>
     </div>
     </div>
-    <div style="display:none" id="tutorial4">
+    <div id="tutorial4">
     <div class="code_area">
-        <pre class="prettyprint"><br>
+    <h5>ASP.Net</h5>
+<pre class="prettyprint"><br>
 네이버 로그인 접근토큰 획득 예제는 3개의 파일로 구성되어 있습니다. (naverlogin.aspx, callback.aspx, callback.aspx.cs)
 1. naverlogin.aspx
 &lt;%@ Page Language="C#" AutoEventWireup="true" %&gt;
@@ -281,7 +279,7 @@ app.get('/naverlogin', function (req, res) {
     &lt;a href="&lt;% Response.Write(getNaverLoginURL()); %&gt;"&gt;&lt;img height="50" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/&gt;&lt;/a&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-
+<br>
 2. callback.aspx
 &lt;%@ Page Language="C#" Async="true" AutoEventWireup="true" CodeBehind="callback.aspx.cs" Inherits="NaverAPI_Guide.callback" %&gt;
 &lt;!DOCTYPE html&gt;
@@ -298,12 +296,12 @@ app.get('/naverlogin', function (req, res) {
     &lt;/form&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-
+<br>
 3. callback.aspx.cs
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-
+<br>
 namespace NaverAPI_Guide
 {
     public partial class callback : System.Web.UI.Page
@@ -337,7 +335,7 @@ namespace NaverAPI_Guide
         }
     }
 }
-        </pre>
+</pre>
     </div>
     </div>
     <h3 class="h_sub">1. PHP와 Java로 네이버 아이디로 로그인 적용하기</h3>
@@ -351,13 +349,13 @@ namespace NaverAPI_Guide
     <div class="code_area">
 <pre class="prettyprint">// CSRF 방지를 위한 상태 토큰 생성 코드
 // 상태 토큰은 추후 검증을 위해 세션에 저장되어야 한다.
-
+<br>
 function generate_state() {
     $mt = microtime();
     $rand = mt_rand();
     return md5($mt . $rand);
 }
-
+<br>
 // 상태 토큰으로 사용할 랜덤 문자열을 생성
 $state = generate_state();
 // 세션 또는 별도의 저장 공간에 상태 토큰을 저장
@@ -369,13 +367,13 @@ return $state;
     <div class="code_area">
 <pre class="prettyprint">// CSRF 방지를 위한 상태 토큰 생성 코드
 // 상태 토큰은 추후 검증을 위해 세션에 저장되어야 한다.
-
+<br>
 public String generateState()
 {
     SecureRandom random = new SecureRandom();
     return new BigInteger(130, random).toString(32);
 }
-
+<br>
 // 상태 토큰으로 사용할 랜덤 문자열 생성
 String state = generateState();
 // 세션 또는 별도의 저장 공간에 상태 토큰을 저장
@@ -429,12 +427,12 @@ return state;
     <div class="code_area">
 <pre class="prettyprint">// CSRF 방지를 위한 상태 토큰 검증
 // 세션 또는 별도의 저장 공간에 저장된 상태 토큰과 콜백으로 전달받은 state 파라미터의 값이 일치해야 함
-
+<br>
 // 콜백 응답에서 state 파라미터의 값을 가져옴
 $state = $request-&gt;get_parameter(“state”);
 // 세션 또는 별도의 저장 공간에서 상태 토큰을 가져옴
 $stored_state = $session-&gt;get_state();
-
+<br>
 if( $state != $stored_state ) {
     return RESPONSE_UNAUTHORIZED; //401 unauthorized
 } else {
@@ -446,13 +444,13 @@ if( $state != $stored_state ) {
     <div class="code_area">
 <pre class="prettyprint">// CSRF 방지를 위한 상태 토큰 검증 검증
 // 세션 또는 별도의 저장 공간에 저장된 상태 토큰과 콜백으로 전달받은 state 파라미터의 값이 일치해야 함
-
+<br>
 // 콜백 응답에서 state 파라미터의 값을 가져옴
 String state = request.queryParams(“state”);
-
+<br>
 // 세션 또는 별도의 저장 공간에서 상태 토큰을 가져옴
 String storedState = request.session().attribute(“state”);
-
+<br>
 if( !state.euals( storedState ) ) {
     return RESPONSE_UNAUTHORIZED; //401 unauthorized
 } else {
@@ -603,7 +601,7 @@ Authorization: Bearer AAAAOLtP40eH6P5S4Z4FpFl77n3FD5I+W3ost3oDZq/nbcS+7MAYXwX<br
 &lt;!-- 네이버아이디로로그인 버튼 노출 영역 --&gt;
 &lt;div id="naver_id_login"&gt;&lt;/div&gt;
 &lt;!-- //네이버아이디로로그인 버튼 노출 영역 --&gt;
-
+<br>
 &lt;!-- 네이버아디디로로그인 초기화 Script --&gt;
 &lt;script type="text/javascript"&gt;
 	var naver_id_login = new naver_id_login("등록한 ClientID 값", "등록한 Callback URL 값");
@@ -639,7 +637,7 @@ naver_id_login.init_naver_id_login();
     <p class="p_desc">JavaScript용 라이브러리는 네이버 아이디로 로그인 버튼을 자동으로 생성해주는 스크립트 기능이 포함되어있습니다. 사용 가능한 로그인 버튼은 크기별 3가지 색상별 2가지씩 총 6가지가 제공되며 각각 스크립트 내에 아래와 같은 설정으로 세팅이 가능합니다.</p>
     <div class="code_area">
 <pre class="prettyprint">&lt;div id="naver_id_login"&gt;&lt;/div&gt;  &lt;!-- 버튼이 들어갈 위치 선언--&gt;
-
+<br>
 &lt;script type="text/javascript"&gt;
 	var naver_id_login = new naver_id_login("등록한 ClientID 값", "등록한 Callback URL 값");
 	naver_id_login.setButton("white", 1,40); //네이버 아이디로 로그인 버튼 설정
@@ -697,7 +695,7 @@ naver_id_login.init_naver_id_login();
 &lt;!-- 네이버아이디로로그인 버튼 노출 영역 --&gt;
 &lt;div id="naver_id_login"&gt;&lt;/div&gt;
 &lt;!-- //네이버아이디로로그인 버튼 노출 영역 --&gt;
-
+<br>
 &lt;!-- 네이버아디디로로그인 초기화 Script --&gt;
 &lt;script type="text/javascript"&gt;
 	var naver_id_login = new naver_id_login("등록한 ClientID 값", "등록한 Callback URL 값");
@@ -709,7 +707,7 @@ naver_id_login.init_naver_id_login();
 	naver_id_login.init_naver_id_login();
 &lt;/script&gt;
 &lt;!-- //네이버아디디로로그인 초기화 Script --&gt;
-
+<br>
 &lt;!-- 네이버아디디로로그인 Callback페이지 처리 Script --&gt;
 &lt;script type="text/javascript"&gt;
 	// 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
@@ -720,7 +718,7 @@ naver_id_login.init_naver_id_login();
 		alert(naver_id_login.getProfileData('nickname'));
 		alert(naver_id_login.getProfileData('age'));
 	}
-
+<br>
 	// 네이버 사용자 프로필 조회
 	naver_id_login.get_naver_userprofile("naverSignInCallback()");
 &lt;/script&gt;
@@ -768,7 +766,7 @@ naver_id_login.init_naver_id_login();
 		alert(naver_id_login.getProfileData('nickname'));
 		alert(naver_id_login.getProfileData('age'));
 	}
-
+<br>
 	// 네이버 사용자 프로필 조회
 	naver_id_login.get_naver_userprofile("naverSignInCallback()");
 &lt;/script&gt;

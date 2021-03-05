@@ -120,19 +120,19 @@
     <p class="p_desc">다음과 같이 NaverThirdPartyLoginConnection 객체를 앱 델리게이트에 설정해 NaverThirdPartyConstantsForApp.h 파일의 상숫값을 애플리케이션에서 사용할 수 있게 합니다.</p>
     <div class="code_area">
 <pre class="prettyprint">#import &lt;NaverThirdPartyLogin/NaverThirdPartyLogin.h&gt;
-
+<br>
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     ... 생략 ...
-
+<br>
     NaverThirdPartyLoginConnection *thirdConn = [NaverThirdPartyLoginConnection getSharedInstance];
     [thirdConn setServiceUrlScheme:kServiceAppUrlScheme];
     [thirdConn setConsumerKey:kConsumerKey];
     [thirdConn setConsumerSecret:kConsumerSecret];
     [thirdConn setAppName:kServiceAppName];
-
+<br>
     ... 생략 ...
-
+<br>
     return YES;
 }
 </pre>
@@ -598,7 +598,7 @@ NSString *authValue = [NSString stringWithFormat:@"Bearer %@", _thirdPartyLoginC
 {
     NSLog(@"Getting auth code from NaverApp faile!");
 }
-
+<br>
 - (void)oauth20Connection:(NaverThirdPartyLoginConnection *)oauthConnection didFinishAuthorizationWithResult:(THIRDPARTYLOGIN_RECEIVE_TYPE)recieveType
 {
     NSLog(@"Getting auth code from NaverApp success!");

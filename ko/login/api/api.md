@@ -180,7 +180,7 @@
   $state = "RAMDOM_STATE";
   $apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=".$client_id."&redirect_uri=".$redirectURI."&state=".$state;
 ?&gt;&lt;a href="&lt;?php echo $apiURL ?&gt;"&gt;&lt;img height="50" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/&gt;&lt;/a&gt;
-
+<br>
 2. callback.php
 &lt;?php
   // 네이버 로그인 콜백 예제

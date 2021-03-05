@@ -145,22 +145,22 @@ public class APIExamCafePostMultipart {
             // cafe 글쓰기 필수 요청변수 content 추가
             String content = URLEncoder.encode("&lt;font color='red'&gt;multi-part&lt;/font&gt;로 첨부한 글입니다. &lt;br&gt; 이미지 첨부 &lt;br&gt; &lt;img src='#0' /&gt;&lt;img src='#1' /&gt;", "UTF-8");
             mu.addFormField("content", content);
-
+<br>
             // [시작] image 첨부 로직 - 필요시 이미지수 만큼 반복
             File uploadFile1 = new File("prince1.jpg");
             mu.addFilePart("0", uploadFile1);
             File uploadFile2 = new File("prince2.jpg");
             mu.addFilePart("0", uploadFile2);
             // [종료] 이미지 첨부 로직 - 필요시 이미지수 만큼 반복
-
+<br>
             // HTTP 호출 결과 수신
             List<String> response = mu.finish();
             System.out.println("SERVER REPLIED:");
-
+<br>
             for (String line : response) {
                 System.out.println(line);
             }
-
+<br>
         } catch (Exception e) {
             System.out.println(e);
         }

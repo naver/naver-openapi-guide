@@ -51,13 +51,13 @@ Result data : {"result_code":"success","result_data":{"code":"wWUJbbs1apDexAr3",
     <pre class="prettyprint">BOOL CNaverOAuthDlg::OnInitDialog()
 {
 CDHtmlDialog::OnInitDialog();
-
+<br>
 m_strStateCode.Format(_T("%d"), GetTickCount());
 // 로그인 URL에 Client id와 임의의 난수로 state code로 로그인 URL 생성
 CString sAuthUrl;
 sAuthUrl.Format(NAVER_AUTH_URL, CONSUMER_CLIENT_ID, REDIRECT_URL, m_strStateCode);
 SetRequestUrl(sAuthUrl);
-
+<br>
 CComVariant varFlags, varHeader, varTarget, vtPost;
 varTarget = "_self";
 // ::ATL::CComPtr<IWebBrowser2> 객체의 Navigate함수를 이용해서 로그인 페이지로 이동
@@ -98,13 +98,13 @@ BOOL CNaverOAuthDlg::CallbackUrlExtractHtml(LPDISPATCH pDisp, LPCTSTR szUrl)
 			char* pbstr;
 			USES_CONVERSION;
 			pbstr = OLE2A(bstrHtml);
-
+<br>
 			rapidjson::Document rjdoc;
 			rjdoc.Parse<0>(pbstr);
 			SetResultCode((CString)rjdoc["result_code"].GetString());
 			SetCode((CString)rjdoc["result_data"]["code"].GetString());
 			SetState((CString)rjdoc["result_data"]["state"].GetString());
-
+<br>
 			return TRUE;
 		}
 		else

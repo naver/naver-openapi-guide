@@ -98,8 +98,8 @@ $client_id = '#your client id#'; // 네이버 아이디로 로그인에 애플�
 $client_secret = '#your client secret#'; // 네이버 아이디로 로그인에 애플리케이션을 등록하고 발급받은 클라이언트 시크릿
 $authorize_url = 'https://nid.naver.com/oauth2.0/authorize';
 $access_token_url = 'https://nid.naver.com/oauth2.0/token';
-
-
+<br>
+<br>
 $callback_uri = '#your_callback_uri#'; // 네이버 아이디로 로그인에 애플리케이션을 등록할 때 [Callback URL]에 입력한 주소(예: http://www.example.com/callback.php)
 $index_uri = '#your_website_uri#'; // 네이버 아이디로 로그인에 애플리케이션을 등록할 때 [서비스 URL]에 입력한 주소(예: http://www.example.com/index.php)
 $cafe_apply_api_uri = 'https://openapi.naver.com/cafe/cafeApply.json';
@@ -120,30 +120,30 @@ $write_post_api_uri = 'https://openapi.naver.com/cafe/articlePost.json';
 &lt;body&gt;
 &lt;?php
 require 'config.php';
-
+<br>
 header ( "Content-Type: text/html; charset=UTF-8" );
-
+<br>
 // CSRF 방지를 위해 상태 토큰을 생성합니다.
 function generate_state() {
     $mt = microtime ();
     $rand = mt_rand ();
-
+<br>
     return md5 ( $mt . $rand );
 }
-
+<br>
 session_start ();
-
+<br>
 if ($_SESSION ['access_token']) {
     include "list.php"; // 이미 사용자 인증이 되어 있다면 카페 가입 페이지와 카페 글쓰기 페이지로 가는 링크를 표시합니다.
 } else {
     $state = generate_state ();
-
+<br>
     // 추후 검증을 위해 상태 토큰을 세션에 저장합니다.
     $_SESSION ['state'] = $state;
-
+<br>
     $encoded_callback_uri = urlencode ( $callback_uri );
     $auth_url = sprintf ( "%s?client_id=%s&response_type=code&redirect_uri=%s&state=%s", $authorize_url, $client_id, $encoded_callback_uri, $state );
-
+<br>
     // 사용자 인증이 되어 있지 않으면 인증 페이지로 이동합니다.
     header('Location: ' . $auth_url);
 }
@@ -180,13 +180,13 @@ if ($_SESSION ['access_token']) {
 require 'config.php';
 header ( "Content-Type: text/html; charset=UTF-8" );
 session_start ();
-
+<br>
 $code = $_GET ['code'];
 $state = $_GET ['state'];
-
+<br>
 if ($state == $_SESSION ['state']) {
 	$r = new HttpRequest ( $access_token_url, HttpRequest::METH_GET );
-
+<br>
 	$r-&gt;addQueryData ( array (
 		'client_id' =&gt; $client_id,
 		'client_secret' =&gt; $client_secret,
@@ -194,16 +194,16 @@ if ($state == $_SESSION ['state']) {
 		'state' =&gt; $state,
 		'code' =&gt; $code
 	) );
-
+<br>
 	$r-&gt;addSslOptions ( array (
 		'version' =&gt; HttpRequest::SSL_VERSION_SSLv3
 	) );
-
+<br>
 	$auth_token_result = json_decode ( $r-&gt;send ()-&gt;getBody () );
-
+<br>
 	if ($auth_token_result-&gt;access_token) {
 		$_SESSION ['access_token'] = $auth_token_result-&gt;access_token;
-
+<br>
 		header ( 'Location: ' . $index_uri );
 	} else {
 		echo '인증 실패했습니다.';
@@ -228,12 +228,12 @@ if ($state == $_SESSION ['state']) {
 	&lt;title&gt;Cafe Apply API&lt;/title&gt;
 	&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
 &lt;/head&gt;
-
+<br>
 &lt;body&gt;
 &lt;form name="cafeApplyFrm" id="cafeApplyFrm" method="POST"
       action="cafeApplyComplete.php" target="_self"&gt;
 	&lt;input type="submit" value="submit" /&gt;&lt;br /&gt;
-
+<br>
 	&lt;div data-role="fieldcontain"&gt;
 		&lt;label&gt;cafeId &lt;/label&gt; &lt;input type="text" name="clubid" value="" /&gt;
 	&lt;/div&gt;
@@ -259,29 +259,29 @@ if ($state == $_SESSION ['state']) {
 	&lt;title&gt;Cafe Apply API&lt;/title&gt;
 	&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
 &lt;/head&gt;
-
+<br>
 &lt;body&gt;
 &lt;?php
 require 'config.php';
 header ( "Content-Type: text/html; charset=UTF-8" );
 session_start ();
-
+<br>
 $access_token = $_SESSION ['access_token'];
 $r = new HttpRequest ( $cafe_apply_api_uri, HttpRequest::METH_POST );
-
+<br>
 // OAuth 2.0 인증 토큰을 헤더에 삽입합니다.
 $r-&gt;setHeaders ( array (
 	'Authorization' =&gt; 'Bearer ' . $access_token
 ) );
-
+<br>
 $encodedNickname = urlencode ( $_POST ['nickname'] );
 $r-&gt;addQueryData ( array (
 	'clubid' =&gt; $_POST ['clubid'],
 	'nickname'=&gt;  $encodedNickname
 ) );
-
+<br>
 $api_result = json_decode ( $r-&gt;send ()-&gt;getBody () );
-
+<br>
 // API 호출에 성공하면 JSON 응답 결과에서 result 속성을 확인합니다.
 if (isset ( $api_result-&gt;message ) && isset ( $api_result-&gt;message-&gt;result )) {
 	echo '카페 가입이 성공하였습니다.';
@@ -327,48 +327,48 @@ if (isset ( $api_result-&gt;message ) && isset ( $api_result-&gt;message-&gt;res
 			보이는 황금시대의 불러 꽃 하는 싶이 그들에게 것이다. 석가는 꾸며 있는 장식하는 대고, 심장의 청춘의 같으며, 것이다. 동력은 때에, 발휘하기 있는가?
 			그들은 수 이상의 곳이 생생하며, 노년에게서 황금시대다. 못할 이 착목한는 지혜는 것이다. 하여도 이성은 싹이 넣는 그리하였는가?
 			보내는 우리 더운지라 공자는 때에, 이것이다. 오직 피가 보는 꽃 위하여, 과실이 스며들어 교향악이다.
-
+<br>
 			Eleifend eleifend dolor augue tincidunt bibendum faucibus. At dictumst, dui cras molestie auctor. Praesent sem nunc vel habitant sociosqu habitasse eros facilisi!
 			Dolor sem rhoncus sapien. Ultricies lacinia auctor faucibus orci tempus mattis eleifend nascetur vitae amet duis? Id urna sit urna litora platea pretium. Ultrices dictumst dui natoque lacinia magna feugiat. Ante fringilla.
-
+<br>
 			Cum imperdiet nisl fames maecenas facilisi auctor adipiscing vel iaculis nostra cras varius. Et parturient vehicula vivamus parturient sit ipsum purus tellus. Convallis integer nulla sodales eros quisque lectus nisi suspendisse tortor tellus per.
 			Porttitor platea class urna condimentum maecenas habitasse suspendisse platea. Habitant sociosqu velit suscipit commodo fusce enim congue. Sociis dis, iaculis cras. Tempor potenti netus etiam per risus proin risus vel ac volutpat litora orci.
 			Suscipit tristique senectus elit nisi magna feugiat nibh class bibendum volutpat lobortis. Non dignissim conubia aliquam risus est.
-
+<br>
 			Metus, risus pulvinar ante erat maecenas nec mauris. Conubia senectus parturient placerat imperdiet himenaeos. Curae; nulla aliquet sit pharetra sociis lorem nisi neque. Ante sagittis quam habitant erat lacinia praesent dictum.
 			Himenaeos leo egestas dictumst sociis, aenean primis malesuada. Tristique, laoreet integer senectus consectetur. Purus dis gravida est per quisque fames tortor accumsan netus orci. Nam curabitur volutpat egestas ad!
 			Fermentum magnis quisque sociosqu elementum mauris per pretium. Elit platea ac eget natoque dolor vivamus malesuada convallis phasellus venenatis platea. Dictum quis magna imperdiet ante ad class nascetur class.
-
+<br>
 			Interdum nisi, proin pellentesque egestas congue rutrum. Rutrum magna auctor venenatis sit nascetur! Tristique ultricies rutrum dolor semper sapien proin penatibus auctor sodales ac scelerisque ullamcorper. Lorem orci mi potenti,
 			litora dictumst inceptos vitae augue scelerisque odio. Tincidunt libero fermentum lacus tristique fusce fermentum penatibus. Inceptos ultricies at pharetra consequat! Suscipit taciti tempus class vehicula sapien nullam! Turpis elementum eget vel commodo.
 			Donec dignissim bibendum ipsum. Consectetur adipiscing eros est dui dis nam interdum lacus gravida mattis dictum. Porta.
-
+<br>
 			Felis sit mi aenean cum habitant pharetra ultrices nulla urna tortor scelerisque. Suspendisse bibendum laoreet sapien. Erat conubia aptent placerat et donec vivamus nunc.
 			Inceptos facilisi iaculis amet sed non suspendisse class elit turpis cras! Pharetra purus conubia posuere egestas condimentum tempor sem venenatis urna velit.
 			Non euismod metus amet. Dictum justo ultrices etiam, eu montes tempor vivamus lectus ornare! Phasellus elit.
 		&lt;/textarea&gt;
 	&lt;/div&gt;
-
+<br>
 	&lt;div data-role="fieldcontain"&gt;
 		&lt;label&gt;image &lt;/label&gt; &lt;input type="file" name="image[]" /&gt;
 	&lt;/div&gt;
-
+<br>
 	&lt;div data-role="fieldcontain"&gt;
 		&lt;label&gt;image &lt;/label&gt; &lt;input type="file" name="image[]" /&gt;
 	&lt;/div&gt;
-
+<br>
 	&lt;div data-role="fieldcontain"&gt;
 		&lt;label&gt;image &lt;/label&gt; &lt;input type="file" name="image[]" /&gt;
 	&lt;/div&gt;
-
+<br>
 	&lt;div data-role="fieldcontain"&gt;
 		&lt;label&gt;image &lt;/label&gt; &lt;input type="file" name="image[]" /&gt;
 	&lt;/div&gt;
-
+<br>
 	&lt;div data-role="fieldcontain"&gt;
 		&lt;label&gt;image &lt;/label&gt; &lt;input type="file" name="image[]" /&gt;
 	&lt;/div&gt;
-
+<br>
 	&lt;div data-role="fieldcontain"&gt;
 		&lt;label&gt;image &lt;/label&gt; &lt;input type="file" name="image[]" /&gt;
 	&lt;/div&gt;
@@ -407,43 +407,43 @@ if (isset ( $api_result-&gt;message ) && isset ( $api_result-&gt;message-&gt;res
 require 'config.php';
 header ( "Content-Type: text/html; charset=UTF-8" );
 session_start ();
-
+<br>
 $access_token = $_SESSION ['access_token'];
 $r = new HttpRequest ( $write_post_api_uri, HttpRequest::METH_POST );
 $r-&gt;setHeaders ( array (
 'Authorization' =&gt; 'Bearer ' . $access_token
 ) );
-
+<br>
 $encodedSubject = urlencode($_POST ['subject']);
 $encodedContent = urlencode($_POST['content']);
-
+<br>
 $r-&gt;addPostFields ( array (
 'clubid' =&gt; $_POST ['clubid'],
 'subject' =&gt; $encodedSubject,
 'content' =&gt; $encodedContent,
 'menuid' =&gt; $_POST ['menuid']
 ) );
-
+<br>
 if ($_FILES ['image']) {
 	$tmp_folder = '/tmp/' . time () . '/';
 	mkdir ( $tmp_folder );
-
+<br>
 	$file_count = count ( $_FILES ['image'] ['tmp_name'] );
-
+<br>
 	for($i = 0; $i &lt; $file_count; $i ++) {
 		if ($_FILES ['image'] ['tmp_name'] [$i]) {
 		move_uploaded_file ( $_FILES ['image'] ['tmp_name'] [$i], $tmp_folder . $_FILES ['image'] ['name'] [$i] );
-
+<br>
 $r-&gt;addPostFile ( 'image', $tmp_folder . $_FILES ['image'] ['name'] [$i] );
 		}
 	}
 }
-
+<br>
 $api_result = json_decode ( $r-&gt;send ()-&gt;getBody () );
-
+<br>
 if (isset ( $api_result-&gt;message ) && isset ( $api_result-&gt;message-&gt;result )) {
 	$post_url = $api_result-&gt;message-&gt;result-&gt;articleUrl;
-
+<br>
 	echo '&lt;b&gt;&lt;/b&gt;&lt;br/&gt;';
 	echo sprintf ( '&lt;a href="%s"&gt;작성된 글 보러가기&lt;/a&gt;', $post_url, $post_url );
 } else {

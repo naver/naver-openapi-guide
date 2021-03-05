@@ -35,13 +35,13 @@
 public ModelAndView index(HttpServletRequest request, HttpServletResponse response, Model model) {
 	String authorizationCode = getParam(request, KEY_AUTH_RESPONSE_TYPE);
 	String accessToken = getParam(request, KEY_ACCESS_TOKEN);
-
+<br>
 	// 회원 정보 동의얻는 화면으로 이동. 동의를 얻으면 다시 /index.nhn로 callBack
 	if (Strings.isNullOrEmpty(authorizationCode) && Strings.isNullOrEmpty(accessToken)) {
 	log.info("인증코드 미확인. 인증획득 화면으로 이동");
 	return redirectToAuthPage(response);
 	}
-
+<br>
 	// accessToken이 없다면, accessToken을 획득한다.
 	if (Strings.isNullOrEmpty(accessToken)) {
 		log.info("access_token 획득 시도");
@@ -61,10 +61,10 @@ public ModelAndView index(HttpServletRequest request, HttpServletResponse respon
 private ModelAndView redirectToAuthPage(HttpServletResponse response) {
 	String state = "stateVal" + new java.util.Random().nextInt();
 	response.addHeader(KEY_STATE, state);
-
+<br>
 	String authUrl = AUTHORIZE_URL + "?client_id=" + CLIENT_ID + "&response_type=" + KEY_AUTH_RESPONSE_TYPE + "&redirect_uri=" + URLEncoder.encode(CALLBACK_URL) + "&state=" + state;
 	log.info(authUrl);
-
+<br>
 	return new ModelAndView("redirect:" + authUrl);
 }
 </pre>
@@ -78,9 +78,9 @@ private ModelAndView redirectToAuthPage(HttpServletResponse response) {
 private String getAccessToken(String authCode, String state) {
 	String authUrl = "https://nid.naver.com/oauth2.0/token?client_id=" + CLIENT_ID + "&client_secret=" + CLIENT_SECRET + "&grant_type=authorization_code&response_type=authorization_code&state=" + state + "&code=" + authCode;
 	log.info(authUrl);
-
+<br>
 	String result = callApiByGet(authUrl);
-
+<br>
 	Map&lt;String, Object&gt; accessTokenMap;
 	try {
 		accessTokenMap = new ObjectMapper().readValue(result, HashMap.class);
@@ -88,13 +88,13 @@ private String getAccessToken(String authCode, String state) {
 		log.warn(e.getMessage(), e);
 		return null;
 	}
-
+<br>
 	String tokenType = (String) accessTokenMap.get("token_type");
 	String accessToken = (String) accessTokenMap.get("access_token");
-
+<br>
 	log.info("accessToken=" + accessToken);
 	log.info("token_type=" + tokenType);
-
+<br>
 	return accessToken;
 }
 </pre>
@@ -120,16 +120,16 @@ public ModelAndView inputSchedule(HttpServletRequest request, HttpServletRespons
 &lt;title&gt;Write API&lt;/title&gt;
 &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
 &lt;/head&gt;
-
+<br>
 &lt;body&gt;
 	&lt;!-- &lt;p th:text="'access_token : ' + $access_token "/&gt; --&gt;
-
+<br>
 	&lt;form name="postWriteFrm" id="postWriteFrm" method="POST" action="createSchedule.nhn"
           target="writeFrmGen" enctype="multipart/form-data"&gt;
-
+<br>
 	&lt;input type="hidden" name="access_token" th:value="$access_token"/&gt;
 	&lt;input type="submit" value="submit"/&gt;&lt;br/&gt;
-
+<br>
 	&lt;textarea name="scheduleIcalString" style="width: 500px; height: 700px;"&gt;
 		BEGIN:VCALENDAR
 		VERSION:2.0

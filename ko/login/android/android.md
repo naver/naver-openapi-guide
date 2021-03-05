@@ -59,7 +59,7 @@ compile 'com.android.support:support-v4:28.0.0'
 <pre class="prettyprint">dependencies {
   &lt;!-- might use implementation in Android Studio 3.0(Gradle 4.1) --&gt;
   compile files('libs/naveridlogin_android_sdk_4.2.6.aar')
-
+<br>
   compile 'com.android.support:appcompat-v7:28.0.0'
   compile 'com.android.support:support-core-utils:28.0.0'
   compile 'com.android.support:customtabs:28.0.0'
@@ -79,7 +79,7 @@ compile 'com.android.support:support-v4:28.0.0'
 <pre class="prettyprint">dependencies {
   &lt;!-- might use implementation in Android Studio 3.0(Gradle 4.1) --&gt;
   compile project(path: ':naveridlogin_android_sdk_4.2.6')
-
+<br>
   compile 'com.android.support:appcompat-v7:28.0.0'
   compile 'com.android.support:support-core-utils:28.0.0'
   compile 'com.android.support:customtabs:28.0.0'
@@ -193,7 +193,7 @@ private OAuthLoginHandler mOAuthLoginHandler = new OAuthLoginHandler() {
              }
       };
 };
-
+<br>
 mOAuthLoginModule.startOauthLoginActivity(mContext, mOAuthLoginHandler);
 </pre>
     </div>
@@ -224,7 +224,7 @@ mOAuthLoginModule.startOauthLoginActivity(mContext, mOAuthLoginHandler);
     </p>
     <div class="code_area">
 <pre class="prettyprint">boolean isSuccessDeleteToken = mOAuthLoginInstance.logoutAndDeleteToken(mContext);
-
+<br>
 if (!isSuccessDeleteToken) {
       // 서버에서 토큰 삭제에 실패했어도 클라이언트에 있는 토큰은 삭제되어 로그아웃된 상태입니다.
       // 클라이언트에 토큰 정보가 없기 때문에 추가로 처리할 수 있는 작업은 없습니다.
@@ -851,17 +851,17 @@ Toast.makeText(mContext, "errorCode:" + errorCode + ", errorDesc:" + errorDesc, 
     @Override
     protected Void doInBackground(Void... params) {
         boolean isSuccessDeleteToken = mOAuthLoginInstance.logoutAndDeleteToken(mContext);
-
+<br>
         if (!isSuccessDeleteToken) {
             // 서버에서 토큰 삭제에 실패했어도 클라이언트에 있는 토큰은 삭제되어 로그아웃된 상태입니다.
             // 클라이언트에 토큰 정보가 없기 때문에 추가로 처리할 수 있는 작업은 없습니다.
             Log.d(TAG, "errorCode:" + mOAuthLoginInstance.getLastErrorCode(mContext));
             Log.d(TAG, "errorDesc:" + mOAuthLoginInstance.getLastErrorDesc(mContext));
         }
-
+<br>
         return null;
     }
-
+<br>
     protected void onPostExecute(Void v) {
         updateView();
     }
@@ -912,7 +912,7 @@ Toast.makeText(mContext, "errorCode:" + errorCode + ", errorDesc:" + errorDesc, 
     protected String doInBackground(Void... params) {
         return OAuthLogin.getInstance().refreshAccessToken(mContext);
     }
-
+<br>
     protected void onPostExecute(String res) {
         updateView();
     }
@@ -966,14 +966,14 @@ Toast.makeText(mContext, "errorCode:" + errorCode + ", errorDesc:" + errorDesc, 
     protected void onPreExecute() {
         mApiResultText.setText((String) "");
     }
-
+<br>
     @Override
     protected String doInBackground(Void... params) {
         String url = "https://apis.naver.com/nidlogin/nid/getHashId_v2.xml";
         String at = mOAuthLoginInstance.getAccessToken(mContext);
         return mOAuthLoginInstance.requestApi(mContext, at, url);
     }
-
+<br>
     protected void onPostExecute(String content) {
         mApiResultText.setText((String) content);
     }
