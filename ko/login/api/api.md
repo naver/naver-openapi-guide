@@ -52,7 +52,7 @@
   	naver_id_login.init_naver_id_login();
   &lt;/script&gt;
 &lt;/html&gt;
-
+<br/>
 2. callback.html
 &lt;!doctype html&gt;
 &lt;html lang="ko"&gt;
@@ -76,7 +76,7 @@
 &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-                    </pre>
+</pre>
     </div>
     </div>
     <div id="tutorial1">
@@ -108,7 +108,7 @@
   &lt;a href="&lt;%=apiURL%&gt;"&gt;&lt;img height="50" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/&gt;&lt;/a&gt;
   &lt;/body&gt;
 &lt;/html&gt;
-
+<br/>
 2. callback.jsp
 &lt;%@ page import="java.net.URLEncoder" %&gt;
 &lt;%@ page import="java.net.URL" %&gt;
@@ -206,7 +206,7 @@
     echo "Error 내용:".$response;
   }
 ?&gt;
-                    </pre>
+</pre>
     </div>
     </div>
     <div id="tutorial3">
@@ -280,7 +280,7 @@ app.get('/naverlogin', function (req, res) {
     &lt;a href="&lt;% Response.Write(getNaverLoginURL()); %&gt;"&gt;&lt;img height="50" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/&gt;&lt;/a&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-
+<br/>
 2. callback.aspx
 &lt;%@ Page Language="C#" Async="true" AutoEventWireup="true" CodeBehind="callback.aspx.cs" Inherits="NaverAPI_Guide.callback" %&gt;
 &lt;!DOCTYPE html&gt;
@@ -297,12 +297,12 @@ app.get('/naverlogin', function (req, res) {
     &lt;/form&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-
+<br/>
 3. callback.aspx.cs
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-
+<br/>
 namespace NaverAPI_Guide
 {
     public partial class callback : System.Web.UI.Page

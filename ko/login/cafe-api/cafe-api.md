@@ -27,9 +27,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
-
+<br/>
 public class APIExamCafeJoin {
-
+<br/>
     public static void main(String[] args) {
         String token = "YOUR_ACCESS_TOKEN";// 네이버 로그인 접근 토큰;
         String header = "Bearer " + token; // Bearer 다음에 공백 추가
@@ -68,7 +68,7 @@ public class APIExamCafeJoin {
         }
     }
 }
-
+<br/>
 // 네이버 API 예제 - 카페 글쓰기
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -76,9 +76,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
-
+<br/>
 public class APIExamCafePost {
-
+<br/>
     public static void main(String[] args) {
         String token = "YOUR_ACCESS_TOKEN";// 네이버 로그인 접근 토큰;
         String header = "Bearer " + token; // Bearer 다음에 공백 추가
@@ -123,11 +123,11 @@ public class APIExamCafePost {
 import java.io.*;
 import java.net.URLEncoder;
 import java.util.List;
-
+<br/>
 public class APIExamCafePostMultipart {
-
+<br/>
     public static void main(String[] args) {
-
+<br/>
         String token = "AAAANjARrFheyb3+6rEc5X6AebqUAGt6+r0Hz036PFCe8PxnOz63WSp+haYsyEizr7QBHyfp789V4tGtrrPC+L/kAv8=";//애플리케이션 클라이언트 아이디값";
         String header = "Bearer " + token; // Bearer 다음에 공백 추가
         try {
@@ -166,25 +166,25 @@ public class APIExamCafePostMultipart {
         }
     }
 }
-
+<br/>
 // MultipartUtil : 아래 소스를 참조하여 일부 로직을 수정하였습니다.
 // http://www.codejava.net/java-se/networking/upload-files-by-sending-multipart-request-programmatically
-
+<br/>
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
-
+<br/>
 public class MultipartUtil {
-
+<br/>
     private String boundary;
     private String LINE_FEED = "\r\n";
     private HttpURLConnection con;
     private OutputStream outputStream;
     private PrintWriter writer;
-
+<br/>
     public MultipartUtil (String apiURL) throws IOException  {
         boundary = "---" + System.currentTimeMillis() + "---";// multipart request 구분자
         System.out.println("MultipartUtil boundary = " + boundary);
@@ -195,12 +195,12 @@ public class MultipartUtil {
         con.setDoInput(true);
         con.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + boundary);
     }
-
+<br/>
     public void readyToConnect() throws IOException {
         outputStream = con.getOutputStream();
         writer = new PrintWriter(new OutputStreamWriter(outputStream, "UTF-8"), true);
     }
-
+<br/>
     public void addFilePart(String fieldName, File uploadFile) throws IOException {
         String fileName = uploadFile.getName();
         writer.append("--" + boundary).append(LINE_FEED);
@@ -209,7 +209,7 @@ public class MultipartUtil {
         writer.append("Content-Transfer-Encoding: binary").append(LINE_FEED);
         writer.append(LINE_FEED);
         writer.flush();
-
+<br/>
         FileInputStream inputStream = new FileInputStream(uploadFile);
         byte[] buffer = new byte[4096];
         int bytesRead = -1;
@@ -218,11 +218,11 @@ public class MultipartUtil {
         }
         outputStream.flush();
         inputStream.close();
-
+<br/>
         writer.append(LINE_FEED);
         writer.flush();
     }
-
+<br/>
     public void addFormField(String name, String value) {
         writer.append("--" + boundary).append(LINE_FEED);
         writer.append("Content-Disposition: form-data; name=\"" + name + "\"").append(LINE_FEED);
@@ -231,18 +231,18 @@ public class MultipartUtil {
         writer.append(value).append(LINE_FEED);
         writer.flush();
     }
-
+<br/>
     public void addHeaderField(String name, String value) {
         con.setRequestProperty(name, value);
     }
-
+<br/>
     public List<String> finish() throws IOException {
         List<String> response = new ArrayList<String>();
-
+<br/>
         writer.append(LINE_FEED).flush();
         writer.append("--" + boundary + "--").append(LINE_FEED);
         writer.close();
-
+<br/>
         int status = con.getResponseCode();
         if (status == HttpURLConnection.HTTP_OK) {
             BufferedReader reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
@@ -294,7 +294,7 @@ public class MultipartUtil {
     echo "Error 내용:".$response;
   }
 ?&gt;
-
+<br/>
 // 네이버 카페 Open API 예제 - 글쓰기
 &lt;?php
   header("Content-Type: text/html; charset=UTF-8");
@@ -324,7 +324,7 @@ public class MultipartUtil {
     echo "Error 내용:".$response;
   }
 ?&gt;
-
+<br/>
 // 네이버 Cafe Open API 예제 - Multipart 글쓰기
 &lt;?php
   $token = "YOUR_ACCESS_TOKEN";
@@ -334,14 +334,14 @@ public class MultipartUtil {
   $url = "https://openapi.naver.com/v1/cafe/".$clubid."/menu/".$menuid."/articles";
   $subject = urlencode("cafe php 네이버 multi-part 이미지 첨부 테스트 php");
   $content = urlencode("&lt;font color='red'&gt;multi-part 로 첨부한 글입니다. php 이미지 첨부 &lt;img src='#0' /&gt;");
-
+<br/>
   $postvars_str = array("subject" =&gt; $subject, "content" =&gt; $content);
   $is_post = true;
   $ch = curl_init();
   // 업로드할 파일 정보
   $cfile1 = new CURLFile('YOUR_FILE_1','image/jpeg');
   $cfile2 = new CURLFile('YOUR_FILE_2','image/jpeg');
-
+<br/>
   // blog 포스트 필수 요청 변수 image, title, contents 지정
   $postvars = array("image[0]" =&gt; $cfile1, "image[1]" =&gt; $cfile2, "subject" =&gt; $subject, "content" =&gt; $content);
   // 요청헤더 설정
@@ -356,7 +356,7 @@ public class MultipartUtil {
   curl_setopt($ch, CURLINFO_HEADER_OUT, true);
   $response = curl_exec ($ch);
   $status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-
+<br/>
   // 헤더 내용 출력
   $headerSent = curl_getinfo($ch, CURLINFO_HEADER_OUT );
   echo $headerSent;
@@ -370,7 +370,7 @@ public class MultipartUtil {
   }
 ?&gt;
 <br>
-        </pre>
+</pre>
     </div>
     </div>
     <div id="tutorial2">
@@ -408,7 +408,7 @@ app.get('/cafe/join', function (req, res) {
  app.listen(3000, function () {
    console.log('http://127.0.0.1:3000/cafe/join app listening on port 3000!');
  });
-
+<br/>
 // 네이버 카페 Open API 예제 - 글쓰기
 var express = require('express');
 var app = express();
@@ -442,7 +442,7 @@ app.get('/cafe/post', function (req, res) {
  app.listen(3000, function () {
    console.log('http://127.0.0.1:3000/cafe/post app listening on port 3000!');
  });
-
+<br/>
 // Cafe Multipart upload 예제 - Node.js
 var express = require('express');
 var app = express();
@@ -509,7 +509,7 @@ if(rescode==200):
     print(response_body.decode('utf-8'))
 else:
     print("Error Code:" + rescode)
-
+<br/>
 # 네이버 카페 Open API 예제 - 글쓰기
 import os
 import sys
@@ -531,19 +531,19 @@ if(rescode==200):
     print(response_body.decode('utf-8'))
 else:
     print("Error Code:" + rescode)
-
+<br/>
 # cafe mulipart upload - python
 import os
 import sys
 import requests
 import urllib.request
-
+<br/>
 token = "YOUR_ACCESS_TOKEN"
 header = "Bearer " + token # Bearer 다음에 공백 추가
 clubid = "YOUR_CAFE_ID" # 카페의 고유 ID값
 menuid = "YOUR_CAFE_BBS_ID"  # (상품게시판은 입력 불가)
 url = "https://openapi.naver.com/v1/cafe/" + clubid + "/menu/" + menuid + "/articles"
-
+<br/>
 subject = urllib.parse.quote("네이버 Cafe api Test Python")
 content = urllib.parse.quote("&lt;font color='red'&gt;python multi-part&lt;/font&gt;로 첨부한 글입니다. &lt;br&gt; python 이미지 첨부 &lt;br&gt; &lt;img src='#0' /&gt;")
 data = {'subject': subject, 'content': content}
@@ -551,10 +551,10 @@ files = [
     ('image', ('YOUR_FILE_1', open('YOUR_FILE_1', 'rb'), 'image/jpeg', {'Expires': '0'})),
     ('image', ('YOUR_FILE_2', open('YOUR_FILE_2', 'rb'), 'image/jpeg', {'Expires': '0'}))
     ]
-
+<br/>
 headers = {'Authorization': header }
 response = requests.post(url, headers=headers, data=data, files=files)
-
+<br/>
 rescode = response.status_code
 if(rescode==200):
     print (response.text)
@@ -573,7 +573,7 @@ using System.Net;
 using System.Text;
 using System.IO;
 using System.Web;
-
+<br/>
 namespace NaverAPI_Guide
 {
     public class APIExamCafeJoin
@@ -621,7 +621,7 @@ using System.Net;
 using System.Text;
 using System.IO;
 using System.Web;
-
+<br/>
 namespace NaverAPI_Guide
 {
     public class APIExamCafePost
@@ -667,7 +667,7 @@ namespace NaverAPI_Guide
         }
     }
 }
-
+<br/>
 // Cafe multipart upload - C#
 using System;
 using System.Collections.Generic;
@@ -677,7 +677,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
-
+<br/>
 namespace NaverAPI_Guide
 {
     public class APIExamCafePostMultipart
@@ -686,7 +686,7 @@ namespace NaverAPI_Guide
         private static string boundary = "----" + DateTime.Now.Ticks.ToString("x") + "----";
         private static Stream DataStream = new MemoryStream();
         private static byte[] formData;
-
+<br/>
         static void Main(string[] args)
         {
             string token = "YOUR_ACCESS_TOKEN";// 네이버 로그인 접근 토큰;
@@ -712,7 +712,7 @@ namespace NaverAPI_Guide
             reader.Close();
             Console.WriteLine(text);
         }
-
+<br/>
         private static void buildParam(String name, String value)
         {
             string paramName1 = name; // cafe
@@ -722,7 +722,7 @@ namespace NaverAPI_Guide
             res += paramValue1 + CRLF;
             DataStream.Write(Encoding.UTF8.GetBytes(res), 0, Encoding.UTF8.GetByteCount(res));
         }
-
+<br/>
         private static void buildFileParam(String fileParamName, String filePathName)
         {
             FileStream fs = new FileStream(filePathName, FileMode.Open, FileAccess.Read);
@@ -736,7 +736,7 @@ namespace NaverAPI_Guide
             DataStream.Write(fileData, 0, fileData.Length);
             DataStream.Write(Encoding.UTF8.GetBytes("\r\n"), 0, 2);
         }
-
+<br/>
         private static void buildByteParam()
         {
             string footer = "--" + boundary;
@@ -748,7 +748,7 @@ namespace NaverAPI_Guide
         }
     }
 }
-       </pre>
+</pre>
 </div>
     </div>
     <h3 class="h_sub">1. 준비사항</h3>
@@ -1208,7 +1208,7 @@ namespace NaverAPI_Guide
     <h4 class="h_subsub">6.1. 카페 가입</h4>
     <h5 class="h_subsub">- 호출</h5>
     <div class="code_area">
-					<pre class="prettyprint prettyprinted">
+<pre class="prettyprint prettyprinted">
 curl "https://openapi.naver.com/v1/cafe/{CAFE_ID}/members" \
 -H "Authorization: Bearer {접근 토큰}" -v \
 -d "nickname={별명}"
@@ -1219,7 +1219,7 @@ curl "https://openapi.naver.com/v1/cafe/{CAFE_ID}/members" \
     </p>
     <h5 class="h_subsub">- 요청</h5>
     <div class="code_area">
-					<pre class="prettyprint prettyprinted">
+<pre class="prettyprint prettyprinted">
 > POST /v1/cafe/{CAFE_ID}/members HTTP/1.1
 > Host: openapi.naver.com
 > User-Agent: curl/7.49.1
@@ -1262,7 +1262,7 @@ curl "https://openapi.naver.com/v1/cafe/{CAFE_ID}/members" \
     <h4 class="h_subsub">6.2. 카페 글쓰기</h4>
     <h5 class="h_subsub">- 호출</h5>
     <div class="code_area">
-					<pre class="prettyprint prettyprinted">
+<pre class="prettyprint prettyprinted">
 curl "https://openapi.naver.com/v1/cafe/{CAFE_ID}/menu/1/articles" \
   -H "Authorization: Bearer {접근 토큰}" \
 -d "subject=cafe writing test&content=This is cafe writing API test." -v
@@ -1273,7 +1273,7 @@ curl "https://openapi.naver.com/v1/cafe/{CAFE_ID}/menu/1/articles" \
     </p>
     <h5 class="h_subsub">- 요청</h5>
     <div class="code_area">
-					<pre class="prettyprint prettyprinted">
+<pre class="prettyprint prettyprinted">
 > POST /v1/cafe/{CAFE_ID}/menu/1/articles HTTP/1.1
 > Host: openapi.naver.com
 > User-Agent: curl/7.49.1

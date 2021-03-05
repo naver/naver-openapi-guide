@@ -241,7 +241,7 @@ app.get('/calendar', function (req, res) {
     <div id="tutorial3">
     <div class="code_area">
     <h5>Python</h5>
-       <pre class="prettyprint"># 네이버 API 예제 - 캘린더 일정 추가하기
+<pre class="prettyprint"># 네이버 API 예제 - 캘린더 일정 추가하기
 import os
 import sys
 import urllib.request
@@ -285,9 +285,9 @@ scheduleIcalString += "LAST-MODIFIED:20161116T160000\n"    # 일정 수정시각
 scheduleIcalString += "DTSTAMP:20161116T160000\n"          # 일정 타임스탬프
 scheduleIcalString += "END:VEVENT\n"
 scheduleIcalString += "END:VCALENDAR"
-
+<br/>
 print(scheduleIcalString)
-
+<br/>
 data = "calendarId=defaultCalendarId&scheduleIcalString=" + scheduleIcalString
 request = urllib.request.Request(url, data=data.encode("utf-8"))
 request.add_header("Authorization", header)
@@ -302,14 +302,13 @@ else:
     </div>
     <div id="tutorial4">
     <div class="code_area">
-    
-       <pre class="prettyprint">// 네이버 API 예제 - 캘린더 일정 추가하기
+<pre class="prettyprint">// 네이버 API 예제 - 캘린더 일정 추가하기
 using System;
 using System.Net;
 using System.Text;
 using System.IO;
 using System.Web;
-
+<br/>
 namespace NaverAPI_Guide
 {
     public class APIExamCalendar
@@ -328,7 +327,7 @@ namespace NaverAPI_Guide
             string calDes = "[상세] 회의 합니다";
             string calLoc = "[장소] 그린팩토리";
             string uid = "RANDOM-UUID";
-
+<br/>
             string scheduleIcalString = "BEGIN:VCALENDAR\n" +
                   "VERSION:2.0\n" +
                   "PRODID:Naver Calendar\n" +
@@ -360,7 +359,7 @@ namespace NaverAPI_Guide
                   "DTSTAMP:20161116T160000\n" +         // 일정 타임스탬프
                   "END:VEVENT\n" +
                   "END:VCALENDAR";
-
+<br/>
             byte[] byteDataParams = Encoding.UTF8.GetBytes("calendarId=defaultCalendarId&scheduleIcalString=" + scheduleIcalString);
             request.ContentType = "application/x-www-form-urlencoded";
             request.ContentLength = byteDataParams.Length;
@@ -528,7 +527,7 @@ namespace NaverAPI_Guide
     <h3 class="h_sub">6. 예시 </h3>
     <h4 class="h_subsub">호출</h4>
     <div class="code_area">
-                    <pre class="prettyprint prettyprinted">
+<pre class="prettyprint prettyprinted">
 curl "https://openapi.naver.com/calendar/createSchedule.json" \
   -H "Authorization: Bearer {접근 토큰}" \
   -d "calendarId=defaultCalendarId&\
@@ -574,7 +573,7 @@ END:VCALENDAR" -v
     </p>
     <h4 class="h_subsub">요청</h4>
     <div class="code_area">
-                    <pre class="prettyprint prettyprinted">
+<pre class="prettyprint prettyprinted">
 > POST /calendar/createSchedule.json HTTP/1.1
 > Host: openapi.naver.com
 > User-Agent: curl/7.49.1
@@ -583,11 +582,11 @@ END:VCALENDAR" -v
 > Content-Length: 1039
 > Content-Type: application/x-www-form-urlencoded
 > Expect: 100-continue
-                    </pre>
+</pre>
     </div>
     <h4 class="h_subsub">응답</h4>
     <div class="code_area">
-                    <pre class="prettyprint prettyprinted">
+<pre class="prettyprint prettyprinted">
 < HTTP/1.1 100 Continue
 * We are completely uploaded and fine
 < HTTP/1.1 200 OK
@@ -601,7 +600,7 @@ END:VCALENDAR" -v
 <
 * Connection #0 to host openapi.naver.com left intact
 {"result":"success","returnValue":{"processType":"create","calendarId":"870711","icalUid":"AAANhUwx08hWG3"}}
-                    </pre>
+</pre>
     </div>
     <h3 class="h_sub">7. iCalendar 데이터 형식 </h3>
     <h4 class="h_subsub">7.1. 개요</h4>
@@ -610,7 +609,7 @@ END:VCALENDAR" -v
     </p>
     <h4 class="h_subsub">7.2. 샘플 코드</h4>
     <div class="code_area">
-                        <pre class="prettyprint prettyprinted">
+<pre class="prettyprint prettyprinted">
 BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:Naver Calendar

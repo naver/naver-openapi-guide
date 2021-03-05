@@ -23,22 +23,22 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
-
+<br/>
 public class ApiExamMemberProfile {
-
+<br/>
     public static void main(String[] args) {
         String token = "YOUR_ACCESS_TOKEN"; // 네이버 로그인 접근 토큰;
         String header = "Bearer " + token; // Bearer 다음에 공백 추가
-
+<br/>
         String apiURL = "https://openapi.naver.com/v1/nid/me";
-
+<br/>
         Map&lt;String, String&gt; requestHeaders = new HashMap<>();
         requestHeaders.put("Authorization", header);
         String responseBody = get(apiURL,requestHeaders);
-
+<br/>
         System.out.println(responseBody);
     }
-
+<br/>
     private static String get(String apiUrl, Map&lt;String, String&gt; requestHeaders){
         HttpURLConnection con = connect(apiUrl);
         try {
@@ -46,7 +46,7 @@ public class ApiExamMemberProfile {
             for(Map.Entry&lt;String, String&gt; header :requestHeaders.entrySet()) {
                 con.setRequestProperty(header.getKey(), header.getValue());
             }
-
+<br/>
             int responseCode = con.getResponseCode();
             if (responseCode == HttpURLConnection.HTTP_OK) { // 정상 호출
                 return readBody(con.getInputStream());
@@ -59,7 +59,7 @@ public class ApiExamMemberProfile {
             con.disconnect();
         }
     }
-
+<br/>
     private static HttpURLConnection connect(String apiUrl){
         try {
             URL url = new URL(apiUrl);
@@ -70,18 +70,18 @@ public class ApiExamMemberProfile {
             throw new RuntimeException("연결이 실패했습니다. : " + apiUrl, e);
         }
     }
-
+<br/>
     private static String readBody(InputStream body){
         InputStreamReader streamReader = new InputStreamReader(body);
-
+<br/>
         try (BufferedReader lineReader = new BufferedReader(streamReader)) {
             StringBuilder responseBody = new StringBuilder();
-
+<br/>
             String line;
             while ((line = lineReader.readLine()) != null) {
                 responseBody.append(line);
             }
-
+<br/>
             return responseBody.toString();
         } catch (IOException e) {
             throw new RuntimeException("API 응답을 읽는데 실패했습니다.", e);
@@ -120,7 +120,7 @@ public class ApiExamMemberProfile {
   }
 ?&gt;
 <br>
-                    </pre>
+</pre>
     </div>
     </div>
     <div id="tutorial2">
@@ -156,7 +156,7 @@ app.get('/member', function (req, res) {
    console.log('http://127.0.0.1:3000/member app listening on port 3000!');
  });
 <br>
-        </pre>
+</pre>
     </div>
     </div>
     <div id="tutorial3">
@@ -180,7 +180,7 @@ if(rescode==200):
 else:
     print("Error Code:" + rescode)
 <br>
-        </pre>
+</pre>
     </div>
     </div>
     <div id="tutorial4">
@@ -191,7 +191,7 @@ using System;
 using System.Net;
 using System.Text;
 using System.IO;
-
+<br/>
 namespace NaverAPI_Guide
 {
     public class APIExamMemberProfile
@@ -430,18 +430,18 @@ namespace NaverAPI_Guide
     <h3 class="h_sub">7. 예시 </h3>
     <h4 class="h_subsub">요청 예시</h4>
     <div class="code_area">
-                        <pre class="prettyprint">
+<pre class="prettyprint">
 GET v1/nid/me HTTP/1.1
 Host: openapi.naver.com
 User-Agent: curl/7.43.0
 Accept: */*
 Content-Type: application/xml
 Authorization: Bearer {네이버 아이디로 로그인 인증 후 받은 접근 토큰 값}
-                        </pre>
+</pre>
     </div>
     <h4 class="h_subsub">응답 예시</h4>
     <div class="code_area">
-                        <pre class="prettyprint">
+<pre class="prettyprint">
 {
   "resultcode": "00",
   "message": "success",
@@ -456,7 +456,7 @@ Authorization: Bearer {네이버 아이디로 로그인 인증 후 받은 접근
     "birthday": "10-01"
   }
 }
-                        </pre>
+</pre>
     </div>
     <br>
     <br>
