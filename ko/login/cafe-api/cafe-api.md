@@ -636,7 +636,7 @@ namespace NaverAPI_Guide
             subject =  HttpUtility.UrlEncode(subject, Encoding.GetEncoding("EUC-KR"));
             string content = HttpUtility.UrlEncode("api 개발자 내용");
             content = HttpUtility.UrlEncode(content, Encoding.GetEncoding("EUC-KR"));
-
+<br>
             string apiURL = "https://openapi.naver.com/v1/cafe/"+ clubid+"/menu/" + menuid + "/articles";
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(apiURL);
             request.Headers.Add("X-Naver-Client-Id", "YOUR-CLIENT-ID");
