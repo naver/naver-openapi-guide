@@ -21,8 +21,12 @@
     <ul class="list_type1">
         <li>버튼 이미지 다운로드(한글)
             <div>
-                <span><a class="btn_n" href="https://developers.naver.com/inc/devcenter/downloads/naveridro/2014_Login_with_Naver_Guidelines.ai"><i class="xi-download"></i> 버튼 다운로드(ai)</a></span>
-                <span><a class="btn_n" href="https://developers.naver.com/inc/devcenter/downloads/naveridro/2014_Login_with_NAVER_button_png.zip"><i class="xi-download"></i> 버튼 다운로드(png)</a></span>
+                <span><a class="btn_n" href="https://developers.naver.com/inc/devcenter/downloads/naveridro/2014_Login_with_Naver_Guidelines.ai">
+                    <span><i class="xi-download"></i></span> 버튼 다운로드(ai)</a>
+                </span>
+                <span><a class="btn_n" href="https://developers.naver.com/inc/devcenter/downloads/naveridro/2014_Login_with_NAVER_button_png.zip">
+                    <span><i class="xi-download"></i></span> 버튼 다운로드(png)</a>
+                </span>
             </div>
         </li>
         <li>버튼 이미지 다운로드(영문)
