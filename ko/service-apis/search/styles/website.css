@@ -6,3 +6,8 @@
 .buttons2 .btn_b_hi3:hover {
   text-decoration: none;
 }
+
+.con .code_area {
+  padding: 0;
+  border: 0;
+}
