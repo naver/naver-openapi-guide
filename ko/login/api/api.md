@@ -24,16 +24,17 @@
     </div>
     <h3 class="h_sub">API 호출 예제</h3>
     <div class="p_desc"> 예제 실행 전에 아래 <em class="color_p3">1.준비사항</em> 항목들을 꼭 체크하시길 바랍니다.</div>
-    <ul class="tab_menu menu5">
+    <!-- <ul class="tab_menu menu5">
         <li class="on"><a class="cursor">JavaScript</a></li>
         <li><a class="cursor">JSP</a></li>
         <li><a class="cursor">PHP</a></li>
         <li><a class="cursor">Node.js</a></li>
         <li><a class="cursor">ASP.Net</a></li>
-    </ul>
+    </ul> -->
     <div id="tutorial0">
     <div class="code_area">
-					<pre class="prettyprint"><br>
+<pre class="prettyprint"><br>
+<h5>JavaScript</h5>
 네이버 로그인 JavaScript 예제는 2개의 파일로 구성되어 있습니다. (naverlogin.html, callback.html)
 1. APIExamNaverLogin.html
 &lt;!doctype html&gt;
