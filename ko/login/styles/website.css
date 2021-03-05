@@ -7,6 +7,7 @@
   text-decoration: none;
 }
 
-.xi-download * .xi-download:before {
+.xi-download:before {
   content: none;
 }
+
