@@ -163,9 +163,9 @@
 </pre>
     </div>
     </div>
-    <div id="tutorial2">
-    <div class="code_area">
-    <h5>PHP</h5>
+<div id="tutorial2">
+<div class="code_area">
+<h5>PHP</h5>
 <pre class="prettyprint">
 <br>
 네이버 로그인 접근토큰 획득 예제는 2개의 파일로 구성되어 있습니다. (naverlogin.php, callback.php)
@@ -205,8 +205,8 @@
 ?&gt;
 <br>
 </pre>
-    </div>
-    </div>
+</div>
+</div>
     <div id="tutorial3">
     <div class="code_area">
 <h5>Node.js</h5>
