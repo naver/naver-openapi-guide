@@ -19,3 +19,9 @@
   color: #00c63b;
   content: "\eb7c";
 }
+
+
+.con .code_area {
+  padding: 0;
+  border: 0;
+}
