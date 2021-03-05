@@ -35,6 +35,19 @@
   content: none;
 }
 
+.xi-github:before {
+  content: none;
+}
+
 .button-green-o .xi-tags:before {
   content: "\ea37";
+}
+
+.button-green-o + .xi-tags {
+  vertical-align: -21px;
+  margin-left: 10px;
+}
+
+.button-green-o .xi-github:before {
+  content: "\ebdd";
 }
