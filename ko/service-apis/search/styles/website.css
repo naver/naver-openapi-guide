@@ -12,3 +12,8 @@
   border: 0;
   border-radius: 0;
 }
+
+.con .code_area h5 {
+  font-size: 20px;
+  font-weight: bold;
+}
