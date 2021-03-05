@@ -17,8 +17,8 @@
     <h3 class="h_sub">API 호출 예제</h3>
     <div class="p_desc"> 예제 실행 전에 아래 <em class="color_p3">1.준비사항</em> 항목들을 꼭 체크하시길 바랍니다.</div>
     <div id="tutorial0">
-    <div class="code_area">
-    <h5>Java</h5>
+<div class="code_area">
+<h5>Java</h5>
 <pre class="prettyprint">// 네이버 API 예제 - 캘린더 일정 추가하기
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -27,9 +27,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.UUID;
-
+<br/>
 public class APIExamCalendar {
-
+<br/>
     public static void main(String[] args) {
         String token = "YOUR_ACCESS_TOKEN";
         String header = "Bearer " + token; // Bearer 다음에 공백 추가
@@ -103,14 +103,14 @@ public class APIExamCalendar {
     </div>
     </div>
     <div id="tutorial1">
-    <h5>PHP</h5>
 <div class="code_area">
+<h5>PHP</h5>
 <pre class="prettyprint">// 네이버 캘린더 Open API 예제 - 일정추가
 &lt;?php
   $token = "YOUR_ACCESS_TOKEN";
   $header = "Bearer ".$token; // Bearer 다음에 공백 추가
   $url = "https://openapi.naver.com/calendar/createSchedule.json";
-
+<br/>
   $calSum =  urlencode("[제목] 캘린더API로 추가한 일정");
   $calDes =  urlencode("[상세] 회의 합니다");
   $calLoc =  urlencode("[장소] 그린팩토리");
@@ -164,13 +164,15 @@ public class APIExamCalendar {
   } else {
     echo "Error 내용:".$response;
   }
-?&gt;</pre>
+?&gt;
+</pre>
     </div>
     </div>
     <div id="tutorial2">
-    <h5>Node.js</h5>
 <div class="code_area">
-<pre class="prettyprint">// 네이버 API 예제 - 캘린더 일정 추가하기
+<h5>Node.js</h5>
+<pre class="prettyprint">
+// 네이버 API 예제 - 캘린더 일정 추가하기
 var express = require('express');
 var app = express();
 var token = "YOUR_ACCESS_TOKEN";
@@ -237,9 +239,8 @@ app.get('/calendar', function (req, res) {
     </div>
     </div>
     <div id="tutorial3">
-    <h5>Python</h5>
-
     <div class="code_area">
+    <h5>Python</h5>
        <pre class="prettyprint"># 네이버 API 예제 - 캘린더 일정 추가하기
 import os
 import sys
@@ -247,12 +248,12 @@ import urllib.request
 token = "YOUR_ACCESS_TOKEN"
 header = "Bearer " + token # Bearer 다음에 공백 추가
 url = "https://openapi.naver.com/calendar/createSchedule.json"
-
+<br/>
 calSum =  urllib.parse.quote("[제목] Py 캘린더API로 추가한 일정")
 calDes =  urllib.parse.quote("[상세] 회의 합니다")
 calLoc =  urllib.parse.quote("[장소] 그린팩토리")
 uid = token[1:15] # UUID 생성 (임시로 일단 토큰값을 잘라서 사용)
-
+<br/>
 scheduleIcalString = "BEGIN:VCALENDAR\n"
 scheduleIcalString += "VERSION:2.0\n"
 scheduleIcalString += "PRODID:Naver Calendar\n"
