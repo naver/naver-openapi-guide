@@ -11,3 +11,11 @@
   content: none;
 }
 
+.btn_n .xi-download {
+  color: #000;
+}
+
+.btn_n .xi-download:before {
+  color: #00c63b;
+  content: "\eb7c";
+}
