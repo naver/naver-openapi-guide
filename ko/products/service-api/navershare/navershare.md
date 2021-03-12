@@ -5,7 +5,6 @@
     <title>NAVER Developers - 네이버 공유하기 소개</title>
 </head>
 <body>
-
 <div class="con">
     <div>
         <h3 class="h_sub">여러분의 콘텐츠를 네이버로 쉽게 공유해보세요</h3>

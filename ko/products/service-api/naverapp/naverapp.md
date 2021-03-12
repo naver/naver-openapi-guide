@@ -5,7 +5,6 @@
     <title>NAVER Developers - 모바일 앱 연동 소개</title>
 </head>
 <body>
-
 <div class="con">
     <div class="cont_intro mobile mobile1">
         <h3 class="h_sub">네이버 앱 URL Scheme 연동</h3>
