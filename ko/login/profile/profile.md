@@ -374,6 +374,18 @@ namespace NaverAPI_Guide
             <td class="center">Y</td>
             <td class="left">사용자 프로필 사진 URL</td>
         </tr>
+        <tr>
+            <td class="left">response/birthyear</td>
+            <td class="center">String</td>
+            <td class="center">Y</td>
+            <td class="left">출생연도</td>
+        </tr>
+        <tr>
+            <td class="left">response/mobile</td>
+            <td class="center">String</td>
+            <td class="center">Y</td>
+            <td class="left">휴대전화번호</td>
+        </tr>
         </tbody>
     </table>
     <h3 class="h_sub">6. 에러 코드 </h3>
@@ -453,7 +465,9 @@ Authorization: Bearer {네이버 아이디로 로그인 인증 후 받은 접근
     "gender": "F",
     "id": "32742776",
     "name": "오픈 API",
-    "birthday": "10-01"
+    "birthday": "10-01",
+    "birthyear": "1900",
+    "mobile": "010-0000-0000"
   }
 }
 </pre>
