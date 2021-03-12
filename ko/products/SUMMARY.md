@@ -1,6 +1,6 @@
 # Table of content
 
-* [API 이용안내](Open-API-SDK.md)
+* [API 이용안내](/intro/plan/plan.md)
   * [API 소개](/intro/plan/plan.md)
   * [운영 정책](/intro/operation/operation.md)
   * [FAQ](/intro/faq/faq.md)

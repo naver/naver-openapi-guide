@@ -3,8 +3,6 @@
 <html lang="ko">
 <head>
     <title>NAVER Developers - 네이버 아이디로 로그인 소개</title>
-    <link rel="stylesheet" type="text/css" href="./css/loginguide.css">
-    <script type="text/javascript" src="./js/polyfill.js"></script>
 </head>
 <body>
 <div class="con">
@@ -164,9 +162,5 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    function onReactLoad() {
-    }
-</script>
 </body>
 </html>
