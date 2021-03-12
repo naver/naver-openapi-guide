@@ -38,7 +38,7 @@ og:
     <div class="description">
         <h3 class="h_sub">여러분의 사이트를 네이버 메인에서 바로 볼 수 있습니다</h3>
         <div class="img_area_w">
-            <div class="img_area"><img alt="" src="a88a8ecc-df30-11e7-9da5-57a146be7bd7.png" width="200" height="200"><span></span></div>
+            <div class="img_area"><img alt="" src="./images/a88a8ecc-df30-11e7-9da5-57a146be7bd7.png" width="200" height="200"><span></span></div>
         </div>
         <p class="p_desc">
             오픈메인은 사용자가 원하는 웹페이지를 네이버 메인에 추가해 보는 기능입니다. <br />

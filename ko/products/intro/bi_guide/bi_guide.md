@@ -16,11 +16,7 @@
         2. 로고 클릭시 이동하는 링크는 개발자센터 오픈 API 메인 페이지(https://developers.naver.com)로 걸어주시면 됩니다.<br>
         3. 링크는 다음과 같은 방법으로 적용해주시면 됩니다.
     </p>
-    <div class="code_area">
-        <code>
-            <pre><span class="tag">&lt;a </span><span class="atn">href</span><span class="tag">=</span><span class="atv">"http://developers.naver.com"</span> <span class="atn">target</span><span class="tag">=</span><span class="atv">"_blank"</span><span class="tag">&gt;</span><br>    <span class="tag">&lt;img </span><span class="atn">src</span><span class="tag">=</span><span class="atv">"로고 이미지 위치"</span> <span class="atn">alt</span><span class="tag">=</span><span class="atv">"NAVER 오픈 API"</span> <span class="tag">/&gt;</span><br><span class="tag">&lt;/a&gt;</span></pre>
-        </code>
-    </div>
+    <pre><span class="tag">&lt;a </span><span class="atn">href</span><span class="tag">=</span><span class="atv">"http://developers.naver.com"</span> <span class="atn">target</span><span class="tag">=</span><span class="atv">"_blank"</span><span class="tag">&gt;</span><br>    <span class="tag">&lt;img </span><span class="atn">src</span><span class="tag">=</span><span class="atv">"로고 이미지 위치"</span> <span class="atn">alt</span><span class="tag">=</span><span class="atv">"NAVER 오픈 API"</span> <span class="tag">/&gt;</span><br><span class="tag">&lt;/a&gt;</span></pre>
     <h3 class="h_sub">활용 방법</h3>
     <p class="p_desc">
         공식 표기는 아래와 같으며 기술표기 로고타입은 가로형이나 세로형이 가능합니다.

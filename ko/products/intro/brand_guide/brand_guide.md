@@ -53,14 +53,14 @@
     <br>
     <h4 class="h_subsub">- 모바일 앱</h4>
     <h4 class="h_subsub">바른 예</h4>
-    <div class="img_area"><img alt="" src="./images/cont/img_intro_naveridlogin_tm01.png"></div>
+    <div class="img_area"><img alt="" src="./images/img_intro_naveridlogin_tm01.png"></div>
     <h4 class="h_subsub">잘못된 예</h4>
-    <div class="img_area"><img alt="" src="./images/cont/img_intro_naveridlogin_tm02.png"></div>
+    <div class="img_area"><img alt="" src="./images/img_intro_naveridlogin_tm02.png"></div>
     <h4 class="h_subsub">- WEB 서비스</h4>
     <h4 class="h_subsub">바른 예</h4>
-    <div class="img_area"><img alt="" src="./images/cont/img_intro_naveridlogin_tm03.png"></div>
+    <div class="img_area"><img alt="" src="./images/img_intro_naveridlogin_tm03.png"></div>
     <h4 class="h_subsub">잘못된 예</h4>
-    <div class="img_area"><img alt="" src="./images/cont/img_intro_naveridlogin_tm04.png"></div>
+    <div class="img_area"><img alt="" src="./images/img_intro_naveridlogin_tm04.png"></div>
 </div>
 </body>
 </html>
