@@ -6,15 +6,15 @@
   color: #fff;
 }
 
-.xi-download:before {
+.con .poweredby .xi-download:before {
   content: none;
 }
 
-.con .xi-download {
+.con .poweredby .btn_n .xi-download {
   color: #000;
 }
 
-.con .xi-download:before {
+.con .poweredby .btn_n .xi-download:before {
   color: #00c63b;
   content: "\eb7c";
 }
