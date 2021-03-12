@@ -284,13 +284,9 @@
             네이버앱이 있는 경우 네이버 로그인을 더 쉽게 할 수 있기 때문에 네이버앱 설치를 권하고 있습니다만,<br/>
             네이버앱 설치 팝업이 있는 경우 특정 마켓에 등록을 못한다는 건의가 있어서 팝업 없앨 수 있는 메쏘드를 제공하고 있습니다.<br/>
             아래의 명령어 실행해주신 뒤 로그인을 하게 되면 네이버앱이 없어도 팝업이 안나오게 됩니다.<br/><br/>
-            <div class="code_area">
-                <code>
 <pre>
 `OAuthLogin.getInstance().setMarketLinkWorking(false);`
 </pre>
-                </code>
-            </div>
             </dd>
         </dl>
     </div>
@@ -317,32 +313,20 @@
                 UTF-8 인코딩 방법은 오픈 API 를 이용하는 툴이나 언어에서 제공하는 인코딩 방식을 이용하면 됩니다.<br><br>
                 예: php에서는 iconv 함수를 사용하여 UTF-8로 인코딩 할 수 있습니다.<br><br>
                 - JavaScript에서 URL 인코딩 방법:
-                <div class="code_area">
-                    <code>
 <pre>
 var encTxt = encodeURIComponent("인코딩할 한글문자열");
 </pre>
-                    </code>
-                </div>
                 <br>
                 - Java에서 URL 인코딩 방법:
-                <div class="code_area">
-                    <code>
 <pre>
 import java.net.URLEncoder;
 String encTxt = URLEncoder.encode("인코딩할 한글문자열", "UTF-8");
 </pre>
-                    </code>
-                </div>
                 <br>
                 - PHP에서 URL 인코딩 방법:
-                <div class="code_area">
-                    <code>
 <pre>
 $encText = urlencode("인코딩할 한글문자열");
 </pre>
-                    </code>
-                </div>
             </dd>
             <dt>Q 로컬 PC에서는 잘 동작하던 오픈 API가 서버에 업로드한 이후부터 동작하지 않습니다. 어떻게 된것인가요?</dt>
             <dd>
