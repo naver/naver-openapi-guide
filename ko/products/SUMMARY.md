@@ -19,7 +19,7 @@
   * [Papago 번역](/papago/nmt/nmt.md)
   * [언어 감지](/papago/detect-langs/detect-langs.md)
   * [한글인명-로마자 변환](/papago/romain/romain.md)
-* [서비스 API]((/service-api/datalab/datalab.md))
+* [서비스 API](/service-api/datalab/datalab.md)
   * [데이터랩](/service-api/datalab/datalab.md)
   * [검색](/service-api/search/search.md)
   * [단축URL](/service-api/shortenurl/shortenurl.md)
