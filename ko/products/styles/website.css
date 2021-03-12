@@ -1,3 +1,20 @@
 .con .buttons .btn_b_hi {
   color: #fff;
 }
+
+.con .buttons2 .btn_b_hi3 {
+  color: #fff;
+}
+
+.xi-download:before {
+  content: none;
+}
+
+.con .xi-download {
+  color: #000;
+}
+
+.con .xi-download:before {
+  color: #00c63b;
+  content: "\eb7c";
+}
