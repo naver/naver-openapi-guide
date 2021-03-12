@@ -4,11 +4,8 @@
 </head>
 <body>
 <div class="con">
-    <ul class="tab_menu menu2">
-        <li class="on"><a class="cursor">클로바 브랜드 가이드라인</a></li>
-        <li><a class="cursor">클로바 인사이드 브랜드 가이드라인</a></li>
-    </ul>
     <div id="tutorial1">
+        <h2>클로바 브랜드 가이드라인</h2>
         <h3 class="h_sub">로고타입(Logotype)</h3>
         <p class="p_desc">CLOVA 로고타입은 대내외적으로 브랜드 일체감을 조성하고 일관된 이미지를 전달하는 역할을 합니다.<br>CLOVA의 브랜드 정체성을 가장 정확하게 전달하는 요소이므로 가장 우선적으로 활용하도록 하며, 사용시 유의를 요합니다.</p>
         <br>
@@ -55,6 +52,7 @@
         </div>
     </div>
     <div id="tutorial2">
+        <h2>클로바 인사이드 브랜드 가이드라인</h2>
         <h3 class="h_sub">엠블렘(Emblem)</h3>
         <p class="p_desc">CLOVA Inside의 엠블렘은 특정 디바이스에 CLOVA의 기술이 탑재되었음을 직접적으로 알려주는 중요한 브랜드 요소입니다.<br>적용 매체와 환경의 특성을 파악하여 인쇄 등 표현물에 오류가 없도록 합니다.</p>
         <br>

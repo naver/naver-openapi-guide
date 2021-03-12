@@ -5,10 +5,8 @@
     <title>NAVER Developers - 네이버 한글인명-로마자 변환 API 소개</title>
 </head>
 <body>
-
 <div class="con">
     <div class="h_page_area">
-        <h2 class="h_page">한글인명 - 로마자 변환 API 소개</h2>
         <div class="side_menu"></div>
     </div>
     <p class="p_desc">한글로 된 이름을 로마자 표기로 변환해주는 API입니다. 현행 로마자 표기법을 따라 변환한 이름과 통계적으로 많이 사용되고 있는 로마자 이름도 함께 제안 받을 수 있습니다.</p>

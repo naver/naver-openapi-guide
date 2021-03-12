@@ -5,10 +5,8 @@
     <title>NAVER Developers - 캘린더 API 소개</title>
 </head>
 <body>
-
 <div class="con">
     <div class="h_page_area">
-        <h2 class="h_page">캘린더</h2>
         <div class="side_menu"></div>
     </div>
     <p class="p_desc">

@@ -8,7 +8,6 @@
 <!-- content -->
 <div class="con">
     <div class="h_page_area h_page_area_bt">
-        <h2 class="h_page">네아로 적용사례</h2>
         <div class="side_menu">
             <a class="btn_n" href="mailto://naveridlogin@naver.com">게시요청</a>
         </div>

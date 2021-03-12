@@ -5,7 +5,6 @@
 <body>
 <div class="con">
     <div class="h_page_area">
-        <h2 class="h_page">NAVER Developers 운영 정책</h2>
         <div class="side_menu"></div>
     </div>
     <h4 class="h_subsub">1. 네이버 오픈API 서비스</h4>

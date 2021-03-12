@@ -5,7 +5,6 @@
 <body>
 <div class="con">
     <div class="h_page_area">
-        <h2 class="h_page">언어감지 API 소개</h2>
         <div class="side_menu"></div>
     </div>
     <p class="p_desc">입력된 텍스트의 언어를 자동으로 감지해주는 API 입니다. 대규모의 언어 코퍼스를 기반으로 개발된 학습 기반 언어감지 모델입니다. 총 18개의 대표적인 언어에 대하여 빠르고 정확한 언어감지 기능을 지원합니다.

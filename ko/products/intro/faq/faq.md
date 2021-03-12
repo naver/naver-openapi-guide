@@ -7,13 +7,8 @@
     <div class="h_page_area">
         <h2 class="h_page">FAQ</h2>
     </div>
-    <ul class="tab_menu menu4">
-        <li class="on"><a class="cursor">일반</a></li>
-        <li><a class="cursor">네아로</a></li>
-        <li><a class="cursor">개발관련</a></li>
-        <li><a class="cursor">이용가이드</a></li>
-    </ul>
-    <div id='tutorial1' style="display:block" class="faq_w">
+    <div id='tutorial1' class="faq_w">
+        <h2>일반</h2>
         <dl>
             <dt>Q. 2016년 1월 26일 전에 기존 개발자센터에서 오픈 API 키를 발급받아 쓰는 사용자입니다. 기존 오픈 API는 언제까지 이용 가능한가요?</dt>
             <dd>기존 오픈 API키는 2016년 12월 26일까지만 사용할 수 있습니다. 그 이후에는 사용하실 수 없으며, 새로운 버전의 오픈 API로 호출방식을 변경하시면 서비스를 그대로 이용하실 수 있습니다. 새 호출 방식으로 API가 변경되는 서비스 대상은 지도, 검색, 단축 URL, 카페 API에만 해당되며, 네이버 아이디로 로그인 API는 그대로 사용하실 수 있습니다.</dd>
@@ -117,8 +112,9 @@
                 자세한 내용은 <a target="_blank" href="/docs/map/overview">지도 API 명세</a>의 "3.2. 주소 -> 좌표 변환 API (geocode API)" 부분을 확인하시기 바립니다.</dd>
         </dl>
     </div>
-    <div id='tutorial2' style="display:none" class="faq_w">
+    <div id='tutorial2' class="faq_w">
         <!--<h3 class="h_sub">네이버 아이디로 로그인 서비스 관련</h3>-->
+        <h2>네아로</h2>
         <dl>
             <dt>
             Q. 네이버아이디로로그인 서비스 이용과 관련하여 서비스 변경사항이나 공지사항은 어디서 확인 가능한가요?
@@ -299,7 +295,8 @@
             </dd>
         </dl>
     </div>
-    <div id="tutorial3" style="display:none" class="faq_w">
+    <div id="tutorial3" class="faq_w">
+    <h2>개발관련</h2>
         <dl>
             <dt>Q 네이버 지도가 잠시 나타났다가, 'ClientID와 URL을 확인하세요'라는 인증 실패 alert 메세지가 뜹니다.</dt>
             <dd>애플리케이션 등록후 발급받은 ClientID 값이 잘못되었거나 애플리케이션 등록시 설정한 서비스URL이 실제 서버 URL과 다르기 때문입니다.<br>
@@ -391,7 +388,8 @@ $encText = urlencode("인코딩할 한글문자열");
             </dd>
         </dl>
     </div>
-    <div id="tutorial3" style="display:none"  class="faq_w">
+    <div id="tutorial3" class="faq_w">
+    <h2>이용가이드</h2>
         <dl>
             <dt>Q 오픈 API에서 상업적 이용 불가란 무엇인가요?</dt>
             <dd>네이버의 오픈 API를 이용함에 있어 직접적인 수익이 발생할 수 있는 경우를 이야기합니다.<br>

@@ -7,7 +7,6 @@
 <body>
 <div class="con">
     <div class="h_page_area">
-        <h2 class="h_page">검색</h2>
         <div class="side_menu"></div>
     </div>
     <p class="p_desc">

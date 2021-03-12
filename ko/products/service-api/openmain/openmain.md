@@ -1,4 +1,3 @@
-
 ---
 title: 오픈메인 소개
 description: 오픈메인은 사용자가 원하는 웹페이지를 네이버 메인에 추가해 보는 기능입니다.
@@ -35,7 +34,6 @@ og:
 <body>
 <div class="con">
     <div class="h_page_area">
-        <h2 class="h_page">네이버 오픈메인</h2>
         <div class="side_menu"></div>
     </div>
     <div class="description">

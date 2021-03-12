@@ -8,7 +8,6 @@
 
 <div class="con">
     <div class="h_page_area">
-        <h2 class="h_page">네이버 공유하기</h2>
         <div class="side_menu"></div>
     </div>
     <div>

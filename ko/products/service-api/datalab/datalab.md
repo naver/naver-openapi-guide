@@ -26,7 +26,7 @@ description: 통합검색어 트렌드, 쇼핑인사이트
 검색어 트렌드는 요청된 기간 중 검색 횟수가 가장 높은 시점을 100으로 두고 나머지는 상대적 값으로 제공하고 있습니다. 검색 횟수의 절댓값 제공은 아직 고려하고 있지 않습니다. 상대적 값만으로도 특정 주제, 검색어의 트렌드를 파악하는 데는 충분할 것입니다.
 
 <div class="buttons buttons_center">
-<a class="btn_b_hi" href="{{{ paths.app.register }}}?defaultScope=datalab">오픈 API 이용 신청</a>
+<a class="btn_b_hi" href="/apps/#/register?defaultScope=datalab">오픈 API 이용 신청</a>
 <a class="btn_b_hi" href="/docs/serviceapi/datalab/search/search.md#통합-검색어-트렌드">개발 가이드 보기</a>
 </div>
 
@@ -59,6 +59,6 @@ description: 통합검색어 트렌드, 쇼핑인사이트
 ※ 쇼핑인사이트가 제공하는 값은 요청한 기간 중 클릭 횟수가 가장 높은 값을 100으로 두고 나머지 값을 100에 대한 상대적 값으로 표현한 값입니다.
 
 <div class="buttons buttons_center">
-<a class="btn_b_hi" href="{{{ paths.app.register }}}?defaultScope=datalab_si">오픈 API 이용 신청</a>
+<a class="btn_b_hi" href="/apps/#/register?defaultScope=datalab_si">오픈 API 이용 신청</a>
 <a class="btn_b_hi" href="/docs/serviceapi/datalab/shopping/shopping.md#쇼핑인사이트-개요">개발 가이드 보기</a>
 </div>
