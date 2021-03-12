@@ -6,9 +6,6 @@
 </head>
 <body>
 <div class="con">
-    <div class="h_page_area">
-        <div class="side_menu"></div>
-    </div>
     <p class="p_desc">
         이제 카페 API를 통해 서비스에서부터 공식카페까지 자연스럽게 연결할 수 있습니다.
         대한민국 대표 커뮤니티, 네이버 카페의 접근성을 높여 운영하시는 서비스의 커뮤니티를 더욱 알차게 만들어 보세요!

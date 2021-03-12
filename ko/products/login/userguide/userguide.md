@@ -6,9 +6,6 @@
 </head>
 <body>
 <div class="con">
-    <div class="h_page_area">
-        <div class="side_menu"></div>
-    </div>
     <h3 class="h_sub">네이버 아이디로 로그인 적용 사이트 A,B 왜 이렇게 다를까요?</h3>
     <div class="buttons2">
         <a class="btn_b_hi3" href="/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>

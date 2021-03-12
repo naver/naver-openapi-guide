@@ -6,9 +6,6 @@
 </head>
 <body>
 <div class="con">
-    <div class="h_page_area">
-        <div class="side_menu"></div>
-    </div>
     <p class="p_desc">
         여러분이 개발한 프로그램과 서비스가 네이버 오픈 API를 사용해 개발했다는 것을 링크와 로고를 통해 쉽게 표현하도록 도와드리고 있습니다.
         본 가이드를 참고하여 해당 애플리케이션 혹은 서비스에 가장 적합한 스타일의 로고를 사용하시기 바랍니다.

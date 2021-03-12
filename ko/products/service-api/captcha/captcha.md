@@ -6,9 +6,6 @@
 </head>
 <body>
 <div class="con">
-    <div class="h_page_area">
-        <div class="side_menu"></div>
-    </div>
     <p class="p_desc">네이버 서비스에서 사용하고 있는 이미지 캡차 기능을 고객의 서비스에 활용하여 사람과 컴퓨터를 판별해 어뷰징을 막을 수 있습니다. 회원 가입 또는 비밀번호 찾기에서 실제 사용자의 순수한 입력만 받고, 어뷰저를 가려내고 싶을 때 유용합니다.</p>
     <h3 class="h_sub">손쉬운 사용</h3>
     <p class="p_desc">RESTful API 형태로 CAPTCHA를 요청하고, JSON 타입으로 원하는 정보를 얻을 수 있어 고객의 서비스에 쉽고 간편하게 적용할 수 있습니다. CAPTCHA의 질문은 이미지 형태로 제공되므로 고객의 서비스 UI에 최적화하여 사용 가능합니다.</p>

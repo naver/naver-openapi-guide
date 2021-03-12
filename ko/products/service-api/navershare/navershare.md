@@ -7,9 +7,6 @@
 <body>
 
 <div class="con">
-    <div class="h_page_area">
-        <div class="side_menu"></div>
-    </div>
     <div>
         <h3 class="h_sub">여러분의 콘텐츠를 네이버로 쉽게 공유해보세요</h3>
         <p class="p_desc">여러분의 멋진 콘텐츠를 네이버 서비스에 쉽게 공유하고 싶었다면, 네이버 공유하기를 개발해보세요. <br>

@@ -6,9 +6,6 @@
 </head>
 <body>
 <div class="con">
-    <div class="h_page_area">
-        <div class="side_menu"></div>
-    </div>
     <p class="p_desc">
         캘린더 API를 통해 네이버 아이디로 로그인한 유저의 네이버 캘린더에 일정을 등록하고 일정 미리 알림을 받을 수 있습니다. 1200만 다운로드에 빛나는 1위 캘린더앱 ‘네이버 캘린더’를 통해 유저에게 주요 일정도 홍보하고 서비스 참여도도 높이세요!
     </p>

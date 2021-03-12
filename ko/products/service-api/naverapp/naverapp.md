@@ -7,9 +7,6 @@
 <body>
 
 <div class="con">
-    <div class="h_page_area">
-        <div class="side_menu"></div>
-    </div>
     <div class="cont_intro mobile mobile1">
         <h3 class="h_sub">네이버 앱 URL Scheme 연동</h3>
         <p class="p_desc">모바일 애플리케이션 및 브라우저에서 네이버 앱을 실행함으로써 음성인식, 코드인식, 일본어인식, 와인라벨인식, 한자필기인식 등 앱 내부 기능의 일부를 외부에서 사용할 수 있도록 해줍니다.</p>

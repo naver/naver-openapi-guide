@@ -6,9 +6,6 @@
 </head>
 <body>
 <div class="con">
-    <div class="h_page_area">
-        <div class="side_menu"></div>
-    </div>
     <h4 class="h_subsub">1. 네이버 오픈API 서비스</h4>
     <div class="p_desc">
         네이버 오픈API는 24시간 365일 무중단으로 운영되고 있습니다.

@@ -35,9 +35,6 @@ og:
 </head>
 <body>
 <div class="con">
-    <div class="h_page_area">
-        <div class="side_menu"></div>
-    </div>
     <div class="description">
         <h3 class="h_sub">여러분의 사이트를 네이버 메인에서 바로 볼 수 있습니다</h3>
         <div class="img_area_w">

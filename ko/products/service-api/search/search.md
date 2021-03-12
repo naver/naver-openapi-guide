@@ -6,9 +6,6 @@
 </head>
 <body>
 <div class="con">
-    <div class="h_page_area">
-        <div class="side_menu"></div>
-    </div>
     <p class="p_desc">
         웹, 뉴스, 블로그 등 분야별 네이버 검색 결과를 웹 서비스 또는 모바일 앱에서 바로 보여 줄 수 있습니다. 또한 ’OO역맛집’과 같은 지역 검색을 할 수도 있으며, 부가적으로 성인검색어 판별과 한영키 오타 변환 기능을 이용하실 수 있습니다.
     </p>

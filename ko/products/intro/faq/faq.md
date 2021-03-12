@@ -6,8 +6,6 @@
 </head>
 <body>
 <div class="con">
-    <div class="h_page_area">
-    </div>
     <div id='tutorial1' class="faq_w">
         <h2>일반</h2>
         <dl>
