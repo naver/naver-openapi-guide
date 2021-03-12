@@ -17,7 +17,7 @@
   * [적용 사례](/login/bestpractice/bestpractice.md)
 * [파파고](/papago/nmt/nmt.md)
   * [Papago 번역](/papago/nmt/nmt.md)
-  * [언어 감지](/papago/detect-langs/detect-langs.md)
+  * [언어 감지](/papago/detectLangs/detectLangs.md)
   * [한글인명-로마자 변환](/papago/roman/roman.md)
 * [서비스 API](/service-api/datalab/datalab.md)
   * [데이터랩](/service-api/datalab/datalab.md)
