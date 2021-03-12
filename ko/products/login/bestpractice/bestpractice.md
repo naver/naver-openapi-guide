@@ -13,7 +13,7 @@
         </div>
     </div>
     <div id="BestPractice0">
-        <a class="cursor">Galleria(갤러리아몰)</a>
+        <h2>Galleria(갤러리아몰)</h2>
         <br>
         <div class="buttons2">
             <a class="btn_b_hi3" href="/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
@@ -37,7 +37,7 @@
     </div>
     <!-- 2.탭내용:Webtour(웹투어)-->
     <div id="BestPractice1">
-        <a class="cursor">Webtour(웹투어)</a>
+        <h2>Webtour(웹투어)</h2>
         <br>
         <div class="buttons2">
             <a class="btn_b_hi3" href="/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
@@ -61,7 +61,7 @@
     </div>
     <!-- 3.탭내용:Yesform(예스폼)-->
     <div id="BestPractice2">
-        <a class="cursor">Yesform(예스폼)</a>
+        <h2>Yesform(예스폼)</h2>
         <br>
         <div class="buttons2">
             <a class="btn_b_hi3" href="/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
@@ -85,7 +85,7 @@
     </div>
     <!-- 4.탭내용:Hwahae(화해)-->
     <div id="BestPractice3">
-        <a class="cursor">Hwahae(화해)</a>
+        <h2>Hwahae(화해)</h2>
         <br>
         <div class="buttons2">
             <a class="btn_b_hi3" href="/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
@@ -109,7 +109,7 @@
     </div>
     <!-- 5.탭내용:Happy Campus(해피캠퍼스)-->
     <div id="BestPractice4">
-        <a class="cursor">Happy Campus(해피캠퍼스)</a>
+        <h2>Happy Campus(해피캠퍼스)</h2>
         <br>
         <div class="buttons2">
             <a class="btn_b_hi3" href="/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
@@ -133,7 +133,7 @@
     </div>
     <!-- 6.탭내용:Socar(쏘카)-->
     <div id="BestPractice5">
-        <a class="cursor">Socar(쏘카)</a>
+        <h2>Socar(쏘카)</h2>
         <br>
         <div class="buttons2">
             <a class="btn_b_hi3" href="/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
@@ -161,7 +161,7 @@
     </div>
     <!-- 1.탭내용:S쇼핑몰-->
     <div id="NPayBestPractice0">
-        <a class="cursor">S쇼핑몰</a>
+        <h2>S쇼핑몰</h2>
         <br>
         <div class="img_area"><img src="./images/bestprac_s.png" alt="thumbnail"></div>
         <p class="p_desc">
@@ -172,7 +172,7 @@
     </div>
     <!-- 2.탭내용:STV쇼핑-->
     <div id="NPayBestPractice1">
-        <a class="cursor">STV쇼핑</a>
+        <h2>STV쇼핑</h2>
         <br>
         <div class="img_area"><img src="./images/bestprac_stv.png" alt="thumbnail"></div>
         <p class="p_desc">
@@ -183,7 +183,7 @@
     </div>
     <!-- 3.탭내용:K쇼핑몰-->
     <div id="NPayBestPractice2">
-        <a class="cursor">K쇼핑몰</a>
+        <h2>K쇼핑몰</h2>
         <br>
         <div class="img_area"><img src="./images/bestprac_k.png" alt="thumbnail"></div>
         <p class="p_desc">
@@ -195,7 +195,7 @@
     </div>
     <!-- 4.탭내용:M화재사-->
     <div id="NPayBestPractice3">
-        <a class="cursor">M화재사</a>
+        <h2>M화재사</h2>
         <br>
         <div class="img_area"><img src="./images/bestprac_m.png" alt="thumbnail"></div>
         <p class="p_desc">
