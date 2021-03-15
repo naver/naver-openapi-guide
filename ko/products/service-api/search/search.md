@@ -24,7 +24,7 @@
     </div>
     <div class="buttons buttons_center">
         <a class="btn_b_hi" href="https://developers.naver.com/apps/#/register?defaultScope=search">오픈 API 이용 신청</a>
-        <a class="btn_b_hi" href="https://developers.naver.com/docs/serviceapi/datalab/shopping/shopping.md#쇼핑인사이트-개요">개발 가이드 보기</a>
+        <a class="btn_b_hi" href="https://developers.naver.com/docs/serviceapi/search/blog/blog.md#블로그">개발 가이드 보기</a>
     </div>
 </div>
 </body>
