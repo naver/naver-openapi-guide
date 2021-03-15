@@ -30,7 +30,7 @@
                 </ul>
             </dd>
             <dt>Q. 기존에 발급받은 오픈 API 키들은 어디서 확인할 수 있나요?</dt>
-            <dd><a target="_blank" href="/openapi">https://developers.naver.com/openapi</a> 에서 확인할 수 있습니다. 2016년 1월 26일부터 API 키는 더 이상 발급받으실 수 없습니다.</dd>
+            <dd><a target="_blank" href="https://developers.naver.com/openapi">https://developers.naver.com/openapi</a> 에서 확인할 수 있습니다. 2016년 1월 26일부터 API 키는 더 이상 발급받으실 수 없습니다.</dd>
             <dt>Q. 기존의 오픈 API 가이드는 어디서 볼 수 있나요?</dt>
             <dd>아래 경로에서 보실 수 있으며, 2016년 말까지만 유지합니다.<br>
                 <a target="_blank" href="https://developer.naver.com/wiki/pages/OpenAPI">https://developer.naver.com/wiki/pages/OpenAPI</a></dd>
@@ -55,13 +55,13 @@
             <dd>
                 <ul>
                     <li>1) 쿼리 제한이 있습니다. 서비스별로 발급 키(key) 당 쿼리 제한이 있으며, 이를 초과할 경우 서비스가 중지됩니다.<br><br></li>
-                    <li>2) NAVER의 상표를 사용할 경우, <a href="/brand_guide/brand_guide.md">상표사용 가이드</a>를 지켜야 합니다.<br>
+                    <li>2) NAVER의 상표를 사용할 경우, <a href="/intro/brand_guide/brand_guide.md">상표사용 가이드</a>를 지켜야 합니다.<br>
                         상표 사용 가이드 내 기본 가이드 및 오픈 API 특례를 모두 준수하면 사전 허락을 받지 않아도 NAVER의 상표를 사용할 수 있습니다.<br>
-                        NAVER <a href="/brand_guide/brand_guide.md">상표사용 가이드</a>에 대한 문의사항이 있거나 실제 상표 사용 가능 여부에 대한 명확한 승인이 필요한 경우,<br>
+                        NAVER <a href="/intro/brand_guide/brand_guide.md">상표사용 가이드</a>에 대한 문의사항이 있거나 실제 상표 사용 가능 여부에 대한 명확한 승인이 필요한 경우,<br>
                         <a href="http://www.naver.com/rules/nhnBrandRequest.doc">상표 사용 허락 요청서</a>에 구체적인 사항을 기재하여 NAVER에 제출해주시기 바랍니다.<br><br></li>
                     <li>3) 네이버 오픈 API를 사용하고 있음을 나타내 주셔야 합니다.<br>
                         애플리케이션이 네이버 오픈 API에 의거해 개발한 프로그램이나 서비스라는 것을 링크나, 네이버 로고를 통해 나타내 주셔야 합니다.<br>
-                        로고 사용은 <a href="/bi_guide/bi_guide.md">BI 가이드</a>을 참조하세요.</li>
+                        로고 사용은 <a href="/intro/bi_guide/bi_guide.md">BI 가이드</a>을 참조하세요.</li>
                 </ul>
             </dd>
             <dt>Q API가 작동하지 않아요!</dt>
@@ -379,7 +379,7 @@ $encText = urlencode("인코딩할 한글문자열");
                 오픈 API를 사용한 컨텐츠가 적용되는 곳에 배너광고, 스폰서 링크 등이 적용되는 경우 및 유료 회원만 접근이 가능한 경우가 이에 해당됩니다.
             </dd>
             <dt>Q NAVER 상표 사용 가이드를 준수해야 하나요?</dt>
-            <dd><a href="/brand_guide/brand_guide.md">상표 사용 가이드</a> 내 기본 가이드 및 오픈 API 특례를 모두 준수하면 사전 허락을 받지 않아도 NAVER의 상표를 사용할 수 있습니다.<br>
+            <dd><a href="/intro/brand_guide/brand_guide.md">상표 사용 가이드</a> 내 기본 가이드 및 오픈 API 특례를 모두 준수하면 사전 허락을 받지 않아도 NAVER의 상표를 사용할 수 있습니다.<br>
                 NAVER 상표 사용 가이드에 대한 문의사항이 있거나 상표 사용 가능 여부에 대한 명확한 승인을 받고 싶은 경우,<br>
                 <a href="http://www.naver.com/rules/nhnBrandRequest.doc">상표사용허락 요청서</a>에 구체적인 사항을 기재하여 NAVER에 제출하여 주시기 바랍니다.
             </dd>
