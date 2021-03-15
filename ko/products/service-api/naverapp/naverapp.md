@@ -19,7 +19,7 @@
         <p class="p_desc">모바일 애플리케이션 및 브라우저에서 블로그앱을 실행하여 글쓰기 등 앱 내부기능의 일부를 외부에서 사용할 수 있도록 해줍니다.</p>
     </div>
     <div class="buttons buttons_center">
-        <a class="btn_b_hi" href="/docs/utils/mobileapp">개발 가이드 보기</a>
+        <a class="btn_b_hi" href="https://developers.naver.com/docs/utils/mobileapp/">개발 가이드 보기</a>
     </div>
 </div>
 </body>

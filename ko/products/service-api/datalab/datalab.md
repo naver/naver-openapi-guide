@@ -28,7 +28,7 @@ description: 통합검색어 트렌드, 쇼핑인사이트
 <div class="con">
 <div class="buttons buttons_center">
 <a class="btn_b_hi" href="/apps/#/register?defaultScope=datalab">오픈 API 이용 신청</a>
-<a class="btn_b_hi" href="/docs/serviceapi/datalab/search/search.md#통합-검색어-트렌드">개발 가이드 보기</a>
+<a class="btn_b_hi" href="../docs/serviceapi/datalab/search/search.md#통합-검색어-트렌드">개발 가이드 보기</a>
 </div>
 
 ## 쇼핑인사이트
@@ -62,6 +62,6 @@ description: 통합검색어 트렌드, 쇼핑인사이트
 <div class="con">
 <div class="buttons buttons_center">
 <a class="btn_b_hi" href="/apps/#/register?defaultScope=datalab_si">오픈 API 이용 신청</a>
-<a class="btn_b_hi" href="/docs/serviceapi/datalab/shopping/shopping.md#쇼핑인사이트-개요">개발 가이드 보기</a>
+<a class="btn_b_hi" href="../docs/serviceapi/datalab/shopping/shopping.md#쇼핑인사이트-개요">개발 가이드 보기</a>
 </div>
 </div>

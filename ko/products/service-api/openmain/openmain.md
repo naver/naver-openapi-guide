@@ -55,7 +55,7 @@ og:
         </p>
     </div>
     <div class="buttons buttons_center">
-        <a class="btn_b_hi" href="/docs/openmain">개발 가이드 보기</a>
+        <a class="btn_b_hi" href="https://developers.naver.com/docs/openmain/">개발 가이드 보기</a>
     </div>
 </div>
 </body>

@@ -23,7 +23,7 @@
     </div>
     <div class="buttons buttons_center">
         <a class="btn_b_hi" href="/apps/#/register?defaultScope=shorturl">오픈 API 이용 신청</a>
-        <a class="btn_b_hi" href="/docs/utils/shortenurl">개발 가이드 보기</a>
+        <a class="btn_b_hi" href="https://developers.naver.com/docs/utils/shortenurl/">개발 가이드 보기</a>
     </div>
 </div>
 </body>

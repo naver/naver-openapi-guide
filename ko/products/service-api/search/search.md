@@ -14,7 +14,7 @@
         <p class="p_desc">웹 서비스 또는 모바일 앱에 네이버 웹문서/블로그/뉴스/책/영화/카페글/지식iN/쇼핑/이미지/백과사전/전문자료 분야에 대한 검색 결과를 보여 줄 수 있습니다.</p>
     </div>
     <div class="cont_intro search search2">
-        <h3 class="h_sub">지역 검색</h3>
+    <h3 class="h_sub">지역 검색</h3>
         <p class="p_desc">‘OO역 맛집’, ‘OO동 술집’과 같은 검색 결과를 보여주고 싶을 때 사용하며,  네이버 지역 서비스에 등록된 각 지역별 업체 및 상호 검색결과를 보여줍니다.</p>
     </div>
     <div class="cont_intro search search3">
@@ -24,7 +24,7 @@
     </div>
     <div class="buttons buttons_center">
         <a class="btn_b_hi" href="/apps/#/register?defaultScope=search">오픈 API 이용 신청</a>
-        <a class="btn_b_hi" href="/docs/serviceapi/search/blog/blog.md#블로그">개발 가이드 보기</a>
+        <a class="btn_b_hi" href="../docs/serviceapi/search/blog/blog.md#블로그">개발 가이드 보기</a>
     </div>
 </div>
 </body>
