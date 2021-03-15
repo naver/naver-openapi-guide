@@ -208,7 +208,7 @@
             애플리케이션 등록과 개발과정이 완료되면, 사전 검수 요청을 등록해야 합니다.<br/>
             최초 등록시에는 “개발중”상태로 등록되며 사전 검수에서 승인이 완료되면 “서비스적용”으로 상태값은 자동 변경됩니다.<br/>
             사전 검수 등록 가이드를 참고하세요.<br/>
-            (링크 : <a href='https://developers.naver.com/docs/login/devguide/#3-1-4-사전-검수-요청'>https://developers.naver.com/docs/login/devguide/#3-1-4-사전-검수-요청</a>)
+            (링크 : <a href='https://developers.naver.com/docs/login/devguide/#3-1-4-사전-검수-요청'>https://developers.naver.com/docs/login/devguide/devguide.md#3-1-4-사전-검수-요청</a>)
             </dd>
             <dt>
             Q. 사전 검수가 완료되기까지 얼마의 시간이 소요되나요?
