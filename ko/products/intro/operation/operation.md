@@ -18,7 +18,7 @@
         개발자센터를 통해 제공되는 오픈API 관련 변경사항은 아래 공지사항에서 확인하실 수 있습니다.
         <br><a href="https://developers.naver.com/notice">* 공지사항 게시판: https://developers.naver.com/notice</a>
         <br><br>네이버 오픈API 이용관련 FAQ를 보시면 자주 묻는 질문들에 대한 답변을 파악하실 수 있습니다
-        <br><a href="https://developers.naver.com/products/intro/faq/">* FAQ 게시판: https://developers.naver.com/products/intro/faq/</a>
+        <br><a href="https://developers.naver.com/products/intro/faq/faq.md">* FAQ 게시판: https://developers.naver.com/products/intro/faq/</a>
     </div>
     <h4 class="h_subsub">3. 기술 문의</h4>
     <div class="p_desc">
