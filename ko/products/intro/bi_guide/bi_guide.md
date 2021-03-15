@@ -32,8 +32,8 @@
     <div class="bi_dl_list">
         <dl class="poweredby">
             <dd>
-                <a class="btn_n" href="./downloads/AI.zip"><i class="xi-download"></i> AI</a>
-                <a class="btn_n" href="./downloads/PNG.zip"><i class="xi-download"></i> PNG</a>
+                <a class="btn_n" href="https://developers.naver.com/inc/devcenter/downloads/AI.zip"><i class="xi-download"></i> AI</a>
+                <a class="btn_n" href="https://developers.naver.com/inc/devcenter/downloads/PNG.zip"><i class="xi-download"></i> PNG</a>
             </dd>
         </dl>
     </div>

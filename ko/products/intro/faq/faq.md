@@ -15,8 +15,8 @@
             <dd>
                 기존 개발자센터에서는 API 키를 발급받아서 사용했지만, 이제는 애플리케이션을 등록한 다음 클라이언트 아이디와 시크릿값을 발급받고, 애플리케이션 설정 화면에서 API 권한을 설정하여 사용하시면 됩니다.<br>
                 <ul>
-                    <li>1) 애플리케이션 등록 가이드: <a target="_blank" href="/docs/common/register">https://developers.naver.com/docs/common/register</a></li>
-                    <li>2) API 권한 설정 및 API 호출 가이드: <a target="_blank" href="/docs/common/apicall">https://developers.naver.com/docs/common/apicall</a></li>
+                    <li>1) 애플리케이션 등록 가이드: <a target="_blank" href="https://developers.naver.com/docs/common/register">https://developers.naver.com/docs/common/register</a></li>
+                    <li>2) API 권한 설정 및 API 호출 가이드: <a target="_blank" href="https://developers.naver.com/docs/common/apicall">https://developers.naver.com/docs/common/apicall</a></li>
                 </ul>
             </dd>
             <dt>Q. 오픈 API를 이용하려고 하는데, 오픈 API 키 발급이 안되는데 어떻게 된 건가요?</dt>
@@ -26,7 +26,7 @@
                 <ul>
                     <li>1) 애플리케이션 등록: 메뉴에서 [개발자센터]-[Application]-[애플리케이션등록]을 클릭<br>
                         (바로가기: <a target="_blank" href="https://developers.naver.com/apps/#/register">https://developers.naver.com/register</a>)</li>
-                    <li>2) 가이드: <a target="_blank" href="/docs/common/register">https://developers.naver.com/docs/common/register</a></li>
+                    <li>2) 가이드: <a target="_blank" href="https://developers.naver.com/docs/common/register">https://developers.naver.com/docs/common/register</a></li>
                 </ul>
             </dd>
             <dt>Q. 기존에 발급받은 오픈 API 키들은 어디서 확인할 수 있나요?</dt>
@@ -35,16 +35,16 @@
             <dd>아래 경로에서 보실 수 있으며, 2016년 말까지만 유지합니다.<br>
                 <a target="_blank" href="https://developer.naver.com/wiki/pages/OpenAPI">https://developer.naver.com/wiki/pages/OpenAPI</a></dd>
             <dt>Q 어떤 API들을 제공하고 있습니까?</dt>
-            <dd>네이버 오픈 API 목록을 참고하시기 바랍니다. <a target="_blank" href="/docs/common/apilist">https://developers.naver.com/docs/common/apilist</a></dd>
+            <dd>네이버 오픈 API 목록을 참고하시기 바랍니다. <a target="_blank" href="https://developers.naver.com/docs/common/apilist">https://developers.naver.com/docs/common/apilist</a></dd>
             <dt>Q API를 처음 사용합니다. 어떻게 이용하면 되나요?</dt>
             <dd>
                 아래와 같은 단계로 API를 이용하시면 됩니다.<br>
                 <ul>
-                    <li>1) 애플리케이션 등록 (가이드 <a target="_blank" href="/docs/common/register">https://developers.naver.com/docs/common/register</a>)</li>
-                    <li>2) 애플리케이션 설정 (가이드 <a target="_blank" href="/docs/common/appconf">https://developers.naver.com/docs/common/appconf</a>)</li>
-                    <li>3) API 권한 설정 및 호출 (가이드 <a target="_blank" href="/docs/common/apicall">https://developers.naver.com/docs/common/apicall</a>)</li>
-                    <li>4) 에러 코드 확인 (가이드 <a target="_blank" href="/docs/common/common_error">https://developers.naver.com/docs/common/common_error</a>)</li>
-                    <li>5) API 용어 정리 (가이드 <a target="_blank" href="/docs/common/terms">https://developers.naver.com/docs/common/terms</a>)</li>
+                    <li>1) 애플리케이션 등록 (가이드 <a target="_blank" href="https://developers.naver.com/docs/common/register">https://developers.naver.com/docs/common/register</a>)</li>
+                    <li>2) 애플리케이션 설정 (가이드 <a target="_blank" href="https://developers.naver.com/docs/common/appconf">https://developers.naver.com/docs/common/appconf</a>)</li>
+                    <li>3) API 권한 설정 및 호출 (가이드 <a target="_blank" href="https://developers.naver.com/docs/common/apicall">https://developers.naver.com/docs/common/apicall</a>)</li>
+                    <li>4) 에러 코드 확인 (가이드 <a target="_blank" href="https://developers.naver.com/docs/common/common_error">https://developers.naver.com/docs/common/common_error</a>)</li>
+                    <li>5) API 용어 정리 (가이드 <a target="_blank" href="https://developers.naver.com/docs/common/terms">https://developers.naver.com/docs/common/terms</a>)</li>
                 </ul>
             </dd>
             <dt>Q API는 비용을 지불하나요?</dt>
@@ -55,19 +55,19 @@
             <dd>
                 <ul>
                     <li>1) 쿼리 제한이 있습니다. 서비스별로 발급 키(key) 당 쿼리 제한이 있으며, 이를 초과할 경우 서비스가 중지됩니다.<br><br></li>
-                    <li>2) NAVER의 상표를 사용할 경우, <a href="/products/brand_guide">상표사용 가이드</a>를 지켜야 합니다.<br>
+                    <li>2) NAVER의 상표를 사용할 경우, <a href="/brand_guide/brand_guide.md">상표사용 가이드</a>를 지켜야 합니다.<br>
                         상표 사용 가이드 내 기본 가이드 및 오픈 API 특례를 모두 준수하면 사전 허락을 받지 않아도 NAVER의 상표를 사용할 수 있습니다.<br>
-                        NAVER <a href="/products/brand_guide">상표사용 가이드</a>에 대한 문의사항이 있거나 실제 상표 사용 가능 여부에 대한 명확한 승인이 필요한 경우,<br>
+                        NAVER <a href="/brand_guide/brand_guide.md">상표사용 가이드</a>에 대한 문의사항이 있거나 실제 상표 사용 가능 여부에 대한 명확한 승인이 필요한 경우,<br>
                         <a href="http://www.naver.com/rules/nhnBrandRequest.doc">상표 사용 허락 요청서</a>에 구체적인 사항을 기재하여 NAVER에 제출해주시기 바랍니다.<br><br></li>
                     <li>3) 네이버 오픈 API를 사용하고 있음을 나타내 주셔야 합니다.<br>
                         애플리케이션이 네이버 오픈 API에 의거해 개발한 프로그램이나 서비스라는 것을 링크나, 네이버 로고를 통해 나타내 주셔야 합니다.<br>
-                        로고 사용은 <a href="/products/bi_guide">BI 가이드</a>을 참조하세요.</li>
+                        로고 사용은 <a href="/bi_guide/bi_guide.md">BI 가이드</a>을 참조하세요.</li>
                 </ul>
             </dd>
             <dt>Q API가 작동하지 않아요!</dt>
             <dd>
                 API가 작동하지 않을 때는 오타로 인해 API 호출 URL이 잘못되었거나 필수 요청 변수가 잘못된 경우가 많습니다. 오타가 없는지, 요청 변수가 빠진 게 아닌지 한 번 더 확인해주시고, 그래도 에러라고 생각이 되면 아래 에러 코드 목록을 보시고 그에 맞는 조치를 하시면 되겠습니다.<br>
-                <a target="_blank" href="/docs/common/common_error">https://developers.naver.com/docs/common/common_error</a>
+                <a target="_blank" href="https://developers.naver.com/docs/common/common_error">https://developers.naver.com/docs/common/common_error</a>
             </dd>
             <dt>Q 그래도 API가 작동하지 않아요!</dt>
             <dd>포럼에 글을 올려주시면 담당자가 확인해보고 조치하겠습니다. 포럼에 글을 올리기 전에 검색하고 올려주시는 센스 환영합니다.<br>
@@ -76,7 +76,7 @@
             <dd>
                 제휴 신청은 아래 경로에서 올려주시면 되며 회원수나 사용 규모로 볼 때 사용량이 초과가 예상되거나 실제로 초과하였을 경우에만
                 네이버 오픈 API 제휴 신청을 이용해 주시길 바랍니다..<br>
-                <a target="_blank" href="/openapi/cooperation">https://developers.naver.com/openapi/cooperation</a>
+                <a target="_blank" href="https://developers.naver.com/openapi/cooperation">https://developers.naver.com/openapi/cooperation</a>
             </dd>
             <dt>Q Syndication API를 적용했는데 상태가 변경되지 않아요.</dt>
             <dd>
@@ -108,7 +108,7 @@
             </dd>
             <dt>Q 주소를 좌표로 변경하려면 어떻게 해야 합니까?</dt>
             <dd>가능합니다. Geocode를 통하여 주소를 네이버 지도의 좌표로 변환하실 수 있습니다.<br>
-                자세한 내용은 <a target="_blank" href="/docs/map/overview">지도 API 명세</a>의 "3.2. 주소 -> 좌표 변환 API (geocode API)" 부분을 확인하시기 바립니다.</dd>
+                자세한 내용은 <a target="_blank" href="https://developers.naver.com/docs/map/overview">지도 API 명세</a>의 "3.2. 주소 -> 좌표 변환 API (geocode API)" 부분을 확인하시기 바립니다.</dd>
         </dl>
     </div>
     <div id='tutorial2' class="faq_w">
@@ -379,7 +379,7 @@ $encText = urlencode("인코딩할 한글문자열");
                 오픈 API를 사용한 컨텐츠가 적용되는 곳에 배너광고, 스폰서 링크 등이 적용되는 경우 및 유료 회원만 접근이 가능한 경우가 이에 해당됩니다.
             </dd>
             <dt>Q NAVER 상표 사용 가이드를 준수해야 하나요?</dt>
-            <dd><a href="/products/brand_guide">상표 사용 가이드</a> 내 기본 가이드 및 오픈 API 특례를 모두 준수하면 사전 허락을 받지 않아도 NAVER의 상표를 사용할 수 있습니다.<br>
+            <dd><a href="/brand_guide/brand_guide.md">상표 사용 가이드</a> 내 기본 가이드 및 오픈 API 특례를 모두 준수하면 사전 허락을 받지 않아도 NAVER의 상표를 사용할 수 있습니다.<br>
                 NAVER 상표 사용 가이드에 대한 문의사항이 있거나 상표 사용 가능 여부에 대한 명확한 승인을 받고 싶은 경우,<br>
                 <a href="http://www.naver.com/rules/nhnBrandRequest.doc">상표사용허락 요청서</a>에 구체적인 사항을 기재하여 NAVER에 제출하여 주시기 바랍니다.
             </dd>
@@ -392,7 +392,7 @@ $encText = urlencode("인코딩할 한글문자열");
             <dt>Q 네이버 오픈 API에 대한 문의는 어디로 해야 하나요?</dt>
             <dd>
                 <ul>
-                    <li>1) 제휴 신청: <a target="_blank" href="/openapi/cooperation">https://developers.naver.com/openapi/cooperation</a></li>
+                    <li>1) 제휴 신청: <a target="_blank" href="https://developers.naver.com/openapi/cooperation">https://developers.naver.com/openapi/cooperation</a></li>
                     <li>2) 개발 문의: <a target="_blank" href="https://forum.developers.naver.com">https://forum.developers.naver.com</a></li>
                 </ul>
                 <br>

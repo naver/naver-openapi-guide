@@ -19,7 +19,7 @@
     </div>
     <div class="buttons buttons_center">
         <a class="btn_b_hi" href="https://developers.naver.com/apps/#/register?api=ppg_dtl">오픈 API 이용 신청</a>
-        <a class="btn_b_hi" href="/docs/papago/papago-detectlangs-overview.md#언어-감지">개발 가이드 보기</a>
+        <a class="btn_b_hi" href="https://developers.naver.com/docs/papago/papago-detectlangs-overview.md#언어-감지">개발 가이드 보기</a>
     </div>
 </div>
 </body>

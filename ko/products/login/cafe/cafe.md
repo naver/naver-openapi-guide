@@ -24,7 +24,7 @@
     </div>
     <div class="buttons buttons_center">
         <a class="btn_b_hi" href="https://developers.naver.com/apps/#/register?api=cafe">오픈 API 이용 신청</a>
-        <a class="btn_b_hi" href="/docs/login/cafe-api/cafe-api.md#카페-가입-·-글쓰기-api-명세">개발 가이드 보기</a>
+        <a class="btn_b_hi" href="https://developers.naver.com/docs/login/cafe-api/cafe-api.md#카페-가입-·-글쓰기-api-명세">개발 가이드 보기</a>
     </div>
 </div>
 </body>

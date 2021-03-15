@@ -36,8 +36,8 @@
     </div>
     <div class="buttons buttons_center">
         <a class="btn_b_hi" href="https://developers.naver.com/apps/#/register?api=nvlogin">오픈 API 이용 신청</a>
-        <a id="btnLoginGuide" class="btn_b_hi cursor btn_m_hide" href="/docs/login/devguide/devguide.md#네이버아이디로그인-개발가이드">개발 가이드 보기</a>
-        <a class="btn_b_hi cursor btn_m_view" href="/docs/login/devguide/devguide.md#네이버아이디로그인-개발가이드">개발 가이드 보기</a>
+        <a id="btnLoginGuide" class="btn_b_hi cursor btn_m_hide" href="https://developers.naver.com/docs/login/devguide/devguide.md#네이버아이디로그인-개발가이드">개발 가이드 보기</a>
+        <a class="btn_b_hi cursor btn_m_view" href="https://developers.naver.com/docs/login/devguide/devguide.md#네이버아이디로그인-개발가이드">개발 가이드 보기</a>
         <a href="./downloads/naverlogin_docu_ver3.pdf" target="_blank" class="btn_b2 cursor">소개 다운받기</button></a>
     </div>
     <div id="loginGuide">
@@ -150,9 +150,9 @@
                         <a href="http://www.yesform.com/" target="_blank" class="appliance appliance5 sprite"><span class="blind">비지니스 예스폼</span></a>
                         <a href="https://rememberapp.co.kr/" target="_blank" class="appliance appliance6 sprite"><span class="blind">스타트업 리멤버</span></a>
                     </div>
-                    <p class="nir_info">그밖에 더욱 자세한 내용은 <a href="/products/login/userguide" class="link">적용 가이드라인</a>에서 확인하실 수 있습니다.</p>
+                    <p class="nir_info">그밖에 더욱 자세한 내용은 <a href="https://developers.naver.com/products/login/userguide" class="link">적용 가이드라인</a>에서 확인하실 수 있습니다.</p>
                     <div class="appliance_footer">
-                        <a class="nir_button hover sprite" href="/docs/login/overview"><span class="blind">완료</span></a>
+                        <a class="nir_button hover sprite" href="https://developers.naver.com/docs/login/overview"><span class="blind">완료</span></a>
                     </div>
                 </div>
             </div>
