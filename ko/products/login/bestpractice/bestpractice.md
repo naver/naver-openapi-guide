@@ -16,7 +16,7 @@
         <h2>Galleria(갤러리아몰)</h2>
         <br>
         <div class="buttons2">
-            <a class="btn_b_hi3" href="/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
+            <a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
         </div>
         <div class="img_area"><img src="./images/bestprac_galleria.png" alt="thumbnail"></div>
         <h3 class="h_sub v4">적용 이후, 회원 가입 부담이 최소화되어 가입률과 구매 전환율이 상승하였습니다.</h3>
@@ -40,7 +40,7 @@
         <h2>Webtour(웹투어)</h2>
         <br>
         <div class="buttons2">
-            <a class="btn_b_hi3" href="/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
+            <a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
         </div>
         <div class="img_area"><img src="./images/bestprac_webtour.png" alt="thumbnail"></div>
         <h3 class="h_sub v4">간편한 가입과 로그인이 매출향상에 도움을 주었습니다.</h3>
@@ -64,7 +64,7 @@
         <h2>Yesform(예스폼)</h2>
         <br>
         <div class="buttons2">
-            <a class="btn_b_hi3" href="/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
+            <a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
         </div>
         <div class="img_area"><img src="./images/bestprac_yesform.png" alt="thumbnail"></div>
         <h3 class="h_sub v4">광고를 통해 유입된 사용자의 결제율이 10%이상 높아졌습니다.</h3>
@@ -88,7 +88,7 @@
         <h2>Hwahae(화해)</h2>
         <br>
         <div class="buttons2">
-            <a class="btn_b_hi3" href="/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
+            <a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
         </div>
         <div class="img_area"><img src="./images/bestprac_hwahae.png" alt="thumbnail"></div>
         <h3 class="h_sub v4">앱 설치 후 신규 회원으로 전환하는 비율이 상승하였습니다.</h3>
@@ -112,7 +112,7 @@
         <h2>Happy Campus(해피캠퍼스)</h2>
         <br>
         <div class="buttons2">
-            <a class="btn_b_hi3" href="/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
+            <a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
         </div>
         <div class="img_area"><img alt="" src="./images/img_intro_naveridlogin_bp02.png"></div>
         <h3 class="h_sub v4">적용 후 CS 대응 효율, 매출액이 상승하였습니다</h3>
@@ -136,7 +136,7 @@
         <h2>Socar(쏘카)</h2>
         <br>
         <div class="buttons2">
-            <a class="btn_b_hi3" href="/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
+            <a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
         </div>
         <div class="img_area"><img alt="" src="./images/img_intro_naveridlogin_bp03.png"></div>
         <h3 class="h_sub v4">적용 첫달, SNS 가입 1등!</h3>
@@ -206,7 +206,7 @@
         </p>
     </div>
     <div class="btn_npay_area">
-        <a href="/apps/#/register?api=nvlogin" class="btn_nlogin">N 로그인 이용 신청</a>
+        <a href="https://developers.naver.com/apps/#/register?api=nvlogin" class="btn_nlogin">N 로그인 이용 신청</a>
         <a href="https://admin.pay.naver.com/notice/view?id=200010243" class="btn_npay">N Pay 신청하러 가기</a>
     </div>
 </div>

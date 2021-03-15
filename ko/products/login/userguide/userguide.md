@@ -8,7 +8,7 @@
 <div class="con">
     <h3 class="h_sub">네이버 아이디로 로그인 적용 사이트 A,B 왜 이렇게 다를까요?</h3>
     <div class="buttons2">
-        <a class="btn_b_hi3" href="/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
+        <a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
     </div>
     <div class="img_area"><img alt="" src="./images/img_intro_naveridlogin01.png"></div>
     <p class="p_desc">

@@ -23,7 +23,7 @@
         <p class="p_desc">네이버의 다양한 서비스에서 회원 가입 시 어뷰징을 방지하기 위해 CAPTCHA를 사용하고 있습니다. 오랜 기간 동안 검증된 캡차 기능을 서비스에 적용해 보안을 강화해보세요.<br><br><em class="color_p3">* 처리한도 : 1,000건/일</em></p>
     </div>
     <div class="buttons buttons_center">
-        <a class="btn_b_hi" href="/apps/#/register?defaultScope=captcha">오픈 API 이용 신청</a>
+        <a class="btn_b_hi" href="https://developers.naver.com/apps/#/register?defaultScope=captcha">오픈 API 이용 신청</a>
         <a class="btn_b_hi" href="https://developers.naver.com/docs/utils/captcha/overview/">개발 가이드 보기</a>
     </div>
 </div>

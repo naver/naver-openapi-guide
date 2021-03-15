@@ -18,7 +18,7 @@
             <em class="color_p3">* 한국어(ko), 일본어(ja), 중국어 간체(zh-cn), 중국어 번체(zh-tw), 힌디어(hi), 영어(en), 스페인어(es), 프랑스어(fr), 독일어(de), 포루트갈어(pt), 베트남어(vi), 인도네시아어(id), 페르시아어(fa), 아랍어(ar), 미얀마어(mm), 태국어(th), 러시아어(ru), 이탈리아어(it)를 지원합니다.<br>* 처리한도 : 2,000,000 글자/일</em></p>
     </div>
     <div class="buttons buttons_center">
-        <a class="btn_b_hi" href="/apps/#/register?api=ppg_dtl">오픈 API 이용 신청</a>
+        <a class="btn_b_hi" href="https://developers.naver.com/apps/#/register?api=ppg_dtl">오픈 API 이용 신청</a>
         <a class="btn_b_hi" href="/docs/papago/papago-detectlangs-overview.md#언어-감지">개발 가이드 보기</a>
     </div>
 </div>

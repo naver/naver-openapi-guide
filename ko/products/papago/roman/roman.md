@@ -19,7 +19,7 @@
     </div>
     <p class="p_desc"><em class="color_p3">일 처리한도 : 25,000 글자/일</em></p>
     <div class="buttons buttons_center">
-        <a class="btn_b_hi" href="/apps/#/register?defaultScope=roman">오픈 API 이용 신청</a>
+        <a class="btn_b_hi" href="https://developers.naver.com/apps/#/register?defaultScope=roman">오픈 API 이용 신청</a>
         <a class="btn_b_hi" href="/docs/papago/papago-romanization-overview.md#한글-인명로마자-변환">개발 가이드 보기</a>
     </div>
 </div>

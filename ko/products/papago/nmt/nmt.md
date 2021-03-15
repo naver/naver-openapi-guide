@@ -18,7 +18,7 @@
             <em class="color_p3">* 한국어(ko)-영어(en), 한국어(ko)-일본어(ja), 한국어(ko)-중국어 간체(zh-CN), 한국어(ko)-중국어 번체(zh-TW), 한국어(ko)-스페인어(es), 한국어(ko)-프랑스어(fr), 한국어(ko)-러시아어(ru), 한국어(ko)-베트남어(vi), 한국어(ko)-태국어(th), 한국어(ko)-인도네시아어(id), 한국어(ko)-독일어(de), 한국어(ko)-이탈리아어(it), 중국어 간체(zh-CN) - 중국어 번체(zh-TW), 중국어 간체(zh-CN) - 일본어(ja), 중국어 번체(zh-TW) - 일본어(ja), 영어(en)-일본어(ja), 영어(en)-중국어 간체(zh-CN), 영어(en)-중국어 번체(zh-TW), 영어(en)-프랑스어(fr)를 지원합니다.<br>* 처리한도 : 10,000글자/일</em></p>
     </div>
     <div class="buttons buttons_center">
-        <a class="btn_b_hi" href="/apps/#/register?api=ppg_n2mt">오픈 API 이용 신청</a>
+        <a class="btn_b_hi" href="https://developers.naver.com/apps/#/register?api=ppg_n2mt">오픈 API 이용 신청</a>
         <a class="btn_b_hi" href="/docs/papago/papago-nmt-overview.md#papago-번역">개발 가이드 보기</a>
     </div>
 </div>

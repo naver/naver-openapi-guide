@@ -11,7 +11,7 @@
         만약 상표가 부적절하게 사용된다면 그 상표의 가치가 떨어지거나 희석될 수 있어 다음과 같은 상표사용 가이드에 따라 당사의 상표를 적절하게 사용하여 상표 및 브랜드의 가치를 보존하고자 합니다.
     </p>
     <div class="buttons2">
-        <a class="btn_b_hi3" href="/apps/#/register">오픈 API 이용 신청 &gt;</a>
+        <a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register">오픈 API 이용 신청 &gt;</a>
     </div>
     <h3 class="h_sub">1. 기본가이드</h3>
     <h4 class="h_subsub">1.1. 상표의 의의</h4>

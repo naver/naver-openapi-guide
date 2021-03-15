@@ -25,7 +25,7 @@
             <dd>
                 <ul>
                     <li>1) 애플리케이션 등록: 메뉴에서 [개발자센터]-[Application]-[애플리케이션등록]을 클릭<br>
-                        (바로가기: <a target="_blank" href="/apps/#/register">https://developers.naver.com/register</a>)</li>
+                        (바로가기: <a target="_blank" href="https://developers.naver.com/apps/#/register">https://developers.naver.com/register</a>)</li>
                     <li>2) 가이드: <a target="_blank" href="/docs/common/register">https://developers.naver.com/docs/common/register</a></li>
                 </ul>
             </dd>

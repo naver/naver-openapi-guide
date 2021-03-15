@@ -23,8 +23,8 @@
             <em class="color_p3">* 처리한도 : 25,000/일</em></p>
     </div>
     <div class="buttons buttons_center">
-        <a class="btn_b_hi" href="/apps/#/register?defaultScope=search">오픈 API 이용 신청</a>
-        <a class="btn_b_hi" href="../docs/serviceapi/search/blog/blog.md#블로그">개발 가이드 보기</a>
+        <a class="btn_b_hi" href="https://developers.naver.com/apps/#/register?defaultScope=search">오픈 API 이용 신청</a>
+        <a class="btn_b_hi" href="https//developers.naver.com/docs/serviceapi/search/blog/blog.md#블로그">개발 가이드 보기</a>
     </div>
 </div>
 </body>
