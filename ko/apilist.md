@@ -4,13 +4,13 @@
 
 ## 로그인 방식 오픈 API
 
-로그인 방식 오픈 API는 '[네이버 아이디로 로그인](https://developers.naver.com/products/login/api/)'의 인증을 받아 접근 토큰(access token)을 획득해야 사용할 수 있는 오픈 API입니다. API를 호출할 때 네이버 아이디로 로그인 API를 통해 받은 접근 토큰의 값을 전송해야 합니다.
+로그인 방식 오픈 API는 '[네이버 아이디로 로그인](https://developers.naver.com/products/login/api/api.md)'의 인증을 받아 접근 토큰(access token)을 획득해야 사용할 수 있는 오픈 API입니다. API를 호출할 때 네이버 아이디로 로그인 API를 통해 받은 접근 토큰의 값을 전송해야 합니다.
 
 다음과 같은 네이버 오픈API가 로그인 방식 오픈 API입니다. 회원 기본 정보 조회, 카페 가입 및 글쓰기, 캘린더 일정 담기 등의 기능을 구현할 때 로그인 방식 오픈 API를 사용합니다.
 
-- [네이버 아이디로 로그인](https://developers.naver.com/products/login/api/): 별도의 아이디와 비밀번호 없이 네이버 아이디로 간편하게 외부 서비스에 로그인할 수 있게 하는 API입니다.
-- [카페](https://developers.naver.com/products/cafe/): 외부 서비스에서 네이버 카페에 가입하거나 게시글을 등록할 수 있게 하는 API입니다.
-- [캘린더](https://developers.naver.com/products/calendar/): 외부 서비스에 네이버 캘린더에 일정을 등록할 수 있게 하는 API입니다.
+- [네이버 아이디로 로그인](https://developers.naver.com/products/login/api/api.md): 별도의 아이디와 비밀번호 없이 네이버 아이디로 간편하게 외부 서비스에 로그인할 수 있게 하는 API입니다.
+- [카페](https://developers.naver.com/products/login/cafe/cafe.md): 외부 서비스에서 네이버 카페에 가입하거나 게시글을 등록할 수 있게 하는 API입니다.
+- [캘린더](https://developers.naver.com/products/login/calendar/calendar.md): 외부 서비스에 네이버 캘린더에 일정을 등록할 수 있게 하는 API입니다.
 
 ### 네이버 아이디로 로그인
 
@@ -45,15 +45,15 @@
 
 다음과 같은 네이버 오픈API가 비로그인 방식 오픈 API입니다.
 
-- [데이터랩](https://developers.naver.com/docs/datalab/search/): [네이버 데이터랩](https://datalab.naver.com/)의 [검색어 트렌드](https://datalab.naver.com/keyword/trendSearch.naver)와 [쇼핑인사이트](https://datalab.naver.com/shoppingInsight/sCategory.naver)를 API로 실행할 수 있게 하는 API입니다.
-- [검색](https://developers.naver.com/docs/search/blog/): 네이버 검색 결과를 뉴스, 백과사전, 블로그, 쇼핑, 영화, 웹 문서, 전문정보, 지식iN, 책, 카페글 등 분야별로 볼 수 있는 API입니다. 그 외에 지역 검색 결과와 성인 검색어 판별 기능, 오타 변환 기능을 제공합니다.
+- [데이터랩](https://developers.naver.com/docs/serviceapi/datalab/search/search.md): [네이버 데이터랩](https://datalab.naver.com/)의 [검색어 트렌드](https://datalab.naver.com/keyword/trendSearch.naver)와 [쇼핑인사이트](https://datalab.naver.com/shoppingInsight/sCategory.naver)를 API로 실행할 수 있게 하는 API입니다.
+- [검색](https://developers.naver.com/docs/serviceapi/search/blog/blog.md): 네이버 검색 결과를 뉴스, 백과사전, 블로그, 쇼핑, 영화, 웹 문서, 전문정보, 지식iN, 책, 카페글 등 분야별로 볼 수 있는 API입니다. 그 외에 지역 검색 결과와 성인 검색어 판별 기능, 오타 변환 기능을 제공합니다.
 - [단축URL](https://developers.naver.com/docs/utils/shortenurl/): 원본 URL을 `https://me2.do/example`과 같은 형태의 짧은 URL로 반환받을 수 있는 API입니다.
 - [이미지 캡차](https://developers.naver.com/docs/utils/captcha/overview/): 네이버 서비스에서 사용하는 이미지 캡차 기능을 외부 서비스에 사용할 수 있게 하는 API입니다.
 - [음성 캡차](https://developers.naver.com/docs/utils/scaptcha/overview/): 네이버 서비스에서 사용하는 음성 캡차 기능을 외부 서비스에 사용할 수 있게 하는 API입니다.
 - [네이버 공유하기](https://developers.naver.com/docs/share/navershare/): 콘텐츠를 네이버 블로그, 네이버 카페, PHOLAR에 공유할 수 있게 하는 API입니다.
 - [네이버 오픈메인](https://developers.naver.com/docs/openmain/): 웹 페이지를 네이버 메인에 추가할 수 있게 하는 플러그인입니다.
 - [Clova Face Recognition](https://developers.naver.com/products/clova/face/): 입력된 사진 이미지 속의 얼굴을 인식하거나 얼굴 감지를 이용한 애플리케이션을 만들 수 있게 하는 API입니다.
-- [Papago 번역](https://developers.naver.com/products/nmt/): 인공 신경망 기술 기반의 기계 번역 결과를 반환하는 API입니다.
+- [Papago 번역](https://developers.naver.com/products/nmt/nmt.md): 인공 신경망 기술 기반의 기계 번역 결과를 반환하는 API입니다.
 
 ### 데이터랩
 

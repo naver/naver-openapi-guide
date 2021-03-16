@@ -71,7 +71,7 @@
             </dd>
             <dt>Q 그래도 API가 작동하지 않아요!</dt>
             <dd>포럼에 글을 올려주시면 담당자가 확인해보고 조치하겠습니다. 포럼에 글을 올리기 전에 검색하고 올려주시는 센스 환영합니다.<br>
-                <a target="_blank" href="https://forum.developers.naver.com">https://forum.developers.naver.com</a></dd>
+                <a target="_blank" href="https://developers.naver.com/forum/list">https://forum.developers.naver.com</a></dd>
             <dt>Q 제휴 신청은 어떻게 진행해야 하나요?</dt>
             <dd>
                 제휴 신청은 아래 경로에서 올려주시면 되며 회원수나 사용 규모로 볼 때 사용량이 초과가 예상되거나 실제로 초과하였을 경우에만
@@ -177,7 +177,7 @@
             개발자센터에 애플리케이션을 등록하는 절차는 다음의 가이드에 상세히 설명되어있습니다.<br/>
             <a href='https://developers.naver.com/docs/common/register'>https://developers.naver.com/docs/common/register</a><br/><br/>
             또한 다음의 가이드에 따라 개발을 진행하시면 됩니다.<br/>
-            <a href="https://developers.naver.com/docs/login/overview">https://developers.naver.com/docs/login/overview</a>
+            <a href="https://developers.naver.com/docs/login/overview/overview.md">https://developers.naver.com/docs/login/overview</a>
             </dd>
             <dt>
             Q. 안드로이드 (또는 아이폰) 앱에 네아로를 적용할 예정입니다.<br/>아직 앱스토어 앱등록을 하지 않아 "다운로드 URL"이 없는 상태인데 개발자 센터에 애플리케이션 등록이 가능한가요?
@@ -208,7 +208,7 @@
             애플리케이션 등록과 개발과정이 완료되면, 사전 검수 요청을 등록해야 합니다.<br/>
             최초 등록시에는 “개발중”상태로 등록되며 사전 검수에서 승인이 완료되면 “서비스적용”으로 상태값은 자동 변경됩니다.<br/>
             사전 검수 등록 가이드를 참고하세요.<br/>
-            (링크 : <a href='https://developers.naver.com/docs/login/devguide/#3-1-4-사전-검수-요청'>https://developers.naver.com/docs/login/devguide/#3-1-4-사전-검수-요청</a>)
+            (링크 : <a href='https://developers.naver.com/docs/login/devguide/devguide.md#3-1-4-사전-검수-요청'>https://developers.naver.com/docs/login/devguide/devguide.md#3-1-4-사전-검수-요청</a>)
             </dd>
             <dt>
             Q. 사전 검수가 완료되기까지 얼마의 시간이 소요되나요?

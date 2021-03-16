@@ -46,7 +46,7 @@
         <div class="bi_dl_list">
             <dl class="poweredby">
                 <dd>
-                    <a class="btn_n" href="./downloads/Clova_Brand_Guidelines_Summary_170912_outline.ai"><i class="xi-download"></i>AI</a>
+                    <a class="btn_n" href="https://developers.naver.com/inc/devcenter/downloads/Clova_Brand_Guidelines_Summary_170912_outline.ai"><i class="xi-download"></i>AI</a>
                 </dd>
             </dl>
         </div>

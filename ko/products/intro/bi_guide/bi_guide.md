@@ -21,7 +21,7 @@
     <p class="p_desc">
         공식 표기는 아래와 같으며 기술표기 로고타입은 가로형이나 세로형이 가능합니다.
         이미지가 아닌 텍스트 폰트를 활용해서 적용하실 경우는
-        <a class="color_p2 underline" target="_blank" href="http://dev.naver.com/projects/d2coding/">D2 Coding체</a> 를
+        <a class="color_p2 underline" target="_blank" href="https://github.com/naver/d2codingfont">D2 Coding체</a> 를
         권장하며
         시스템폰트나 기본폰트도 사용가능합니다.
     </p>
