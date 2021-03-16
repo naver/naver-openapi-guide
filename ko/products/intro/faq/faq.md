@@ -55,7 +55,7 @@
             <dd>
                 <ul>
                     <li>1) 쿼리 제한이 있습니다. 서비스별로 발급 키(key) 당 쿼리 제한이 있으며, 이를 초과할 경우 서비스가 중지됩니다.<br><br></li>
-                    <li>2) NAVER의 상표를 사용할 경우, <a href="/intro/brand_guide/brand_guide.md">상표사용 가이드</a>를 지켜야 합니다.<br>
+                    <li>2) NAVER의 상표를 사용할 경우, <a href="https://developers.naver.com/products/intro/brand_guide/brand_guide.md">상표사용 가이드</a>를 지켜야 합니다.<br>
                         상표 사용 가이드 내 기본 가이드 및 오픈 API 특례를 모두 준수하면 사전 허락을 받지 않아도 NAVER의 상표를 사용할 수 있습니다.<br>
                         NAVER <a href="https://developers.naver.com/products/intro/brand_guide/brand_guide.md">상표사용 가이드</a>에 대한 문의사항이 있거나 실제 상표 사용 가능 여부에 대한 명확한 승인이 필요한 경우,<br>
                         <a href="http://www.naver.com/rules/nhnBrandRequest.doc">상표 사용 허락 요청서</a>에 구체적인 사항을 기재하여 NAVER에 제출해주시기 바랍니다.<br><br></li>
