@@ -1,3 +1,5 @@
+# Table of content
+
 * [운영 정책](./operation/operation.md)
 * [FAQ](./faq/faq.md)
 * [BI 가이드](./bi_guide/bi_guide.md)
