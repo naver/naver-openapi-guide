@@ -19,7 +19,7 @@
             <em class="color_p3">* 캘린더 API 사용을 위해서는, 먼저 네이버 아이디로 로그인 적용이 필요합니다.<br>* 처리한도 : 5,000/일</em></p>
     </div>
     <div class="buttons buttons_center">
-        <a class="btn_b_hi" href="/https://developers.naver.com/apps/#/register?api=calendar">오픈 API 이용 신청</a>
+        <a class="btn_b_hi" href="https://developers.naver.com/apps/#/register?api=calendar">오픈 API 이용 신청</a>
         <a class="btn_b_hi" href="https://developers.naver.com/docs/login/calendar-api/calendar-api.md#캘린더-일정-추가-api-명세">개발 가이드 보기</a>
     </div>
 </div>
