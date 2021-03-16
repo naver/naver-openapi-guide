@@ -1,0 +1,24 @@
+.con .buttons .btn_b_hi {
+  color: #fff;
+}
+
+.con .buttons2 .btn_b_hi3 {
+  color: #fff;
+}
+
+.con .poweredby .xi-download:before {
+  content: none;
+}
+
+.con .poweredby .btn_n .xi-download {
+  color: #000;
+}
+
+.con .poweredby .btn_n .xi-download:before {
+  color: #00c63b;
+  content: "\eb7c";
+}
+
+.xi-download:before {
+  content: none;
+}
