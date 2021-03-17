@@ -92,7 +92,7 @@
         네이버 아이디로 로그인은 JavaScript와 Android, iOS를 지원하는 SDK를 제공합니다. SDK에는 샘플 애플리케이션이 포함되어 있으며 이를 이용해 로그인 인증부터 API 호출까지 매우 쉽게 구현할 수 있습니다.
     </p>
     <p class="p_desc">
-        <a class="color_p2 underline" href="/docs/login/sdks">네이버 아이디로 로그인 SDK 다운로드 &gt;</a>
+        <a class="color_p2 underline" href="https://developers.naver.com/docs/login/sdks/sdks.md">네이버 아이디로 로그인 SDK 다운로드 &gt;</a>
     </p>
     <p class="p_desc">
         또한 모바일 애플리케이션을 개발할 때 SDK를 이용하면 네이버 앱을 이용한 간편 로그인을 사용할 수 있어 사용자가 훨씬 편하게 로그인할 수 있습니다.
