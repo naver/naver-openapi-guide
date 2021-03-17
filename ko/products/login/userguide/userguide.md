@@ -40,7 +40,7 @@
     <div class="img_area"><img alt="" src="./images/img_intro_naveridlogin06.png"></div>
     <div class="blockquote_area">
         <strong>네이버 아이디로 로그인 버튼 사용 가이드</strong>
-        <p>운영하는 애플리케이션이나 서비스의 상황에 맞게 버튼 이미지의 디자인을 변경할 수 있지만 네이버 고유의 아이덴티티를 유지할 수 있도록 <a class="color_p2 underline" href="/docs/login/bi">"네이버 아이디로 로그인 버튼 사용 가이드"</a>에 제시된 디자인을 최대한 유지하는 것을 권장합니다.</p>
+        <p>운영하는 애플리케이션이나 서비스의 상황에 맞게 버튼 이미지의 디자인을 변경할 수 있지만 네이버 고유의 아이덴티티를 유지할 수 있도록 <a class="color_p2 underline" href="https://developers.naver.com/docs/login/bi/bi.md">"네이버 아이디로 로그인 버튼 사용 가이드"</a>에 제시된 디자인을 최대한 유지하는 것을 권장합니다.</p>
     </div>
     <h3 class="h_sub">2. 가입 과정에서 정보는 최소한으로 수집하세요</h3>
     <p class="p_desc">

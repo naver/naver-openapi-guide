@@ -239,8 +239,8 @@ API서비스의 종류 및 내용은 개발자센터에서 정한 바에 따릅�
 ⑧ 이용고객의 정보보호를 위하여 이용자는 네이버 회원이 네이버 아이디로 로그인을 통해 이용자의 애플리케이션 등 회원으로 신규 가입 시 네이버 아이디로 로그인 연결에 대한 동의 절차에 바로 이어지는 문서•가입 세션에서 네이버 회원에게 별도의 비밀번호를 입력을 요구하여서는 안됩니다.
 
 ⑨ 이용자는 네이버 로그인 서비스 BI가이드 및 네이버 아이디로 로그인 서비스 적용가이드를 준수해야 합니다.
-- [https://developers.naver.com/docs/login/bi](https://developers.naver.com/docs/login/bi)
-- [https://developers.naver.com/products/login/userguide](https://developers.naver.com/products/login/userguide)
+- [https://developers.naver.com/docs/login/bi/bi.md](https://developers.naver.com/docs/login/bi/bi.md)
+- [https://developers.naver.com/products/login/userguide/userguide.md](https://developers.naver.com/products/login/userguide/userguide.md)
 
 ⑩ 회사는 전항을 포함하여 애플리케이션 등에 네이버 아이디로 로그인 서비스가 정상적으로 적용되었는지 여부를 확인하기 위하여 애플리케이션 등을 검수할 수 있으며, 이를 위하여 회사가 사용하는 시스템을 통해 임의의 정보를 테스트용 아이디로 등록하거나 삭제할 수 있습니다. 등록된 테스트용 아이디는 검수 목적으로만 사용되며 검수 완료 후 즉시 삭제됩니다.
 
