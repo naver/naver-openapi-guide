@@ -185,7 +185,7 @@
             <td class="center">string</td>
             <td class="center">N</td>
             <td class="center">-</td>
-            <td class="left">책 검색 카테고리(<a href="/inc/devcenter/downloads/categoryList.txt" type="text/plain" download>카테고리 목록 다운로드</a>)</td>
+            <td class="left">책 검색 카테고리(<a href="https://developers.naver.com/inc/devcenter/downloads/categoryList.txt" type="text/plain" download>카테고리 목록 다운로드</a>)</td>
             <td class="center">상세 검색만 해당</td>
         </tr>
         </tbody>
