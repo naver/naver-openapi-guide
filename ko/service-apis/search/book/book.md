@@ -4,6 +4,12 @@
 <head>
     <title>NAVER Developers - 검색 API 책 검색 개발가이드</title>
     <meta name="description" content="NAVER Developers - 검색 API 책 검색 개발가이드">
+    <script>
+        window.addEventListener('load', () => {
+        console.log('load');
+        });
+        
+    </script>
 </head>
 <body>
 <div class="con">
