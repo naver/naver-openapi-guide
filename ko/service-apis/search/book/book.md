@@ -185,7 +185,7 @@
             <td class="center">string</td>
             <td class="center">N</td>
             <td class="center">-</td>
-            <td class="left">책 검색 카테고리(<a download="https://raw.githubusercontent.com/naver/naver-openapi-guide/master/ko/service-apis/search/book/downloads/categoryList.txt" href="#">카테고리 목록 다운로드</a>)</td>
+            <td class="left">책 검색 카테고리(<a href="https://raw.githubusercontent.com/naver/naver-openapi-guide/master/ko/service-apis/search/book/downloads/categoryList.txt">카테고리 목록 다운로드</a>)</td>
             <td class="center">상세 검색만 해당</td>
         </tr>
         </tbody>
