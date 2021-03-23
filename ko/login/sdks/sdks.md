@@ -91,8 +91,8 @@
         </tr>
         <tr>
             <td class="left">
-                <a class="button-green-o" href="/inc/devcenter/downloads/naveridro/3rdparty_login_library_android_4.1.4.zip"><i class="xi-download"></i> 4.1.4</a><br>
-                <a class="button-green-o" href="/inc/devcenter/downloads/naveridro/3rdparty_login_sample_android_4.1.4.zip"><i class="xi-download"></i> 4.1.4-sample</a>
+                <a class="button-green-o" href="https://developers.naver.com/inc/devcenter/downloads/naveridro/3rdparty_login_library_android_4.1.4.zip"><i class="xi-download"></i> 4.1.4</a><br>
+                <a class="button-green-o" href="https://developers.naver.com/inc/devcenter/downloads/naveridro/3rdparty_login_sample_android_4.1.4.zip"><i class="xi-download"></i> 4.1.4-sample</a>
             </td>
             <td class="left">2015.08.07</td>
             <td class="left">라이브러리</td>
@@ -133,8 +133,8 @@
         </tr>
         <tr>
             <td class="left">
-                <a class="button-green-o" href="/inc/devcenter/downloads/naveridro/3rdparty_login_library_ios_4.0.7.zip"><i class="xi-download"></i> 4.0.7</a><br>
-                <a class="button-green-o" href="/inc/devcenter/downloads/naveridro/3rdparty_login_sample_ios_4.0.7.zip"><i class="xi-download"></i> 4.0.7-sample</a>
+                <a class="button-green-o" href="https://developers.naver.com/inc/devcenter/downloads/naveridro/3rdparty_login_library_ios_4.0.7.zip"><i class="xi-download"></i> 4.0.7</a><br>
+                <a class="button-green-o" href="https://developers.naver.com/inc/devcenter/downloads/naveridro/3rdparty_login_sample_ios_4.0.7.zip"><i class="xi-download"></i> 4.0.7-sample</a>
             </td>
             <td class="left">2015.12.31</td>
             <td class="left">SDK, Sample</td>
@@ -146,8 +146,8 @@
         </tr>
         <tr>
             <td class="left">
-                <a class="button-green-o" href="/inc/devcenter/downloads/naveridro/3rdparty_login_library_ios_4.0.6.zip"><i class="xi-download"></i> 4.0.6</a><br>
-                <a class="button-green-o" href="/inc/devcenter/downloads/naveridro/3rdparty_login_sample_ios_4.0.6.zip"><i class="xi-download"></i> 4.0.6-sample</a>
+                <a class="button-green-o" href="https://developers.naver.com/inc/devcenter/downloads/naveridro/3rdparty_login_library_ios_4.0.6.zip"><i class="xi-download"></i> 4.0.6</a><br>
+                <a class="button-green-o" href="https://developers.naver.com/inc/devcenter/downloads/naveridro/3rdparty_login_sample_ios_4.0.6.zip"><i class="xi-download"></i> 4.0.6-sample</a>
             </td>
             <td class="left">2015.09.21</td>
             <td class="left">SDK, Sample</td>
@@ -160,8 +160,8 @@
         </tr>
         <tr>
             <td class="left">
-                <a class="button-green-o" href="/inc/devcenter/downloads/naveridro/3rdparty_login_library_ios_4.0.5.zip"><i class="xi-download"></i> 4.0.5</a><br>
-                <a class="button-green-o" href="/inc/devcenter/downloads/naveridro/3rdparty_login_sample_ios_4.0.5.zip"><i class="xi-download"></i> 4.0.5-sample</a>
+                <a class="button-green-o" href="https://developers.naver.com/inc/devcenter/downloads/naveridro/3rdparty_login_library_ios_4.0.5.zip"><i class="xi-download"></i> 4.0.5</a><br>
+                <a class="button-green-o" href="https://developers.naver.com/inc/devcenter/downloads/naveridro/3rdparty_login_sample_ios_4.0.5.zip"><i class="xi-download"></i> 4.0.5-sample</a>
             </td>
             <td class="left">2015.08.13</td>
             <td class="left">SDK, Sample</td>
@@ -172,8 +172,8 @@
         </tr>
         <tr>
             <td class="left">
-                <a class="button-green-o" href="/inc/devcenter/downloads/naveridro/3rdparty_login_library_ios_4.0.4.zip"><i class="xi-download"></i> 4.0.4</a><br>
-                <a class="button-green-o" href="/inc/devcenter/downloads/naveridro/3rdparty_login_sample_ios_4.0.4.zip"><i class="xi-download"></i> 4.0.4 sample</a>
+                <a class="button-green-o" href="https://developers.naver.com/inc/devcenter/downloads/naveridro/3rdparty_login_library_ios_4.0.4.zip"><i class="xi-download"></i> 4.0.4</a><br>
+                <a class="button-green-o" href="https://developers.naver.com/inc/devcenter/downloads/naveridro/3rdparty_login_sample_ios_4.0.4.zip"><i class="xi-download"></i> 4.0.4 sample</a>
             </td>
             <td class="left">2015.07.30</td>
             <td class="left">SDK, Sample</td>
@@ -184,7 +184,7 @@
         </tr>
         <tr>
             <td class="left">
-                <a class="button-green-o" href="/inc/devcenter/downloads/naveridro/3rdparty_login_library_ios_4.0.3.zip"><i class="xi-download"></i> 4.0.3</a>
+                <a class="button-green-o" href="https://developers.naver.com/inc/devcenter/downloads/naveridro/3rdparty_login_library_ios_4.0.3.zip"><i class="xi-download"></i> 4.0.3</a>
             </td>
             <td class="left">2015.06.17</td>
             <td class="left">SDK, Sample</td>
@@ -197,7 +197,7 @@
         </tr>
         <tr>
             <td class="left">
-                <a class="button-green-o" href="/inc/devcenter/downloads/naveridro/3rdparty_login_library_ios_4.0.2.zip"><i class="xi-download"></i> 4.0.2</a>
+                <a class="button-green-o" href="https://developers.naver.com/inc/devcenter/downloads/naveridro/3rdparty_login_library_ios_4.0.2.zip"><i class="xi-download"></i> 4.0.2</a>
             </td>
             <td class="left">2015.02.27</td>
             <td class="left">라이브러리,<br>예제 프로젝트</td>
@@ -208,7 +208,7 @@
         </tr>
         <tr>
             <td class="left">
-                <a class="button-green-o" href="/inc/devcenter/downloads/naveridro/3rdparty_login_library_ios.zip"><i class="xi-download"></i> 4.0.1</a>
+                <a class="button-green-o" href="https://developers.naver.com/inc/devcenter/downloads/naveridro/3rdparty_login_library_ios.zip"><i class="xi-download"></i> 4.0.1</a>
             </td>
             <td class="left">2014.12.15</td>
             <td class="left">라이브러리,<br>예제 프로젝트</td>
@@ -233,7 +233,7 @@
         <tbody>
         <tr>
             <td class="left">
-                <a class="button-green-o" href="/inc/devcenter/downloads/naveridro/NaverOAuth_pcapp.7z"><i class="xi-download"></i> Sample</a>
+                <a class="button-green-o" href="https://developers.naver.com/inc/devcenter/downloads/naveridro/NaverOAuth_pcapp.7z"><i class="xi-download"></i> Sample</a>
             </td>
             <td class="left"></td>
             <td class="left"></td>
