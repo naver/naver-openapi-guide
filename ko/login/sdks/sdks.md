@@ -1,4 +1,4 @@
-# SKD 다운로드
+# SDK 다운로드
 
 <html lang="ko"><head>
     <title>NAVER Developers - 네이버아이디로로그인 SDK 다운로드</title>
