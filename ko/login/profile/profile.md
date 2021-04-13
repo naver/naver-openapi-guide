@@ -389,7 +389,7 @@ namespace NaverAPI_Guide
         </tbody>
     </table>
     <h3 class="h_sub">6. 에러 코드 </h3>
-    <div class="p_desc"> 공통 에러 코드는 <a href="https://developers.naver.com/docs/utils/common_error" class="color_p2 underline">여기</a>를 참조하세요.</div>
+    <div class="p_desc"> 공통 에러 코드는 <a href="https://developers.naver.com/docs/common/openapiguide/errorcode.md" class="color_p2 underline">여기</a>를 참조하세요.</div>
     <table border="1" class="tbl_h">
         <caption><span class="blind">에러 코드 설명 표</span></caption>
         <colgroup>

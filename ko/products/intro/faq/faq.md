@@ -43,7 +43,7 @@
                     <li>1) 애플리케이션 등록 (가이드 <a target="_blank" href="https://developers.naver.com/docs/common/register">https://developers.naver.com/docs/common/register</a>)</li>
                     <li>2) 애플리케이션 설정 (가이드 <a target="_blank" href="https://developers.naver.com/docs/common/appconf">https://developers.naver.com/docs/common/appconf</a>)</li>
                     <li>3) API 권한 설정 및 호출 (가이드 <a target="_blank" href="https://developers.naver.com/docs/common/apicall">https://developers.naver.com/docs/common/apicall</a>)</li>
-                    <li>4) 에러 코드 확인 (가이드 <a target="_blank" href="https://developers.naver.com/docs/common/common_error">https://developers.naver.com/docs/common/common_error</a>)</li>
+                    <li>4) 에러 코드 확인 (가이드 <a target="_blank" href="https://developers.naver.com/docs/common/openapiguide/errorcode.md">https://developers.naver.com/docs/common/common_error</a>)</li>
                     <li>5) API 용어 정리 (가이드 <a target="_blank" href="https://developers.naver.com/docs/common/terms">https://developers.naver.com/docs/common/terms</a>)</li>
                 </ul>
             </dd>
@@ -67,7 +67,7 @@
             <dt>Q API가 작동하지 않아요!</dt>
             <dd>
                 API가 작동하지 않을 때는 오타로 인해 API 호출 URL이 잘못되었거나 필수 요청 변수가 잘못된 경우가 많습니다. 오타가 없는지, 요청 변수가 빠진 게 아닌지 한 번 더 확인해주시고, 그래도 에러라고 생각이 되면 아래 에러 코드 목록을 보시고 그에 맞는 조치를 하시면 되겠습니다.<br>
-                <a target="_blank" href="https://developers.naver.com/docs/common/common_error">https://developers.naver.com/docs/common/common_error</a>
+                <a target="_blank" href="https://developers.naver.com/docs/common/openapiguide/errorcode.md">https://developers.naver.com/docs/common/common_error</a>
             </dd>
             <dt>Q 그래도 API가 작동하지 않아요!</dt>
             <dd>포럼에 글을 올려주시면 담당자가 확인해보고 조치하겠습니다. 포럼에 글을 올리기 전에 검색하고 올려주시는 센스 환영합니다.<br>
