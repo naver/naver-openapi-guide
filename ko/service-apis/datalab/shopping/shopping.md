@@ -46,7 +46,7 @@ description: 쇼핑인사이트 API는 '네이버 데이터랩'의 '쇼핑인사
 
 쇼핑인사이트 API는 [네이버 데이터랩](http://datalab.naver.com/)의 [**쇼핑인사이트**](https://datalab.naver.com/shoppingInsight/sCategory.naver)를 API로 실행할 수 있게 하는 RESTful API입니다.
 
-네이버 통합검색의 쇼핑 영역과 [네이버쇼핑](http://pc.shopping2.naver.com/)에서의 검색 클릭 추이 데이터를 JSON 형식으로 반환합니다. 쇼핑 분야의 분야별 검색 클릭 추이와 특정한 쇼핑 분야에서 검색 키워드별 검색 클릭 추이를 확인할 수 있습니다.
+네이버 통합검색의 쇼핑 영역과 [네이버쇼핑](https://shopping.naver.com)에서의 검색 클릭 추이 데이터를 JSON 형식으로 반환합니다. 쇼핑 분야의 분야별 검색 클릭 추이와 특정한 쇼핑 분야에서 검색 키워드별 검색 클릭 추이를 확인할 수 있습니다.
 
 API를 호출할 때는 쇼핑 분야와 검색 키워드, 검색 조건을 JSON 형식의 데이터로 전달합니다.
 
@@ -115,7 +115,7 @@ API를 호출할 때는 쇼핑 분야와 검색 키워드, 검색 조건을 JSON
 
 #### 설명
 
-네이버 통합검색의 쇼핑 영역과 [네이버쇼핑](http://pc.shopping2.naver.com/)에서의 검색 클릭 추이를 쇼핑 분야별로 조회한 데이터를 JSON 형식으로 반환합니다.
+네이버 통합검색의 쇼핑 영역과 [네이버쇼핑](https://shopping.naver.com)에서의 검색 클릭 추이를 쇼핑 분야별로 조회한 데이터를 JSON 형식으로 반환합니다.
 
 #### 요청 URL
 
@@ -142,7 +142,7 @@ POST
 |timeUnit|string|Y|구간 단위<br/>- `date`: 일간<br/>- `week`: 주간<br/>- `month`: 월간|
 |category|array(JSON)|Y|분야 이름과 분야 코드 쌍의 배열. 최대 3개의 쌍을 배열로 설정할 수 있습니다.|
 |category.name|string|Y|쇼핑 분야 이름|
-|category.param|array(string)|Y|쇼핑 분야 코드. [네이버쇼핑](http://pc.shopping2.naver.com/)에서 카테고리를 선택했을 때의 URL에 있는 `cat_id` 파라미터의 값으로 분야 코드를 확인할 수 있습니다.|
+|category.param|array(string)|Y|쇼핑 분야 코드. [네이버쇼핑](https://shopping.naver.com)에서 카테고리를 선택했을 때의 URL에 있는 `cat_id` 파라미터의 값으로 분야 코드를 확인할 수 있습니다.|
 |device|string|N|기기. 검색 환경에 따른 조건입니다.<br/>- 설정 안 함: 모든 기기에서의 검색 클릭 추이<br/>- `pc`: PC에서의 검색 클릭 추이<br/>- `mo`: 모바일 기기에서의 검색 클릭 추이|
 |gender|string|N|성별. 검색 사용자의 성별에 따른 조건입니다.<br/>- 설정 안 함: 모든 성별<br/>- `m`: 남성<br/>- `f`: 여성|
 |ages|array(JSON)|N|연령. 검색 사용자의 연령에 따른 조건입니다.<br/>- 설정 안 함: 모든 연령<br/>- `10`: 10&Tilde;19세<br/>- `20`: 20&Tilde;29세<br/>- `30`: 30&Tilde;39세<br/>- `40`: 40&Tilde;49세<br/>- `50`: 50&Tilde;59세<br/>- `60`: 60세 이상|
@@ -242,7 +242,7 @@ EOF
 
 #### 설명
 
-네이버 통합검색의 쇼핑 영역과 [네이버쇼핑](http://pc.shopping2.naver.com/)에서 특정 쇼핑 분야의 검색 클릭 추이를 기기별(PC, 모바일)로 조회한 데이터를 JSON 형식으로 반환합니다.
+네이버 통합검색의 쇼핑 영역과 [네이버쇼핑](https://shopping.naver.com)에서 특정 쇼핑 분야의 검색 클릭 추이를 기기별(PC, 모바일)로 조회한 데이터를 JSON 형식으로 반환합니다.
 
 #### 요청 URL
 
@@ -267,7 +267,7 @@ POST
 |startDate|string|Y|조회 기간 시작 날짜(`yyyy-mm-dd` 형식). 2017년 8월 1일부터 조회할 수 있습니다.|
 |endDate|string|Y|조회 기간 종료 날짜(`yyyy-mm-dd` 형식)|
 |timeUnit|string|Y|구간 단위<br/>- `date`: 일간<br/>- `week`: 주간<br/>- `month`: 월간|
-|category|string|Y|네이버 쇼핑의 분야 코드. [네이버쇼핑](http://pc.shopping2.naver.com/)에서 카테고리를 선택했을 때의 URL에 있는 `cat_id` 파라미터의 값으로 분야 코드를 확인할 수 있습니다.|
+|category|string|Y|네이버 쇼핑의 분야 코드. [네이버쇼핑](https://shopping.naver.com)에서 카테고리를 선택했을 때의 URL에 있는 `cat_id` 파라미터의 값으로 분야 코드를 확인할 수 있습니다.|
 |device|string|N|기기. 검색 환경에 따른 조건입니다.<br/>- 설정 안 함: 모든 기기에서의 검색 클릭 추이<br/>- `pc`: PC에서의 검색 클릭 추이<br/>- `mo`: 모바일 기기에서의 검색 클릭 추이|
 |gender|string|N|성별. 검색 사용자의 성별에 따른 조건입니다.<br/>- 설정 안 함: 모든 성별<br/>- `m`: 남성<br/>- `f`: 여성|
 |ages|array(JSON)|N|연령. 검색 사용자의 연령에 따른 조건입니다.<br/>- 설정 안 함: 모든 연령<br/>- `10`: 10&Tilde;19세<br/>- `20`: 20&Tilde;29세<br/>- `30`: 30&Tilde;39세<br/>- `40`: 40&Tilde;49세<br/>- `50`: 50&Tilde;59세<br/>- `60`: 60세 이상|
@@ -362,7 +362,7 @@ EOF
 
 #### 설명
 
-네이버 통합검색의 쇼핑 영역과 [네이버쇼핑](http://pc.shopping2.naver.com/)에서 특정 쇼핑 분야의 검색 클릭 추이를 사용자의 성별로 조회한 데이터를 JSON 형식으로 반환합니다.
+네이버 통합검색의 쇼핑 영역과 [네이버쇼핑](https://shopping.naver.com)에서 특정 쇼핑 분야의 검색 클릭 추이를 사용자의 성별로 조회한 데이터를 JSON 형식으로 반환합니다.
 
 #### 요청 URL
 
@@ -387,7 +387,7 @@ POST
 |startDate|string|Y|조회 기간 시작 날짜(`yyyy-mm-dd` 형식). 2017년 8월 1일부터 조회할 수 있습니다.|
 |endDate|string|Y|조회 기간 종료 날짜(`yyyy-mm-dd` 형식)|
 |timeUnit|string|Y|구간 단위<br/>- `date`: 일간<br/>- `week`: 주간<br/>- `month`: 월간|
-|category|string|Y|쇼핑 분야 코드. [네이버쇼핑](http://pc.shopping2.naver.com/)에서 카테고리를 선택했을 때의 URL에 있는 `cat_id` 파라미터의 값으로 분야 코드를 확인할 수 있습니다.|
+|category|string|Y|쇼핑 분야 코드. [네이버쇼핑](https://shopping.naver.com)에서 카테고리를 선택했을 때의 URL에 있는 `cat_id` 파라미터의 값으로 분야 코드를 확인할 수 있습니다.|
 |device|string|N|기기. 검색 환경에 따른 조건입니다.<br/>- 설정 안 함: 모든 기기에서의 검색 클릭 추이<br/>- `pc`: PC에서의 검색 클릭 추이<br/>- `mo`: 모바일 기기에서의 검색 클릭 추이|
 |gender|string|N|성별. 검색 사용자의 성별에 따른 조건입니다.<br/>- 설정 안 함: 모든 성별<br/>- `m`: 남성<br/>- `f`: 여성|
 |ages|array(JSON)|N|연령. 검색 사용자의 연령에 따른 조건입니다.<br/>- 설정 안 함: 모든 연령<br/>- `10`: 10&Tilde;19세<br/>- `20`: 20&Tilde;29세<br/>- `30`: 30&Tilde;39세<br/>- `40`: 40&Tilde;49세<br/>- `50`: 50&Tilde;59세<br/>- `60`: 60세 이상|
@@ -482,7 +482,7 @@ EOF
 
 #### 설명
 
-네이버 통합검색의 쇼핑 영역과 [네이버쇼핑](http://pc.shopping2.naver.com/)에서 특정 쇼핑 분야의 검색 클릭 추이를 사용자의 연령별로 조회한 데이터를 JSON 형식으로 반환합니다.
+네이버 통합검색의 쇼핑 영역과 [네이버쇼핑](https://shopping.naver.com)에서 특정 쇼핑 분야의 검색 클릭 추이를 사용자의 연령별로 조회한 데이터를 JSON 형식으로 반환합니다.
 
 #### 요청 URL
 
@@ -507,7 +507,7 @@ POST
 |startDate|string|Y|조회 기간 시작 날짜(`yyyy-mm-dd` 형식). 2017년 8월 1일부터 조회할 수 있습니다.|
 |endDate|string|Y|조회 기간 종료 날짜(`yyyy-mm-dd` 형식)|
 |timeUnit|string|Y|구간 단위<br/>- `date`: 일간<br/>- `week`: 주간<br/>- `month`: 월간|
-|category|string|Y|쇼핑 분야 코드. [네이버쇼핑](http://pc.shopping2.naver.com/)에서 카테고리를 선택했을 때의 URL에 있는 `cat_id` 파라미터의 값으로 분야 코드를 확인할 수 있습니다.|
+|category|string|Y|쇼핑 분야 코드. [네이버쇼핑](https://shopping.naver.com)에서 카테고리를 선택했을 때의 URL에 있는 `cat_id` 파라미터의 값으로 분야 코드를 확인할 수 있습니다.|
 |device|string|N|기기. 검색 환경에 따른 조건입니다.<br/>- 설정 안 함: 모든 기기에서의 검색 클릭 추이<br/>- `pc`: PC에서의 검색 클릭 추이<br/>- `mo`: 모바일 기기에서의 검색 클릭 추이|
 |gender|string|N|성별. 검색 사용자의 성별에 따른 조건입니다.<br/>- 설정 안 함: 모든 성별<br/>- `m`: 남성<br/>- `f`: 여성|
 |ages|array(JSON)|N|연령. 검색 사용자의 연령에 따른 조건입니다.<br/>- 설정 안 함: 모든 연령<br/>- `10`: 10&Tilde;19세<br/>- `20`: 20&Tilde;29세<br/>- `30`: 30&Tilde;39세<br/>- `40`: 40&Tilde;49세<br/>- `50`: 50&Tilde;59세<br/>- `60`: 60세 이상|
@@ -603,7 +603,7 @@ EOF
 
 #### 설명
 
-네이버 통합검색의 쇼핑 영역과 [네이버쇼핑](http://pc.shopping2.naver.com/)에서 특정 쇼핑 분야의 검색 클릭 추이를 검색 키워드별로 조회한 데이터를 JSON 형식으로 반환합니다.
+네이버 통합검색의 쇼핑 영역과 [네이버쇼핑](https://shopping.naver.com)에서 특정 쇼핑 분야의 검색 클릭 추이를 검색 키워드별로 조회한 데이터를 JSON 형식으로 반환합니다.
 
 #### 요청 URL
 
@@ -628,7 +628,7 @@ POST
 |startDate|string|Y|조회 기간 시작 날짜(`yyyy-mm-dd` 형식). 2017년 8월 1일부터 조회할 수 있습니다.|
 |endDate|string|Y|조회 기간 종료 날짜(`yyyy-mm-dd` 형식)|
 |timeUnit|string|Y|구간 단위<br/>- `date`: 일간<br/>- `week`: 주간<br/>- `month`: 월간|
-|category|string|Y|쇼핑 분야 코드. [네이버쇼핑](http://pc.shopping2.naver.com/)에서 카테고리를 선택했을 때의 URL에 있는 `cat_id` 파라미터의 값으로 분야 코드를 확인할 수 있습니다.|
+|category|string|Y|쇼핑 분야 코드. [네이버쇼핑](https://shopping.naver.com)에서 카테고리를 선택했을 때의 URL에 있는 `cat_id` 파라미터의 값으로 분야 코드를 확인할 수 있습니다.|
 |keyword|array(JSON)|Y|검색 키워드 그룹 이름과 검색 키워드 쌍의 배열. 최대 5개의 쌍을 배열로 설정할 수 있습니다.|
 |keyword.name|string|Y|검색 키워드 그룹 이름|
 |keyword.param|array(string)|Y|비교할 검색어. 1개만 설정할 수 있습니다.|
@@ -732,7 +732,7 @@ EOF
 
 #### 설명
 
-네이버 통합검색의 쇼핑 영역과 [네이버쇼핑](http://pc.shopping2.naver.com/)에서 특정 쇼핑 분야와 검색 키워드의 검색 클릭 추이를 기기별(PC, 모바일)로 조회한 데이터를 JSON 형식으로 반환합니다.
+네이버 통합검색의 쇼핑 영역과 [네이버쇼핑](https://shopping.naver.com)에서 특정 쇼핑 분야와 검색 키워드의 검색 클릭 추이를 기기별(PC, 모바일)로 조회한 데이터를 JSON 형식으로 반환합니다.
 
 #### 요청 URL
 
@@ -757,7 +757,7 @@ POST
 |startDate|string|Y|조회 기간 시작 날짜(`yyyy-mm-dd` 형식). 2017년 8월 1일부터 조회할 수 있습니다.|
 |endDate|string|Y|조회 기간 종료 날짜(`yyyy-mm-dd` 형식)|
 |timeUnit|string|Y|구간 단위<br/>- `date`: 일간<br/>- `week`: 주간<br/>- `month`: 월간|
-|category|string|Y|쇼핑 분야 코드. [네이버쇼핑](http://pc.shopping2.naver.com/)에서 카테고리를 선택했을 때의 URL에 있는 `cat_id` 파라미터의 값으로 분야 코드를 확인할 수 있습니다.|
+|category|string|Y|쇼핑 분야 코드. [네이버쇼핑](https://shopping.naver.com)에서 카테고리를 선택했을 때의 URL에 있는 `cat_id` 파라미터의 값으로 분야 코드를 확인할 수 있습니다.|
 |keyword|string|Y|검색 키워드|
 |device|string|N|기기. 검색 환경에 따른 조건입니다.<br/>- 설정 안 함: 모든 기기에서의 검색 클릭 추이<br/>- `pc`: PC에서의 검색 클릭 추이<br/>- `mo`: 모바일 기기에서의 검색 클릭 추이|
 |gender|string|N|성별. 검색 사용자의 성별에 따른 조건입니다.<br/>- 설정 안 함: 모든 성별<br/>- `m`: 남성<br/>- `f`: 여성|
@@ -855,7 +855,7 @@ EOF
 
 #### 설명
 
-네이버 통합검색의 쇼핑 영역과 [네이버쇼핑](http://pc.shopping2.naver.com/)에서 특정 쇼핑 분야와 검색 키워드의 검색 클릭 추이를 사용자의 성별로 조회한 데이터를 JSON 형식으로 반환합니다.
+네이버 통합검색의 쇼핑 영역과 [네이버쇼핑](https://shopping.naver.com)에서 특정 쇼핑 분야와 검색 키워드의 검색 클릭 추이를 사용자의 성별로 조회한 데이터를 JSON 형식으로 반환합니다.
 
 #### 요청 URL
 
@@ -880,7 +880,7 @@ POST
 |startDate|String|Y|조회 기간 시작 날짜(`yyyy-mm-dd` 형식). 2017년 8월 1일부터 조회할 수 있습니다.|
 |endDate|String|Y|조회 기간 종료 날짜(`yyyy-mm-dd` 형식)|
 |timeUnit|String|Y|구간 단위<br/>- `date`: 일간<br/>- `week`: 주간<br/>- `month`: 월간|
-|category|String|Y|쇼핑 분야 코드. [네이버쇼핑](http://pc.shopping2.naver.com/)에서 카테고리를 선택했을 때의 URL에 있는 `cat_id` 파라미터의 값으로 분야 코드를 확인할 수 있습니다.|
+|category|String|Y|쇼핑 분야 코드. [네이버쇼핑](https://shopping.naver.com)에서 카테고리를 선택했을 때의 URL에 있는 `cat_id` 파라미터의 값으로 분야 코드를 확인할 수 있습니다.|
 |keyword|String|Y|검색 키워드|
 |device|String|N|기기. 검색 환경에 따른 조건입니다.<br/>- 설정 안 함: 모든 기기에서의 검색 클릭 추이<br/>- `pc`: PC에서의 검색 클릭 추이<br/>- `mo`: 모바일 기기에서의 검색 클릭 추이|
 |gender|String|N|성별. 검색 사용자의 성별에 따른 조건입니다.<br/>- 설정 안 함: 모든 성별<br/>- `m`: 남성<br/>- `f`: 여성|
@@ -978,7 +978,7 @@ EOF
 
 #### 설명
 
-네이버 통합검색의 쇼핑 영역과 [네이버쇼핑](http://pc.shopping2.naver.com/)에서 특정 쇼핑 분야와 검색 키워드의 검색 클릭 추이를 사용자의 연령별로 조회한 데이터를 JSON 형식으로 반환합니다.
+네이버 통합검색의 쇼핑 영역과 [네이버쇼핑](https://shopping.naver.com)에서 특정 쇼핑 분야와 검색 키워드의 검색 클릭 추이를 사용자의 연령별로 조회한 데이터를 JSON 형식으로 반환합니다.
 
 #### 요청 URL
 
@@ -1003,7 +1003,7 @@ POST
 |startDate|String|Y|조회 기간 시작 날짜(`yyyy-mm-dd` 형식). 2017년 8월 1일부터 조회할 수 있습니다.|
 |endDate|String|Y|조회 기간 종료 날짜(`yyyy-mm-dd` 형식)|
 |timeUnit|String|Y|구간 단위<br/>- `date`: 일간<br/>- `week`: 주간<br/>- `month`: 월간|
-|category|String|Y|쇼핑 분야 코드. [네이버쇼핑](http://pc.shopping2.naver.com/)에서 카테고리를 선택했을 때의 URL에 있는 `cat_id` 파라미터의 값으로 분야 코드를 확인할 수 있습니다.|
+|category|String|Y|쇼핑 분야 코드. [네이버쇼핑](https://shopping.naver.com)에서 카테고리를 선택했을 때의 URL에 있는 `cat_id` 파라미터의 값으로 분야 코드를 확인할 수 있습니다.|
 |keyword|String|Y|검색 키워드|
 |device|String|N|기기. 검색 환경에 따른 조건입니다.<br/>- 설정 안 함: 모든 기기에서의 검색 클릭 추이<br/>- `pc`: PC에서의 검색 클릭 추이<br/>- `mo`: 모바일 기기에서의 검색 클릭 추이|
 |gender|String|N|성별. 검색 사용자의 성별에 따른 조건입니다.<br/>- 설정 안 함: 모든 성별<br/>- `m`: 남성<br/>- `f`: 여성|
