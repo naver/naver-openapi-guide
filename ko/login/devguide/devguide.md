@@ -1135,3 +1135,95 @@ https://nid.naver.com/oauth2.0/token?grant_type=delete&client_id=CLIENT_ID&clien
 
 연동 해제 API에 사용되는 접근토큰은 반드시 유효한 접근토큰을 이용하여야 합니다.(만료된 토큰이나 존재하지 않는 토큰으로 연동해제 불가)<br/>
 따라서 연동 해제를 수행하기 전에 접근토큰의 유효성을 점검하고 5.1의 접근토큰 갱신 과정에 따라 접근토큰을 갱신하는것을 권장합니다.
+
+# 6. 네아로 부가 기능
+
+## 6.1 네이버앱에서 서비스 자동로그인 처리
+
+### 6.1.1 서비스 자동로그인이란
+
+네아로를 통해 서비스를 이용한적이 있는 사용자가 네이버앱에서 서비스를 접근하는 경우, 사용자의 이용편의를 위하여 서비스에 자동으로 로그인된 상태로 전환하는 기능입니다.  
+
+다음과 같은 상항에서 사용자의 로그인 과정을 간소화하여 편의를 제공할 수 있습니다.
+
+* 네이버앱에서 검색을 통해 서비스에 접근하는 경우
+* 네이버앱 즐겨찾기를 통해 서비스에 접근하는 경우
+* 톡톡, 메일 등으로 전달된 링크를 통해 서비스에 접근하는 경우
+
+자동 로그인은 다음과 같은 절차로 수행됩니다.
+
+1. 자동 로그인 처리 가능 환경에 대한 체크
+2. 네아로 연동 URL에 대한 처리
+3. Callback 페이지에서 연동 처리 또는 오류 사항에 대한 처리
+4. 로그인 완료
+
+
+### 6.1.2 제약사항
+
+본 기능은 "네이버앱"에서 서비스의 웹페이지를 접근하는 경우에만 수행이 가능한 기능합니다.
+
+### 6.1.3 네이버앱 판별 조건 
+
+네이버앱의 경우 특정 형식의 User-Agent를 지니고 있습니다. 따라서, 요청헤더의 User-Agent헤더를 통해 네이버앱 여부를 판별 가능합니다.
+
+***판별 조건***
+
+User-Agent 에 다음의 문자열이 포함되는지 확인
+
+`NAVER(inapp; search;`
+
+***네이버앱 User-Agent 샘플***
+
+```
+Mozilla/5.0 (iPhone; CPU iPhone OS like Mac OS X) AppleWebKit/605.1.15 NAVER(inapp; search; 620; 10.10.2; XR)
+```
+
+### 6.1.4 서비스 자동 로그인 명세
+
+6.1.3의 조건에 부합하는 경우, 서비스에서는 302 redirect 처리 또는 javascript location replace 처리 등으로 사용자를 인증페이지로 이동시킵니다.
+
+***요청 URL 정보***
+
+| 메서드 | 요청 URL | 출력 포맷 | 설명 | 
+| :--: | ----- | :--: | --- |
+| GET / POST   |https://nid.naver.com/oauth2.0/authorize |  URL 리다이렉트   | 네아로 인증 요청|
+
+***요청 변수 정보***
+
+| 요청 변수명 |타입 |필수 여부 |기본값 |설명 |
+| :--: | :-: | :-: | :-: | -------- |
+| response_type |string |Y |code |인증 과정에 대한 내부 구분값으로 'code'로 전송해야 함 |
+| client_id |string |Y |- |애플리케이션 등록 시 발급받은 Client ID 값 |
+| redirect_uri |string |Y |- |애플리케이션을 등록 시 입력한 Callback URL 값으로 URL 인코딩을 적용한 값 |
+| state |string |Y |- |사이트 간 요청 위조(cross-site request forgery) 공격을 방지하기 위해 애플리케이션에서 생성한 상태 토큰값으로 URL 인코딩을 적용한 값을 사용 |
+| auth_type | string | Y | - | 자동로그인 요청의 경우 'autologin' 로 전송해야 함 |
+
+***요청문 샘플***
+
+```text
+https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=CLIENT_ID&state=STATE_STRING&redirect_uri=CALLBACK_URL&auth_type=autologin
+```
+
+요청이 정상적으로 처리되면 recirect_uri (callback url) 로 처리 결과를 포함하여 페이지 Redirect 처리 됩니다. 정상적으로 자동로그인 대상으로 처리가 된 경우, 네아로 연동 callback 처리와 동일하게 처리하면 됩니다. (access token 발급 처리 후 로그인 처리)
+
+### 6.1.5 오류 상태와 오류 코드 정의
+
+정상적으로 자동로그인을 처리할 수 없는 경우에는 callback 페이지에 오류 코드를 파라미터로 전달합니다.
+
+| 파라미터 | 타입 | 필수 여부 | 설명 |
+| --- | --- | --- | --- |
+| error | string | Y | 오류 코드 |
+| error_description | string | Y | 오류 코드 상세 |
+
+***오류 코드 및 메시지 정의***
+
+| error 파라미터 | error_description 파라미터 | 설명 |
+| --- | --- | --- |
+| access_denied | user not logged in. | 네이버에 로그인된 상태가 아닙니다. |
+| access_denied | need user consent. | 서비스에 연동된 사용자가 아닙니다. |
+| access_denied | unsupported browser environment. | 네이버앱이 아닌 환경에서 접근하였습니다. |
+
+***오류 처리 방안***
+
+자동 로그인 처리 실패에 대한 오류코드를 콜백으로 전달받은 경우, 기존과 동일하게 로그인 버튼을 통해 로그인 할 수 있도록 처리가 필요합니다.
+
