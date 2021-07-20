@@ -124,7 +124,7 @@
 
 |요청 URL|메서드|응답 형식|설명|
 |------|--|--|------|
-|`http://share.naver.com/web/shareView.nhn`|GET|-|콘텐츠를 네이버 블로그, 네이버 카페, PHOLAR에 공유합니다.|
+|`http://share.naver.com/web/shareView`|GET|-|콘텐츠를 네이버 블로그, 네이버 카페, PHOLAR에 공유합니다.|
 
 ### Clova Face Recognition
 
