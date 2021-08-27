@@ -4,21 +4,21 @@
 
 ## 로그인 방식 오픈 API
 
-로그인 방식 오픈 API는 '[네이버 아이디로 로그인](https://developers.naver.com/products/login/api/api.md)'의 인증을 받아 접근 토큰(access token)을 획득해야 사용할 수 있는 오픈 API입니다. API를 호출할 때 네이버 아이디로 로그인 API를 통해 받은 접근 토큰의 값을 전송해야 합니다.
+로그인 방식 오픈 API는 '[네이버 로그인](https://developers.naver.com/products/login/api/api.md)'의 인증을 받아 접근 토큰(access token)을 획득해야 사용할 수 있는 오픈 API입니다. API를 호출할 때 네이버 로그인 API를 통해 받은 접근 토큰의 값을 전송해야 합니다.
 
 다음과 같은 네이버 오픈API가 로그인 방식 오픈 API입니다. 회원 기본 정보 조회, 카페 가입 및 글쓰기, 캘린더 일정 담기 등의 기능을 구현할 때 로그인 방식 오픈 API를 사용합니다.
 
-- [네이버 아이디로 로그인](https://developers.naver.com/products/login/api/api.md): 별도의 아이디와 비밀번호 없이 네이버 아이디로 간편하게 외부 서비스에 로그인할 수 있게 하는 API입니다.
+- [네이버 로그인](https://developers.naver.com/products/login/api/api.md): 별도의 아이디와 비밀번호 없이 네이버 아이디로 간편하게 외부 서비스에 로그인할 수 있게 하는 API입니다.
 - [카페](https://developers.naver.com/products/login/cafe/cafe.md): 외부 서비스에서 네이버 카페에 가입하거나 게시글을 등록할 수 있게 하는 API입니다.
 - [캘린더](https://developers.naver.com/products/login/calendar/calendar.md): 외부 서비스에 네이버 캘린더에 일정을 등록할 수 있게 하는 API입니다.
 
-### 네이버 아이디로 로그인
+### 네이버 로그인
 
-다음은 네이버 아이디로 로그인 API에서 사용하는 주요 요청 URL과 메서드, 응답 형식입니다.
+다음은 네이버 로그인 API에서 사용하는 주요 요청 URL과 메서드, 응답 형식입니다.
 
 |요청 URL|메서드|응답 형식|설명|
 |------|--|--|------|
-|`https://nid.naver.com/oauth2.0/authorize`|GET/POST|-|네이버 아이디로 로그인 인증을 요청합니다.|
+|`https://nid.naver.com/oauth2.0/authorize`|GET/POST|-|네이버 로그인 인증을 요청합니다.|
 |`https://nid.naver.com/oauth2.0/token`|GET/POST|JSON|접근 토큰의 발급, 갱신, 삭제를 요청합니다.|
 |`https://openapi.naver.com/v1/nid/me`|GET|JSON|네이버 회원의 프로필을 조회합니다.|
 
@@ -41,7 +41,7 @@
 
 ## 비로그인 방식 오픈 API
 
-비로그인 방식 오픈 API는 HTTP 헤더에 클라이언트 아이디와 클라이언트 시크릿 값만 전송해 사용할 수 있는 오픈 API입니다. 네이버 아이디로 로그인의 인증을 통한 접근 토큰을 획득할 필요가 없습니다.
+비로그인 방식 오픈 API는 HTTP 헤더에 클라이언트 아이디와 클라이언트 시크릿 값만 전송해 사용할 수 있는 오픈 API입니다. 네이버 로그인의 인증을 통한 접근 토큰을 획득할 필요가 없습니다.
 
 다음과 같은 네이버 오픈API가 비로그인 방식 오픈 API입니다.
 
