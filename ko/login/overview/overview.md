@@ -2,8 +2,8 @@
 
 <html lang="ko">
 <head>
-    <title>NAVER Developers - 네이버아이디로로그인 개요</title>
-    <meta name="description" content="NAVER Developers - 네이버아이디로로그인 개요">
+    <title>NAVER Developers - 네이버 로그인 개요</title>
+    <meta name="description" content="NAVER Developers - 네이버 로그인 개요">
 </head>
 <body>
 <div class="con">

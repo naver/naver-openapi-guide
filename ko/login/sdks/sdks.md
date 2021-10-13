@@ -1,8 +1,8 @@
 # SDK 다운로드
 
 <html lang="ko"><head>
-    <title>NAVER Developers - 네이버아이디로로그인 SDK 다운로드</title>
-    <meta name="description" content="NAVER Developers - 네이버아이디로로그인 SDK 다운로드">
+    <title>NAVER Developers - 네이버 로그인 SDK 다운로드</title>
+    <meta name="description" content="NAVER Developers - 네이버 로그인 SDK 다운로드">
     <style>
     .this_page br ~ .button-green-o {
         margin-top: 4px;

@@ -2,8 +2,8 @@
 
 <html lang="ko">
 <head>
-    <title>NAVER Developers - 네이버아이디로로그인 Web 개발가이드</title>
-    <meta name="description" content="NAVER Developers - 네이버아이디로로그인 Web 개발가이드">
+    <title>NAVER Developers - 네이버 로그인 Web 개발가이드</title>
+    <meta name="description" content="NAVER Developers - 네이버 로그인 Web 개발가이드">
 </head>
 <body>
 <div class="con">
@@ -34,9 +34,9 @@
   &lt;script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-  &lt;!-- 네이버아이디로로그인 버튼 노출 영역 --&gt;
+  &lt;!-- 네이버 로그인 버튼 노출 영역 --&gt;
   &lt;div id="naver_id_login"&gt;&lt;/div&gt;
-  &lt;!-- //네이버아이디로로그인 버튼 노출 영역 --&gt;
+  &lt;!-- //네이버 로그인 버튼 노출 영역 --&gt;
   &lt;script type="text/javascript"&gt;
   	var naver_id_login = new naver_id_login("YOUR_CLIENT_ID", "YOUR_CALLBACK_URL");
   	var state = naver_id_login.getUniqState();
@@ -598,9 +598,9 @@ Authorization: Bearer AAAAOLtP40eH6P5S4Z4FpFl77n3FD5I+W3ost3oDZq/nbcS+7MAYXwX<br
 &lt;script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-&lt;!-- 네이버아이디로로그인 버튼 노출 영역 --&gt;
+&lt;!-- 네이버 로그인 버튼 노출 영역 --&gt;
 &lt;div id="naver_id_login"&gt;&lt;/div&gt;
-&lt;!-- //네이버아이디로로그인 버튼 노출 영역 --&gt;
+&lt;!-- //네이버 로그인 버튼 노출 영역 --&gt;
 <br>
 &lt;!-- 네이버아디디로로그인 초기화 Script --&gt;
 &lt;script type="text/javascript"&gt;
@@ -612,7 +612,7 @@ Authorization: Bearer AAAAOLtP40eH6P5S4Z4FpFl77n3FD5I+W3ost3oDZq/nbcS+7MAYXwX<br
 	naver_id_login.setPopup();
 	naver_id_login.init_naver_id_login();
 &lt;/script&gt;
-&lt;!-- // 네이버아이디로로그인 초기화 Script --&gt;
+&lt;!-- // 네이버 로그인 초기화 Script --&gt;
 &lt;/body&gt;
 &lt;/html&gt;
 </pre>
@@ -692,9 +692,9 @@ naver_id_login.init_naver_id_login();
 &lt;script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-&lt;!-- 네이버아이디로로그인 버튼 노출 영역 --&gt;
+&lt;!-- 네이버 로그인 버튼 노출 영역 --&gt;
 &lt;div id="naver_id_login"&gt;&lt;/div&gt;
-&lt;!-- //네이버아이디로로그인 버튼 노출 영역 --&gt;
+&lt;!-- //네이버 로그인 버튼 노출 영역 --&gt;
 <br>
 &lt;!-- 네이버아디디로로그인 초기화 Script --&gt;
 &lt;script type="text/javascript"&gt;

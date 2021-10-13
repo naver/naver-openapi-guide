@@ -2,8 +2,8 @@
 
 <html lang="ko">
 <head>
-    <title>NAVER Developers - 네이버아이디로로그인 외부 SDK 다운로드</title>
-    <meta name="description" content="NAVER Developers - 네이버아이디로로그인 외부 SDK 다운로드">
+    <title>NAVER Developers - 네이버 로그인 외부 SDK 다운로드</title>
+    <meta name="description" content="NAVER Developers - 네이버 로그인 외부 SDK 다운로드">
 </head>
 <body>
 <div class="con">
