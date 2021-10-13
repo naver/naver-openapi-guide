@@ -7,7 +7,7 @@ public class APIExamCafePostMultipart {
 
     public static void main(String[] args) {
 
-        String token = "YOUR_ACCESS_TOKEN";// 네아로 접근 토큰 값";
+        String token = "YOUR_ACCESS_TOKEN";// 네이버 로그인 접근 토큰 값";
         String header = "Bearer " + token; // Bearer 다음에 공백 추가
         try {
             // api url 설정

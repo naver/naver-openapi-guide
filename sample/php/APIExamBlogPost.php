@@ -1,6 +1,6 @@
 <?php
   // 네이버 블로그 Open API 예제 - 글쓰기
-  $token = "YOUR_ACCESS_TOKEN"; // 네아로 접근 토큰
+  $token = "YOUR_ACCESS_TOKEN"; // 네이버 로그인 로그인 접근 토큰
   $header = "Bearer ".$token; // Bearer 다음에 공백 추가
   $url = "https://openapi.naver.com/blog/writePost.json";
   $title = urlencode("네이버 블로그 api Test php");

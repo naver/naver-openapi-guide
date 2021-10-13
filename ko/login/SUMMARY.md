@@ -3,7 +3,7 @@
 * [개요](overview/overview.md)
 * [검수 가이드](verify/verify.md)
 * [개발 가이드](devguide/devguide.md)
-    * [네아로 개발가이드](devguide/devguide.md)
+    * [네이버 로그인 개발가이드](devguide/devguide.md)
     * [체험하기]({{ book.LoginExperienceURI }})
     * [로그인 버튼 사용 가이드](bi/bi.md)
 * [API 명세](api/api.md)

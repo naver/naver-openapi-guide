@@ -36,8 +36,8 @@
     </div>
     <div class="buttons buttons_center">
         <a class="btn_b_hi" href="https://developers.naver.com/apps/#/register?api=nvlogin">오픈 API 이용 신청</a>
-        <a id="btnLoginGuide" class="btn_b_hi cursor btn_m_hide" href="https://developers.naver.com/docs/login/devguide/devguide.md#네이버아이디로그인-개발가이드">개발 가이드 보기</a>
-        <a class="btn_b_hi cursor btn_m_view" href="https://developers.naver.com/docs/login/devguide/devguide.md#네이버아이디로그인-개발가이드">개발 가이드 보기</a>
+        <a id="btnLoginGuide" class="btn_b_hi cursor btn_m_hide" href="https://developers.naver.com/docs/login/devguide/devguide.md#네이버 로그인-개발가이드">개발 가이드 보기</a>
+        <a class="btn_b_hi cursor btn_m_view" href="https://developers.naver.com/docs/login/devguide/devguide.md#네이버 로그인-개발가이드">개발 가이드 보기</a>
         <a href="./downloads/naverlogin_docu_ver3.pdf" target="_blank" class="btn_b2 cursor">소개 다운받기</button></a>
     </div>
     <div id="loginGuide">
@@ -47,7 +47,7 @@
                 <a class="close_button sprite"><span class="blind">Close</span></a>
                 <div id="nir_intro" class="nir_contents intro" style="display: block;">
                     <div class="intro_welcome sprite"><span class="blind">환영합니다</span></div>
-                    <div class="intro_title sprite"><h1 class="blind">네아로의 올바른 적용방법을 알아볼까요?</h1></div>
+                    <div class="intro_title sprite"><h1 class="blind">네이버 로그인의 올바른 적용방법을 알아볼까요?</h1></div>
                     <p class="intro_desc sprite"><span class="blind">네이버 아이디로 로그인을 통해 신규 회원을 늘리고, 기존 회원은 간편하게 로그인하게 하려면 <strong>제대로 적용하는 것이 중요합니다!</strong> 이에 올바른 적용방법을 여러분의 애플리케이션 환경에 맞게 알려드립니다.</span></p>
                     <div class="intro_artwork sprite"><span class="blind">'네이버 아이디로 로그인' 이미지</span></div>
                     <p class="nir_info">입력하신 정보는 서비스 안내를 위해서만 사용되며 별도로 보관되지 않습니다.</p>
@@ -141,7 +141,7 @@
                         <div class="step step3 sprite"><a href="javascript:void(0);"><span class="blind">스텝3</span></a></div>
                         <div class="step step4 sprite"><a href="javascript:void(0);"><span class="blind">스텝4</span></a></div>
                     </div>
-                    <div class="appliance_title sprite"><span class="blind">네아로를 효과적으로 적용한 사례를 소개합니다.<br> 가입과 로그인이 얼마나 편해졌는지, 직접 확인해보세요!</span></div>
+                    <div class="appliance_title sprite"><span class="blind">네이버 로그인를 효과적으로 적용한 사례를 소개합니다.<br> 가입과 로그인이 얼마나 편해졌는지, 직접 확인해보세요!</span></div>
                     <div class="appliance_context">
                         <a href="http://www.galleria.co.kr" target="_blank" class="appliance appliance1 sprite"><span class="blind">쇼핑 갤러리아</span></a>
                         <a href="http://www.happycampus.com/" target="_blank" class="appliance appliance2 sprite"><span class="blind">교육 해피캠퍼스</span></a>

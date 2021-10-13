@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var token = "YOUR_ACCESS_TOKEN" // 네아로 접근 토큰
+var token = "YOUR_ACCESS_TOKEN" // 네이버 로그인 접근 토큰
 var header = "Bearer " + token; // Bearer 다음에 공백 추가
 var title = "네이버 블로그 api Test node js";
 var contents = "<font color='red'>node js multi-part</font>로 첨부한 글입니다. <br> nodejs 이미지 2개 첨부 <br> <img src=\"#0\" /> <img src=\"#1\" />";

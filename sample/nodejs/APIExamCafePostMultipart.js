@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var token = "YOUR_ACCESS_TOKEN" // 네아로 접근 토큰
+var token = "YOUR_ACCESS_TOKEN" // 네이버 로그인 접근 토큰
 var header = "Bearer " + token; // Bearer 다음에 공백 추가
 var clubid = "28339939";// 카페의 고유 ID값 http://cafe.naver.com/apiexam
 var menuid = "1"; // 카페 게시판 id

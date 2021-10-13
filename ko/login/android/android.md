@@ -42,7 +42,7 @@
 compile ('com.naver.nid:naveridlogin-android-sdk:4.2.6')
 </pre>
     </div>
-    <p class="p_desc">네아로 SDK에서 사용하는 라이브러리는 다음과 같습니다. 필요에 따라 exclude 하여 사용하시면 됩니다.</p>
+    <p class="p_desc">네이버 로그인 SDK에서 사용하는 라이브러리는 다음과 같습니다. 필요에 따라 exclude 하여 사용하시면 됩니다.</p>
     <div class="code_area">
 <pre class="prettyprint">compile 'com.android.support:appcompat-v7:28.0.0'
 compile 'com.android.support:support-core-utils:28.0.0'

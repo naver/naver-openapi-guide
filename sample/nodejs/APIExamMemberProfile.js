@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var token = "YOUR_ACCESS_TOKEN" // 네아로 접근 토큰
+var token = "YOUR_ACCESS_TOKEN" // 네이버 로그인 접근 토큰
 var header = "Bearer " + token; // Bearer 다음에 공백 추가
 app.get('/member', function (req, res) {
    var api_url = 'https://openapi.naver.com/v1/nid/me';

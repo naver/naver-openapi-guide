@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var token = "YOUR_ACCESS_TOKEN" // 네아로 접근 토큰
+var token = "YOUR_ACCESS_TOKEN" // 네이버 로그인 접근 토큰
 var header = "Bearer " + token; // Bearer 다음에 공백 추가
 var title = "네이버 블로그 api Test node js";
 var contents = "네이버 블로그 api로 글을 블로그에 올려봅니다.";

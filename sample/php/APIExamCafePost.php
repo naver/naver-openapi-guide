@@ -1,6 +1,6 @@
 <?php
   // 네이버 카페 Open API 예제 - 글쓰기
-  $token = "YOUR_ACCESS_TOKEN"; // 네아로 접근 토큰
+  $token = "YOUR_ACCESS_TOKEN"; // 네이버 로그인 접근 토큰
   $header = "Bearer ".$token; // Bearer 다음에 공백 추가
   $clubid = "13400261";// 카페의 고유 ID값 (http://cafe.naver.com/apiexam/83)
   $menuid = "3"; // 카페 게시판 id

@@ -737,7 +737,7 @@ naver_id_login.init_naver_id_login();
     <p class="p_desc">사용자가 정상적으로 로그인 인증을 수행하면 콜백 URL로 인증 정보가 전달되며 콜백 페이지의 코드가 동작하여 접근 토큰 정보를 자동으로 획득하게 됩니다. SDK의 naver_id_login.getAccessToken() 함수를 통해 AccessToken 정보를 발급받을 수 있으며 발급받은 정보는 별도로 저장하여 이후 오픈 API호출 시 사용하도록 합니다.</p>
     <div class="blockquote_area">
         <em class="warning"><i class="xi-info-suqare"></i>주의</em>
-        <p>콜백 URL과 네아로 로그인 버튼이 붙은 페이지의 도메인이 서로 다른 경우, 자동으로 처리하는 상태 토큰 비교가 오동작할 수 있습니다. 이 경우 추가 처리가 필요합니다.</p>
+        <p>콜백 URL과 네이버 로그인 로그인 버튼이 붙은 페이지의 도메인이 서로 다른 경우, 자동으로 처리하는 상태 토큰 비교가 오동작할 수 있습니다. 이 경우 추가 처리가 필요합니다.</p>
         <p>
             로그인 버튼이 붙은 페이지의 domain 은 wwww.service.com 이고,<br>
             콜백 URL로 설정된 페이지는 callback.service.com 인 경우
