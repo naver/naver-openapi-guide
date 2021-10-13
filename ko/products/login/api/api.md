@@ -1,8 +1,8 @@
-# 네이버 아이디로 로그인
+# 네이버 로그인
 
 <html lang="ko">
 <head>
-    <title>NAVER Developers - 네이버 아이디로 로그인 소개</title>
+    <title>NAVER Developers - 네이버 로그인 소개</title>
 </head>
 <body>
 <div class="con">
@@ -48,8 +48,8 @@
                 <div id="nir_intro" class="nir_contents intro" style="display: block;">
                     <div class="intro_welcome sprite"><span class="blind">환영합니다</span></div>
                     <div class="intro_title sprite"><h1 class="blind">네이버 로그인의 올바른 적용방법을 알아볼까요?</h1></div>
-                    <p class="intro_desc sprite"><span class="blind">네이버 아이디로 로그인을 통해 신규 회원을 늘리고, 기존 회원은 간편하게 로그인하게 하려면 <strong>제대로 적용하는 것이 중요합니다!</strong> 이에 올바른 적용방법을 여러분의 애플리케이션 환경에 맞게 알려드립니다.</span></p>
-                    <div class="intro_artwork sprite"><span class="blind">'네이버 아이디로 로그인' 이미지</span></div>
+                    <p class="intro_desc sprite"><span class="blind">네이버 로그인을 통해 신규 회원을 늘리고, 기존 회원은 간편하게 로그인하게 하려면 <strong>제대로 적용하는 것이 중요합니다!</strong> 이에 올바른 적용방법을 여러분의 애플리케이션 환경에 맞게 알려드립니다.</span></p>
+                    <div class="intro_artwork sprite"><span class="blind">'네이버 로그인' 이미지</span></div>
                     <p class="nir_info">입력하신 정보는 서비스 안내를 위해서만 사용되며 별도로 보관되지 않습니다.</p>
                     <div class="intro_footer">
                         <a class="nir_button active sprite"><span class="blind">시작하기</span></a>

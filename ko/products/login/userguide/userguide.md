@@ -2,22 +2,22 @@
 
 <html lang="ko">
 <head>
-    <title>NAVER Developers - 네이버 아이디로 로그인 적용 가이드</title>
+    <title>NAVER Developers - 네이버 로그인 적용 가이드</title>
 </head>
 <body>
 <div class="con">
-    <h3 class="h_sub">네이버 아이디로 로그인 적용 사이트 A,B 왜 이렇게 다를까요?</h3>
+    <h3 class="h_sub">네이버 로그인 적용 사이트 A,B 왜 이렇게 다를까요?</h3>
     <div class="buttons2">
         <a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
     </div>
     <div class="img_area"><img alt="" src="./images/img_intro_naveridlogin01.png"></div>
     <p class="p_desc">
-        두 업체 모두 네이버 아이디로 로그인을 적용했지만 적용 효과는 확연히 차이가 납니다. 업체 B는 사용자가 소셜로그인에 기대하는 핵심 가치를 제대로 구현하지 않았기 때문입니다. 어떻게 해야 업체 A처럼 확실한 효과를 볼 수 있을지 알려 드리겠습니다.
+        두 업체 모두 네이버 로그인을 적용했지만 적용 효과는 확연히 차이가 납니다. 업체 B는 사용자가 소셜로그인에 기대하는 핵심 가치를 제대로 구현하지 않았기 때문입니다. 어떻게 해야 업체 A처럼 확실한 효과를 볼 수 있을지 알려 드리겠습니다.
         다음 내용을 꼭 읽어 보시고 여러분의 사이트와 앱에는 어떻게 적용할지 생각해 보세요.
     </p>
-    <h3 class="h_sub">1. 네이버 아이디로 로그인 버튼을 한눈에 알아볼 수 있게 제공하세요</h3>
+    <h3 class="h_sub">1. 네이버 로그인 버튼을 한눈에 알아볼 수 있게 제공하세요</h3>
     <p class="p_desc">
-        사용자는 로그인 창에서 아이디와 비밀번호를 입력하는 데 집중하기 때문에 주변의 요소는 잘 인지하지 못합니다. 네이버 아이디로 로그인 버튼이 로그인 페이지에서 눈에 띄게 드러나지 않는다면 사용자는 네이버 아이디로 간편하게 로그인할 수 있다는 것을 알지 못하기 때문에, 적용할 때 기대했던 서비스 활성화 효과를 얻지 못하게 됩니다.
+        사용자는 로그인 창에서 아이디와 비밀번호를 입력하는 데 집중하기 때문에 주변의 요소는 잘 인지하지 못합니다. 네이버 로그인 버튼이 로그인 페이지에서 눈에 띄게 드러나지 않는다면 사용자는 네이버 아이디로 간편하게 로그인할 수 있다는 것을 알지 못하기 때문에, 적용할 때 기대했던 서비스 활성화 효과를 얻지 못하게 됩니다.
     </p>
     <div class="img_area"><img alt="" src="./images/img_intro_naveridlogin02.png"></div>
     <div class="blockquote_area">
@@ -34,22 +34,22 @@
     </p>
     <div class="img_area"><img alt="" src="./images/img_intro_naveridlogin04.png"></div>
     <p class="p_desc">
-        1.3. PC와 모바일 환경 모두에 네이버 아이디로 로그인 버튼을 사용합니다.
+        1.3. PC와 모바일 환경 모두에 네이버 로그인 버튼을 사용합니다.
     </p>
     <div class="img_area"><img alt="" src="./images/img_intro_naveridlogin05.png"></div>
     <div class="img_area"><img alt="" src="./images/img_intro_naveridlogin06.png"></div>
     <div class="blockquote_area">
-        <strong>네이버 아이디로 로그인 버튼 사용 가이드</strong>
-        <p>운영하는 애플리케이션이나 서비스의 상황에 맞게 버튼 이미지의 디자인을 변경할 수 있지만 네이버 고유의 아이덴티티를 유지할 수 있도록 <a class="color_p2 underline" href="https://developers.naver.com/docs/login/bi/bi.md">"네이버 아이디로 로그인 버튼 사용 가이드"</a>에 제시된 디자인을 최대한 유지하는 것을 권장합니다.</p>
+        <strong>네이버 로그인 버튼 사용 가이드</strong>
+        <p>운영하는 애플리케이션이나 서비스의 상황에 맞게 버튼 이미지의 디자인을 변경할 수 있지만 네이버 고유의 아이덴티티를 유지할 수 있도록 <a class="color_p2 underline" href="https://developers.naver.com/docs/login/bi/bi.md">"네이버 로그인 버튼 사용 가이드"</a>에 제시된 디자인을 최대한 유지하는 것을 권장합니다.</p>
     </div>
     <h3 class="h_sub">2. 가입 과정에서 정보는 최소한으로 수집하세요</h3>
     <p class="p_desc">
-        사용자는 네이버 아이디로 로그인하면 별도의 가입 절차 없이 바로 서비스를 이용할 수 있기를 기대합니다. 그러나 가입 과정에서 휴대폰 인증을 요구하거나 주소 등과 같은 추가 정보를 과다하게 요구해 ‘네이버 계정으로 간편하게 이용한다’는 느낌을 주지 못한다면 많은 사용자가 ‘별도의 가입 절차’ 앞에서 이탈하게 됩니다.
+        사용자는 네이버 로그인하면 별도의 가입 절차 없이 바로 서비스를 이용할 수 있기를 기대합니다. 그러나 가입 과정에서 휴대폰 인증을 요구하거나 주소 등과 같은 추가 정보를 과다하게 요구해 ‘네이버 계정으로 간편하게 이용한다’는 느낌을 주지 못한다면 많은 사용자가 ‘별도의 가입 절차’ 앞에서 이탈하게 됩니다.
         추가 정보는 필요한 시점에 수집해 저장하는 것이 좋습니다. 필요할 때 요구하는 정보는 사용자도 당연하다고 느낍니다. 서비스를 이용하도록 하는 것이 우선이라는 것을 기억하세요.
     </p>
     <p class="p_desc">
         또한 이미 네이버 아이디와 패스워드를 입력해 로그인 했는데 별도의 아이디와 패스워드를 한번 더 만들도록 요구한다면 사용자를 매우 불편하게 만드는 절차입니다.  다른 정보에 비해 아이디와 패스워드는 입력 조건이 까다로워 사용자는 더 번거롭게 느낄 수 있습니다.
-        ‘네이버 아이디로 로그인’ 연결에 대한 동의 절차에 바로 이어지는 회원 가입 페이지에서 별도의 비밀번호를 입력 받지 않도록 하세요. 이는 매우 중요한 부분이며 미준수시 이용이 제한될 수 있습니다.
+        ‘네이버 로그인’ 연결에 대한 동의 절차에 바로 이어지는 회원 가입 페이지에서 별도의 비밀번호를 입력 받지 않도록 하세요. 이는 매우 중요한 부분이며 미준수시 이용이 제한될 수 있습니다.
     </p>
     <div class="img_area"><img alt="" src="./images/img_intro_naveridlogin07.png"></div>
     <div class="blockquote_area">
@@ -70,12 +70,12 @@
     </p>
     <div class="img_area">
         <img alt="" src="./images/img_intro_naveridlogin09.png"></div>
-    <h3 class="h_sub">3. 네이버 아이디로 로그인을 가입과 로그인에 모두 적용하세요</h3>
+    <h3 class="h_sub">3. 네이버 로그인을 가입과 로그인에 모두 적용하세요</h3>
     <p class="p_desc">
-        가입 화면과 로그인 화면에 모두 네이버 아이디로 로그인을 적용하고 두 페이지가 자연스럽게 연결되게 하세요.
+        가입 화면과 로그인 화면에 모두 네이버 로그인을 적용하고 두 페이지가 자연스럽게 연결되게 하세요.
     </p>
     <p class="p_desc">
-        사이트에 처음 방문한 사용자는 일반적으로 ‘가입하기’를 클릭하기 때문에, 로그인 화면에만 네이버 아이디로 로그인을 적용한다면 네이버 아이디로 로그인의 효과는 떨어질 수 밖에 없습니다. 가입 화면과 로그인 화면에 모두 네이버 아이디로 로그인을 적용해 어디로 접근하든 네이버 아이디로 로그인을 이용할 수 있게 하세요.
+        사이트에 처음 방문한 사용자는 일반적으로 ‘가입하기’를 클릭하기 때문에, 로그인 화면에만 네이버 로그인을 적용한다면 네이버 로그인의 효과는 떨어질 수 밖에 없습니다. 가입 화면과 로그인 화면에 모두 네이버 로그인을 적용해 어디로 접근하든 네이버 로그인을 이용할 수 있게 하세요.
     </p>
     <div class="img_area"><img alt="" src="./images/img_intro_naveridlogin10.png"></div>
     <h4 class="h_subsub">그럼 어떻게 가입과 로그인 페이지를 구성, 연결해야 할까요?</h4>
@@ -84,15 +84,15 @@
     </p>
     <div class="img_area"><img alt="" src="./images/img_intro_naveridlogin11.png"></div>
     <p class="p_desc">
-        3.2. 네이버 아이디로 로그인 시, 회원 가입으로 바로 이동 시키는 경우
+        3.2. 네이버 로그인 시, 회원 가입으로 바로 이동 시키는 경우
     </p>
     <div class="img_area"><img alt="" src="./images/img_intro_naveridlogin12.png"></div>
-    <h3 class="h_sub">4. 네이버 아이디로 로그인 SDK를 이용해 개발하세요</h3>
+    <h3 class="h_sub">4. 네이버 로그인 SDK를 이용해 개발하세요</h3>
     <p class="p_desc">
-        네이버 아이디로 로그인은 JavaScript와 Android, iOS를 지원하는 SDK를 제공합니다. SDK에는 샘플 애플리케이션이 포함되어 있으며 이를 이용해 로그인 인증부터 API 호출까지 매우 쉽게 구현할 수 있습니다.
+        네이버 로그인은 JavaScript와 Android, iOS를 지원하는 SDK를 제공합니다. SDK에는 샘플 애플리케이션이 포함되어 있으며 이를 이용해 로그인 인증부터 API 호출까지 매우 쉽게 구현할 수 있습니다.
     </p>
     <p class="p_desc">
-        <a class="color_p2 underline" href="https://developers.naver.com/docs/login/sdks/sdks.md">네이버 아이디로 로그인 SDK 다운로드 &gt;</a>
+        <a class="color_p2 underline" href="https://developers.naver.com/docs/login/sdks/sdks.md">네이버 로그인 SDK 다운로드 &gt;</a>
     </p>
     <p class="p_desc">
         또한 모바일 애플리케이션을 개발할 때 SDK를 이용하면 네이버 앱을 이용한 간편 로그인을 사용할 수 있어 사용자가 훨씬 편하게 로그인할 수 있습니다.
@@ -101,7 +101,7 @@
     <h3 class="h_sub">기존 회원 연동 관련 Tip!</h3>
     <h4 class="h_subsub">기존 회원 관리 체계가 있는 서비스는 이렇게</h4>
     <p class="p_desc">
-        신규 회원 유입이 중요한 스타트업이나 기존 회원 활성화가 목표인 업체 모두에게 네이버 아이디로 로그인은 좋은 성공 수단이 될 수 있습니다. 그러나 오래 전부터 자체 회원 관리 체계를 갖추고 있는 업체는 기존의 회원 관리 체계에 네이버 아이디로 로그인을 어떻게 적용할지 고민이 있을 수 있습니다.
+        신규 회원 유입이 중요한 스타트업이나 기존 회원 활성화가 목표인 업체 모두에게 네이버 로그인은 좋은 성공 수단이 될 수 있습니다. 그러나 오래 전부터 자체 회원 관리 체계를 갖추고 있는 업체는 기존의 회원 관리 체계에 네이버 로그인을 어떻게 적용할지 고민이 있을 수 있습니다.
         이 고민을 해결하기 위해 기존에 가입된 계정과 네이버 아이디를 어떻게 연결하고 가입 페이지는 어떻게 수정하면 좋을지 등을 안내해 드립니다.
     </p>
     <h4 class="h_subsub">✔네이버가 제공하는 프로필 정보로 기존 가입 여부를 확인할 수 있습니다.</h4>
@@ -118,12 +118,12 @@
     <div class="img_area"><img alt="" src="./images/img_intro_naveridlogin15.png"></div>
     <h4 class="h_subsub">✔기존 회원을 위한 연동 절차를 제공하세요.</h4>
     <p class="p_desc">
-        네이버 아이디로 회원 가입을 하지 않은 기존 회원도 네이버 아이디로 로그인을 사용할 수 있도록 ‘내정보’등 환경 설정 페이지에서 연동 절차를 제공하세요.
+        네이버 아이디로 회원 가입을 하지 않은 기존 회원도 네이버 로그인을 사용할 수 있도록 ‘내정보’등 환경 설정 페이지에서 연동 절차를 제공하세요.
     </p>
     <div class="img_area"><img alt="" src="./images/img_intro_naveridlogin16.png"></div>
     <h3 class="h_sub">5. 네이버페이도 함께 적용해보세요.</h3>
     <p class="p_desc">
-        ‘네이버 아이디로 로그인’과 ‘네이버페이’를 동시에 적용해 보세요. 시너지를 얻을 수 있습니다!
+        ‘네이버 로그인’과 ‘네이버페이’를 동시에 적용해 보세요. 시너지를 얻을 수 있습니다!
     </p>
     <h4 class="h_subsub">네이버페이 서비스란?</h4>
     <p class="p_desc">

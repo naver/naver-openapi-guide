@@ -1,4 +1,4 @@
-# 네이버 아이디로 로그인 API 명세
+# 네이버 로그인 API 명세
 
 <html lang="ko">
 <head>
@@ -10,7 +10,7 @@
     <div class="h_page_area">
         <div class="side_menu"></div>
     </div>
-    <p class="p_desc">'네이버 아이디로 로그인 API는 네이버 로그인 인증 요청 API, 접근 토큰 발급/갱신/삭제 요청API로 구성되어 있습니다. 네이버 로그인 인증 요청 API는 여러분의 웹 또는 앱에 네이버 로그인 화면을 띄우는 API입니다. 이용자가 네이버 회원 인증에 성공하면 API로부터 받은 code 값을 이용해서 접근 토큰 발급 요청 API를 호출합니다. 접근 토큰 발급 요청 API를 통해 받은 접근 토큰(access token) 값은 다음과 같이 회원 프로필 조회를 비롯하여 여러가지 로그인 오픈 API를 호출하는데 사용할 수 있습니다.</p>
+    <p class="p_desc">'네이버 로그인 API는 네이버 로그인 인증 요청 API, 접근 토큰 발급/갱신/삭제 요청API로 구성되어 있습니다. 네이버 로그인 인증 요청 API는 여러분의 웹 또는 앱에 네이버 로그인 화면을 띄우는 API입니다. 이용자가 네이버 회원 인증에 성공하면 API로부터 받은 code 값을 이용해서 접근 토큰 발급 요청 API를 호출합니다. 접근 토큰 발급 요청 API를 통해 받은 접근 토큰(access token) 값은 다음과 같이 회원 프로필 조회를 비롯하여 여러가지 로그인 오픈 API를 호출하는데 사용할 수 있습니다.</p>
     <div class="p_desc">
         로그인 오픈 API : 접근 토큰값을 이용해 호출 가능한 API 들로서 HTTP로 호출할 때 Header에 접근 토큰(access token)과 함께 애플리케이션 등록 시 발급받은 <a href="https://developers.naver.com/docs/common/apicall" class="color_p2 underline">Client ID와 Client Secret 값을 같이 전송</a>해 주시면 활용 가능합니다.
         <ul class="list_type1">
@@ -372,7 +372,7 @@ namespace NaverAPI_Guide
             <td class="center">OAuth 2.0</td>
             <td class="left">https://nid.naver.com/oauth2.0/authorize</td>
             <td class="center">URL 리다이렉트</td>
-            <td class="left">네이버 아이디로 로그인 인증 요청</td>
+            <td class="left">네이버 로그인 인증 요청</td>
         </tr>
         <tr>
             <td class="center">GET / POST</td>
@@ -384,9 +384,9 @@ namespace NaverAPI_Guide
         </tbody>
     </table>
     <h3 class="h_sub">3. 요청 변수</h3>
-    <h4 class="h_subsub">3.1. 네이버 아이디로 로그인 인증 요청</h4>
+    <h4 class="h_subsub">3.1. 네이버 로그인 인증 요청</h4>
     <table border="1" class="tbl_h">
-        <caption><span class="blind">네이버 아이디로 로그인 인증 요청 변수 설명 표</span></caption>
+        <caption><span class="blind">네이버 로그인 인증 요청 변수 설명 표</span></caption>
         <colgroup>
             <col style="width:20%">
             <col style="width:25%">
@@ -530,16 +530,16 @@ namespace NaverAPI_Guide
         </tbody>
     </table>
     <h3 class="h_sub">4. 출력 결과</h3>
-    <h4 class="h_subsub">4.1. 네이버 아이디로 로그인 인증 요청</h4>
+    <h4 class="h_subsub">4.1. 네이버 로그인 인증 요청</h4>
     <div class="p_desc">
-        네이버 아이디로 로그인 인증 요청 API를 호출했을 때 사용자가 네이버로 로그인하지 않은 상태이면 네이버 로그인 화면으로 이동하고, 사용자가 네이버에 로그인한 상태이면 기본 정보 제공 동의 확인 화면으로 이동합니다. 네이버 로그인과 정보 제공 동의 과정이 완료되면 콜백 URL에 code값과 state 값이 URL 문자열로 전송됩니다. code 값은 접근 토큰 발급 요청에 사용합니다. API 요청 실패시에는 에러 코드와 에러 메시지가 전송됩니다.
+        네이버 로그인 인증 요청 API를 호출했을 때 사용자가 네이버로 로그인하지 않은 상태이면 네이버 로그인 화면으로 이동하고, 사용자가 네이버에 로그인한 상태이면 기본 정보 제공 동의 확인 화면으로 이동합니다. 네이버 로그인과 정보 제공 동의 과정이 완료되면 콜백 URL에 code값과 state 값이 URL 문자열로 전송됩니다. code 값은 접근 토큰 발급 요청에 사용합니다. API 요청 실패시에는 에러 코드와 에러 메시지가 전송됩니다.
         <ul class="list_type1">
             <li>API 요청 성공시 : http://콜백URL/redirect?code={code값}&state={state값}</li>
             <li>API 요청 실패시 : http://콜백URL/redirect?state={state값}&error={에러코드값}&error_description={에러메시지}</li>
         </ul>
     </div>
     <table border="1" class="tbl_h">
-        <caption><span class="blind">네이버 아이디로 로그인 인증 요청 출력 결과 설명 표</span></caption>
+        <caption><span class="blind">네이버 로그인 인증 요청 출력 결과 설명 표</span></caption>
         <colgroup>
             <col style="width:20%"><col style="width:20%"><col>
         </colgroup>
@@ -552,7 +552,7 @@ namespace NaverAPI_Guide
         <tr>
             <td class="center">code</td>
             <td class="center">string</td>
-            <td class="left">네이버 아이디로 로그인 인증에 성공하면 반환받는 인증 코드, 접근 토큰(access token) 발급에 사용</td>
+            <td class="left">네이버 로그인 인증에 성공하면 반환받는 인증 코드, 접근 토큰(access token) 발급에 사용</td>
         </tr>
         <tr>
             <td class="center">state</td>
@@ -562,12 +562,12 @@ namespace NaverAPI_Guide
         <tr>
             <td class="center">error</td>
             <td class="center">string</td>
-            <td class="left">네이버 아이디로 로그인 인증에 실패하면 반환받는 에러 코드</td>
+            <td class="left">네이버 로그인 인증에 실패하면 반환받는 에러 코드</td>
         </tr>
         <tr>
             <td class="center">error_description</td>
             <td class="center">string</td>
-            <td class="left">네이버 아이디로 로그인 인증에 실패하면 반환받는 에러 메시지</td>
+            <td class="left">네이버 로그인 인증에 실패하면 반환받는 에러 메시지</td>
         </tr>
         </tbody>
     </table>
@@ -778,7 +778,7 @@ namespace NaverAPI_Guide
     <div class="p_desc">
         AccessToken 값은 일부 특수문자가 포함되어 있기 때문에 GET Parameter를 통하여 데이터를 전달하는 경우, AccessToken 값을 반드시 URL Encode 처리한 후에 전송하여야합니다.
     </div>
-    <h5 class="h_subsub">6.1.1. 네이버 아이디로 로그인 인증 요청</h5>
+    <h5 class="h_subsub">6.1.1. 네이버 로그인 인증 요청</h5>
     <div class="code_area">
                         <pre class="prettyprint prettyprinted">
 https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=jyvqXeaVOVmV&redirect_uri=http%3A%2F%2Fservice.redirect.url%2Fredirect&state=hLiDdL2uhPtsftcU
@@ -803,7 +803,7 @@ https://nid.naver.com/oauth2.0/token?grant_type=delete&client_id=jyvqXeaVOVmV&cl
                         </pre>
     </div>
     <h4 class="h_subsub">6.2 응답 예시</h4>
-    <h5 class="h_subsub">6.2.1. 네이버 아이디로 로그인 인증 요청</h5>
+    <h5 class="h_subsub">6.2.1. 네이버 로그인 인증 요청</h5>
     <div class="code_area">
                         <pre class="prettyprint prettyprinted">
 http://콜백URL/redirect?code={code값}&state={state값}

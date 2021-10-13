@@ -17,9 +17,9 @@
     <div class="h_page_area">
         <div class="side_menu"></div>
     </div>
-    <h3 class="h_sub">1. Android용 네이버 아이디로 로그인 라이브러리</h3>
+    <h3 class="h_sub">1. Android용 네이버 로그인 라이브러리</h3>
     <table border="1" class="tbl_h">
-        <caption><span class="blind">Android용 네이버 아이디로 로그인 라이브러리 설명 표</span></caption>
+        <caption><span class="blind">Android용 네이버 로그인 라이브러리 설명 표</span></caption>
         <colgroup>
             <col style="width:20%"><col style="width:15%"><col style="width:15%"><col>
         </colgroup>
@@ -103,9 +103,9 @@
         </tr>
         </tbody>
     </table>
-    <h3 class="h_sub">2. iOS용 네이버 아이디로 로그인 라이브러리</h3>
+    <h3 class="h_sub">2. iOS용 네이버 로그인 라이브러리</h3>
     <table border="1" class="tbl_h">
-        <caption><span class="blind">Android용 네이버 아이디로 로그인 라이브러리 설명 표</span></caption>
+        <caption><span class="blind">Android용 네이버 로그인 라이브러리 설명 표</span></caption>
         <colgroup>
             <col style="width:20%"><col style="width:15%"><col style="width:15%"><col>
         </colgroup>
@@ -241,9 +241,9 @@
         </tr>
         </tbody>
     </table>
-    <h3 class="h_sub">4. JavaScript용 네이버 아이디로 로그인 라이브러리</h3>
+    <h3 class="h_sub">4. JavaScript용 네이버 로그인 라이브러리</h3>
     <table border="1" class="tbl_h">
-        <caption><span class="blind">JavaScript용 네이버 아이디로 로그인 라이브러리 설명 표</span></caption>
+        <caption><span class="blind">JavaScript용 네이버 로그인 라이브러리 설명 표</span></caption>
         <colgroup>
             <col style="width:20%"><col style="width:15%"><col style="width:15%"><col>
         </colgroup>
@@ -495,7 +495,7 @@
             <td class="left">2014.12.15</td>
             <td class="left">라이브러리,<br>예제 프로젝트</td>
             <td class="left">
-                iOS용 네이버 아이디로 로그인 라이브러리 최초 배포
+                iOS용 네이버 로그인 라이브러리 최초 배포
             </td>
         </tr>
         </tbody>

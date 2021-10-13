@@ -43,7 +43,7 @@
             <td>v1.0.0</td>
         </tr>
         <tr>
-            <th scope="row">네이버 아이디로 로그인</th>
+            <th scope="row">네이버 로그인</th>
             <td><a href="https://developers.naver.com/docs/login/sdks/sdks.md">https://developers.naver.com/docs/login/sdks</a></td>
             <td></td>
         </tr>

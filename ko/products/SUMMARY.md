@@ -10,8 +10,8 @@
   * [이용약관](/intro/terms/terms.md)
   * [상표사용 가이드](/intro/brand_guide/brand_guide.md) -->
 <!-- * [CLOVA](https://developers.naver.com/console/clova/) -->
-<!-- * [네이버 아이디로 로그인](/login/api/api.md)
-  * [네이버 아이디로 로그인 API](/login/api/api.md)
+<!-- * [네이버 로그인](/login/api/api.md)
+  * [네이버 로그인 API](/login/api/api.md)
   * [카페](/login/cafe/cafe.md)
   * [캘린더](/login/calendar/calendar.md)
   * [적용 가이드](/login/userguide/userguide.md)

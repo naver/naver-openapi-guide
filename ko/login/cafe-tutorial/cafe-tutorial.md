@@ -8,7 +8,7 @@
 <body>
 <div class="con">
     <p class="p_desc">
-        카페 API는 애플리케이션에서 네이버 아이디로 로그인한 사용자가 네이버 카페에 가입하거나 가입한 카페의 통합 게시판에 게시글을 쓸 수 있는 기능을 제공하는 API입니다. 카페 API는 네이버 아이디로 로그인에 등록한 애플리케이션에 사용할 수 있으며, 네이버 아이디로 로그인의 OAuth 2.0을 이용해 손쉽게 사용자를 인증을 구현할 수 있습니다. 이 튜토리얼에서는 네이버 아이디로 로그인과 카페 API를 활용해 네이버 카페에 가입하고 카페에 게시글을 쓰는 웹 애플리케이션을 PHP로 구현하는 방법을 설명합니다. 이 튜토리얼을 따라하면 카페 API를 사용하는 기본적인 방법을 익힐 수 있을 것입니다.
+        카페 API는 애플리케이션에서 네이버 로그인한 사용자가 네이버 카페에 가입하거나 가입한 카페의 통합 게시판에 게시글을 쓸 수 있는 기능을 제공하는 API입니다. 카페 API는 네이버 로그인에 등록한 애플리케이션에 사용할 수 있으며, 네이버 로그인의 OAuth 2.0을 이용해 손쉽게 사용자를 인증을 구현할 수 있습니다. 이 튜토리얼에서는 네이버 로그인과 카페 API를 활용해 네이버 카페에 가입하고 카페에 게시글을 쓰는 웹 애플리케이션을 PHP로 구현하는 방법을 설명합니다. 이 튜토리얼을 따라하면 카페 API를 사용하는 기본적인 방법을 익힐 수 있을 것입니다.
     </p>
     <div class="buttons2">
         <a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register?api=cafe">오픈 API 이용 신청 &gt;</a>
@@ -19,8 +19,8 @@
     </p>
     <h4 class="h_subsub">웹 애플리케이션 등록</h4>
     <p class="p_desc">
-        카페 API를 사용하려면 네이버 아이디로 로그인에 웹 애플리케이션을 등록해 클라이언트 아이디와 클라이언트 시크릿을 받아야 합니다.<br>
-        <a href="https://developers.naver.com/apps/#/register" target="_blank" title="새창" class="color_p2 underline">네이버 아이디로 로그인 새 애플리케이션 등록 &gt;</a>
+        카페 API를 사용하려면 네이버 로그인에 웹 애플리케이션을 등록해 클라이언트 아이디와 클라이언트 시크릿을 받아야 합니다.<br>
+        <a href="https://developers.naver.com/apps/#/register" target="_blank" title="새창" class="color_p2 underline">네이버 로그인 새 애플리케이션 등록 &gt;</a>
     </p>
     <h4 class="h_subsub">PHP 설정</h4>
     <ul class="list_type1">
@@ -37,7 +37,7 @@
     </div>
     <h3 class="h_sub">1. 카페 가입 및 글쓰기 시나리오</h3>
     <p class="p_desc">
-        이 튜토리얼에서는 카페 API를 활용해 네이버 아이디로 로그인한 사용자가 카페에 가입하고 카페 게시판에 글을 쓰는 서비스를 PHP와 HTML로 구현하는 방법을 설명합니다.<br><br>
+        이 튜토리얼에서는 카페 API를 활용해 네이버 로그인한 사용자가 카페에 가입하고 카페 게시판에 글을 쓰는 서비스를 PHP와 HTML로 구현하는 방법을 설명합니다.<br><br>
         이 튜토리얼에서 구현할 서비스의 화면과 기본 사용 절차는 다음과 같습니다.
     </p>
     <h4 class="h_sub">네이버 로그인과 기본 정보 사용 동의</h4>
@@ -94,14 +94,14 @@
     <div class="code_area">
 <pre class="prettyprint">
 &lt;?php
-$client_id = '#your client id#'; // 네이버 아이디로 로그인에 애플리케이션을 등록하고 발급받은 클라이언트 아이디
-$client_secret = '#your client secret#'; // 네이버 아이디로 로그인에 애플리케이션을 등록하고 발급받은 클라이언트 시크릿
+$client_id = '#your client id#'; // 네이버 로그인에 애플리케이션을 등록하고 발급받은 클라이언트 아이디
+$client_secret = '#your client secret#'; // 네이버 로그인에 애플리케이션을 등록하고 발급받은 클라이언트 시크릿
 $authorize_url = 'https://nid.naver.com/oauth2.0/authorize';
 $access_token_url = 'https://nid.naver.com/oauth2.0/token';
 <br>
 <br>
-$callback_uri = '#your_callback_uri#'; // 네이버 아이디로 로그인에 애플리케이션을 등록할 때 [Callback URL]에 입력한 주소(예: http://www.example.com/callback.php)
-$index_uri = '#your_website_uri#'; // 네이버 아이디로 로그인에 애플리케이션을 등록할 때 [서비스 URL]에 입력한 주소(예: http://www.example.com/index.php)
+$callback_uri = '#your_callback_uri#'; // 네이버 로그인에 애플리케이션을 등록할 때 [Callback URL]에 입력한 주소(예: http://www.example.com/callback.php)
+$index_uri = '#your_website_uri#'; // 네이버 로그인에 애플리케이션을 등록할 때 [서비스 URL]에 입력한 주소(예: http://www.example.com/index.php)
 $cafe_apply_api_uri = 'https://openapi.naver.com/cafe/cafeApply.json';
 $write_post_api_uri = 'https://openapi.naver.com/cafe/articlePost.json';
 ?&gt;
@@ -110,7 +110,7 @@ $write_post_api_uri = 'https://openapi.naver.com/cafe/articlePost.json';
     <h4 class="h_sub">index.php</h4>
     <p class="p_desc">
         서비스 시작 페이지입니다. 네이버에 로그인하지 않은 사용자가 접속하면 인증 절차를 거치는 페이지로 이동합니다. 인증을 완료한 사용자가 접근하면 카페 가입 페이지와 카페 게시판 글쓰기 페이지로 이동하는 메뉴가 나타납니다.<br><br>
-        인증을 완료하고 반환받은 접근 토큰이 있다면 카페 가입 페이지와 카페 글쓰기 페이지로 이동하는 메뉴를 표시합니다. 접근 토큰이 없다면 사이트 간 요청 위조(cross-site request forgery, 이하 CSRF) 공격을 방지하기 위해 상태 토큰(state token)을 생성해 세션에 저장하고, 네이버 아이디로 로그인 인증을 요청하는 URL을 생성합니다. 다음은 PHP로 작성한 코드 예입니다.
+        인증을 완료하고 반환받은 접근 토큰이 있다면 카페 가입 페이지와 카페 글쓰기 페이지로 이동하는 메뉴를 표시합니다. 접근 토큰이 없다면 사이트 간 요청 위조(cross-site request forgery, 이하 CSRF) 공격을 방지하기 위해 상태 토큰(state token)을 생성해 세션에 저장하고, 네이버 로그인 인증을 요청하는 URL을 생성합니다. 다음은 PHP로 작성한 코드 예입니다.
     </p>
     <div class="code_area">
 <pre class="prettyprint">
@@ -166,7 +166,7 @@ if ($_SESSION ['access_token']) {
     </div>
     <h4 class="h_sub">callback.php</h4>
     <p class="p_desc">
-        인증 페이지에 연결된 후 되돌아올 페이지입니다. 네이버 아이디로 로그인에서 애플리케이션을 등록할 때 Callback URL에 입력한 페이지입니다.<br><br>
+        인증 페이지에 연결된 후 되돌아올 페이지입니다. 네이버 로그인에서 애플리케이션을 등록할 때 Callback URL에 입력한 페이지입니다.<br><br>
         인증에 성공했다면 반환받은 인증 코드로 접근 토큰(access token)을 요청하는 요청 헤더를 생성해 접근 토큰을 요청합니다.
         다음은 PHP로 구현한 코드 예입니다.
     </p>

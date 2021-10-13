@@ -448,7 +448,7 @@ Host: openapi.naver.com
 User-Agent: curl/7.43.0
 Accept: */*
 Content-Type: application/xml
-Authorization: Bearer {네이버 아이디로 로그인 인증 후 받은 접근 토큰 값}
+Authorization: Bearer {네이버 로그인 인증 후 받은 접근 토큰 값}
 </pre>
     </div>
     <h4 class="h_subsub">응답 예시</h4>

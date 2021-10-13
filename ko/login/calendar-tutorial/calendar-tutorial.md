@@ -25,7 +25,7 @@
         <li>네이버 Open Api 사용을 위해서는 미리 2단계의 인증을 받아야 합니다.</li>
         <li>첫 번째. 로그인한 사용자에게 OAuth를 사용해서, 특정 서비스를 사용하겠다는 동의</li>
         <li>두 번째. 동의한 사용자인경우, 오픈 API를 사용하기 위한 accessToken 획득</li>
-        <li>상세 설명은<a href="/overview/overview.md" target="_blank" title="새창" class="color_p2 underline">"네이버 아이디로 로그인 개발가이드"</a>로 대체합니다.</li>
+        <li>상세 설명은<a href="/overview/overview.md" target="_blank" title="새창" class="color_p2 underline">"네이버 로그인 개발가이드"</a>로 대체합니다.</li>
     </ul>
     <h3 class="h_sub">2. 설명 (샘플 프로젝트 중 CalendarController.java 파일에 대한 설명입니다.)</h3>
     <h4 class="h_subsub">2.1. index.nhn &ndash; OAuth 인증이 없는 사용자가 접근할 경우, 인증 페이지로 redirect합니다.</h4>

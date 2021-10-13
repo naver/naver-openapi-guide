@@ -30,8 +30,8 @@
             <td class="left">25,000회/일</td>
         </tr>
         <tr>
-            <td class="left">네이버 아이디로 로그인</td>
-            <td class="left">외부 사이트에서 네이버 아이디로 로그인 기능 구현</td>
+            <td class="left">네이버 로그인</td>
+            <td class="left">외부 사이트에서 네이버 로그인 기능 구현</td>
             <td class="left">없음</td>
         </tr>
         <tr>

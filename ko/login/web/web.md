@@ -11,7 +11,7 @@
         <div class="side_menu"></div>
     </div>
     <p class="p_desc">
-        네이버 아이디로 로그인은 서버 사이드 언어인 PHP나 Java로 개발한 웹 애플리케이션에도 적용할 수 있습니다.
+        네이버 로그인은 서버 사이드 언어인 PHP나 Java로 개발한 웹 애플리케이션에도 적용할 수 있습니다.
         또한 프런트엔드에서 사용하는 JavaScript를 사용해도 적용할 수 있습니다.
     </p>
     <div class="buttons2">
@@ -338,10 +338,10 @@ namespace NaverAPI_Guide
 </pre>
     </div>
     </div>
-    <h3 class="h_sub">1. PHP와 Java로 네이버 아이디로 로그인 적용하기</h3>
-    <p class="p_desc">웹 애플리케이션에서는 API 형식에 맞게 접근 토큰을 요청하는 API를 호출하고 응답을 받아 네이버 아이디로 로그인 기능을 이용할 수 있습니다. 여기서는 대표적인 서버 사이드 언어인 PHP와 Java로 "네이버 아이디로 로그인"을 웹 애플리케이션에 구현하는 방법을 설명합니다.</p>
+    <h3 class="h_sub">1. PHP와 Java로 네이버 로그인 적용하기</h3>
+    <p class="p_desc">웹 애플리케이션에서는 API 형식에 맞게 접근 토큰을 요청하는 API를 호출하고 응답을 받아 네이버 로그인 기능을 이용할 수 있습니다. 여기서는 대표적인 서버 사이드 언어인 PHP와 Java로 "네이버 로그인"을 웹 애플리케이션에 구현하는 방법을 설명합니다.</p>
     <ul class="list_type1">
-        <li><a class="color_p2 underline" href="/api/api.md">네이버 아이디로 로그인 API 명세 &gt;</a></li>
+        <li><a class="color_p2 underline" href="/api/api.md">네이버 로그인 API 명세 &gt;</a></li>
     </ul>
     <h4 class="h_subsub">1.1. 세션 유지 및 위조 방지용 상태 토큰 생성</h4>
     <p class="p_desc">웹 애플리케이션은 브라우저를 기반으로 작동하기 때문에 사이트 간 요청 위조(cross-site request forgery, 이하 CSRF) 공격 위험이 있습니다. CSRF 공격을 방지하기 위해 애플리케이션과 사용자 간의 상태를 보유하는 고유한 세션 토큰을 만들어야 합니다. 나중에 인증 과정의 결괏값으로 전달하는 세션 토큰과 일치하는지 확인해 사용자가 요청하지 않은 '비정상적인 요청'인지 확인할 수 있습니다. 이 세션 토큰을 '상태 토큰'(state token) 이라 하며, 상태 토큰의 값은 사용자가 네이버 로그인을 진행하는 동안 유지되어야 하며 고유한 값이어야 합니다. 다음은 상태 토큰을 생성하는 코드를 PHP와 Java로 구현한 예입니다. 생성한 상태 토큰은 세션이나 별도의 저장 공간에 저장하도록 합니다.</p>
@@ -381,7 +381,7 @@ request.session().attribute("state", state);
 return state;
 </pre>
 </div>
-    <h4 class="h_subsub">1.2. 네이버 아이디로 로그인 인증 요청문 생성</h4>
+    <h4 class="h_subsub">1.2. 네이버 로그인 인증 요청문 생성</h4>
     <p class="p_desc">상태 토큰을 정상적으로 생성했다면 네이버 로그인 페이지를 호출하는 인증 요청문(authentication request)을 생성하도록 합니다. 인증 요청문은 URL 형식으로 되어 있으며 네이버가 제공하는 인증 URL과 클라이언트 아이디, 상태 토큰으로 이루어져 있습니다. 인증 과정은 모두 HTTPS 통신으로 이루어지며 인증 요청문 형식은 다음과 같습니다.</p>
     <p class="p_desc">1.2.1. 인증 요청문 형식</p>
     <div class="code_area">
@@ -572,25 +572,25 @@ Authorization: Bearer AAAAOLtP40eH6P5S4Z4FpFl77n3FD5I+W3ost3oDZq/nbcS+7MAYXwX<br
 }
 </pre>
     </div>
-    <h3 class="h_sub">2. JavaScript로 네이버 아이디로 로그인 적용하기</h3>
-    <p class="p_desc">네이버 아이디로 로그인은 손쉽게 웹 애플리케이션에 네이버 아이디로 로그인을 적용할 수 있게 JavaScript용 네이버 아이디로 로그인 라이브러리를 제공합니다. JavaScript용 라이브러리를 사용하면 HTML 페이지 내부에 JavaScript 코드를 삽입하는 것만으로도 네이버 아이디로 로그인을 적용할 수 있습니다.</p>
+    <h3 class="h_sub">2. JavaScript로 네이버 로그인 적용하기</h3>
+    <p class="p_desc">네이버 로그인은 손쉽게 웹 애플리케이션에 네이버 로그인을 적용할 수 있게 JavaScript용 네이버 로그인 라이브러리를 제공합니다. JavaScript용 라이브러리를 사용하면 HTML 페이지 내부에 JavaScript 코드를 삽입하는 것만으로도 네이버 로그인을 적용할 수 있습니다.</p>
     <ul class="list_type1">
-        <li><a class="color_p2 underline" href="/sdks/sdks.md">JavaScript용 네이버 아이디로 로그인 라이브러리 다운로드 &gt;</a></li>
+        <li><a class="color_p2 underline" href="/sdks/sdks.md">JavaScript용 네이버 로그인 라이브러리 다운로드 &gt;</a></li>
     </ul>
     <h4 class="h_subsub">2.1. 요구 사항</h4>
     <p class="p_desc">
-        네이버 아이디로 로그인 라이브러리는 jQuery 프레임워크와 jQuery Cookie 플러그인을 사용합니다.
-        네이버 아이디로 로그인 라이브러리를 사용하려면 다음과 같은 환경이 필요합니다.
+        네이버 로그인 라이브러리는 jQuery 프레임워크와 jQuery Cookie 플러그인을 사용합니다.
+        네이버 로그인 라이브러리를 사용하려면 다음과 같은 환경이 필요합니다.
     </p>
     <ul class="list_type1">
         <li>jQuery 1.10.0 이상</li>
     </ul>
     <p class="p_desc">
-        jQuery와 네이버 아이디로 로그인 라이브러리를 로그인 버튼이 있는 페이지는 물론 콜백을 처리하는페이지 등 네이버 아이디로 로그인을 사용하는 페이지에 모두 적용합니다.
-        네이버 아이디로 로그인 라이브러리는 URL을 웹 페이지에 추가하거나.js 파일을 다운로드해 웹 페이지에 추가할 수 있습니다.
+        jQuery와 네이버 로그인 라이브러리를 로그인 버튼이 있는 페이지는 물론 콜백을 처리하는페이지 등 네이버 로그인을 사용하는 페이지에 모두 적용합니다.
+        네이버 로그인 라이브러리는 URL을 웹 페이지에 추가하거나.js 파일을 다운로드해 웹 페이지에 추가할 수 있습니다.
     </p>
-    <p class="p_desc">다음은 URL로 웹 페이지에 네이버 아이디로 로그인 라이브러리를 적용한 코드 예입니다.</p>
-    <p class="p_desc">2.1.1. 네이버 아이디로 로그인 라이브러리 적용 샘플코드</p>
+    <p class="p_desc">다음은 URL로 웹 페이지에 네이버 로그인 라이브러리를 적용한 코드 예입니다.</p>
+    <p class="p_desc">2.1.1. 네이버 로그인 라이브러리 적용 샘플코드</p>
     <div class="code_area">
 <pre class="prettyprint">
 &lt;html lang="ko"&gt;
@@ -618,12 +618,12 @@ Authorization: Bearer AAAAOLtP40eH6P5S4Z4FpFl77n3FD5I+W3ost3oDZq/nbcS+7MAYXwX<br
 </pre>
     </div>
     <h4 class="h_subsub">2.2. 기본 설정</h4>
-    <p class="p_desc">JavaScript용 라이브러리를 적용하면 단순히 로그인 함수를 호출하는 것만으로 네이버 아이디로 로그인 연동을 수행할 수 있습니다. 로그인 버튼을 추가하고 로그인 버튼에 대한 이벤트를 등록하면 사용자가 버튼을 클릭할 때 로그인 페이지로 자동으로 이동합니다.
-        로그인 버튼 이미지는 "네이버 아이디로 로그인 버튼 사용 가이드" 페이지에서 다운로드할 수 있습니다.
+    <p class="p_desc">JavaScript용 라이브러리를 적용하면 단순히 로그인 함수를 호출하는 것만으로 네이버 로그인 연동을 수행할 수 있습니다. 로그인 버튼을 추가하고 로그인 버튼에 대한 이벤트를 등록하면 사용자가 버튼을 클릭할 때 로그인 페이지로 자동으로 이동합니다.
+        로그인 버튼 이미지는 "네이버 로그인 버튼 사용 가이드" 페이지에서 다운로드할 수 있습니다.
         로그인 버튼을 수정해서 사용할 때는 사용 가이드에 제시된 디자인을 최대한 유지하는 것을 권장합니다.
     </p>
     <ul class="list_type1">
-        <li><a class="color_p2 underline" href="/bi/bi.md">네이버 아이디로 로그인 버튼 이미지 다운로드 &gt;</a></li>
+        <li><a class="color_p2 underline" href="/bi/bi.md">네이버 로그인 버튼 이미지 다운로드 &gt;</a></li>
     </ul>
     <p class="p_desc">다음은 웹 페이지에 로그인 버튼을 추가하고 로그인 함수를 호출하는 코드 예입니다. {YOUR_CLIENT_ID}는 애플리케이션을 등록하고 발급받은 클라이언트 아이디입니다. {YOUR_REDIRECT_URL}는 애플리케이션을 등록할 때 Callback URL에 설정한 URL입니다.사이트 간 요청 위조를 방지하기 위해 상태 토큰을 생성하는 코드도 추가됐습니다.</p>
     <p class="p_desc">2.2.1. client_id 와 redirect_uri 등록</p>
@@ -633,14 +633,14 @@ Authorization: Bearer AAAAOLtP40eH6P5S4Z4FpFl77n3FD5I+W3ost3oDZq/nbcS+7MAYXwX<br
 naver_id_login.init_naver_id_login();
 </pre>
     </div>
-    <p class="p_desc">2.2.2. 네이버 아이디로 로그인 버튼 생성</p>
-    <p class="p_desc">JavaScript용 라이브러리는 네이버 아이디로 로그인 버튼을 자동으로 생성해주는 스크립트 기능이 포함되어있습니다. 사용 가능한 로그인 버튼은 크기별 3가지 색상별 2가지씩 총 6가지가 제공되며 각각 스크립트 내에 아래와 같은 설정으로 세팅이 가능합니다.</p>
+    <p class="p_desc">2.2.2. 네이버 로그인 버튼 생성</p>
+    <p class="p_desc">JavaScript용 라이브러리는 네이버 로그인 버튼을 자동으로 생성해주는 스크립트 기능이 포함되어있습니다. 사용 가능한 로그인 버튼은 크기별 3가지 색상별 2가지씩 총 6가지가 제공되며 각각 스크립트 내에 아래와 같은 설정으로 세팅이 가능합니다.</p>
     <div class="code_area">
 <pre class="prettyprint">&lt;div id="naver_id_login"&gt;&lt;/div&gt;  &lt;!-- 버튼이 들어갈 위치 선언--&gt;
 <br>
 &lt;script type="text/javascript"&gt;
 	var naver_id_login = new naver_id_login("등록한 ClientID 값", "등록한 Callback URL 값");
-	naver_id_login.setButton("white", 1,40); //네이버 아이디로 로그인 버튼 설정
+	naver_id_login.setButton("white", 1,40); //네이버 로그인 버튼 설정
 	naver_id_login.init_naver_id_login();
 &lt;/script&gt;
 </pre>
@@ -651,8 +651,8 @@ naver_id_login.init_naver_id_login();
         크기 : 1(버튼형), 2(작은 배너), 3(큰 배너)<br>
         배너 및 버튼 높이 : 사용자 지정값
     </p>
-    <p class="p_desc">2.2.3. 네이버 아이디로 로그인 Popup 설정</p>
-    <p class="p_desc">네이버 아이디로 로그인 인증 창을 Popup 형태로 노출하기 위해서 아래와 같이 코드를 추가합니다.</p>
+    <p class="p_desc">2.2.3. 네이버 로그인 Popup 설정</p>
+    <p class="p_desc">네이버 로그인 인증 창을 Popup 형태로 노출하기 위해서 아래와 같이 코드를 추가합니다.</p>
     <div class="code_area">
 <pre class="prettyprint">&lt;script type="text/javascript"&gt;
 	var naver_id_login = new naver_id_login("등록한 ClientID 값", "등록한 Callback URL 값");
@@ -665,8 +665,8 @@ naver_id_login.init_naver_id_login();
     <p class="p_desc">callback url과 로그인 버튼이 있는 url의 subdomain이 다르다면 상태 토큰 비교 시 문제가 발생할 수 있습니다.</p>
     <p class="p_desc">
         예)<br>
-        sub1.service.com/login.html 페이지에 네이버 아이디로 로그인 버튼이 존재하고<br>
-        sub2.service.com/callback.html 페이지에 네이버 아이디로 로그인 CallBack 이 존재 하는 경우
+        sub1.service.com/login.html 페이지에 네이버 로그인 버튼이 존재하고<br>
+        sub2.service.com/callback.html 페이지에 네이버 로그인 CallBack 이 존재 하는 경우
     </p>
     <p class="p_desc">상태 토큰은 cookie로 전달 하므로 cookie를 양쪽 domain에서 참조하기 위해서는 아래와 같이 코드를 추가합니다.</p>
     <div class="code_area">
@@ -679,7 +679,7 @@ naver_id_login.init_naver_id_login();
     </div>
     <h4 class="h_subsub">2.3. 인증 시작하기</h4>
     <p class="p_desc">
-        JavaScript용 라이브러리는 단순히 로그인 함수를 호출하는 것만으로 '네이버 아이디로 로그인' 연동을 수행할 수 있습니다. 생성된 로그인 버튼을 사용자가 클릭할 경우 자동으로 로그인 페이지로 이동됩니다.
+        JavaScript용 라이브러리는 단순히 로그인 함수를 호출하는 것만으로 '네이버 로그인' 연동을 수행할 수 있습니다. 생성된 로그인 버튼을 사용자가 클릭할 경우 자동으로 로그인 페이지로 이동됩니다.
         로그인 인증 과정을 거치면 기본설정에서 설정한 콜백 URL (RedirectURL)로 인증 정보가 전송이 됩니다.
         JavaScript용 라이브러리는 콜백 URL을 통해 전달된 인증정보를 받아 자동으로 다음 단계를 처리할 수 있습니다.
     </p>

@@ -10,14 +10,14 @@
     <div class="h_page_area">
         <div class="side_menu"></div>
     </div>
-    <p class="p_desc">Android용 네이버 아이디로 로그인 라이브러리는 서드파티 애플리케이션에서 네이버 아이디로 로그인이 제공하는 로그인, 로그아웃, 토큰 관리 등의 기능을 쉽게 구현할 수 있게 합니다.</p>
+    <p class="p_desc">Android용 네이버 로그인 라이브러리는 서드파티 애플리케이션에서 네이버 로그인이 제공하는 로그인, 로그아웃, 토큰 관리 등의 기능을 쉽게 구현할 수 있게 합니다.</p>
     <br>
     <div class="buttons2">
         <a class="btn_b_hi3" href="/sdks/sdks.md">라이브러리 보기 &gt;</a>
         <a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
     </div>
     <h3 class="h_sub">1. 요구 사항</h3>
-    <p class="p_desc">네이버 아이디로 로그인 라이브러리를 사용하려면 다음과 같은 환경이 필요합니다.</p>
+    <p class="p_desc">네이버 로그인 라이브러리를 사용하려면 다음과 같은 환경이 필요합니다.</p>
     <ul class="list_type1">
         <li>SDK: Android API 15 이상</li>
         <li>JDK: JDK 8 이상</li>
@@ -25,14 +25,14 @@
     </ul>
     <div class="blockquote_area">
         <strong>참고</strong>
-        <p>네이버 아이디로 로그인 라이브러리 3.x.x 버전은 OAuth 1.0a를 사용하고, 네이버 아이디로 로그인 라이브러리 4.x.x 버전은 OAuth 2.0을 사용합니다.<br/>
-        네이버 아이디로 로그인 라이브러리 3.x.x 버전을 사용하다 네이버 아이디로 로그인 라이브러리 4.x.x 버전으로 업그레이드할 때는 "3.x.x 버전에서 4.x.x 버전으로 업그레이드 방법"을 참고해서 개발합니다.</p>
+        <p>네이버 로그인 라이브러리 3.x.x 버전은 OAuth 1.0a를 사용하고, 네이버 로그인 라이브러리 4.x.x 버전은 OAuth 2.0을 사용합니다.<br/>
+        네이버 로그인 라이브러리 3.x.x 버전을 사용하다 네이버 로그인 라이브러리 4.x.x 버전으로 업그레이드할 때는 "3.x.x 버전에서 4.x.x 버전으로 업그레이드 방법"을 참고해서 개발합니다.</p>
     </div>
     <h3 class="h_sub">2. 라이브러리 구성</h3>
-    <p class="p_desc">Android용 네이버 아이디로 로그인 라이브러리는 다음과 같이 이루어져 있으며 Github에서도 다운받을 수 있습니다. 프로젝트는 다음의 두 모듈로 구성되어 있습니다.</p>
+    <p class="p_desc">Android용 네이버 로그인 라이브러리는 다음과 같이 이루어져 있으며 Github에서도 다운받을 수 있습니다. 프로젝트는 다음의 두 모듈로 구성되어 있습니다.</p>
     <ul class="list_type1">
-        <li>naveridlogin_android_sdk: 네이버 아이디로 로그인 라이브러리 aar파일이 있는 모듈</li>
-        <li>naveridlogin_android_sample: 네이버 아이디로 로그인 라이브러리를 사용하는 예제 프로젝트 모듈</li>
+        <li>naveridlogin_android_sdk: 네이버 로그인 라이브러리 aar파일이 있는 모듈</li>
+        <li>naveridlogin_android_sample: 네이버 로그인 라이브러리를 사용하는 예제 프로젝트 모듈</li>
     </ul>
     <h3 class="h_sub">3. 개발 환경 설정</h3>
     <h4 class="h_subsub">3.1. Maven repository 사용하기</h4>
@@ -88,7 +88,7 @@ compile 'com.android.support:support-v4:28.0.0'
 </pre>
     </div>
     <h4 class="h_subsub">3.4. ProGuard 적용 제외 설정</h4>
-    <p class="p_desc">네이버 아이디로 로그인 라이브러리는 ProGuard로 코드 난독화를 적용하면 안 됩니다. 네이버 아이디로 로그인 라이브러리를 사용하는 애플리케이션을 .apk 파일로 빌드할 때 ProGuard를 적용한다면, 다음과 같이 proguard-project.txt 파일을 수정해 ProGuard 적용 대상에서 네이버 아이디로 로그인 라이브러리 파일을 제외합니다. 라이브러리 파일의 이름과 폴더는 버전이나 개발 환경에 따라 다를 수 있습니다.</p>
+    <p class="p_desc">네이버 로그인 라이브러리는 ProGuard로 코드 난독화를 적용하면 안 됩니다. 네이버 로그인 라이브러리를 사용하는 애플리케이션을 .apk 파일로 빌드할 때 ProGuard를 적용한다면, 다음과 같이 proguard-project.txt 파일을 수정해 ProGuard 적용 대상에서 네이버 로그인 라이브러리 파일을 제외합니다. 라이브러리 파일의 이름과 폴더는 버전이나 개발 환경에 따라 다를 수 있습니다.</p>
     <div class="code_area">
 <pre class="prettyprint">-keep public class com.nhn.android.naverlogin.** {
        public protected *;
@@ -96,7 +96,7 @@ compile 'com.android.support:support-v4:28.0.0'
 </pre>
     </div>
     <h3 class="h_sub">4. 초기화</h3>
-    <p class="p_desc">네이버 아이디로 로그인 라이브러리를 애플리케이션에 적용하려면 다음과 같은 코드를 추가해 네이버 아이디로 로그인 인스턴스를 초기화합니다.</p>
+    <p class="p_desc">네이버 로그인 라이브러리를 애플리케이션에 적용하려면 다음과 같은 코드를 추가해 네이버 로그인 인스턴스를 초기화합니다.</p>
     <div class="code_area">
 <pre class="prettyprint">mOAuthLoginModule = OAuthLogin.getInstance();
 mOAuthLoginModule.init(
@@ -124,12 +124,12 @@ mOAuthLoginModule.init(
         기존에 저장된 접근 토큰과 갱신 토큰을 삭제하려면 OAuthLogin.logout() 메서드나 OAuthLogin.logoutAndDeleteToken() 메서드를 호출합니다.</p>
     </div>
     <h3 class="h_sub">5. 로그인</h3>
-    <p class="p_desc">로그인은 두 가지 방법으로 구현합니다. 첫 번째는 OAuthLoginButton 객체로 네이버 아이디로 로그인 버튼을 레이아웃에 추가하는 방법이고, 두 번째는 OAuthLogin.startOAuthLoginActivity() 메서드를 직접 실행하는 방법입니다.</p>
+    <p class="p_desc">로그인은 두 가지 방법으로 구현합니다. 첫 번째는 OAuthLoginButton 객체로 네이버 로그인 버튼을 레이아웃에 추가하는 방법이고, 두 번째는 OAuthLogin.startOAuthLoginActivity() 메서드를 직접 실행하는 방법입니다.</p>
     <div class="img_area">
-        <img alt="네이버 아이디로 로그인 화면" src="./images/img_naverid13.gif">
+        <img alt="네이버 로그인 화면" src="./images/img_naverid13.gif">
     </div>
     <h4 class="h_subsub">5.1. OAuthLoginButton 객체로 버튼 추가</h4>
-    <p class="p_desc">OAuthLoginButton 객체로 네이버 아이디로 로그인 버튼을 추가하는 방법은 다음과 같습니다.</p>
+    <p class="p_desc">OAuthLoginButton 객체로 네이버 로그인 버튼을 추가하는 방법은 다음과 같습니다.</p>
     <ul class="list_type1">
         <li>레이아웃 파일에 다음과 같은 구문을 추가합니다.
             <div class="code_area">
@@ -151,8 +151,8 @@ mOAuthLoginButton.setBgResourceId(R.drawable.img_loginbtn_usercustom);
     </ul>
     <div class="blockquote_area">
         <em class="warning"><i class="xi-info-suqare"></i>주의</em>
-        <p>OAuthLoginButton 객체를 이용할 때 네이버 아이디로 로그인 버튼의 디자인은 반드시 네이버 아이디로 로그인 버튼 사용 가이드를 따라야 합니다.</p>
-        <p><a class="color_p2 underline" href="/bi/bi.md">네이버 아이디로 로그인 버튼 사용 가이드 &gt;</a></p>
+        <p>OAuthLoginButton 객체를 이용할 때 네이버 로그인 버튼의 디자인은 반드시 네이버 로그인 버튼 사용 가이드를 따라야 합니다.</p>
+        <p><a class="color_p2 underline" href="/bi/bi.md">네이버 로그인 버튼 사용 가이드 &gt;</a></p>
     </div>
     <h4 class="h_subsub">5.2. startOAuthLoginActivity() 메서드를 이용한 로그인</h4>
     <p class="p_desc">OAuthLogin.startOAuthLoginActivity() 메서드를 직접 실행해 로그인하면 먼저 갱신 토큰이 있는지 확인합니다.</p>
@@ -259,8 +259,8 @@ if (!isSuccessDeleteToken) {
     <h3 class="h_sub">11. 기타 설정</h3>
     <h4 class="h_subsub">11.1. 로그 설정</h4>
     <p class="p_desc">
-      Android의 logcat 로그에 네이버 아이디로 로그인 로그를 확인할 수 있게 하려면 OAuthLogin 객체에서 showDevelopersLog 메소드를 통해 설정합니다.
-      네이버 아이디로 로그인 라이브러리가 출력하는 logcat 로그의 접두어는 NaverLoginOAuth입니다.
+      Android의 logcat 로그에 네이버 로그인 로그를 확인할 수 있게 하려면 OAuthLogin 객체에서 showDevelopersLog 메소드를 통해 설정합니다.
+      네이버 로그인 라이브러리가 출력하는 logcat 로그의 접두어는 NaverLoginOAuth입니다.
     </p>
     <div class="code_area">
       <pre class="prettyprint">mOAuthLoginInstance.showDevelopersLog(true);
@@ -305,7 +305,7 @@ if (!isSuccessDeleteToken) {
         <tr>
         <tr class="big">
             <td class="left">naveroauthlogin_string_getting_token</td>
-            <td class="left">네이버 아이디로 로그인 중입니다.</td>
+            <td class="left">네이버 로그인 중입니다.</td>
         <tr>
         <tr class="big">
             <td class="left">naveroauthlogin_string_network_state_not_available</td>
@@ -313,7 +313,7 @@ if (!isSuccessDeleteToken) {
         <tr>
         <tr class="big">
             <td class="left">naveroauthlogin_string_group_id_not_available</td>
-            <td class="left">단체아이디는 네이버 아이디로 로그인이 지원되지 않습니다. 개인아이디로 로그인 해 주세요.</td>
+            <td class="left">단체아이디는 네이버 로그인이 지원되지 않습니다. 개인아이디로 로그인 해 주세요.</td>
         <tr>
         <tr class="big">
             <td class="left">naveroauthlogin_string_update_naverapp</td>
@@ -321,7 +321,7 @@ if (!isSuccessDeleteToken) {
         <tr>
         </tbody>
     </table>
-    <h3 class="h_sub">12. 네이버 아이디로 로그인 라이브러리 API</h3>
+    <h3 class="h_sub">12. 네이버 로그인 라이브러리 API</h3>
     <h4 class="h_subsub">12.1. OAuthErrorCode</h4>
     <p class="p_desc">
         OAuth 인증 과정 중 발생할 수 있는 오류의 에러 코드를 가지고 있는 enum 타입의 클래스.
@@ -399,7 +399,7 @@ if (!isSuccessDeleteToken) {
         없음
     </p>
     <h4 class="h_subsub">12.2. OAuthLogin</h4>
-    <p class="p_desc">네이버 아이디로 로그인의 모든 연산을 수행하는 클래스.</p>
+    <p class="p_desc">네이버 로그인의 모든 연산을 수행하는 클래스.</p>
     <p class="p_desc">OAuthLogin 클래스의 메서드는 다음과 같습니다.</p>
     <ul class="list_type1">
         <li>getAccessToken()</li>
@@ -503,7 +503,7 @@ return mOAuthLoginInstance.requestApi(mContext, at, url);
     <p class="p_desc">12.2.3. getInstance()</p>
     <p class="p_desc">
         <strong>설명</strong><br>
-        네이버 아이디로 로그인 인스턴스(싱글턴 인스턴스)를 얻습니다.
+        네이버 로그인 인스턴스(싱글턴 인스턴스)를 얻습니다.
     </p>
     <p class="p_desc"><strong>구문</strong></p>
     <div class="code_area">
@@ -612,7 +612,7 @@ Toast.makeText(mContext, "errorCode:" + errorCode + ", errorDesc:" + errorDesc, 
     <p class="p_desc">12.2.7. getState()</p>
     <p class="p_desc">
         <strong>설명</strong><br>
-        네이버 아이디로 로그인 인스턴스의 현재 상태를 반환합니다.
+        네이버 로그인 인스턴스의 현재 상태를 반환합니다.
     </p>
     <p class="p_desc"><strong>구문</strong></p>
     <div class="code_area">
@@ -697,7 +697,7 @@ Toast.makeText(mContext, "errorCode:" + errorCode + ", errorDesc:" + errorDesc, 
     <p class="p_desc">12.2.9. getVersion()</p>
     <p class="p_desc">
         <strong>설명</strong><br>
-        네이버 아이디로 로그인 라이브러리의 버전을 반환합니다.
+        네이버 로그인 라이브러리의 버전을 반환합니다.
     </p>
     <p class="p_desc"><strong>구문</strong></p>
     <div class="code_area">
@@ -718,7 +718,7 @@ Toast.makeText(mContext, "errorCode:" + errorCode + ", errorDesc:" + errorDesc, 
     <p class="p_desc">12.2.10. init()</p>
     <p class="p_desc">
         <strong>설명</strong><br>
-        네이버 아이디로 로그인 인스턴스에 클라이언트 정보를 설정합니다.
+        네이버 로그인 인스턴스에 클라이언트 정보를 설정합니다.
     </p>
     <p class="p_desc"><strong>구문</strong></p>
     <div class="code_area">
@@ -1031,7 +1031,7 @@ Toast.makeText(mContext, "errorCode:" + errorCode + ", errorDesc:" + errorDesc, 
         <pre class="prettyprint">OAuthLogin.getInstance().startOauthLoginActivity(OAuthSampleActivity.this, mOAuthLoginHandler);</pre>
     </div>
     <h4 class="h_subsub">12.3. OAuthLoginButton</h4>
-    <p class="p_desc">네이버 아이디로 로그인 버튼 클래스. OAuthLoginButton 클래스의 메서드는 다음과 같습니다.</p>
+    <p class="p_desc">네이버 로그인 버튼 클래스. OAuthLoginButton 클래스의 메서드는 다음과 같습니다.</p>
     <ul class="list_type1">
         <li>setBgResourceId()</li>
         <li>setOAuthLoginHandler()</li>
@@ -1085,7 +1085,7 @@ Toast.makeText(mContext, "errorCode:" + errorCode + ", errorDesc:" + errorDesc, 
     <p class="p_desc">12.3.2. setOAuthLoginHandler()</p>
     <p class="p_desc">
         <strong>설명</strong><br>
-        네이버 아이디로 로그인 버튼을 클릭해 로그인하는 경우 로그인 결과를 받을 핸들러를 지정합니다.
+        네이버 로그인 버튼을 클릭해 로그인하는 경우 로그인 결과를 받을 핸들러를 지정합니다.
     </p>
     <p class="p_desc"><strong>구문</strong></p>
     <div class="code_area">
@@ -1182,7 +1182,7 @@ mOAuthLoginButton.setOAuthLoginHandler(mOAuthLoginHandler);
     @Override
     public void run(boolean success) {
         if (success) {
-        // 네이버 아이디로 로그인 인증이 성공했을 때 수행할 코드 추가
+        // 네이버 로그인 인증이 성공했을 때 수행할 코드 추가
         } else {
             String errorCode = OAuthLogin.getInstance()
                 .getLastErrorCode(mContext).getCode();
@@ -1196,7 +1196,7 @@ mOAuthLoginInstance.startOauthLoginActivity(OAuthSampleActivity.this, mOAuthLogi
 </pre>
     </div>
     <h4 class="h_subsub">12.5. OAuthLoginState</h4>
-    <p class="p_desc">네이버 아이디로 로그인 인스턴스의 현재 로그인 상태를 반환하는 클래스. 네이버 아이디로 로그인 인스턴스의 상태는 다음과 같습니다.</p>
+    <p class="p_desc">네이버 로그인 인스턴스의 현재 로그인 상태를 반환하는 클래스. 네이버 로그인 인스턴스의 상태는 다음과 같습니다.</p>
     <ul class="list_type1">
         <li>NEED_INIT: 초기화가 필요한 상태</li>
         <li>NEED_LOGIN: 로그인이 필요한 상태. 접근 토큰(access token)과 갱신 토큰(refresh token)이 모두 없습니다.</li>
