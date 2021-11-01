@@ -141,7 +141,7 @@
                         <div class="step step3 sprite"><a href="javascript:void(0);"><span class="blind">스텝3</span></a></div>
                         <div class="step step4 sprite"><a href="javascript:void(0);"><span class="blind">스텝4</span></a></div>
                     </div>
-                    <div class="appliance_title sprite"><span class="blind">네이버 로그인를 효과적으로 적용한 사례를 소개합니다.<br> 가입과 로그인이 얼마나 편해졌는지, 직접 확인해보세요!</span></div>
+                    <div class="appliance_title sprite"><span class="blind">네이버 로그인을 효과적으로 적용한 사례를 소개합니다.<br> 가입과 로그인이 얼마나 편해졌는지, 직접 확인해보세요!</span></div>
                     <div class="appliance_context">
                         <a href="http://www.galleria.co.kr" target="_blank" class="appliance appliance1 sprite"><span class="blind">쇼핑 갤러리아</span></a>
                         <a href="http://www.happycampus.com/" target="_blank" class="appliance appliance2 sprite"><span class="blind">교육 해피캠퍼스</span></a>
