@@ -13,7 +13,7 @@
     </p>
     <div class="naveridlogin_intro">
         <div class="naveridlogin_intro_section1">
-            <h3 class="h_sub">5,200만 네이버 회원을 여러분의 사용자로!</h3>
+            <h3 class="h_sub">5,400만 네이버 회원을 여러분의 사용자로!</h3>
             <p class="p_desc">
                 네이버 회원이라면, 여러분의 사이트를 간편하게 이용할 수 있습니다. 전 국민 모두가 가지고 있는 네이버 아이디 한개만 있으면 별도 가입없이 어떤 플랫폼에서도 간편하게 로그인할 수 있습니다.
             </p>
