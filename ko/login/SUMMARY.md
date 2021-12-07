@@ -10,6 +10,7 @@
     * [회원 프로필 조회 API 명세](profile/profile.md)
     * [카페 API 명세](cafe-api/cafe-api.md)
     * [캘린더 API 명세](calendar-api/calendar-api.md)
+    * [네이버페이 배송지 정보 API 명세](payaddress-api/payaddress-api.md)
 * [튜토리얼](android/android.md)
     * [Android](android/android.md)
     * [iOS](ios/ios.md)
