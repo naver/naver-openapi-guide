@@ -1,10 +1,13 @@
 # Android
 
 Android용 네아로SDK는 서드파티 애플리케이션에서 네이버 로그인이 제공하는 로그인, 로그아웃, 토큰 관리 등의 기능을 쉽게 구현할 수 있게 합니다.
-
-[라이브러리 보기](/sdks/sdks.md)
-[이슈 등록](https://github.com/naver/naveridlogin-sdk-android/issues)
-[오픈 API 이용 신청](https://developers.naver.com/apps/#/register?api=nvlogin)
+<div class="con">
+    <div class="buttons2">
+        <a class="btn_b_hi3" href="/sdks/sdks.md">라이브러리 보기 &gt;</a>
+        <a class="btn_b_hi3" href="https://github.com/naver/naveridlogin-sdk-android/issues">이슈 등록 &gt;</a>
+        <a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
+    </div>
+</div>
 
 Github을 참고해 주세요. 문의사항이 있다면 github issue를 생성해 주세요.
 
