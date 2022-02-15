@@ -17,9 +17,6 @@ Github을 참고해 주세요. 문의사항이 있다면 github issue를 생성�
 - JDK: JDK 11 이상
 - IDE: Android Studio
 
-> **참고** <br/>
-> JDK 8 버전의 경우 별도의 artifact를 의존해주세요.
-
 ### 2. 라이브러리 구성
 Android용 네아로SDK는 다음과 같이 이루어져 있으며 Github에서도 다운받을 수 있습니다. 
 
@@ -34,14 +31,12 @@ gradle 스크립트에 아래와 같이 추가하시면 사용할 수 있습니�
 
 ```groovy
 # groovy
-implementation 'com.navercorp.nid:oauth:5.0.1' // jdk 11
-implementation 'com.navercorp.nid:oauth-jdk8:5.0.1' // jdk 8
+implementation 'com.navercorp.nid:oauth:5.0.0'
 ```
 
 ```kt
 # kts
-implementation("com.navercorp.nid:oauth:5.0.1") // jdk 11
-implementation("com.navercorp.nid:oauth-jdk8:5.0.1") // jdk 8
+implementation("com.navercorp.nid:oauth:5.0.0")
 ```
 
 네아로SDK에서 사용하는 라이브러리는 다음과 같습니다. 필요에 따라 exclude 하여 사용하시면 됩니다.
@@ -64,21 +59,21 @@ implementation 'com.airbnb.android:lottie:3.1.0'
 ```
 
 #### 3.2. Gradle 에서 설정
-Android 프로젝트의 libs 폴더 밑에 oauth-5.0.1.aar 파일을 복사합니다.
+Android 프로젝트의 libs 폴더 밑에 oauth-5.0.0.aar 파일을 복사합니다.
 
 프로젝트의 build.gradle에 다음과 같이 추가합니다.
 
 ```groovy
 # groovy
 dependencies {
-  implementation files('libs/oauth-5.0.1.aar')
+  implementation files('libs/oauth-5.0.0.aar')
 }
 ```
 
 ```kt
 # kts
 dependencies {
-  implementation(files("libs/oauth-5.0.1.aar"))
+  implementation(files("libs/oauth-5.0.0.aar"))
 }
 ```
 
@@ -86,25 +81,25 @@ dependencies {
 1. [file]-[project structure] 실행
 1. 좌측 상단의 + 버튼 클릭
 1. jar/aar 모듈 추가 선택
-1. 다운받은 oauth-5.0.1.aar 선택
+1. 다운받은 oauth-5.0.0.aar 선택
 1. 프로젝트 build.gradle에 다음과 같이 추가
 
 ```groovy
 # groovy
 dependencies {
-  implementation project(path: ':oauth-5.0.1')
+  implementation project(path: ':oauth-5.0.0')
 }
 ```
 
 ```kt
 # kts
 dependencies {
-  implementation(project(":oauth-5.0.1"))
+  implementation(project(":oauth-5.0.0"))
 }
 ```
 
 ### 4. 초기화
-네아로SDK를 애플리케이션에 적용하려면 다음과 같은 코드를 추가해 네아로 객체를 초기화합니다.
+네아로SDK를 애플리케이션에 적용하려면 다음과 같은 코드를 추가해 네이버 로그인 인스턴스를 초기화합니다.
 ```kt
 NaverIdLoginSDK.initialize(context, {OAUTH_CLIENT_ID}, {OAUTH_CLIENT_SECRET}, {OAUTH_CLIENT_NAME})
 ```
@@ -115,7 +110,7 @@ NaverIdLoginSDK.initialize(context, {OAUTH_CLIENT_ID}, {OAUTH_CLIENT_SECRET}, {O
 
 > **참고** <br/>
 > `NaverIdLoginSDK.initialize()` 메서드가 여러 번 실행돼도 기존에 저장된 접근 토큰(access token)과 갱신 토큰(refresh token)은 삭제되지 않습니다.<br/>
-> 기존에 저장된 접근 토큰과 갱신 토큰을 삭제하려면 `NaverIdLoginSDK.logout()` 메서드나 `NidOAuthLogin().callDeleteTokenApi()` 메서드를 호출합니다.
+> 기존에 저장된 접근 토큰과 갱신 토큰을 삭제하려면 `NidOAuthLogin.logout()` 메서드나 `NidOAuthLogin.callDeleteTokenApi()` 메서드를 호출합니다.
 
 ### 5. 로그인
 로그인은 두 가지 방법으로 구현합니다.
@@ -202,13 +197,13 @@ binding.buttonOAuthLoginImg.setOAuthLoginCallback(oauthLoginCallback)
 
 
 ### 7. 로그아웃
-애플리케이션에서 로그아웃할 때는 다음과 같이 `NaverIdLoginSDK.logout()` 메서드를 호출합니다.
+애플리케이션에서 로그아웃할 때는 다음과 같이 `NidOAuthLogin.logout()` 메서드를 호출합니다.
 
 ```kt
-NaverIdLoginSDK.logout()
+NidOAuthLogin().logout()
 ```
 
-`NaverIdLoginSDK.logout()` 메서드가 호출되면 클라이언트에 저장된 토큰이 삭제되고 
+`NidOAuthLogin.logout()` 메서드가 호출되면 클라이언트에 저장된 토큰이 삭제되고 
 
 `NaverIdLoginSDK.getState()` 메서드가 NidOAuthLoginState.NEED_LOGIN 값을 반환합니다.
  
@@ -217,7 +212,7 @@ NaverIdLoginSDK.logout()
 
 
 ### 8. 연동 해제
-네이버 아이디와 애플리케이션의 연동을 해제하는 기능은 다음과 같이 `NidOAuthLogin().callDeleteTokenApi()` 메서드로 구현합니다.
+네이버 아이디와 애플리케이션의 연동을 해제하는 기능은 다음과 같이 `NidOAuthLogin.callDeleteTokenApi()` 메서드로 구현합니다.
 
 연동을 해제하면 클라이언트에 저장된 토큰과 서버에 저장된 토큰이 모두 삭제됩니다.
 
@@ -243,13 +238,13 @@ NidOAuthLogin().callDeleteTokenApi(context, object : OAuthLoginCallback {
 연동이 해제된 것은 PC에서 네이버의 내정보 > 보안설정 > 외부 사이트 연결 페이지에 접속해 외부사이트 → 네이버에서 연결 정보 삭제 여부로 확인할 수 있습니다.
 
 > **약전계에서 연동 해제 시** <br/>
-> `NidOAuthLogin().callDeleteTokenApi()` 메서드로 연동을 해제할 때는 클라이언트에 저장된 토큰과 서버에 저장된 토큰을 모두 삭제합니다. 
+> `NidOAuthLogin.callDeleteTokenApi()` 메서드로 연동을 해제할 때는 클라이언트에 저장된 토큰과 서버에 저장된 토큰을 모두 삭제합니다. 
 > 이때 네트워크 오류가 발생하면 서버 호출에 실패하기 때문에 서버에 저장된 토큰을 삭제하지 못할 수 있습니다. 
 > PC에서 네이버의 내정보 > 보안설정 > 외부 사이트 연결 페이지에 접속해 외부사이트 → 네이버에서 확인했을 때 연결 정보가 삭제되지 않은 채로 남아 있을 수 있습니다.
 
 
 ### 9. 프로필 API 호출
-접근 토큰으로 프로필 정보를 가져올 때는 `NidOAuthLogin().callProfileApi()` 메서드를 사용합니다.
+접근 토큰으로 프로필 정보를 가져올 때는 `NidOAuthLogin.callProfileApi()` 메서드를 사용합니다.
 
 ```kt
 NidOAuthLogin().callProfileApi(nidProfileCallback)
@@ -374,7 +369,6 @@ NaverIdLoginSDK 클래스의 메서드는 다음과 같습니다.
 - getVersion()
 - initialize()
 - authenticate()
-- logout()
 
 ##### 11.2.1. getAccessToken()
 
@@ -611,7 +605,17 @@ fun authenticate(context: Context, callback: OAuthLoginCallback)
 NaverIdLoginSDK.authenticate(context, oauthLoginCallback)
 ```
 
-##### 11.2.11. logout()
+##### 11.3. NidOAuthLogin
+네이버 로그인 연산을 수행하는 클래스.
+
+NidOAuthLogin 클래스의 메서드는 다음과 같습니다.
+
+- logout()
+- callDeleteTokenApi()
+- callRefreshAccessTokenApi()
+- callProfileApi()
+
+##### 11.3.1. logout()
 
 **설명** <br/>
 클라이언트에 저장된 접근 토큰(access token)과 갱신 토큰(refresh token)을 삭제합니다.
@@ -630,21 +634,12 @@ fun logout()
 **코드 예**
 ```kt
 R.id.buttonOAuthLogout -> {
-    NaverIdLoginSDK.logout()
+    NidOAuthLogin().logout()
     updateView()
 }
 ```
 
-##### 11.3. NidOAuthLogin
-네이버 로그인 연산을 수행하는 클래스.
-
-NidOAuthLogin 클래스의 메서드는 다음과 같습니다.
-
-- callDeleteTokenApi()
-- callRefreshAccessTokenApi()
-- callProfileApi()
-
-##### 11.3.1. callDeleteTokenApi()
+##### 11.3.2. callDeleteTokenApi()
 
 **설명** <br/>
 클라이언트와 서버에 저장된 접근 토큰(access token)과 갱신 토큰(refresh token)을 삭제해 애플리케이션과 네이버 아이디의 연동을 해제합니다.
@@ -686,7 +681,7 @@ NidOAuthLogin().callDeleteTokenApi(context, object : OAuthLoginCallback {
 })
 ```
 
-##### 11.3.2. callRefreshAccessTokenApi()
+##### 11.3.3. callRefreshAccessTokenApi()
 
 **설명** <br/>
 클라이언트에 저장된 갱신 토큰(refresh token)을 이용해 접근 토큰(access token)을 갱신합니다.
@@ -724,7 +719,7 @@ NidOAuthLogin().callRefreshAccessTokenApi(context, object : OAuthLoginCallback {
 })
 ```
 
-##### 11.3.3. callProfileApi()
+##### 11.3.4. callProfileApi()
 
 **설명** <br/>
 GET 메서드로 API를 호출합니다. 성공하면 `NidProfileCallback.onSuccess()`가 실행됩니다.
@@ -824,8 +819,8 @@ OAuth 인증 요청이 종료됐음을 알려 주는 콜백 인터페이스. OAu
 
 - `NaverIdLoginSDK.authenticate()` 메서드 호출 시 파라미터로 넘겨줌
 - `NidOAuthLoginButton.setOAuthLoginCallback()` 메서드 호출 시 파라미터로 넘겨줌
-- `NidOAuthLogin().callRefreshAccessTokenApi()` 메서드 호출 시 파라미터로 넘겨줌
-- `NidOAuthLogin().callDeleteTokenApi()` 메서드 호출 시 파라미터로 넘겨줌
+- `NidOAuthLogin.callRefreshAccessTokenApi()` 메서드 호출 시 파라미터로 넘겨줌
+- `NidOAuthLogin.callDeleteTokenApi()` 메서드 호출 시 파라미터로 넘겨줌
 
 위 메서드를 호출해 얻은 데이터는 `OAuthLoginCallback`으로 직접 전달되지 않기 때문에 `NaverIdLoginSDK.getAccessToken()` 메서드나 `NaverIdLoginSDK.getRefreshToken()` 메서드, `NaverIdLoginSDK.getLastErrorCode()` 메서드 등으로 확인합니다.
 
@@ -866,8 +861,8 @@ NaverIdLoginSDK.authenticate(context, oauthLoginCallback)
 
 - `NaverIdLoginSDK.authenticate()` 메서드 호출 시 파라미터로 넘겨줌
 - `NidOAuthLoginButton.setOAuthLoginCallback()` 메서드 호출 시 파라미터로 넘겨줌
-- `NidOAuthLogin().callRefreshAccessTokenApi()` 메서드 호출 시 파라미터로 넘겨줌
-- `NidOAuthLogin().callDeleteTokenApi()` 메서드 호출 시 파라미터로 넘겨줌
+- `NidOAuthLogin.callRefreshAccessTokenApi()` 메서드 호출 시 파라미터로 넘겨줌
+- `NidOAuthLogin.callDeleteTokenApi()` 메서드 호출 시 파라미터로 넘겨줌
 
 위 메서드를 호출해 얻은 데이터는 `OAuthLoginCallback`으로 직접 전달되지 않기 때문에 `NaverIdLoginSDK.getAccessToken()` 메서드나 `NaverIdLoginSDK.getRefreshToken()` 메서드, `NaverIdLoginSDK.getLastErrorCode()` 메서드 등으로 확인합니다.
 
@@ -892,8 +887,8 @@ fun onFailure(httpStatus: Int, message: String)
 
 - `NaverIdLoginSDK.authenticate()` 메서드 호출 시 파라미터로 넘겨줌
 - `NidOAuthLoginButton.setOAuthLoginCallback()` 메서드 호출 시 파라미터로 넘겨줌
-- `NidOAuthLogin().callRefreshAccessTokenApi()` 메서드 호출 시 파라미터로 넘겨줌
-- `NidOAuthLogin().callDeleteTokenApi()` 메서드 호출 시 파라미터로 넘겨줌
+- `NidOAuthLogin.callRefreshAccessTokenApi()` 메서드 호출 시 파라미터로 넘겨줌
+- `NidOAuthLogin.callDeleteTokenApi()` 메서드 호출 시 파라미터로 넘겨줌
 
 위 메서드를 호출해 얻은 데이터는 `OAuthLoginCallback`으로 직접 전달되지 않기 때문에 `NaverIdLoginSDK.getAccessToken()` 메서드나 `NaverIdLoginSDK.getRefreshToken()` 메서드, `NaverIdLoginSDK.getLastErrorCode()` 메서드 등으로 확인합니다.
 
@@ -923,7 +918,7 @@ Profile 요청이 종료됐음을 알려 주는 콜백 인터페이스. NidProfi
 **설명** <br/>
 `NidProfileCallback` 인터페이스를 상속하는 익명클래스를 만들어 `onSuccess()` 메서드를 구현한 뒤 생성된 인스턴스를 다음 메서드의 파라미터로 전달하면 인스턴스의 `onSuccess()` 메서드로 요청이 성공했음을 확인할 수 있습니다.
 
-`NidOAuthLogin().callProfileApi()` 메서드 호출 시 파라미터로 넘겨줌
+`NidOAuthLogin.requestApi()` 메서드 호출 시 파라미터로 넘겨줌
 
 **구문**
 ```kt
@@ -933,7 +928,7 @@ fun onSuccess(result: T)
 **파라미터**
 | 파라미터 | 타입 | 필수 여부 | 설명 |
 |:--:|:--:|:--:|:--|
-|result|T|Y|`NidOAuthLogin().callProfileApi()`를 호출해 얻은 데이터가 `onSuccess()`로 전달됩니다.|
+|result|T|Y|`NidOAuthLogin.callProfileApi()`를 호출해 얻은 데이터가 `onSuccess()`로 전달됩니다.|
 
 **반환값** <br/>
 없음
@@ -964,7 +959,7 @@ NidOAuthLogin().callProfileApi(profileCallback)
 **설명** <br/>
 `NidProfileCallback` 인터페이스를 상속하는 익명클래스를 만들어 `onFailure()` 메서드를 구현한 뒤 생성된 인스턴스를 다음 메서드의 파라미터로 전달하면 인스턴스의 `onFailure()` 메서드로 요청이 실패했음을 확인할 수 있습니다.
 
-`NidOAuthLogin().callProfileApi()` 메서드 호출 시 파라미터로 넘겨줌
+`NidOAuthLogin.callProfileApi()` 메서드 호출 시 파라미터로 넘겨줌
 
 **구문**
 ```kt
@@ -986,7 +981,7 @@ fun onFailure(httpStatus: Int, message: String)
 **설명** <br/>
 `NidProfileCallback` 인터페이스를 상속하는 익명클래스를 만들어 `onError()` 메서드를 구현한 뒤 생성된 인스턴스를 다음 메서드의 파라미터로 전달하면 인스턴스의 `onError()` 메서드로 요청에 에러가 발생했음을 확인할 수 있습니다.
 
-`NidOAuthLogin().callProfileApi()` 메서드 호출 시 파라미터로 넘겨줌
+`NaverIdLoginSDK.callProfileApi()` 메서드 호출 시 파라미터로 넘겨줌
 
 **구문**
 ```kt
