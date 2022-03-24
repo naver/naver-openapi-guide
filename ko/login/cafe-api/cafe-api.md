@@ -333,7 +333,7 @@ public class MultipartUtil {
   $menuid = "YOUR_CAFE_BBS_ID"; // 카페 게시판 id (상품게시판은 입력 불가)
   $url = "https://openapi.naver.com/v1/cafe/".$clubid."/menu/".$menuid."/articles";
   $subject = urlencode("cafe php 네이버 multi-part 이미지 첨부 테스트 php");
-  $content = urlencode("&lt;font color='red'&gt;multi-part 로 첨부한 글입니다. php 이미지 첨부 &lt;img src='#0' /&gt;");
+  $content = urlencode("&lt;font color='red'&gt;multi-part 로 첨부한 글입니다. php 이미지 첨부");
 <br/>
   $postvars_str = array("subject" =&gt; $subject, "content" =&gt; $content);
   $is_post = true;
@@ -545,7 +545,7 @@ menuid = "YOUR_CAFE_BBS_ID"  # (상품게시판은 입력 불가)
 url = "https://openapi.naver.com/v1/cafe/" + clubid + "/menu/" + menuid + "/articles"
 <br/>
 subject = urllib.parse.quote("네이버 Cafe api Test Python")
-content = urllib.parse.quote("&lt;font color='red'&gt;python multi-part&lt;/font&gt;로 첨부한 글입니다. &lt;br&gt; python 이미지 첨부 &lt;br&gt; &lt;img src='#0' /&gt;")
+content = urllib.parse.quote("&lt;font color='red'&gt;python multi-part&lt;/font&gt;로 첨부한 글입니다. &lt;br&gt; python 이미지 첨부 &lt;br&gt;")
 data = {'subject': subject, 'content': content}
 files = [
     ('image', ('YOUR_FILE_1', open('YOUR_FILE_1', 'rb'), 'image/jpeg', {'Expires': '0'})),
@@ -697,7 +697,7 @@ namespace NaverAPI_Guide
             request.ContentType = "multipart/form-data; boundary=" + boundary;
             request.Headers.Add("Authorization", header);
             buildParam("subject", "C# api로 올리는 카페 제목"); // 제목
-            buildParam("content", "&lt;font color='red'&gt;multi-part&lt;/font&gt;로 첨부한 글입니다. &lt;br&gt;  이미지 첨부 &lt;br&gt; &lt;img src='#0' /&gt; &lt;img src='#1' /&gt;"); // 본문
+            buildParam("content", "&lt;font color='red'&gt;multi-part&lt;/font&gt;로 첨부한 글입니다. &lt;br&gt;  이미지 첨부 &lt;br&gt;"); // 본문
             buildFileParam("image[0]", "C:\\test1.jpg"); // 파일 [0]
             buildFileParam("image[1]", "C:\\test2.jpg"); // 파일 [1]
             buildByteParam(); // Byte Array 생성
