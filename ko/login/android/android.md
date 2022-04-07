@@ -34,14 +34,14 @@ gradle 스크립트에 아래와 같이 추가하시면 사용할 수 있습니�
 
 ```groovy
 # groovy
-implementation 'com.navercorp.nid:oauth:5.0.1' // jdk 11
-implementation 'com.navercorp.nid:oauth-jdk8:5.0.1' // jdk 8
+implementation 'com.navercorp.nid:oauth:5.1.0' // jdk 11
+implementation 'com.navercorp.nid:oauth-jdk8:5.1.0' // jdk 8
 ```
 
 ```kt
 # kts
-implementation("com.navercorp.nid:oauth:5.0.1") // jdk 11
-implementation("com.navercorp.nid:oauth-jdk8:5.0.1") // jdk 8
+implementation("com.navercorp.nid:oauth:5.1.0") // jdk 11
+implementation("com.navercorp.nid:oauth-jdk8:5.1.0") // jdk 8
 ```
 
 네아로SDK에서 사용하는 라이브러리는 다음과 같습니다. 필요에 따라 exclude 하여 사용하시면 됩니다.
@@ -64,21 +64,24 @@ implementation 'com.airbnb.android:lottie:3.1.0'
 ```
 
 #### 3.2. Gradle 에서 설정
-Android 프로젝트의 libs 폴더 밑에 oauth-5.0.1.aar 파일을 복사합니다.
+Android 프로젝트의 libs 폴더 밑에 oauth-5.1.0.aar 파일을 복사합니다.
+
+> **다운로드 링크** <br/>
+> [oauth-5.1.0.aar](https://search.maven.org/artifact/com.navercorp.nid/oauth/5.1.0/aar)
 
 프로젝트의 build.gradle에 다음과 같이 추가합니다.
 
 ```groovy
 # groovy
 dependencies {
-  implementation files('libs/oauth-5.0.1.aar')
+  implementation files('libs/oauth-5.1.0.aar')
 }
 ```
 
 ```kt
 # kts
 dependencies {
-  implementation(files("libs/oauth-5.0.1.aar"))
+  implementation(files("libs/oauth-5.1.0.aar"))
 }
 ```
 
@@ -86,20 +89,20 @@ dependencies {
 1. [file]-[project structure] 실행
 1. 좌측 상단의 + 버튼 클릭
 1. jar/aar 모듈 추가 선택
-1. 다운받은 oauth-5.0.1.aar 선택
+1. 다운받은 oauth-5.1.0.aar 선택
 1. 프로젝트 build.gradle에 다음과 같이 추가
 
 ```groovy
 # groovy
 dependencies {
-  implementation project(path: ':oauth-5.0.1')
+  implementation project(path: ':oauth-5.1.0')
 }
 ```
 
 ```kt
 # kts
 dependencies {
-  implementation(project(":oauth-5.0.1"))
+  implementation(project(":oauth-5.1.0"))
 }
 ```
 
@@ -283,9 +286,9 @@ NaverIdLoginSDK.showDevelopersLog(true)
 | :-- | :-- |
 | use_application | 사용할 어플리케이션 |
 | retry | 재시도 |
-| naveroauthlogin_string_getting_token | 네이버 로그인 중입니다. |
+| naveroauthlogin_string_getting_token | 네이버 아이디로 로그인 중입니다. |
 | naveroauthlogin_string_network_state_not_available | 네트워크에 접속할 수 없습니다. 네트워크 연결상태를 확인해 주세요. |
-| naveroauthlogin_string_group_id_not_available | 단체아이디는 네이버 로그인이 지원되지 않습니다. 개인아이디로 로그인 해 주세요. |
+| naveroauthlogin_string_group_id_not_available | 단체아이디는 네이버 아이디로 로그인이 지원되지 않습니다. 개인아이디로 로그인 해 주세요. |
 | naveroauthlogin_string_update_naverapp | 네이버 앱 업데이트 후 이용할 수 있는 서비스입니다. |
 
 
