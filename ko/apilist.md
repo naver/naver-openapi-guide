@@ -53,7 +53,7 @@
 - [네이버 공유하기](https://developers.naver.com/docs/share/navershare/): 콘텐츠를 네이버 블로그, 네이버 카페, PHOLAR에 공유할 수 있게 하는 API입니다.
 - [네이버 오픈메인](https://developers.naver.com/docs/openmain/): 웹 페이지를 네이버 메인에 추가할 수 있게 하는 플러그인입니다.
 - [Clova Face Recognition](https://developers.naver.com/products/clova/face/): 입력된 사진 이미지 속의 얼굴을 인식하거나 얼굴 감지를 이용한 애플리케이션을 만들 수 있게 하는 API입니다.
-- [Papago 번역](https://developers.naver.com/products/nmt/nmt.md): 인공 신경망 기술 기반의 기계 번역 결과를 반환하는 API입니다.
+- [Papago 번역](https://developers.naver.com/docs/papago/papago-nmt-overview.md): 인공 신경망 기술 기반의 기계 번역 결과를 반환하는 API입니다.
 
 ### 데이터랩
 
