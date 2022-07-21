@@ -1227,3 +1227,157 @@ https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=CLIENT_ID&
 
 자동 로그인 처리 실패에 대한 오류코드를 콜백으로 전달받은 경우, 기존과 동일하게 로그인 버튼을 통해 로그인 할 수 있도록 처리가 필요합니다.
 
+
+## 6.2 서비스 약관 동의 대행
+
+### 6.2.1 서비스 약관 동의 대행 기능이란?
+
+네이버 로그인은 사용자 로그인 연동 외에 서비스의 이용에 필수적으로 필요한 "약관동의" 절차를 대행하는 기능을 제공하고 있습니다. 복잡한 동의 과정을 네이버 로그인을 통해 쉽고 편하게 제공하여 사용자의 편의를 높일 수 있습니다.
+
+
+### 6.2.2 약관 동의 대행 연동 전 확인 사항
+
+- 개발가이드를 숙지하여, 네이버 로그인  연동에 필요한 사항들을 미리 점검합니다.
+- 네이버 개발자센터를 통해 애플리케이션을 등록합니다. 
+- 개발자센터의 "서비스 약관정보" 메뉴를 통해 약관동의 대행에 필요한 정보를 등록할 수 있습니다.
+- 서비스 약관 정보가 허위로 등록되거나 실제 서비스의 약관과 다를 경우 검수가 반려될 수 있으며, 또한 이미 서비스 이용중이더라도 "적용사"의 귀책사유로 이용이 제한될 수 있습니다.
+
+### 6.2.3 주요 설정 정보
+
+* 만 14세 이상만 가입 가능 
+	* 만 14세 미만 사용자에게 서비스를 제공하지 않는 경우 '만 14세 이상만 가입 가능' 설정을 할 수 있습니다.
+	* '만 14세 이상만 가입 가능'으로 체크한 경우 네이버 사용자의 연령 정보를 체크하여 만 14세 미만 사용자는 서비스에 가입되지 않도록 처리되며, 연령 정보가 없는 사용자는 동의 과정에서 [만 14세 이상입니다] 항목을 체크하고 가입할 수 있도록 동의 항목을 노출합니다.
+* 약관정보는 복수개의 정보를 등록할 수 있으며, 필수 등록사항은 다음과 같습니다.
+	* 약관 제목 (국문명) : 연동과정에서의 정보제공동의화면에서 노출할 약관 제목
+	* 약관 제목 (영문명) : 연동과정에서의 정보제공동의화면에서 노출할 약관 제목
+	* 약관 URL  : 약관 세부 정보를 확인할 수 있는 웹페이지의 URL
+	* 약관 태그 : 약관을 구분하는데 필요한 값
+	* 필수/선택 여부 : '필수동의'는 사용자가 동의하지 않을 경우 가입이 불가하며, '선택동의'는 사용자가 동의하지 않아도 가입을 진행할 수 있습니다.
+
+### 6.2.4 약관 동의 대행 설정 화면 예시
+
+![img_set_agreement_01.png](./images/img_set_agreement_01.png)
+
+
+
+### 6.2.5 약관 동의 대행 이용 화면 예시
+
+![img_agreement_example.png](./images/img_agreement_example.png)
+
+
+### 6.2.6 약관 동의 대행 사용자의 동의 여부 확인
+
+네이버 로그인 연동 이용자의 서비스 약관동의 상태 정보를 조회합니다. 약관 동의 대행을 설정한 애플리케이션에 한하여 조회기능을 제공합니다.
+
+
+***요청 URL 정보***
+
+| 메서드 | 인증 | 요청 URL | 출력 포맷 | 설명 |
+|:---:|:---:|--------|:--:|---|
+| GET / POST   | OAuth2.0 | https://openapi.naver.com/v1/nid/agreement |  JSON   | 접근 토큰 검증 및 약관동의정보 확인  |
+
+
+
+***요청 헤더***
+
+| 요청 헤더명  | 설명 |
+| :--: | -------- | 
+| Authorization |  접근 토큰(access token)을 전달하는 헤더<br>다음과 같은 형식으로 헤더 값에 접근 토큰(access token)을 포함합니다. 토큰 타입은 "Bearer"로 값이 고정되어 있습니다.<br> Authorization: {토큰 타입] {접근 토큰] |
+
+***요청문 예시***
+
+```shell
+curl  -XGET "https://openapi.naver.com/v1/nid/agreement" \
+      -H "Authorization: Bearer AAAAPIuf0L+qfDkMABQ3IJ8heq2m...dbvsiQbPbP1/cxva23n7mQShtfK4pchdk/rc="
+```
+
+***요청문 예시***
+
+```http
+> GET /v1/nid/agreement HTTP/2
+> Host: openapi.naver.com
+> user-agent: curl/7.79.1
+> accept: */*
+> authorization: Bearer AAAAPIuf0L+qfDkM...ShtfK4pchdk/rc=
+​
+< HTTP/2 200
+< date: Tue, 07 Dec 2021 09:52:56 GMT
+< content-type: application/json;charset=utf-8​
+```
+
+
+***출력 결과***
+
+|필드 |타입 |필수 여부 |설명|
+|:--:|:-:|:-:|------|
+| result |  String | Y | API 처리 결과 (success / failure)|
+| accessToken | String | Y | 헤더로 입력된 AccessToken 정보|
+| agreementInfos | List\<Object\>  |  Y| 약관 동의 정보 리스트|
+| agreementInfos[].termCode  | String  | Y|  약관 코드  |
+| agreementInfos[].clientId | String | Y| ClientID (클라이언트 아이디, 애플리케이션 구분자)  |
+| agreementInfos[]. agreeDate | DateTime | Y | 동의시각(HH:MI:SS.sss AM MM/DD/YYYY) |
+
+
+
+> **_참고_**: 세부 JSON SCHEMA는 아래의 항목을 참고하시기 바랍니다.
+
+
+***출력 결과 JSON SCHEMA***
+
+```json
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "type": "object",
+    "description": "The root schema",
+    "properties": {
+        "result": {
+            "type": "string",
+            "description": "API 처리 결과 (success / failure)"
+        },
+        "accessToken": {
+            "type": "string",
+            "description": "헤더로 입력된 AccessToken 정보"
+        },
+        "agreementInfos": {
+            "type": "array",
+            "description": "약관 동의 정보 리스트",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "termCode": {
+                        "type": "string",
+                        "description": "약관 코드 (Appendix 1 참고)"
+                    },
+                    "clientId": {
+                        "type": "string",
+                        "description": "ClientID (클라이언트 아이디, 애플리케이션 구분자)"
+                    },
+                    "agreeDate": {
+                        "type": "string",
+                        "description": "약관 동의 일자"
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+***출력 결과 JSON EXAMPLE***
+
+```json
+{
+    "result": "success",
+    "accessToken": "{input accessToken}",
+    "agreementInfos": [{
+        "termCode": "{TERMCODE}",
+        "clientId": "{CLIENTID}",
+        "agreeDate": "HH:MI:SS.sss AM MM/DD/YYYY"
+    }, {
+        "termCode": "{TERMCODE}",
+        "clientId": "{CLIENTID}",
+        "agreeDate": "HH:MI:SS.sss PM MM/DD/YYYY"
+    }]
+}
+```
+
