@@ -88,6 +88,20 @@
             <td class="left">검색을 원하는 문자열로서 UTF-8로 인코딩한다.</td>
         </tr>
         <tr>
+            <td class="center">filter</td>
+            <td class="center">string</td>
+            <td class="center">N</td>
+            <td class="center">모든 상품</td>
+            <td class="left">검색 결과 중 설정한 옵션만 나온다. 필터 옵션: naverpay(네이버페이 연동)</td>
+        </tr>
+<tr>
+            <td class="center">exclude</td>
+            <td class="center">string</td>
+            <td class="center">N</td>
+            <td class="center">모든 상품</td>
+            <td class="left">검색 결과 중 설정한 옵션을 제외한 상품이 나온다.<br>제외옵션: used(중고), rental(렌탈), cbshop(해외직구, 구매대행)<br>사용 방법: exclude={option}:{option}:{option}, 원하는 옵션을 넣으면 된다.<br>(예제: exclude=used:cbshop )</td>
+        </tr>
+        <tr>
             <td class="center">display</td>
             <td class="center">integer</td>
             <td class="center">N</td>

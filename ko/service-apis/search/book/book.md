@@ -122,7 +122,7 @@
             <td class="center"> string</td>
             <td class="center">N</td>
             <td> sim(기본값), date</td>
-            <td class="left">정렬 옵션: sim(유사도순), date(출간일순), count(판매량순)</td>
+            <td class="left">정렬 옵션: sim(유사도순), date(출간일순)</td>
         </tr>
         <tr>
             <td class="center">d_titl</td>
@@ -133,59 +133,11 @@
             <td class="center">상세 검색만 해당</td>
         </tr>
         <tr>
-            <td class="center">d_auth</td>
-            <td class="center">string</td>
-            <td class="center">N</td>
-            <td class="center">-</td>
-            <td class="left">저자명 검색</td>
-            <td class="center">상세 검색만 해당</td>
-        </tr>
-        <tr>
-            <td class="center">d_cont</td>
-            <td class="center">string</td>
-            <td class="center">N</td>
-            <td class="center">-</td>
-            <td class="left">목차 검색</td>
-            <td class="center">상세 검색만 해당</td>
-        </tr>
-        <tr>
             <td class="center">d_isbn</td>
             <td class="center">string</td>
             <td class="center">N</td>
             <td class="center">-</td>
             <td class="left">isbn 검색</td>
-            <td class="center">상세 검색만 해당</td>
-        </tr>
-        <tr>
-            <td class="center">d_publ</td>
-            <td class="center">string</td>
-            <td class="center">N</td>
-            <td class="center">-</td>
-            <td class="left">출판사 검색</td>
-            <td class="center">상세 검색만 해당</td>
-        </tr>
-        <tr>
-            <td class="center">d_dafr</td>
-            <td class="center">string</td>
-            <td class="center">N</td>
-            <td class="center">(ex.20000203)</td>
-            <td class="left">출간 시작일</td>
-            <td class="center">상세 검색만 해당</td>
-        </tr>
-        <tr>
-            <td class="center">d_dato</td>
-            <td class="center">string</td>
-            <td class="center">N</td>
-            <td class="center">(ex.20000203)</td>
-            <td class="left">출간 종료일</td>
-            <td class="center">상세 검색만 해당</td>
-        </tr>
-        <tr>
-            <td class="center">d_catg</td>
-            <td class="center">string</td>
-            <td class="center">N</td>
-            <td class="center">-</td>
-            <td class="left">책 검색 카테고리(<a download="categoryList.txt" href="https://developers.naver.com/inc/devcenter/downloads/categoryList.txt" type="text/plain">카테고리 목록 다운로드</a>)</td>
             <td class="center">상세 검색만 해당</td>
         </tr>
         </tbody>
@@ -262,11 +214,6 @@
             <td class="center">author</td>
             <td class="center">string</td>
             <td class="left">저자 정보이다.</td>
-        </tr>
-        <tr>
-            <td class="center">price</td>
-            <td class="center">integer</td>
-            <td class="left">정가 정보이다. 절판도서 등으로 가격이 없으면 나타나지 않는다.</td>
         </tr>
         <tr>
             <td class="center">discount</td>
