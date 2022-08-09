@@ -81,16 +81,16 @@
 <br>
 네이버 로그인 접근토큰 획득 예제는 2개의 프로그램으로 구성되어 있습니다. (naverlogin.jsp, callback.jsp)
 1. naverlogin.jsp
-<%@ page import="java.net.URLEncoder" %>
-<%@ page import="java.security.SecureRandom" %>
-<%@ page import="java.math.BigInteger" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+&lt;%@ page import="java.net.URLEncoder" %&gt;
+&lt;%@ page import="java.security.SecureRandom" %&gt;
+&lt;%@ page import="java.math.BigInteger" %&gt;
+&lt;%@ page contentType="text/html;charset=UTF-8" language="java" %&gt;
 &lt;html&gt;
   &lt;head&gt;
     &lt;title&gt;네이버로그인&lt;/title&gt;
   &lt;/head&gt;
   &lt;body&gt;
-  <%
+  &lt;%
     String clientId = "YOUR_CLIENT_ID";//애플리케이션 클라이언트 아이디값";
     String redirectURI = URLEncoder.encode("YOUR_CALLBACK_URL", "UTF-8");
     SecureRandom random = new SecureRandom();
@@ -100,24 +100,24 @@
     apiURL += "&redirect_uri=" + redirectURI;
     apiURL += "&state=" + state;
     session.setAttribute("state", state);
- %>
-  &lt;a href="&lt;%=apiURL%>">&lt;img height="50" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/>&lt;/a>
-  &lt;/body>
-&lt;/html>
+ %&gt;
+  &lt;a href="&lt;%=apiURL%&gt;"&gt;&lt;img height="50" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/&gt;&lt;/a&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
 <br>
 2. callback.jsp
-<%@ page import="java.net.URLEncoder" %>
-<%@ page import="java.net.URL" %>
-<%@ page import="java.net.HttpURLConnection" %>
-<%@ page import="java.io.BufferedReader" %>
-<%@ page import="java.io.InputStreamReader" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+&lt;%@ page import="java.net.URLEncoder" %&gt;
+&lt;%@ page import="java.net.URL" %&gt;
+&lt;%@ page import="java.net.HttpURLConnection" %&gt;
+&lt;%@ page import="java.io.BufferedReader" %&gt;
+&lt;%@ page import="java.io.InputStreamReader" %&gt;
+&lt;%@ page contentType="text/html;charset=UTF-8" language="java" %&gt;
 &lt;html&gt;
   &lt;head&gt;
     &lt;title&gt;네이버로그인&lt;/title&gt;
   &lt;/head&gt;
   &lt;body&gt;
-  <%
+  &lt;%
     String clientId = "YOUR_CLIENT_ID";//애플리케이션 클라이언트 아이디값";
     String clientSecret = "YOUR_CLIENT_SECRET";//애플리케이션 클라이언트 시크릿값";
     String code = request.getParameter("code");
@@ -157,7 +157,7 @@
     } catch (Exception e) {
       System.out.println(e);
     }
-  %>
+  %&gt;
   &lt;/body&gt;
 &lt;/html&gt;</pre>
 </div>
