@@ -89,7 +89,7 @@ GET
 파라미터를 쿼리 스트링 형식으로 전달합니다.
 
 |파라미터|타입|필수 여부|설명|
-|---|---|---|---|
+|---|---|:-:|---|
 |query|String|Y|검색어. UTF-8로 인코딩되어야 합니다.|
 |display|Integer|N|한 번에 표시할 검색 결과 개수(기본값: 10, 최댓값: 100)|
 |start|Integer|N|검색 시작 위치(기본값: 1, 최댓값: 1000)|
@@ -130,11 +130,11 @@ curl "https://openapi.naver.com/v1/search/news.xml?query=%EC%A3%BC%EC%8B%9D&disp
 |rss/channel/start|Integer|검색 시작 위치|
 |rss/channel/display|Integer|한 번에 표시할 검색 결과 개수|
 |rss/channel/item|-|개별 검색 결과. JSON 형식의 결괏값에서는 `items` 속성의 JSON 배열로 개별 검색 결과를 반환합니다.|
-|rss/channel/item/title|String|검색된 뉴스 기사의 제목. 제목에서 검색어와 일치하는 부분은 `<b>` 태그로 감싸져 있습니다.|
-|rss/channel/item/originallink|String|검색된 뉴스 기사 원문의 URL|
-|rss/channel/item/link|String|검색된 뉴스 기사의 네이버 뉴스 URL. 네이버에 제공되지 않은 기사라면 기사 원문의 URL을 반환합니다.|
-|rss/channel/item/description|String|검색된 뉴스 기사의 내용을 요약한 패시지 정보. 패시지 정보에서 검색어와 일치하는 부분은 `<b>` 태그로 감싸져 있습니다.|
-|rss/channel/item/pubDate|dateTime|검색된 뉴스 기사가 네이버에 제공된 시간. 네이버에 제공되지 않은 기사라면 기사 원문이 제공된 시간을 반환합니다.|
+|rss/channel/item/title|String|뉴스 기사의 제목. 제목에서 검색어와 일치하는 부분은 `<b>` 태그로 감싸져 있습니다.|
+|rss/channel/item/originallink|String|뉴스 기사 원문의 URL|
+|rss/channel/item/link|String|뉴스 기사의 네이버 뉴스 URL. 네이버에 제공되지 않은 기사라면 기사 원문의 URL을 반환합니다.|
+|rss/channel/item/description|String|뉴스 기사의 내용을 요약한 패시지 정보. 패시지 정보에서 검색어와 일치하는 부분은 `<b>` 태그로 감싸져 있습니다.|
+|rss/channel/item/pubDate|dateTime|뉴스 기사가 네이버에 제공된 시간. 네이버에 제공되지 않은 기사라면 기사 원문이 제공된 시간을 반환합니다.|
 
 #### 응답 예
 

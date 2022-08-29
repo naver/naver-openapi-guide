@@ -164,12 +164,12 @@ curl  "https://openapi.naver.com/v1/search/blog.xml?query=%EB%A6%AC%EB%B7%B0&dis
 |rss/channel/start|Integer|검색 시작 위치|
 |rss/channel/display|Integer|한 번에 표시할 검색 결과 개수|
 |rss/channel/item|-|개별 검색 결과. JSON 형식의 결괏값에서는 `items` 속성의 JSON 배열로 개별 검색 결과를 반환합니다.|
-|rss/channel/item/title|String|검색된 블로그 포스트의 제목. 제목에서 검색어와 일치하는 부분은 `<b>` 태그로 감싸져 있습니다.|
-|rss/channel/item/link|String|검색된 블로그 포스트의 URL|
-|rss/channel/item/description|String|검색된 블로그 포스트의 내용을 요약한 패시지 정보. 패시지 정보에서 검색어와 일치하는 부분은 `<b>` 태그로 감싸져 있습니다.|
-|rss/channel/item/bloggername|String|검색된 블로그 포스트가 있는 블로그의 이름|
-|rss/channel/item/bloggerlink|String|검색된 블로그 포스트가 있는 블로그의 주소|
-|rss/channel/item/postdate|dateTime|검색된 블로그 포스트가 작성된 날짜|
+|rss/channel/item/title|String|블로그 포스트의 제목. 제목에서 검색어와 일치하는 부분은 `<b>` 태그로 감싸져 있습니다.|
+|rss/channel/item/link|String|블로그 포스트의 URL|
+|rss/channel/item/description|String|블로그 포스트의 내용을 요약한 패시지 정보. 패시지 정보에서 검색어와 일치하는 부분은 `<b>` 태그로 감싸져 있습니다.|
+|rss/channel/item/bloggername|String|블로그 포스트가 있는 블로그의 이름|
+|rss/channel/item/bloggerlink|String|블로그 포스트가 있는 블로그의 주소|
+|rss/channel/item/postdate|dateTime|블로그 포스트가 작성된 날짜|
 
 #### 응답 예
 
