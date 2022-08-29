@@ -1,6 +1,6 @@
 ---
 title: 검색 API 뉴스 검색 적용 가이드
-description: 네이버 검색의 뉴스 검색 결과를 반환하는 RESTful API입니다. 
+description: 네이버 검색의 뉴스 검색 결과를 반환하는 RESTful API입니다.
 ---
 
 검색 &gt; 뉴스
