@@ -1,74 +1,126 @@
 ---
-title: 검색 API 오타변환 개발가이드
-description: 한/영 키를 잘못 설정하고 검색하셨을 경우, 입력하신 검색어를 자동으로 변환/추천해 주는 REST API입니다.
+title: 검색 API 오타변환 적용 가이드
+description: 한/영 키를 잘못 설정하고 입력한 검색어를 자동으로 변환해 올바른 검색어를 추천하는 RESTful API입니다.
 ---
 
-# 검색 &gt; 오타변환
+검색 &gt; 오타변환
+====================
+ 
+<div class="table-of-contents">
+<ul>
+    <li><a href="#오타변환-개요">오타변환 개요</a></li>
+    <ul>
+        <li><a href="#개요">개요</a></li>
+        <li><a href="#사전-준비-사항">사전 준비 사항</a></li>
+    </ul>
+    <li><a href="#오타변환-api-레퍼런스">오타변환 API 레퍼런스</a></li>
+    <ul>
+        <li><a href="#오타-변환-결과-조회">오타 변환 결과 조회</a></li>
+        <li><a href="#오류-코드">오류 코드</a></li>
+    </ul>
+    <li><a href="#검색-api-오타변환-구현-예제">검색 API 오타변환 구현 예제</a></li>
+</ul>
+</div>
 
-한/영 키를 잘못 설정하고 검색하셨을 경우, 입력하신 검색어를 자동으로 변환/추천해 주는 REST API입니다. 비로그인 오픈 API이므로 GET으로 호출할 때 HTTP Header에 애플리케이션 등록 시 발급받은 [Client ID와 Client Secret 값을 같이 전송](https://developers.naver.com/docs/common/apicall)해 주시면 활용 가능합니다.
+## 오타변환 개요
 
-<div class="buttons2"><a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register?defaultScope=search">오픈 API 이용 신청 &gt;</a></div>
+* [개요](#개요)
+* [사전 준비 사항](#사전-준비-사항)
 
-## 1. 준비사항
+### 개요
 
-- 애플리케이션 등록: 네이버 오픈 API로 개발하시려면 먼저 **[Application-애플리케이션 등록](https://developers.naver.com/apps/#/register?defaultScope=search)** 메뉴에서 애플리케이션을 등록하셔야 합니다. <br>**[\[자세한 방법 보기\] &gt;](https://developers.naver.com/docs/common/register)**
-- 클라이언트 ID와 secret 확인: [**내 애플리케이션**](https://developers.naver.com/appinfo)에서 등록한 애플리케이션을 선택하면 Client ID와 Client Secret 값을 확인할 수 있습니다.
-- API 권한 설정: [**내 애플리케이션**](https://developers.naver.com/appinfo)의 **API 권한관리** 탭에서 사용하려는 API가 체크되어 있는지 확인합니다. 체크되어 있지 않을 경우 403 에러(API 권한 없음)가 발생하니 주의하시기 바랍니다.
+#### 검색 API와 오타변환 개요
 
-## 2. API 기본 정보
+검색 API는 네이버 검색 결과를 뉴스, 백과사전, 블로그, 쇼핑, 영화, 웹 문서, 전문정보, 지식iN, 책, 카페글 등 분야별로 볼 수 있는 API입니다. 그 외에 지역 검색 결과와 성인 검색어 판별 기능, 오타 변환 기능을 제공합니다.
 
-|메서드|인증|요청 URL|출력 포맷|
-|---|---|---|---|
-|GET|-|https://openapi.naver.com/v1/search/errata.xml|XML|
-|GET|-|https://openapi.naver.com/v1/search/errata.json|<em class="color_p3">JSON</em>|
+오타변환은 한/영 키를 잘못 설정하고 입력한 검색어를 자동으로 변환해 올바른 검색어를 추천하는 RESTful API입니다. 오타를 변환한 추천 검색어를 XML 형식 또는 JSON 형식으로 반환합니다. API를 호출할 때는 검색어를 쿼리 스트링(Query String) 형식의 데이터로 전달합니다.
 
-## 3. 요청 변수
+오타변환은 검색 API를 사용하며, 검색 API의 하루 호출 한도는 25,000회입니다.
 
-|요청 변수명|타입|필수 여부|기본값|설명|
-|---|---|---|---|---|
-|query|string|Y|-|검색을 원하는 문자열로서 UTF-8로 인코딩한다.|
+#### 검색 API 특징
 
-## 4. 출력 결과
+검색 API는 비로그인 방식 오픈 API입니다.
 
-|필드|타입|설명|
-|---|---|---|
-|errata|string|오타 변환 결과 문자열로서 오타가 없으면 빈 문자열을 출력|
+비로그인 방식 오픈 API는 네이버 오픈API를 호출할 때 HTTP 요청 헤더에 클라이언트 아이디와 클라이언트 시크릿 값만 전송해 사용할 수 있는 오픈 API입니다. 클라이언트 아이디와 클라이언트 시크릿은 네이버 오픈API에서 인증된 사용자인지 확인하는 수단입니다. [네이버 개발자 센터](https://developers.naver.com/)에서 애플리케이션을 등록하면 클라이언트 아이디와 클라이언트 시크릿이 발급됩니다.
 
-## 5. 에러 코드 
+> **참고**  
+> 네이버 오픈API의 종류와 클라이언트 아이디, 클라이언트 시크릿에 관한 자세한 내용은 "[API 공통 가이드](https://developers.naver.com/docs/common/openapiguide/)"를 참고하십시오.  
 
-공통 에러 코드는 [여기](https://developers.naver.com/docs/common/openapiguide/errorcode.md)를 참조하세요.
+### 사전 준비 사항
 
-|HTTP 코드|에러 코드|에러 메시지|조치 방안|
-|---|---|---|---|
-|400|SE01|Incorrect query request (잘못된 쿼리요청입니다.)|검색 API 요청에 오류가 있습니다. 요청 URL, 필수 요청 변수가 정확한지 확인 바랍니다.|
-|400|SE02|Invalid display value (부적절한 display 값입니다.)|display 요청 변수값이 허용 범위(1~100)인지 확인해 보세요.|
-|400|SE03|Invalid start value (부적절한 start 값입니다.)|start 요청 변수값이 허용 범위(1~1000)인지 확인해 보세요.|
-|400|SE04|Invalid sort value (부적절한 sort 값입니다.)|sort 요청 변수 값에 오타가 없는지 확인해 보세요.|
-|400|SE06|Malformed encoding (잘못된 형식의 인코딩입니다.)|검색어를 UTF-8로 인코딩하세요.|
-|404|SE05|Invalid search api (존재하지 않는 검색 api 입니다.)|검색 API 대상에 오타가 없는지 확인해 보세요.|
-|500|SE99|System Error (시스템 에러)|서버 내부 에러가 발생하였습니다. 포럼에 올려주시면 신속히 조치하겠습니다.|
+검색 API를 사용해 오타변환을 실행하려면 먼저 [네이버 개발자 센터](https://developers.naver.com/)에서 애플리케이션을 등록하고 클라이언트 아이디와 클라이언트 시크릿을 발급받아야 합니다.
 
-## 6. 예시
-### 호출
+클라이언트 아이디와 클라이언트 시크릿은 인증된 사용자인지를 확인하는 수단이며, 애플리케이션이 등록되면 발급됩니다. 클라이언트 아이디와 클라이언트 시크릿을 네이버 오픈API를 호출할 때 HTTP 헤더에 포함해서 전송해야 API를 호출할 수 있습니다. API 사용량은 클라이언트 아이디별로 합산됩니다.
 
-```sh
-curl "https://openapi.naver.com/v1/search/errata.xml?query=spdlqj" \
-    -H "X-Naver-Client-Id: {애플리케이션 등록 시 발급받은 client id 값}" \
-    -H "X-Naver-Client-Secret: {애플리케이션 등록 시 발급받은 client secret 값}" -v
-```
+오타변환을 실행하기 위해 발급받은 클라이언트 아이디와 클라이언트 시크릿은 검색 API의 다른 작업을 실행할 때에도 사용할 수 있습니다. 애플리케이션을 등록하고 클라이언트 아이디와 클라이언트 시크릿을 발급받는 방법은 [블로그 검색의 사전 준비 사항](../blog/blog.md#사전-준비-사항)을 참고합니다.
 
-### 요청
+> **주의**  
+> 네이버에 로그인한 사용자 계정으로 애플리케이션이 등록됩니다. 애플리케이션을 등록한 네이버 아이디는 '관리자' 권한을 가지게 되므로 네이버 계정의 보안에 각별히 주의해야 합니다.  
+> 회사나 단체에서 애플리케이션을 등록할 때는 추후 키 관리 등이 용이하도록 네이버 단체 회원으로 로그인해 이용할 것을 권장합니다.  
+> - [네이버 단체 회원 가입하기](https://nid.naver.com/group/commonAction.nhn?m=viewTerms)  
+
+## 오타변환 API 레퍼런스
+
+* [오타 변환 결과 조회](#오타-변환-결과-조회)
+
+### 오타 변환 결과 조회
+
+#### 설명
+
+한/영 키를 잘못 설정하고 입력한 검색어를 올바르게 변환한 결과를 XML 형식 또는 JSON 형식으로 반환합니다.
+
+#### 요청 URL
+
+|요청 URL|반환 형식|
+|---|:-:|
+|`https://openapi.naver.com/v1/search/errata.xml`|XML|
+|`https://openapi.naver.com/v1/search/errata.json`|JSON|
+
+#### 프로토콜
+
+HTTPS
+
+#### HTTP 메서드
+
+GET
+
+#### 파라미터
+
+파라미터를 쿼리 스트링 형식으로 전달합니다.
+
+|파라미터|타입|필수 여부|설명|
+|---|---|:-:|---|
+|query|String|Y|검색어. UTF-8로 인코딩되어야 합니다.|
+
+#### 참고 사항
+
+API를 요청할 때 다음 예와 같이 HTTP 요청 헤더에 [클라이언트 아이디와 클라이언트 시크릿](https://developers.naver.com/docs/common/openapiguide/appregister.md#클라이언트-아이디와-클라이언트-시크릿-확인)을 추가해야 합니다.
 
 ```sh
 > GET /v1/search/errata.xml?query=spdlqj HTTP/1.1
 > Host: openapi.naver.com
 > User-Agent: curl/7.49.1
 > Accept: */*
-> X-Naver-Client-Id: {애플리케이션 등록 시 발급받은 client id 값}
-> X-Naver-Client-Secret: {애플리케이션 등록 시 발급받은 client secret 값}
+> X-Naver-Client-Id: {애플리케이션 등록 시 발급받은 클라이언트 아이디 값}
+> X-Naver-Client-Secret: {애플리케이션 등록 시 발급받은 클라이언트 시크릿 값}
+```
+#### 요청 예
+
+```sh
+curl "https://openapi.naver.com/v1/search/errata.xml?query=spdlqj" \
+    -H "X-Naver-Client-Id: {애플리케이션 등록 시 발급받은 클라이언트 아이디 값}" \
+    -H "X-Naver-Client-Secret: {애플리케이션 등록 시 발급받은 클라이언트 시크릿 값}" -v
 ```
 
-### 응답
+#### 응답
+
+응답에 성공하면 결괏값을 XML 형식 또는 JSON 형식으로 반환합니다. XML 형식의 결괏값은 다음과 같습니다.
+
+|요소|타입|설명|
+|---|:-:|---|
+|errata|String|오타를 변환한 결과. 오타가 없으면 빈 문자열을 반환합니다.|
+
+#### 응답 예
 
 ```xml
 < HTTP/1.1 200 OK
@@ -90,3 +142,27 @@ curl "https://openapi.naver.com/v1/search/errata.xml?query=spdlqj" \
     </item>
 </result>
 ```
+
+### 오류 코드
+
+검색 API 오타변환의 주요 오류 코드는 다음과 같습니다.
+
+|오류 코드|HTTP 상태 코드|오류 메시지|설명|
+|:-:|:-:|---|---|
+|SE01|400|Incorrect query request (잘못된 쿼리요청입니다.)|API 요청 URL의 프로토콜, 파라미터 등에 오류가 있는지 확인합니다.|
+|SE02|400|Invalid display value (부적절한 display 값입니다.)|`display` 파라미터의 값이 허용 범위의 값(1\~100)인지 확인합니다.|
+|SE03|400|Invalid start value (부적절한 start 값입니다.)|`start` 파라미터의 값이 허용 범위의 값(1\~1000)인지 확인합니다.|
+|SE04|400|Invalid sort value (부적절한 sort 값입니다.)|`sort` 파라미터의 값에 오타가 있는지 확인합니다.|
+|SE06|400|Malformed encoding (잘못된 형식의 인코딩입니다.)|검색어를 UTF-8로 인코딩합니다.|
+|SE05|404|Invalid search api (존재하지 않는 검색 api 입니다.)|API 요청 URL에 오타가 있는지 확인합니다.|
+|SE99|500|System Error (시스템 에러)|서버 내부에 오류가 발생했습니다. "[개발자 포럼](https://developers.naver.com/forum)"에 오류를 신고해 주십시오.|
+
+> **403 오류**  
+> 개발자 센터에 등록한 애플리케이션에서 검색 API를 사용하도록 설정하지 않았다면 'API 권한 없음'을 의미하는 403 오류가 발생할 수 있습니다. 403 오류가 발생했다면 네이버 개발자 센터의 [**Application &gt; 내 애플리케이션**](https://developers.naver.com/apps/#/list) 메뉴에서 오류가 발생한 애플리케이션의 **API 설정** 탭을 클릭한 다음 **검색**<!-- -->이 선택돼 있는지 확인해 보십시오.  
+
+> **참고**  
+> 네이버 오픈API 공통 오류 코드는 "[API 공통 가이드](https://developers.naver.com/docs/common/openapiguide/)"의 '[오류 코드](https://developers.naver.com/docs/common/openapiguide/errorcode.md)'를 참고하십시오.  
+
+## 검색 API 오타변환 구현 예제
+
+검색 API로 오타 변환 결과를 조회하는 방법은 블로그 검색 결과를 조회하는 방법과 유사합니다. 오타 변환 결과 조회를 구현하는 방법은 [검색 API 블로그 검색 구현 예제](../blog/blog.md#검색-api-블로그-검색-구현-예제)를 참고합니다.
