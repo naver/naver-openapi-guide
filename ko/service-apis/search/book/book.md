@@ -132,14 +132,14 @@ curl "https://openapi.naver.com/v1/search/book.xml?query=%EC%A3%BC%EC%8B%9D&disp
 |rss/channel/start|Integer|검색 시작 위치|
 |rss/channel/display|Integer|한 번에 표시할 검색 결과 개수|
 |rss/channel/item|-|개별 검색 결과. JSON 형식의 결괏값에서는 `items` 속성의 JSON 배열로 개별 검색 결과를 반환합니다.|
-|rss/channel/item/title|String|책 제목. 제목에서 검색어와 일치하는 부분은 `<b>` 태그로 감싸져 있습니다.|
+|rss/channel/item/title|String|책 제목|
 |rss/channel/item/link|String|네이버 도서 정보 URL|
 |rss/channel/item/image|String|섬네일 이미지의 URL|
 |rss/channel/item/author|String|저자 이름|
 |rss/channel/item/discount|Integer|판매 가격. 절판 등의 이유로 가격이 없으면 값을 반환하지 않습니다.|
 |rss/channel/item/publisher|String|출판사|
 |rss/channel/item/isbn|Integer|ISBN|
-|rss/channel/item/description|String|네이버 도서의 책 소개. 검색어와 일치하는 부분은 `<b>` 태그로 감싸져 있습니다.|
+|rss/channel/item/description|String|네이버 도서의 책 소개|
 |rss/channel/item/pubdate|dateTime|출간일|
 
 #### 응답 예
@@ -251,14 +251,14 @@ curl "https://openapi.naver.com/v1/search/book_adv.xml?d_titl=%EC%A3%BC%EC%8B%9D
 |rss/channel/start|Integer|검색 시작 위치|
 |rss/channel/display|Integer|한 번에 표시할 검색 결과 개수|
 |rss/channel/item|-|개별 검색 결과|
-|rss/channel/item/title|String|책 제목. 제목에서 검색어와 일치하는 부분은 `<b>` 태그로 감싸져 있습니다.|
+|rss/channel/item/title|String|책 제목|
 |rss/channel/item/link|String|네이버 도서 정보 URL|
-|rss/channel/item/image|String|섬네일 이미지의 URL. 이미지가 있는 경우만 나타납난다.|
+|rss/channel/item/image|String|섬네일 이미지의 URL|
 |rss/channel/item/author|String|저자 이름|
-|rss/channel/item/discount|Integer|판매 가격. 절판도서 등으로 가격이 없으면 나타나지 않는다.|
+|rss/channel/item/discount|Integer|판매 가격. 절판 등의 이유로 가격이 없으면 값을 반환하지 않습니다.|
 |rss/channel/item/publisher|String|출판사|
 |rss/channel/item/isbn|Integer|ISBN|
-|rss/channel/item/description|String|네이버 도서의 책 소개. 검색어와 일치하는 부분은 `<b>` 태그로 감싸져 있습니다.|
+|rss/channel/item/description|String|네이버 도서의 책 소개|
 |rss/channel/item/pubdate|dateTime|출간일|
 
 #### 응답 예
