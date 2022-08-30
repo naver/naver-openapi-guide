@@ -95,7 +95,7 @@ GET
 |start|Integer|N|검색 시작 위치(기본값: 1, 최댓값: 1000)|
 |sort|String|N|검색 결과 정렬 방법<br/>- `sim`: 정확도순으로 내림차순 정렬(기본값)<br/>- `date`: 날짜순으로 내림차순 정렬<br/>- `asc`: 가격순으로 오름차순 정렬<br/>- `dsc`: 가격순으로 내림차순 정렬|
 |filter|String|N|검색 결과에 포함할 상품 유형<br/>- 설정 안 함: 모든 상품(기본값)<br/>- `naverpay`: 네이버페이 연동 상품|
-|exclude|String|N|검색 결과에서 제외할 상품 유형. `exclude={option}:{option}:{option}` 형태로 설정한다(예: `exclude=used:cbshop`).<br/>- `used`: 중고<br/>- `rental`: 렌탈<br/>- `cbshop`: 해외직구, 구매대행|
+|exclude|String|N|검색 결과에서 제외할 상품 유형. `exclude={option}:{option}:{option}` 형태로 설정합니다(예: `exclude=used:cbshop`).<br/>- `used`: 중고<br/>- `rental`: 렌탈<br/>- `cbshop`: 해외직구, 구매대행|
 
 #### 참고 사항
 
@@ -138,7 +138,7 @@ curl "https://openapi.naver.com/v1/search/shop.xml?query=%EC%A3%BC%EC%8B%9D&disp
 |rss/channel/item/hprice|Integer|최고가. 최고가 정보가 없거나 가격 비교 데이터가 없으면 `0`을 반환합니다.|
 |rss/channel/item/mallName|String|상품을 판매하는 쇼핑몰. 쇼핑몰 정보가 없으면 `네이버`를 반환합니다.|
 |rss/channel/item/productId|Integer|네이버 쇼핑의 상품 ID|
-|rss/channel/item/productType|Integer|상품군과 상품 종류에 따른 상품 타입.<br/>- 상품군은 '일반상품', '중고상품', '단종상품', '판매예정상품'으로 분류됩니다.<br/>- 상품 종류는 '가격비교 상품', '가격비교 비매칭 일반상품', '가격비교 매칭 일반상품'으로 분류됩니다.<br/>- 상품군과 상품 종류에 따른 상품 타입은 [상품군 타입](#상품군-타입)의 표를 참고합니다.|
+|rss/channel/item/productType|Integer|상품군과 상품 종류에 따른 상품 타입. 상품군과 상품 종류에 따른 상품 타입은 [상품군 타입](#상품군-타입)의 표를 참고합니다.<br/>- 상품군: 일반상품, 중고상품, 단종상품, 판매예정상품<br/>- 상품 종류: 가격비교 상품, 가격비교 비매칭 일반상품, 가격비교 매칭 일반상품|
 |rss/channel/item/maker|String|제조사|
 |rss/channel/item/brand|String|브랜드|
 |rss/channel/item/category1|String|상품의 카테고리(대분류)|

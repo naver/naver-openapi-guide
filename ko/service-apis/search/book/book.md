@@ -3,7 +3,7 @@ title: 검색 API 책 검색 적용 가이드
 description: 네이버 검색의 책 검색 결과를 반환하는 RESTful API입니다. 
 ---
 
-# 검색 &gt; 책
+검색 &gt; 책
 ====================
 
 <div class="table-of-contents">
@@ -187,7 +187,7 @@ curl "https://openapi.naver.com/v1/search/book.xml?query=%EC%A3%BC%EC%8B%9D&disp
 
 #### 설명
 
-책 제목, 저자, 출판사, 목차, ISBN 등으로 네이버 검색의 책 상세 검색 결과를 XML 형식으로 반환합니다.
+네이버 검색의 책 상세 검색 결과를 XML 형식으로 반환합니다. 책 제목, 저자, 출판사, 목차, ISBN 등으로 검색할 수 있습니다.
 
 #### 요청 URL
 
@@ -205,7 +205,7 @@ GET
 
 #### 파라미터
 
-파라미터를 쿼리 스트링 형식으로 전달합니다. 책 제목(`d_titl`), 저자 이름(`d_auth`), 목차 내용(`d_cont`), ISBN(d_isbn), 출판사 이름(d_publ) 중 1개 이상의 파라미터를 전달해야 합니다.
+파라미터를 쿼리 스트링 형식으로 전달합니다. 책 제목(`d_titl`), 저자 이름(`d_auth`), 목차 내용(`d_cont`), ISBN(`d_isbn`), 출판사 이름(`d_publ`) 중 1개 이상의 파라미터를 사용해야 합니다.
 
 |파라미터|타입|필수 여부|설명
 |---|---|:-:|---|
@@ -213,11 +213,11 @@ GET
 |display|Integer|N|한 번에 표시할 검색 결과 개수(기본값: 10, 최댓값: 100)|
 |start|Integer|N|검색 시작 위치(기본값: 1, 최댓값: 1000)|
 |sort|String|N|검색 결과 정렬 방법<br/>- `sim`: 정확도순으로 내림차순 정렬(기본값)<br/>- `date`: 출간일순으로 내림차순 정렬|
-|d_titl|String|N|검색할 책 제목. UTF-8로 인코딩되어야 합니다.|
-|d_auth|String|N|검색할 저자 이름. UTF-8로 인코딩되어야 합니다.|
-|d_publ|String|N|검색할 출판사 이름. UTF-8로 인코딩되어야 합니다.|
-|d_isbn|String|N|검색할 ISBN|
-|d_cont|String|N|검색할 목차 내용. UTF-8로 인코딩되어야 합니다.|
+|d_titl|String|N|검색할 책 제목. UTF-8로 인코딩되어야 합니다. `d_titl`, `d_auth`, `d_cont`, `d_isbn`, `d_publ` 중 1개 이상의 파라미터를 사용해야 합니다.|
+|d_auth|String|N|검색할 저자 이름. UTF-8로 인코딩되어야 합니다.`d_titl`, `d_auth`, `d_cont`, `d_isbn`, `d_publ` 중 1개 이상의 파라미터를 사용해야 합니다.|
+|d_publ|String|N|검색할 출판사 이름. UTF-8로 인코딩되어야 합니다.`d_titl`, `d_auth`, `d_cont`, `d_isbn`, `d_publ` 중 1개 이상의 파라미터를 사용해야 합니다.|
+|d_isbn|String|N|검색할 ISBN. `d_titl`, `d_auth`, `d_cont`, `d_isbn`, `d_publ` 중 1개 이상의 파라미터를 사용해야 합니다.|
+|d_cont|String|N|검색할 목차 내용. UTF-8로 인코딩되어야 합니다. `d_titl`, `d_auth`, `d_cont`, `d_isbn`, `d_publ` 중 1개 이상의 파라미터를 사용해야 합니다.|
 
 #### 참고 사항
 
