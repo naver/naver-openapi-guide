@@ -9,9 +9,9 @@
 * 캘린더 일정 생성
     
     
-    <div class="buttons2">
-        <a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
-    </div>
+<div class="buttons2">
+    <a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
+</div>
 
 
 ## API 호출 예제
@@ -396,10 +396,7 @@ namespace NaverAPI_Guide
 
 |요청 변수명|타입|필수 여부|기본값|설명|
 |--|--|-|-|---|
-|grant_type|string|Y|code|인증 과정에 대한 구분값 
-1. 발급:'authorization_code' 
-2. 갱신:'refresh_token'
-3. 삭제: 'delete'|
+|grant_type|string|Y|code|인증 과정에 대한 구분값 <br>1. 발급:'authorization_code' <br> 2. 갱신:'refresh_token'<br>3. 삭제: 'delete'|
 |client_id|string|Y|-|애플리케이션 등록 시 발급받은 Client ID 값|
 |client_secret|string|Y|-|애플리케이션 등록 시 발급받은 Client secret 값|
 |code|string|발급 때 필수|-|로그인 인증 요청 API 호출에 성공하고 리턴받은 인증코드값 (authorization code)|
