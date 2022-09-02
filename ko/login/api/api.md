@@ -354,11 +354,9 @@ namespace NaverAPI_Guide
 
 ## 1. 준비사항
 
-# 애플리케이션 등록: 네이버 오픈 API로 개발하시려면 먼저 ['Application-애플리케이션 등록'](https://developers.naver.com/apps/#/register?api=nvlogin") 메뉴에서 애플리케이션을 등록하셔야 합니다. <br>[[자세한 방법 보기]](https://developers.naver.com/docs/common/register")
-
-# 클라이언트 ID와 secret 확인: ['내 애플리케이션'](https://developers.naver.com/appinfo")에서 등록한 애플리케이션을 선택하면 Client ID와 Client Secret 값을 확인할 수 있습니다.
-
-# API 권한 설정: ['내 애플리케이션'](https://developers.naver.com/appinfo")의 'API 권한관리' 탭에서 사용하려는 API가 체크되어 있는지 확인합니다. 체크되어 있지 않을 경우 403 에러(API 권한 없음)가 발생하니 주의하시기 바랍니다.
+* 애플리케이션 등록: 네이버 오픈 API로 개발하시려면 먼저 ['Application-애플리케이션 등록'](https://developers.naver.com/apps/#/register?api=nvlogin") 메뉴에서 애플리케이션을 등록하셔야 합니다. <br>[[자세한 방법 보기]](https://developers.naver.com/docs/common/register")
+* 클라이언트 ID와 secret 확인: ['내 애플리케이션'](https://developers.naver.com/appinfo")에서 등록한 애플리케이션을 선택하면 Client ID와 Client Secret 값을 확인할 수 있습니다.
+* API 권한 설정: ['내 애플리케이션'](https://developers.naver.com/appinfo")의 'API 권한관리' 탭에서 사용하려는 API가 체크되어 있는지 확인합니다. 체크되어 있지 않을 경우 403 에러(API 권한 없음)가 발생하니 주의하시기 바랍니다.
 
 ## 2. API 기본 정보
 
