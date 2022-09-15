@@ -69,9 +69,9 @@ public class APIExamCalendar {
                     "RRULE:FREQ=YEARLY;BYDAY=FR;INTERVAL=1;UNTIL=20201231\n" +  // 일정 반복시 설정
                     "ORGANIZER;CN=관리자:mailto:admin@sample.com\n" + // 일정 만든 사람
                     "ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;CN=admin:mailto:user1@sample.com\n" + // 참석자
-                    "CREATED:20161116T160000\n" +         // 일정 생성시각
-                    "LAST-MODIFIED:20161116T160000\n" +   // 일정 수정시각
-                    "DTSTAMP:20161116T160000\n" +         // 일정 타임스탬프
+                    "CREATED:20161116T160000Z\n" +         // 일정 생성시각
+                    "LAST-MODIFIED:20161116T160000Z\n" +   // 일정 수정시각
+                    "DTSTAMP:20161116T160000Z\n" +         // 일정 타임스탬프
                     "END:VEVENT\n" +
                     "END:VCALENDAR";
             String postParams = "calendarId=defaultCalendarId&scheduleIcalString=" + scheduleIcalString;
@@ -141,9 +141,9 @@ public class APIExamCalendar {
                     //"RRULE:FREQ=YEARLY;BYDAY=FR;INTERVAL=1;UNTIL=20201231\n" .  // 일정 반복시 설정
                     "ORGANIZER;CN=관리자:mailto:admin@sample.com\n" . // 일정 만든 사람
                     "ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;CN=admin:mailto:user1@sample.com\n" . // 참석자
-                    "CREATED:20161116T160000\n" .         // 일정 생성시각
-                    "LAST-MODIFIED:20161116T160000\n" .   // 일정 수정시각
-                    "DTSTAMP:20161116T160000\n" .         // 일정 타임스탬프
+                    "CREATED:20161116T160000Z\n" .         // 일정 생성시각
+                    "LAST-MODIFIED:20161116T160000Z\n" .   // 일정 수정시각
+                    "DTSTAMP:20161116T160000Z\n" .         // 일정 타임스탬프
                     "END:VEVENT\n" .
                     "END:VCALENDAR";
   $postvars = "calendarId=defaultCalendarId&scheduleIcalString=".$scheduleIcalString;
@@ -207,9 +207,9 @@ scheduleIcalString += "LOCATION:" + calLoc + " \n"                   // 장소
 // scheduleIcalString += "RRULE:FREQ=YEARLY;BYDAY=FR;INTERVAL=1;UNTIL=20201231\n" +  // 일정 반복시 설정
 scheduleIcalString += "ORGANIZER;CN=관리자:mailto:admin@sample.com\n"  // 일정 만든 사람
 scheduleIcalString += "ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;CN=admin:mailto:user1@sample.com\n"  // 참석자
-scheduleIcalString += "CREATED:20161116T160000\n"          // 일정 생성시각
-scheduleIcalString += "LAST-MODIFIED:20161122T160000\n"   // 일정 수정시각
-scheduleIcalString += "DTSTAMP:20161122T160000\n"          // 일정 타임스탬프
+scheduleIcalString += "CREATED:20161116T160000Z\n"          // 일정 생성시각
+scheduleIcalString += "LAST-MODIFIED:20161122T160000Z\n"   // 일정 수정시각
+scheduleIcalString += "DTSTAMP:20161122T160000Z\n"          // 일정 타임스탬프
 scheduleIcalString += "END:VEVENT\n"
 scheduleIcalString += "END:VCALENDAR"
 app.get('/calendar', function (req, res) {
@@ -280,9 +280,9 @@ scheduleIcalString += "LOCATION:" + calLoc + " \n"                   # 장소
 #scheduleIcalString += "RRULE:FREQ=YEARLY;BYDAY=FR;INTERVAL=1;UNTIL=20201231\n" +  # 일정 반복시 설정
 scheduleIcalString += "ORGANIZER;CN=관리자:mailto:admin@sample.com\n"  # 일정 만든 사람
 scheduleIcalString += "ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;CN=admin:mailto:user1@sample.com\n"  # 참석자
-scheduleIcalString += "CREATED:20161116T160000\n"           # 일정 생성시각
-scheduleIcalString += "LAST-MODIFIED:20161116T160000\n"    # 일정 수정시각
-scheduleIcalString += "DTSTAMP:20161116T160000\n"          # 일정 타임스탬프
+scheduleIcalString += "CREATED:20161116T160000Z\n"           # 일정 생성시각
+scheduleIcalString += "LAST-MODIFIED:20161116T160000Z\n"    # 일정 수정시각
+scheduleIcalString += "DTSTAMP:20161116T160000Z\n"          # 일정 타임스탬프
 scheduleIcalString += "END:VEVENT\n"
 scheduleIcalString += "END:VCALENDAR"
 <br/>
@@ -355,9 +355,9 @@ namespace NaverAPI_Guide
                   "RRULE:FREQ=YEARLY;BYDAY=FR;INTERVAL=1;UNTIL=20201231\n" +  // 일정 반복시 설정
                   "ORGANIZER;CN=관리자:mailto:admin@sample.com\n" + // 일정 만든 사람
                   "ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;CN=admin:mailto:user1@sample.com\n" + // 참석자
-                  "CREATED:20161116T160000\n" +         // 일정 생성시각
-                  "LAST-MODIFIED:20161116T160000\n" +   // 일정 수정시각
-                  "DTSTAMP:20161116T160000\n" +         // 일정 타임스탬프
+                  "CREATED:20161116T160000Z\n" +         // 일정 생성시각
+                  "LAST-MODIFIED:20161116T160000Z\n" +   // 일정 수정시각
+                  "DTSTAMP:20161116T160000Z\n" +         // 일정 타임스탬프
                   "END:VEVENT\n" +
                   "END:VCALENDAR";
 <br/>
@@ -558,9 +558,9 @@ DESCRIPTION:%5B%EC%83%81%EC%84%B8%5D+%ED%9A%8C%EC%9D%98%ED%95%A9%EB%8B%88%EB%8B%
 LOCATION:%5B%EC%9E%A5%EC%86%8C%5D%20%EA%B7%B8%EB%A6%B0%ED%8C%A9%ED%86%A0%EB%A6%AC %0A\
 ORGANIZER;CN={요청자 이름}:mailto:{요청자 이메일}%0A\%0A\
 ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;CN={참석자 이름}:mailto:{참석자 이메일}%0A\%0A\
-CREATED:20161116T160000%0A\
-LAST-MODIFIED:20161116T160000%0A\
-DTSTAMP:20161116T160000%0A\
+CREATED:20161116T160000Z%0A\
+LAST-MODIFIED:20161116T160000Z%0A\
+DTSTAMP:20161116T160000Z%0A\
 END:VEVENT%0A\
 END:VCALENDAR" -v
 </pre>

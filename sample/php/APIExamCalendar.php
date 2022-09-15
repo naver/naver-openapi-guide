@@ -34,9 +34,9 @@
                     //"RRULE:FREQ=YEARLY;BYDAY=FR;INTERVAL=1;UNTIL=20201231\n" .  // 일정 반복시 설정
                     "ORGANIZER;CN=관리자:mailto:admin@sample.com\n" . // 일정 만든 사람
                     "ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;CN=admin:mailto:user1@sample.com\n" . // 참석자
-                    "CREATED:20161116T160000\n" .         // 일정 생성시각
-                    "LAST-MODIFIED:20161116T160000\n" .   // 일정 수정시각
-                    "DTSTAMP:20161116T160000\n" .         // 일정 타임스탬프
+                    "CREATED:20161116T160000Z\n" .         // 일정 생성시각
+                    "LAST-MODIFIED:20161116T160000Z\n" .   // 일정 수정시각
+                    "DTSTAMP:20161116T160000Z\n" .         // 일정 타임스탬프
                     "END:VEVENT\n" .
                     "END:VCALENDAR";
   $postvars = "calendarId=defaultCalendarId&scheduleIcalString=".$scheduleIcalString;
