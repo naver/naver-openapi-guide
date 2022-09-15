@@ -95,10 +95,10 @@
     String redirectURI = URLEncoder.encode("YOUR_CALLBACK_URL", "UTF-8");
     SecureRandom random = new SecureRandom();
     String state = new BigInteger(130, random).toString();
-    String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
-    apiURL += "&client_id=" + clientId;
-    apiURL += "&redirect_uri=" + redirectURI;
-    apiURL += "&state=" + state;
+    String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code"
+         + "&client_id=" + clientId
+         + "&redirect_uri=" + redirectURI
+         + "&state=" + state;
     session.setAttribute("state", state);
  %&gt;
   &lt;a href="&lt;%=apiURL%&gt;"&gt;&lt;img height="50" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/&gt;&lt;/a&gt;
@@ -137,8 +137,7 @@
       con.setRequestMethod("GET");
       int responseCode = con.getResponseCode();
       BufferedReader br;
-      System.out.print("responseCode="+responseCode);
-      if(responseCode==200) { // 정상 호출
+      if (responseCode == 200) { // 정상 호출
         br = new BufferedReader(new InputStreamReader(con.getInputStream()));
       } else {  // 에러 발생
         br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
@@ -149,11 +148,11 @@
         res.append(inputLine);
       }
       br.close();
-      if(responseCode==200) {
+      if (responseCode == 200) {
         out.println(res.toString());
       }
     } catch (Exception e) {
-      System.out.println(e);
+      // Exception 로깅
     }
   %&gt;
   &lt;/body&gt;
