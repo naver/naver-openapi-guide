@@ -32,9 +32,9 @@ scheduleIcalString += "LOCATION:" + calLoc + " \n"                   // 장소
 // scheduleIcalString += "RRULE:FREQ=YEARLY;BYDAY=FR;INTERVAL=1;UNTIL=20201231\n" +  // 일정 반복시 설정
 scheduleIcalString += "ORGANIZER;CN=관리자:mailto:admin@sample.com\n"  // 일정 만든 사람
 scheduleIcalString += "ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;CN=admin:mailto:user1@sample.com\n"  // 참석자
-scheduleIcalString += "CREATED:20161116T160000\n"          // 일정 생성시각
-scheduleIcalString += "LAST-MODIFIED:20161122T160000\n"   // 일정 수정시각
-scheduleIcalString += "DTSTAMP:20161122T160000\n"          // 일정 타임스탬프
+scheduleIcalString += "CREATED:20161116T160000Z\n"          // 일정 생성시각
+scheduleIcalString += "LAST-MODIFIED:20161122T160000Z\n"   // 일정 수정시각
+scheduleIcalString += "DTSTAMP:20161122T160000Z\n"          // 일정 타임스탬프
 scheduleIcalString += "END:VEVENT\n"
 scheduleIcalString += "END:VCALENDAR"
 app.get('/calendar', function (req, res) {
