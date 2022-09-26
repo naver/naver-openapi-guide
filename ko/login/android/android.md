@@ -326,6 +326,8 @@ NidOAuthErrorCode 클래스에 있는 에러 코드는 다음과 같습니다.
 
 'ACTIVITY_IS_SINGLE_TASK'는 개발자 설정의 활동 보관 안 함 설정에 관련된 에러 코드입니다.
 
+네아로 SDK v5.2.0 부터 WebView 가 제거되었습니다. WebView 로그인 모드로 인증을 시도할 경우 'WEB_VIEW_IS_DEPRECATED' 에러코드를 반환합니다.
+
 - NONE
 - SERVER_ERROR_INVALID_REQUEST
 - SERVER_ERROR_UNAUTHORIZED_CLIENT
@@ -344,6 +346,7 @@ NidOAuthErrorCode 클래스에 있는 에러 코드는 다음과 같습니다.
 - CLIENT_ERROR_CERTIFICATION_ERROR
 - CLIENT_USER_CANCEL
 - ACTIVITY_IS_SINGLE_TASK
+- WEB_VIEW_IS_DEPRECATED
 
 NidOAuthErrorCode 클래스의 프로퍼티는 다음과 같습니다.
 
