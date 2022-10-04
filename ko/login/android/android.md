@@ -213,11 +213,6 @@ val oauthLoginCallback = object : OAuthLoginCallback {
 NaverIdLoginSDK.authenticate(context, oauthLoginCallback)
 ```
 
-> **약전계에서 로그인 호출 시** <br/>
-> 약전계에서 로그인 과정을 진행할 때는 로그인 방법에 따라 다음과 같이 오류를 반환받습니다. <br/>
-> 웹뷰에서 로그인할 때는 웹뷰에 웹 페이지를 표시할 수 없다는 오류 화면이 나타납니다. 이때 사용자가 뒤로 가기 버튼을 누르거나 닫기 버튼을 눌러 애플리케이션으로 돌아오면 NidOAuthErrorCode.CLIENT_USER_CANCEL 오류를 반환받습니다.
-
-
 ### 6. 접근 토큰 얻기
 로그인에 성공했을 때는 `NaverIdLoginSDK.getAccessToken()` 메서드로 접근 토큰 정보를 얻을 수 있습니다. 
 
@@ -622,7 +617,7 @@ fun authenticate(context: Context, launcher :ActivityResultLauncher<Intent>, cal
 | 파라미터 | 타입 | 필수 여부 | 설명 |
 |:--:|:--:|:--:|:--|
 |context|Context|Y|메서드를 호출한 Activity의 Context 객체|
-|launcher|ActivityResultLauncher<Intent>|Y|OAuth 인증을 실행할 ActivityResultLauncher|
+|launcher|ActivityResultLauncher&#60;Intent&#62;|Y|OAuth 인증을 실행할 ActivityResultLauncher|
 |callback|OAuthLoginCallback|Y|접근 토큰의 갱신이 성공했을 경우 실행될 OAuthLoginCallback. OAuthLoginCallback에 관한 자세한 내용은 "OAuthLoginCallback"을 참고합니다.|
 
 **반환값** <br/>
@@ -653,7 +648,7 @@ fun reagreeAuthenticate(context: Context, launcher :ActivityResultLauncher<Inten
 | 파라미터 | 타입 | 필수 여부 | 설명 |
 |:--:|:--:|:--:|:--|
 |context|Context|Y|메서드를 호출한 Activity의 Context 객체|
-|launcher|ActivityResultLauncher<Intent>|Y|OAuth 인증을 실행할 ActivityResultLauncher|
+|launcher|ActivityResultLauncher&#60;Intent&#62;|Y|OAuth 인증을 실행할 ActivityResultLauncher|
 
 **반환값** <br/>
 없음
@@ -831,7 +826,7 @@ fun setOAuthLogin(launcher: ActivityResultLauncher<Intent>, oauthLoginCallback: 
 **파라미터**
 | 파라미터 | 타입 | 필수 여부 | 설명 |
 |:--:|:--:|:--:|:--|
-|launcher|ActivityResultLauncher<Intent>|Y|OAuth 인증을 실행할 ActivityResultLauncher|
+|launcher|ActivityResultLauncher&#60;Intent&#62;|Y|OAuth 인증을 실행할 ActivityResultLauncher|
 |oauthLoginCallback|OAuthLoginCallback|Y|접근 토큰의 갱신이 성공했을 경우 실행될 OAuthLoginCallback. Callback에 관한 자세한 내용은 "OAuthLoginCallback"를 참고합니다.|
 
 **반환값** <br/>
