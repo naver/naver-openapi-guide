@@ -210,7 +210,7 @@ val oauthLoginCallback = object : OAuthLoginCallback {
     }
 }
 
-NaverIdLoginSDK.authenticate(context, oauthLoginCallback)
+NaverIdLoginSDK.authenticate(context, launcher, oauthLoginCallback)
 ```
 
 ### 6. 접근 토큰 얻기
@@ -909,6 +909,20 @@ fun onSuccess()
 
 **코드 예**
 ```kt
+private val launcher = registerForActivityResult<Intent, ActivityResult>(ActivityResultContracts.StartActivityForResult()) { result ->
+        when(result.resultCode) {
+            RESULT_OK -> {
+                updateView()
+            }
+            RESULT_CANCELED -> {
+                // 실패 or 에러
+                val errorCode = NaverIdLoginSDK.getLastErrorCode().code
+                val errorDescription = NaverIdLoginSDK.getLastErrorDescription()
+                Toast.makeText(context, "errorCode:$errorCode, errorDesc:$errorDescription", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
 val oauthLoginCallback = object : OAuthLoginCallback {
     override fun onSuccess() {
         updateView()
@@ -923,7 +937,7 @@ val oauthLoginCallback = object : OAuthLoginCallback {
     }
 }
 
-NaverIdLoginSDK.authenticate(context, oauthLoginCallback)
+NaverIdLoginSDK.authenticate(context, launcher, oauthLoginCallback)
 ```
 
 ##### 11.5.2. onFailure()
