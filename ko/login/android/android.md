@@ -218,6 +218,9 @@ NaverIdLoginSDK.authenticate(context, launcher, oauthLoginCallback)
 NaverIdLoginSDK.authenticate(context, oauthLoginCallback)
 ```
 
+> **참고** <br/>
+> 커스텀탭 로그인 모드를 사용하는 경우에 사용자 기기의 기본 브라우저 앱이 네이버앱이라면 네이버앱으로 로그인이 진행됩니다. 
+
 ### 6. 접근 토큰 얻기
 로그인에 성공했을 때는 `NaverIdLoginSDK.getAccessToken()` 메서드로 접근 토큰 정보를 얻을 수 있습니다. 
 
