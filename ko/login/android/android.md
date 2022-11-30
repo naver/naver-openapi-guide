@@ -34,14 +34,14 @@ gradle 스크립트에 아래와 같이 추가하시면 사용할 수 있습니�
 
 ```groovy
 # groovy
-implementation 'com.navercorp.nid:oauth:5.2.1' // jdk 11
-implementation 'com.navercorp.nid:oauth-jdk8:5.2.1' // jdk 8
+implementation 'com.navercorp.nid:oauth:5.3.0' // jdk 11
+implementation 'com.navercorp.nid:oauth-jdk8:5.3.0' // jdk 8
 ```
 
 ```kt
 # kts
-implementation("com.navercorp.nid:oauth:5.2.1") // jdk 11
-implementation("com.navercorp.nid:oauth-jdk8:5.2.1") // jdk 8
+implementation("com.navercorp.nid:oauth:5.3.0") // jdk 11
+implementation("com.navercorp.nid:oauth-jdk8:5.3.0") // jdk 8
 ```
 
 네아로SDK에서 사용하는 라이브러리는 다음과 같습니다. 필요에 따라 exclude 하여 사용하시면 됩니다.
@@ -64,24 +64,24 @@ implementation 'com.airbnb.android:lottie:3.1.0'
 ```
 
 #### 3.2. Gradle 에서 설정
-Android 프로젝트의 libs 폴더 밑에 oauth-5.2.1.aar 파일을 복사합니다.
+Android 프로젝트의 libs 폴더 밑에 oauth-5.3.0.aar 파일을 복사합니다.
 
 > **다운로드 링크** <br/>
-> [oauth-5.2.1.aar](https://search.maven.org/artifact/com.navercorp.nid/oauth/5.2.1/aar)
+> [oauth-5.3.0.aar](https://search.maven.org/artifact/com.navercorp.nid/oauth/5.3.0/aar)
 
 프로젝트의 build.gradle에 다음과 같이 추가합니다.
 
 ```groovy
 # groovy
 dependencies {
-  implementation files('libs/oauth-5.2.1.aar')
+  implementation files('libs/oauth-5.3.0.aar')
 }
 ```
 
 ```kt
 # kts
 dependencies {
-  implementation(files("libs/oauth-5.2.1.aar"))
+  implementation(files("libs/oauth-5.3.0.aar"))
 }
 ```
 
@@ -89,20 +89,20 @@ dependencies {
 1. [file]-[project structure] 실행
 1. 좌측 상단의 + 버튼 클릭
 1. jar/aar 모듈 추가 선택
-1. 다운받은 oauth-5.2.1.aar 선택
+1. 다운받은 oauth-5.3.0.aar 선택
 1. 프로젝트 build.gradle에 다음과 같이 추가
 
 ```groovy
 # groovy
 dependencies {
-  implementation project(path: ':oauth-5.2.1')
+  implementation project(path: ':oauth-5.3.0')
 }
 ```
 
 ```kt
 # kts
 dependencies {
-  implementation(project(":oauth-5.2.1"))
+  implementation(project(":oauth-5.3.0"))
 }
 ```
 
@@ -141,10 +141,10 @@ NaverIdLoginSDK.initialize(context, {OAUTH_CLIENT_ID}, {OAUTH_CLIENT_SECRET}, {O
       android:layout_height="50dp" />
 ```
 
-로그인 창을 실행할 `ActivityResultLauncher`(option) 와 접근 토큰의 갱신이 성공했거나 로그인 후 실행될 `OAuthLoginCallback` 객체를 등록하는 코드를 추가합니다.
+로그인 창을 실행할 `ActivityResultLauncher`나 로그인 후 실행될 `OAuthLoginCallback` 객체를 등록하는 코드를 추가합니다.
 
 ```kt
-binding.buttonOAuthLoginImg.setOAuthLogin(launcher, oauthLoginCallback)
+binding.buttonOAuthLoginImg.setOAuthLogin(launcher)
 // OR
 binding.buttonOAuthLoginImg.setOAuthLogin(oauthLoginCallback)
 ```
@@ -157,7 +157,7 @@ binding.buttonOAuthLoginImg.setOAuthLogin(oauthLoginCallback)
 #### 5.2. authenticate() 메서드를 이용한 로그인
 `NaverIdLoginSDK.authenticate()` 메서드를 직접 실행하면 먼저 갱신 토큰이 있는지 확인합니다.
 - 갱신 토큰이 있으면 접근 토큰의 갱신을 시도합니다.
-  - 갱신에 성공하면 `oauthLoginCallback.success()`가 실행됩니다.
+  - 갱신에 성공하면 `launcher의 ActivityResultCallback` 이나 `oauthLoginCallback.success()`을 통해 결과를 확인할 수 있습니다.
   - 갱신에 실패하면 로그인 창이 나타납니다.
 - 갱신 토큰이 없으면 로그인 창이 나타납니다.
 
@@ -165,15 +165,15 @@ binding.buttonOAuthLoginImg.setOAuthLogin(oauthLoginCallback)
 > 접근토큰은 일정 시간(현재 1시간)이 지나면 만료되기 때문에 만료시간이 지난 경우 `callRefreshAccessTokenApi()` 을 호출해서 access token 을 갱신해줘야 합니다. 
 > `callRefreshAccessTokenApi()` 성공 시 매개변수로 넣은 `OAuthLoginCallback` 객체의 `onSuccess()` 메소드 안에서 `NaverIdLoginSDK.getAccessToken()`을 호출하면 access token을 얻을 수 있습니다.
 
-`NaverIdLoginSDK.authenticate(context, launcher, oauthLoginCallback)`을 실행 한 경우 갱신 토큰이 있고 접근 토큰의 갱신이 성공한 경우 `OAuthLoginCallback`이 호출됩니다. 갱신토큰이 없거나, 갱신에 실패한 경우 `launcher의 ActivityResultCallback`를 통해 결과를 확인 할 수 있습니다. resultCode 가 Activity.RESULT_OK 일 경우 성공, Activity.RESULT_CANCELED일 경우 실패나 에러입니다.
+`NaverIdLoginSDK.authenticate(context, launcher)`을 실행 한 경우 `launcher의 ActivityResultCallback`를 통해 결과를 확인 할 수 있습니다. resultCode 가 Activity.RESULT_OK 일 경우 성공, Activity.RESULT_CANCELED일 경우 실패나 에러입니다.
 
-`NaverIdLoginSDK.authenticate(context, oauthLoginCallback)`을 실행한 경우 접근 토큰 유무와 관계없이 `OAuthLoginCallback`이 호출됩니다. 로그인 창에서 로그인이 완료되거나 취소될 때에도 `OAuthLoginCallback`이 호출됩니다.
+`NaverIdLoginSDK.authenticate(context, oauthLoginCallback)`을 실행한 경우 `OAuthLoginCallback`이 호출됩니다. 로그인 창에서 로그인이 완료되거나 취소될 때에도 `OAuthLoginCallback`이 호출됩니다.
 
 다음은 `NaverIdLoginSDK.authenticate()` 메서드를 이용한 로그인을 구현한 예제입니다.
 
 ```kt
 /**
- * launcher(option)와 OAuthLoginCallback을 authenticate() 메서드 호출 시 파라미터로 전달하거나 NidOAuthLoginButton 객체에 등록하면 인증이 종료되는 것을 확인할 수 있습니다.
+ * launcher나 OAuthLoginCallback을 authenticate() 메서드 호출 시 파라미터로 전달하거나 NidOAuthLoginButton 객체에 등록하면 인증이 종료되는 것을 확인할 수 있습니다.
  */
 private val launcher = registerForActivityResult<Intent, ActivityResult>(ActivityResultContracts.StartActivityForResult()) { result ->
         when(result.resultCode) {
@@ -194,6 +194,10 @@ private val launcher = registerForActivityResult<Intent, ActivityResult>(Activit
         }
     }
 
+NaverIdLoginSDK.authenticate(context, launcher)
+
+// OR
+
 val oauthLoginCallback = object : OAuthLoginCallback {
     override fun onSuccess() {
         // 네이버 로그인 인증이 성공했을 때 수행할 코드 추가
@@ -213,8 +217,7 @@ val oauthLoginCallback = object : OAuthLoginCallback {
     }
 }
 
-NaverIdLoginSDK.authenticate(context, launcher, oauthLoginCallback)
-// OR
+
 NaverIdLoginSDK.authenticate(context, oauthLoginCallback)
 ```
 
@@ -402,7 +405,7 @@ NaverIdLoginSDK 클래스의 메서드는 다음과 같습니다.
 - getTokenType()
 - getVersion()
 - initialize()
-- authenticate(context, launcher, callback)
+- authenticate(context, launcher)
 - authenticate(context, callback)
 - reagreeAuthenticate(context, launcher)
 - reagreeAuthenticate(context, callback)
@@ -613,14 +616,14 @@ fun initialize(context: Context, clientId: String, clientSecret: String, clientN
 NaverIdLoginSDK.initialize(context, clientId, clientSecret, clientName)
 ```
 
-##### 11.2.10. authenticate(context, launcher, callback)
+##### 11.2.10. authenticate(context, launcher)
  
  **설명** <br/>
 로그인에 성공하면 접근 토큰(access token)과 갱신 토큰(refresh token)을 받아 옵니다.
 
 **구문**
 ```kt
-fun authenticate(context: Context, launcher :ActivityResultLauncher<Intent>, callback: OAuthLoginCallback)
+fun authenticate(context: Context, launcher: ActivityResultLauncher<Intent>)
 ```
 
 **파라미터**
@@ -628,7 +631,6 @@ fun authenticate(context: Context, launcher :ActivityResultLauncher<Intent>, cal
 |:--:|:--:|:--:|:--|
 |context|Context|Y|메서드를 호출한 Activity의 Context 객체|
 |launcher|ActivityResultLauncher&#60;Intent&#62;|Y|OAuth 인증을 실행할 ActivityResultLauncher|
-|callback|OAuthLoginCallback|Y|접근 토큰의 갱신이 성공했을 경우 실행될 OAuthLoginCallback. OAuthLoginCallback에 관한 자세한 내용은 "OAuthLoginCallback"을 참고합니다.|
 
 **반환값** <br/>
 없음
@@ -641,7 +643,7 @@ fun authenticate(context: Context, launcher :ActivityResultLauncher<Intent>, cal
 
 **코드 예**
 ```kt
-NaverIdLoginSDK.authenticate(context, launcher, oauthLoginCallback)
+NaverIdLoginSDK.authenticate(context, launcher)
 ```
 
 ##### 11.2.11. authenticate(context, callback)
@@ -875,24 +877,23 @@ NidOAuthLogin().callProfileApi(object : NidProfileCallback<NidProfileResponse> {
 #### 11.4. NidOAuthLoginButton
 네이버 로그인 버튼 클래스. NidOAuthLoginButton 클래스의 메서드는 다음과 같습니다
 
-- setOAuthLogin(launcher, oauthLoginCallback)
+- setOAuthLogin(launcher)
 - setOAuthLogin(oauthLoginCallback)
 
-##### 11.4.1. setOAuthLogin(launcher, oauthLoginCallback)
+##### 11.4.1. setOAuthLogin(launcher)
 
 **설명** <br/>
 네이버 로그인 버튼을 클릭해 로그인하는 경우 OAuth 인증을 실행할 ActivityResultLauncher와 접근 토큰의 갱신이 성공했을 경우 실행될 Callback을 지정합니다.
 
 **구문**
 ```kt
-fun setOAuthLogin(launcher: ActivityResultLauncher<Intent>, oauthLoginCallback: OAuthLoginCallback)
+fun setOAuthLogin(launcher: ActivityResultLauncher<Intent>)
 ```
 
 **파라미터**
 | 파라미터 | 타입 | 필수 여부 | 설명 |
 |:--:|:--:|:--:|:--|
 |launcher|ActivityResultLauncher&#60;Intent&#62;|Y|OAuth 인증을 실행할 ActivityResultLauncher|
-|oauthLoginCallback|OAuthLoginCallback|Y|접근 토큰의 갱신이 성공했을 경우 실행될 OAuthLoginCallback. Callback에 관한 자세한 내용은 "OAuthLoginCallback"를 참고합니다.|
 
 **반환값** <br/>
 없음
@@ -918,28 +919,7 @@ private val launcher = registerForActivityResult<Intent, ActivityResult>(Activit
         }
     }
 
-binding.buttonOAuthLoginImg.setOAuthLogin(launcher, object : OAuthLoginCallback {
-    override fun onSuccess() {
-        // 네이버 로그인 인증이 성공했을 때 수행할 코드 추가
-        binding.tvAccessToken.text = NaverIdLoginSDK.getAccessToken()
-        binding.tvRefreshToken.text = NaverIdLoginSDK.getRefreshToken()
-        binding.tvExpires.text = NaverIdLoginSDK.getExpiresAt().toString()
-        binding.tvType.text = NaverIdLoginSDK.getTokenType()
-        binding.tvState.text = NaverIdLoginSDK.getState().toString()
-    }
-    override fun onFailure(httpStatus: Int, message: String) {
-        val errorCode = NaverIdLoginSDK.getLastErrorCode().code
-        val errorDescription = NaverIdLoginSDK.getLastErrorDescription()
-        Toast.makeText(
-            context,
-            "errorCode:$errorCode, errorDesc:$errorDescription",
-            Toast.LENGTH_SHORT
-        ).show()
-    }
-    override fun onError(errorCode: Int, message: String) {
-        onFailure(errorCode, message)
-    }
-})
+binding.buttonOAuthLoginImg.setOAuthLogin(launcher)
 ```
 
 ##### 11.4.2. setOAuthLogin(oauthLoginCallback)
@@ -999,7 +979,7 @@ OAuth 인증 요청이 종료됐음을 알려 주는 콜백 인터페이스. OAu
 `OAuthLoginCallback` 인터페이스를 상속하는 익명클래스를 만들어 `onSuccess()` 메서드를 구현한 뒤 생성된 인스턴스를 다음 네 개 메서드의 파라미터로 전달하면 인스턴스의 `onSuccess()` 메서드로 요청이 성공했음을 확인할 수 있습니다.
 
 - `NaverIdLoginSDK.authenticate()` 메서드 호출 시 파라미터로 넘겨줌
-- `NidOAuthLoginButton.setOAuthLoginCallback()` 메서드 호출 시 파라미터로 넘겨줌
+- `NidOAuthLoginButton.setOAuthLogin()` 메서드 호출 시 파라미터로 넘겨줌
 - `NidOAuthLogin().callRefreshAccessTokenApi()` 메서드 호출 시 파라미터로 넘겨줌
 - `NidOAuthLogin().callDeleteTokenApi()` 메서드 호출 시 파라미터로 넘겨줌
 
@@ -1018,20 +998,6 @@ fun onSuccess()
 
 **코드 예**
 ```kt
-private val launcher = registerForActivityResult<Intent, ActivityResult>(ActivityResultContracts.StartActivityForResult()) { result ->
-        when(result.resultCode) {
-            RESULT_OK -> {
-                updateView()
-            }
-            RESULT_CANCELED -> {
-                // 실패 or 에러
-                val errorCode = NaverIdLoginSDK.getLastErrorCode().code
-                val errorDescription = NaverIdLoginSDK.getLastErrorDescription()
-                Toast.makeText(context, "errorCode:$errorCode, errorDesc:$errorDescription", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
-
 val oauthLoginCallback = object : OAuthLoginCallback {
     override fun onSuccess() {
         updateView()
@@ -1046,7 +1012,7 @@ val oauthLoginCallback = object : OAuthLoginCallback {
     }
 }
 
-NaverIdLoginSDK.authenticate(context, launcher, oauthLoginCallback)
+NaverIdLoginSDK.authenticate(context, oauthLoginCallback)
 ```
 
 ##### 11.5.2. onFailure()
@@ -1055,7 +1021,7 @@ NaverIdLoginSDK.authenticate(context, launcher, oauthLoginCallback)
 `OAuthLoginCallback` 인터페이스를 상속하는 익명클래스를 만들어 `onFailure()` 메서드를 구현한 뒤 생성된 인스턴스를 다음 네 개 메서드의 파라미터로 전달하면 인스턴스의 `onFailure()` 메서드로 요청이 실패했음을 확인할 수 있습니다.
 
 - `NaverIdLoginSDK.authenticate()` 메서드 호출 시 파라미터로 넘겨줌
-- `NidOAuthLoginButton.setOAuthLoginCallback()` 메서드 호출 시 파라미터로 넘겨줌
+- `NidOAuthLoginButton.setOAuthLogin()` 메서드 호출 시 파라미터로 넘겨줌
 - `NidOAuthLogin().callRefreshAccessTokenApi()` 메서드 호출 시 파라미터로 넘겨줌
 - `NidOAuthLogin().callDeleteTokenApi()` 메서드 호출 시 파라미터로 넘겨줌
 
@@ -1081,7 +1047,7 @@ fun onFailure(httpStatus: Int, message: String)
 `OAuthLoginCallback` 인터페이스를 상속하는 익명클래스를 만들어 `onError()` 메서드를 구현한 뒤 생성된 인스턴스를 다음 네 개 메서드의 파라미터로 전달하면 인스턴스의 `onError()` 메서드로 요청에서 에러가 발생했음을 확인할 수 있습니다.
 
 - `NaverIdLoginSDK.authenticate()` 메서드 호출 시 파라미터로 넘겨줌
-- `NidOAuthLoginButton.setOAuthLoginCallback()` 메서드 호출 시 파라미터로 넘겨줌
+- `NidOAuthLoginButton.setOAuthLogin()` 메서드 호출 시 파라미터로 넘겨줌
 - `NidOAuthLogin().callRefreshAccessTokenApi()` 메서드 호출 시 파라미터로 넘겨줌
 - `NidOAuthLogin().callDeleteTokenApi()` 메서드 호출 시 파라미터로 넘겨줌
 
