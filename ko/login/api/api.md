@@ -4,13 +4,13 @@
 
 로그인 오픈 API : 접근 토큰값을 이용해 호출 가능한 API 들로서 HTTP로 호출할 때 Header에 접근 토큰(access token)과 함께 애플리케이션 등록 시 발급받은 [Client ID와 Client Secret 값을 같이 전송]("https://developers.naver.com/docs/common/apicall)해 주시면 활용 가능합니다.
 
-* 회원 프로필 조회
+* 회원 프로필 조회하기
 * 카페 가입 / 글쓰기
-* 캘린더 일정 생성
+* 캘린더 일정 생성하기
     
     
 <div class="buttons2">
-    <a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
+    <a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register?api=nvlogin">오픈 API 이용 신청하기 &gt;</a>
 </div>
 
 
