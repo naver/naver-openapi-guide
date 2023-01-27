@@ -10,7 +10,7 @@
         <h2>일반</h2>
         <dl>
             <dt>Q. 2016년 1월 26일 전에 기존 개발자센터에서 오픈 API 키를 발급받아 쓰는 사용자입니다. 기존 오픈 API는 언제까지 이용 가능한가요?</dt>
-            <dd>기존 오픈 API키는 2016년 12월 26일까지만 사용할 수 있습니다. 그 이후에는 사용하실 수 없으며, 새로운 버전의 오픈 API로 호출방식을 변경하시면 서비스를 그대로 이용하실 수 있습니다. 새 호출 방식으로 API가 변경되는 서비스 대상은 지도, 검색, 단축 URL, 카페 API에만 해당되며, 네이버 로그인 API는 그대로 사용하실 수 있습니다.</dd>
+            <dd>기존 오픈 API키는 2016년 12월 26일까지만 사용할 수 있습니다. 그 이후에는 사용하실 수 없으며, 새로운 버전의 오픈 API로 호출방식을 변경하시면 서비스를 그대로 이용하실 수 있습니다. 새 호출 방식으로 API가 변경되는 서비스 대상은 검색, 단축 URL, 카페 API에만 해당되며, 네이버 로그인 API는 그대로 사용하실 수 있습니다.</dd>
             <dt>Q. API 호출 방식이 2016년 1월 26일 이후로 어떻게 달라졌나요?</dt>
             <dd>
                 기존 개발자센터에서는 API 키를 발급받아서 사용했지만, 이제는 애플리케이션을 등록한 다음 클라이언트 아이디와 시크릿값을 발급받고, 애플리케이션 설정 화면에서 API 권한을 설정하여 사용하시면 됩니다.<br>
@@ -85,7 +85,7 @@
                 추가적으로 Syndication API의 연동 상태는 오픈 API에서 처리하여 드리기 어려운 점 양해 부탁드립니다.<br>
                 고객 센터 Syndication 문의 URL: <a target="_blank" href="https://help.naver.com/ops/step2/mail.nhn?catg=525">https://help.naver.com/ops/step2/mail.nhn?catg=525</a>
             </dd>
-            <dt>Q 네이버 지도 API는 어떤 서비스입니까?</dt>
+            <!-- <dt>Q 네이버 지도 API는 어떤 서비스입니까?</dt>
             <dd>
                 네이버 지도 API는 여러분의 웹 사이트에 자바스크립트를 이용해서 네이버 지도를 표시할 수 있게 해 줍니다.<br>
                 또한, 위치 표시 마커(marker)와 정보창을 통해 지도상의 원하는 위치에 원하는 정보를 표시할 수 있게 됩니다.<br>
@@ -96,19 +96,19 @@
                 네이버 오픈 API 서비스의 이용 등록을 통해 발급받은 클라이언트아이디(ClientID)가 필요합니다.<br>
                 <a target="_blank" href="https://developers.naver.com/register?defaultScope=map">https://developers.naver.com/register?defaultScope=map</a><br>
                 이용 등록을 위해서는 사용 가능한 네이버 ID를 가지고 있으셔야 하며, 네이버 오픈 API 서비스의 이용 약관에 동의를 하셔야 합니다.
-            </dd>
-            <dt>Q 지도 API를 통하지 않고 지도 이미지를 사용할 수 있습니까?</dt>
-            <dd>사용할 수 없습니다. 지도 이미지는 반드시 지도 API를 통해서만 제공되는 형태로 웹 사이트에 사용할 수 있습니다.</dd>
+            </dd> -->
+            <!-- <dt>Q 지도 API를 통하지 않고 지도 이미지를 사용할 수 있습니까?</dt>
+            <dd>사용할 수 없습니다. 지도 이미지는 반드시 지도 API를 통해서만 제공되는 형태로 웹 사이트에 사용할 수 있습니다.</dd> -->
             <dt>Q 오픈 API서버의 IP를 고정적으로 제공할 수 있습니까?</dt>
             <dd>오픈API 서버들의 IP는 내부 사정상 언제라도 바뀔 수 있으며 고정 IP로 제공할 수 없습니다.</dd>
-            <dt>Q 지도 API의 쿼리 제한은 어떻게 됩니까?</dt>
+            <!-- <dt>Q 지도 API의 쿼리 제한은 어떻게 됩니까?</dt>
             <dd>웹/모바일 모두 2016년 11월 1일부터 일 20만 요청까지 사용가능합니다. <br>
                 회원수나 사용 규모로 볼 때 사용량이 20만 이상이 예상되거나 실제로 초과하였을 경우에만<br>
                 네이버 오픈 API 제휴 신청을 이용해 주시길 바랍니다.<br>
-            </dd>
-            <dt>Q 주소를 좌표로 변경하려면 어떻게 해야 합니까?</dt>
+            </dd> -->
+            <!-- <dt>Q 주소를 좌표로 변경하려면 어떻게 해야 합니까?</dt>
             <dd>가능합니다. Geocode를 통하여 주소를 네이버 지도의 좌표로 변환하실 수 있습니다.<br>
-                자세한 내용은 <a target="_blank" href="https://developers.naver.com/docs/map/overview">지도 API 명세</a>의 "3.2. 주소 -> 좌표 변환 API (geocode API)" 부분을 확인하시기 바립니다.</dd>
+                자세한 내용은 <a target="_blank" href="https://developers.naver.com/docs/map/overview">지도 API 명세</a>의 "3.2. 주소 -> 좌표 변환 API (geocode API)" 부분을 확인하시기 바립니다.</dd> -->
         </dl>
     </div>
     <div id='tutorial2' class="faq_w">
@@ -293,19 +293,19 @@
     <div id="tutorial3" class="faq_w">
     <h2>개발관련</h2>
         <dl>
-            <dt>Q 네이버 지도가 잠시 나타났다가, 'ClientID와 URL을 확인하세요'라는 인증 실패 alert 메세지가 뜹니다.</dt>
+            <!-- <dt>Q 네이버 지도가 잠시 나타났다가, 'ClientID와 URL을 확인하세요'라는 인증 실패 alert 메세지가 뜹니다.</dt>
             <dd>애플리케이션 등록후 발급받은 ClientID 값이 잘못되었거나 애플리케이션 등록시 설정한 서비스URL이 실제 서버 URL과 다르기 때문입니다.<br>
                 애플리케이션 설정상 ClientID값과 서비스 URL 값을 확인해주세요.
-            </dd>
+            </dd> -->
             <dt>Q 방화벽 때문에 오픈API 서버의 IP를 알고 싶습니다.</dt>
             <dd>Open API를 포함한 네이버 서비스에 관련된 모든 IP 정보는 통보없이 바뀔 수 있으므로 공식 확인해 드릴 수 없는 사항입니다.<br>
                 다만, 이용자가 적절한 주기로 nslookup으로 IP정보를 확인하거나, ASN(Autonomous System Numbers) 정보로 IP 대역을 파악하시는 것은 가능합니다.<br>
                 방화벽 사용시 80, 443 포트는 허용 하셔야 합니다.
             </dd>
-            <dt>Q 주소좌표 변환 API 검색 결과가 없어요</dt>
+            <!-- <dt>Q 주소좌표 변환 API 검색 결과가 없어요</dt>
             <dd>주소-좌표 변환 API는 지번 또는 도로명 주소와 같이 실제 주소 체계를 사용하여야만 검색이 가능합니다. (건물명 또는 아파트명 검색 불가)<br>
                 지번주소가 같더라도, 도로명 주소가 다른 경우가 존재할 수 있습니다.
-            </dd>
+            </dd> -->
             <dt>Q 오픈 API의 요청 URL에 한글 검색어를 사용하려면 어떻게 해야하나요?</dt>
             <dd>네이버 오픈 API는 기본적으로 UTF-8 인코딩을 지원합니다.<br>
                 영문 검색어는 UTF-8로 인코딩하지 않아도 동작하지만, 한글 검색어에 대해서는 동작하지 않습니다.<br>
@@ -326,6 +326,7 @@ String encTxt = URLEncoder.encode("인코딩할 한글문자열", "UTF-8");
                 - PHP에서 URL 인코딩 방법:
 <pre>
 $encText = urlencode("인코딩할 한글문자열");
+
 </pre>
             </dd>
             <dt>Q 로컬 PC에서는 잘 동작하던 오픈 API가 서버에 업로드한 이후부터 동작하지 않습니다. 어떻게 된것인가요?</dt>
@@ -347,14 +348,14 @@ $encText = urlencode("인코딩할 한글문자열");
             <dd>네이버 오픈 API는 원칙상 별도의 저장이나 재가공을 허용하지 않습니다.<br>
                 부하에 따른 단순 캐시 목적이 아니라면 별도로 저장하거나 재가공하여 이용하실 수 없습니다.
             </dd>
-            <dt>Q 네이버 지도는 외국어는 지원하지 않나요?</dt>
+            <!-- <dt>Q 네이버 지도는 외국어는 지원하지 않나요?</dt>
             <dd>네이버 지도 및 지도 API는 대한민국에 한하여 제공되고 있습니다. 아직은 다국어에 대한 지원이 되지 않는 점 양해해 주시기 바랍니다.</dd>
             <dt>Q 지도API 에서 길찾기를 사용하고 싶어요</dt>
-            <dd>현재 길찾기 기능은 API로 제공되고 있지 않습니다. 이 점 양해해 주시기 바랍니다.</dd>
-            <dt>Q JS2.0 API 의 모바일 웹 페이지로 모바일기기에서 사용할 수 있나요?</dt>
+            <dd>현재 길찾기 기능은 API로 제공되고 있지 않습니다. 이 점 양해해 주시기 바랍니다.</dd> -->
+            <!-- <dt>Q JS2.0 API 의 모바일 웹 페이지로 모바일기기에서 사용할 수 있나요?</dt>
             <dd>JavaScript 2.0 지도API는 모바일 웹 페이지를 지원합니다.<br>
                 다만, JQueryMobile 등의 라이브러리 사용 시 지도 API와 일부 충돌한다는 사례가 보고되고 있으니 별도의 라이브러리 사용 시 참고하시기 바랍니다.
-            </dd>
+            </dd> -->
             <dt>Q Your query request count is over the limit 란 메시지가 나옵니다.</dt>
             <dd>오픈 API의 하루 최대 사용량을 초과한 경우 발생하는 메시지입니다.<br>
                 오픈 API의 하루 사용량은 0시 ~ 1시에 초기화되니 기다려 주시거나 제휴 신청을 통하여 최대 사용량 제한을 늘려서 사용해 주시기 바랍니다.
@@ -383,8 +384,8 @@ $encText = urlencode("인코딩할 한글문자열");
                 NAVER 상표 사용 가이드에 대한 문의사항이 있거나 상표 사용 가능 여부에 대한 명확한 승인을 받고 싶은 경우,<br>
                 <a href="http://www.naver.com/rules/nhnBrandRequest.doc">상표사용허락 요청서</a>에 구체적인 사항을 기재하여 NAVER에 제출하여 주시기 바랍니다.
             </dd>
-            <dt>Q 상품을 판매하는 매장에 약도를 안내하려 하는데요 상업적 인가요?</dt>
-            <dd>네이버 지도 API를 이용하여 단순 찾아오는 길 등의 약도를 목적으로 한다면 상품을 판매하는 웹사이트라고 하여도 이용이 가능합니다.</dd>
+            <!-- <dt>Q 상품을 판매하는 매장에 약도를 안내하려 하는데요 상업적 인가요?</dt>
+            <dd>네이버 지도 API를 이용하여 단순 찾아오는 길 등의 약도를 목적으로 한다면 상품을 판매하는 웹사이트라고 하여도 이용이 가능합니다.</dd> -->
             <dt>Q 검색엔진을 만들고 있는 업체인데요 네이버의 오픈 API 결과를 함께 노출해도 되나요?</dt>
             <dd>검색결과를 보여주는 서비스의 경우 또는 네이버와 유사한 검색서비스의 경우 오픈API의 검색결과의 이용은 상업적 목적에 의하여 사용 하실 수 없습니다.</dd>
             <dt>Q 네이버 오픈 API를 사용하려면 돈을내야 하나요?</dt>
@@ -392,8 +393,8 @@ $encText = urlencode("인코딩할 한글문자열");
             <dt>Q 네이버 오픈 API에 대한 문의는 어디로 해야 하나요?</dt>
             <dd>
                 <ul>
-                    <li>1) 제휴 신청: <a target="_blank" href="https://developers.naver.com/openapi/cooperation">https://developers.naver.com/openapi/cooperation</a></li>
-                    <li>2) 개발 문의: <a target="_blank" href="https://forum.developers.naver.com">https://forum.developers.naver.com</a></li>
+                    <li>1) 제휴 신청: <a target="_blank" href="https://www.navercorp.com/naver/proposalGuide">https://www.navercorp.com/naver/proposalGuide</a></li>
+                    <!-- <li>2) 개발 문의: <a target="_blank" href="https://forum.developers.naver.com">https://forum.developers.naver.com</a></li> -->
                 </ul>
                 <br>
             </dd>
