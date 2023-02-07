@@ -7,34 +7,34 @@ description: NAVER Developers - 네이버 앱 URL Scheme 연동 가이드
 
 <div class="table-of-contents">
   <ul>
-    <li><a href="#1-url-scheme-구성">1. URL Scheme 구성</a></li>
+    <li><a href="#1--url-scheme-구성">1. URL Scheme 구성</a></li>
     <ul>
-      <li><a href="#11-기본-형식">1.1. 기본 형식</a></li>
-      <li><a href="#12-intent-schemeandroid용">1.2. Intent Scheme(Android용)</a></li>
-      <li><a href="#13-중계-페이지">1.3. 중계 페이지</a></li>
+      <li><a href="#1-1--기본-형식">1.1. 기본 형식</a></li>
+      <li><a href="#1-2--intent-schemeandroid용">1.2. Intent Scheme(Android용)</a></li>
+      <li><a href="#1-3--중계-페이지">1.3. 중계 페이지</a></li>
     </ul>
-    <li><a href="#2-url-scheme-적용-예제">2. URL Scheme 적용 예제</a></li>
+    <li><a href="#2--url-scheme-적용-예제">2. URL Scheme 적용 예제</a></li>
     <ul>
-      <li><a href="#21-단순-호출">2.1. 단순 호출</a></li>
-      <li><a href="#22-인식검색">2.2. 인식검색</a></li>
-      <li><a href="#23-인앱-브라우저로-열기">2.3. 인앱 브라우저로 열기</a></li>
-      <li><a href="#24-단말-홈-화면에-바로가기-추가android용">2.4. 단말 홈 화면에 바로가기 추가(Android용)</a></li>
+      <li><a href="#2-1--단순-호출">2.1. 단순 호출</a></li>
+      <li><a href="#2-2--인식검색">2.2. 인식검색</a></li>
+      <li><a href="#2-3--인앱-브라우저로-열기">2.3. 인앱 브라우저로 열기</a></li>
+      <li><a href="#2-4--단말-홈-화면에-바로가기-추가android용">2.4. 단말 홈 화면에 바로가기 추가(Android용)</a></li>
     </ul>
-    <li><a href="#3-모바일-웹-페이지에서-url-scheme-호출">3. 모바일 웹 페이지에서 URL Scheme 호출</a></li>
+    <li><a href="#3--모바일-웹-페이지에서-url-scheme-호출">3. 모바일 웹 페이지에서 URL Scheme 호출</a></li>
     <ul>
-      <li><a href="#31-앱이-설치되어-있을-경우">3.1. 앱이 설치되어 있을 경우</a></li>
-      <li><a href="#32-앱이-설치되어-있지-않을-경우">3.2. 앱이 설치되어 있지 않을 경우</a></li>
+      <li><a href="#3-1--앱이-설치되어-있을-경우">3.1. 앱이 설치되어 있을 경우</a></li>
+      <li><a href="#3-2--앱이-설치되어-있지-않을-경우">3.2. 앱이 설치되어 있지 않을 경우</a></li>
     </ul>
-    <li><a href="#4-타-앱을-통해-네이버-앱-연동하기">4. 타 앱을 통해 네이버 앱 연동하기</a></li>
+    <li><a href="#4--타-앱을-통해-네이버-앱-연동하기">4. 타 앱을 통해 네이버 앱 연동하기</a></li>
     <ul>
-      <li><a href="#41-ios">4.1. iOS</a></li>
-      <li><a href="#42-android">4.2. Android</a></li>
+      <li><a href="#4-1--ios">4.1. iOS</a></li>
+      <li><a href="#4-2--android">4.2. Android</a></li>
     </ul>
-    <li><a href="#5-android-네이버-앱에서-url-scheme-호출-시-이슈-처리-방법">5. Android 네이버 앱에서 URL Scheme 호출 시 이슈 처리 방법</a></li>
+    <li><a href="#5--android-네이버-앱에서-url-scheme-호출-시-이슈-처리-방법">5. Android 네이버 앱에서 URL Scheme 호출 시 이슈 처리 방법</a></li>
     <ul>
-      <li><a href="#51-이슈-환경">5.1. 이슈 환경</a></li>
-      <li><a href="#52-이슈-내용">5.2. 이슈 내용</a></li>
-      <li><a href="#53-이슈-처리">5.3. 이슈 처리</a></li>
+      <li><a href="#5-1--이슈-환경">5.1. 이슈 환경</a></li>
+      <li><a href="#5-2--이슈-내용">5.2. 이슈 내용</a></li>
+      <li><a href="#5-3--이슈-처리">5.3. 이슈 처리</a></li>
     </ul>
   </ul>
 </div>
