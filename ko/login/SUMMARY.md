@@ -19,3 +19,6 @@
     * [카페 튜토리얼](cafe-tutorial/cafe-tutorial.md)
     * [캘린더 튜토리얼](calendar-tutorial/calendar-tutorial.md)
     * [SmartEditor 튜토리얼](smarteditor-tutorial/smarteditor-tutorial.md)
+* [SDK 다운로드](sdks/sdks.md)
+    * [SDK 다운로드](sdks/sdks.md)
+    * [외부 SDK 다운로드](sdks_external/sdks_external.md)
