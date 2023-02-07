@@ -3,8 +3,7 @@ title: 단축 URL API 적용 가이드
 description: 단축 URL API는 원본 URL을 `https://me2.do/example`과 같은 형태의 짧은 URL로 반환하는 RESTful API입니다.
 ---
 
-단축 URL
-====================
+# 단축 URL
 
 <div class="table-of-contents">
 <ul>
