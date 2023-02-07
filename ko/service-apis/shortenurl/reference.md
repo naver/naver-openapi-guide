@@ -1,256 +1,543 @@
 ---
-title: 네이버 앱 URL Scheme 연동 가이드
-description: NAVER Developers - 네이버 앱 URL Scheme 연동 가이드
+title: 단축 URL API 적용 가이드
+description: 단축 URL API는 원본 URL을 `https://me2.do/example`과 같은 형태의 짧은 URL로 반환하는 RESTful API입니다.
 ---
 
-# 네이버 앱 URL Scheme 연동
+단축 URL
+====================
 
 <div class="table-of-contents">
-  <ul>
-    <li><a href="#1--url-scheme-구성">1. URL Scheme 구성</a></li>
+<ul>
+    <li><a href="#단축-url-개요">단축 URL 개요</a></li>
     <ul>
-      <li><a href="#1-1--기본-형식">1.1. 기본 형식</a></li>
-      <li><a href="#1-2--intent-schemeandroid용">1.2. Intent Scheme(Android용)</a></li>
-      <li><a href="#1-3--중계-페이지">1.3. 중계 페이지</a></li>
+        <li><a href="#개요">개요</a></li>
+        <li><a href="#사전-준비-사항">사전 준비 사항</a></li>
     </ul>
-    <li><a href="#2--url-scheme-적용-예제">2. URL Scheme 적용 예제</a></li>
+    <li><a href="#단축-url-api-레퍼런스">단축 URL API 레퍼런스</a></li>
     <ul>
-      <li><a href="#2-1--단순-호출">2.1. 단순 호출</a></li>
-      <li><a href="#2-2--인식검색">2.2. 인식검색</a></li>
-      <li><a href="#2-3--인앱-브라우저로-열기">2.3. 인앱 브라우저로 열기</a></li>
-      <li><a href="#2-4--단말-홈-화면에-바로가기-추가android용">2.4. 단말 홈 화면에 바로가기 추가(Android용)</a></li>
+        <li><a href="#단축-url-요청-json">단축 URL 요청(JSON)</a></li>
+        <li><a href="#단축-url-요청-xml">단축 URL 요청(XML)</a></li>
+        <li><a href="#오류-코드 ">오류 코드</a></li>
     </ul>
-    <li><a href="#3--모바일-웹-페이지에서-url-scheme-호출">3. 모바일 웹 페이지에서 URL Scheme 호출</a></li>
+    <li><a href="#단축-url-api-구현-예제">단축 URL API 구현 예제</a></li>
     <ul>
-      <li><a href="#3-1--앱이-설치되어-있을-경우">3.1. 앱이 설치되어 있을 경우</a></li>
-      <li><a href="#3-2--앱이-설치되어-있지-않을-경우">3.2. 앱이 설치되어 있지 않을 경우</a></li>
+        <li><a href="#java">Java</a></li>
+        <li><a href="#php">PHP</a></li>
+        <li><a href="#node-js">Node.js</a></li>
+        <li><a href="#python">Python</a></li>
+        <li><a href="#c">C#</a></li>
     </ul>
-    <li><a href="#4--타-앱을-통해-네이버-앱-연동하기">4. 타 앱을 통해 네이버 앱 연동하기</a></li>
+    <li><a href="/docs/utils/shortenurl_tutorial/">단축 URL API 튜토리얼</a></li>
     <ul>
-      <li><a href="#4-1--ios">4.1. iOS</a></li>
-      <li><a href="#4-2--android">4.2. Android</a></li>
-    </ul>
-    <li><a href="#5--android-네이버-앱에서-url-scheme-호출-시-이슈-처리-방법">5. Android 네이버 앱에서 URL Scheme 호출 시 이슈 처리 방법</a></li>
-    <ul>
-      <li><a href="#5-1--이슈-환경">5.1. 이슈 환경</a></li>
-      <li><a href="#5-2--이슈-내용">5.2. 이슈 내용</a></li>
-      <li><a href="#5-3--이슈-처리">5.3. 이슈 처리</a></li>
-    </ul>
-  </ul>
+        <li><a href="/docs/utils/shortenurl_tutorial/#개요">개요</a></li>
+        <li><a href="/docs/utils/shortenurl_tutorial/#개발-환경">개발 환경</a></li>
+        <li><a href="/docs/utils/shortenurl_tutorial/#단축-url-api-구현">단축 URL API 구현</a></li>
+    </ul>    
+</ul>
 </div>
 
-모바일 애플리케이션 및 브라우저에서 네이버 앱을 실행시키는 Custom URL Scheme을 사용해 보세요. 'http://', 'ftp://', 'market://'과 같은 문자열을 URL Scheme이라 부릅니다. URL Scheme을 통해 앱이 실행되는 방식은 다음과 같습니다.
+## 단축 URL 개요
 
-- 웹 페이지에서 하이퍼링크 클릭 시 URL Scheme이 시스템에 전달됨
-- 시스템에서 전달된 URL Scheme을 보고 실행 가능한 앱이 있는지 확인
-- 해당 URL Scheme을 받을 수 있는 앱이 있다면 앱을 실행시키며 이 URL을 함께 전달
-- 앱이 실행되면서 URL에 포함된 내용을 참조해서 특정 기능을 수행함
+* [개요](#개요)
+* [사전 준비 사항](#사전-준비-사항)
 
-※ 웹 페이지에서 URL Scheme을 사용해 네이버 앱을 실행하는 경우, 앱이 미설치된 경우의 예외 처리를 구현해야 합니다(4번 항목 참조).
+### 개요
 
-## 1. URL Scheme 구성
+#### 단축 URL API 개요
 
-### 1.1. 기본 형식
+단축 URL API는 원본 URL을 `https://me2.do/example`과 같은 형태의 짧은 URL로 반환하는 RESTful API입니다. 네이버가 서비스하는 QR코드 이미지도 함께 생성됩니다. `https://me2.do/example.qr`과 같이 반환받은 단축 URL의 끝에 `.qr`을 붙이면 QR코드 이미지 주소를 확인할 수 있습니다.
 
-네이버 앱을 실행시키기 위해서는 다음과 같은 형식의 Custom URL을 구성해야 합니다.
+단축 URL API의 하루 API 호출 한도는 25,000회입니다.
 
-```swift
-naversearchapp://{명령어}?{파라미터}={옵션}&version={버전}
+#### 단축 URL API 특징
+
+단축 URL API는 비로그인 방식 오픈 API입니다.
+
+비로그인 방식 오픈 API는 네이버 오픈API를 호출할 때 HTTP 요청 헤더에 클라이언트 아이디와 클라이언트 시크릿 값만 전송해 사용할 수 있는 오픈 API입니다. 클라이언트 아이디와 클라이언트 시크릿은 네이버 오픈API에서 인증된 사용자인지 확인하는 수단입니다. [네이버 개발자 센터](https://developers.naver.com/)에서 애플리케이션을 등록하면 클라이언트 아이디와 클라이언트 시크릿이 발급됩니다.
+
+> **참고**  
+> 네이버 오픈API의 종류와 클라이언트 아이디, 클라이언트 시크릿에 관한 자세한 내용은 "<a href="/docs/common/openapiguide/" target="_blank">API 공통 가이드</a>"를 참고하십시오.  
+
+### 사전 준비 사항
+
+단축 URL API를 사용하려면 먼저 [네이버 개발자 센터](https://developers.naver.com/)에서 애플리케이션을 등록하고 클라이언트 아이디와 클라이언트 시크릿을 발급받아야 합니다.
+
+클라이언트 아이디와 클라이언트 시크릿은 인증된 사용자인지를 확인하는 수단이며, 애플리케이션이 등록되면 발급됩니다. 클라이언트 아이디와 클라이언트 시크릿을 네이버 오픈API를 호출할 때 HTTP 헤더에 포함해서 전송해야 API를 호출할 수 있습니다. API 사용량은 클라이언트 아이디별로 합산됩니다.
+
+> **주의**  
+> 네이버에 로그인한 사용자 계정으로 애플리케이션이 등록됩니다. 애플리케이션을 등록한 네이버 아이디는 '관리자' 권한을 가지게 되므로 네이버 계정의 보안에 각별히 주의해야 합니다.    
+> 회사나 단체에서 애플리케이션을 등록할 때는 추후 키 관리 등이 용이하도록 네이버 단체 회원으로 로그인해 이용할 것을 권장합니다.  
+> - [네이버 단체 회원 가입하기](https://nid.naver.com/group/commonAction.nhn?m=viewTerms)  
+
+#### 애플리케이션 등록
+
+네이버 개발자 센터에서 애플리케이션을 등록하는 방법은 다음과 같습니다.
+
+1. 네이버 개발자 센터의 메뉴에서 [**Application &gt; 애플리케이션 등록**](https://developers.naver.com/apps/#/wizard/register)을 선택합니다.
+2. **이용약관 동의** 단계에서 **이용약관에 동의합니다.**<!-- -->를 선택한 다음 **확인**을 클릭합니다.
+3. **계정 정보 등록** 단계에서 휴대폰 인증을 완료하고 회사 이름을 입력한 다음 **확인**을 클릭합니다. 휴대폰 인증은 담당자 연락처 확인을 위해 필요한 과정이며, 애플리케이션을 처음 등록할 때 한 번만 인증받으면 됩니다.
+4. [**애플리케이션 등록 (API이용신청)**](https://developers.naver.com/apps/#/register?defaultScope=shorturl) 페이지에서 [애플리케이션 등록 세부 정보](#애플리케이션-등록-세부-정보)를 입력한 다음 **등록하기**를 클릭합니다.
+
+#### 애플리케이션 등록 세부 정보
+
+[**애플리케이션 등록 (API이용신청)**](https://developers.naver.com/apps/#/register?defaultScope=shorturl) 페이지에서 애플리케이션 세부 정보를 입력하는 방법은 다음과 같습니다.
+
+1. 등록하려는 애플리케이션의 이름을 **애플리케이션 이름**에 입력합니다. 최대 40자까지 입력할 수 있습니다.
+2. **사용 API**에서 **단축 URL**을 선택해 추가합니다.
+3. [**비로그인 오픈 API 서비스 환경**](/docs/common/openapiguide/#/appregister.md#비로그인-오픈-api-서비스-환경)에서 애플리케이션을 서비스할 환경을 추가하고 필요한 상세 정보를 입력합니다.
+
+![](images/shortenurl-01.png)
+
+#### 애플리케이션 등록 확인
+
+애플리케이션이 정상적으로 등록되면 네이버 개발자 센터의 [**Application &gt; 내 애플리케이션**](https://developers.naver.com/apps/#/list) 메뉴의 아래에 등록한 애플리케이션 이름으로 하위 메뉴가 생깁니다.
+
+애플리케이션 이름을 클릭하면 **개요** 탭에서 애플리케이션에 부여된 클라이언트 아이디와 클라이언트 시크릿을 확인할 수 있습니다.
+
+![](images/shortenurl-02.png)
+
+## 단축 URL API 레퍼런스
+
+* [단축 URL 요청(JSON)](#단축-url-요청-json)
+* [단축 URL 요청(XML)](#단축-url-요청-xml)
+* [오류 코드](#오류-코드)
+
+### 단축 URL 요청(JSON)
+
+#### 설명
+
+원본 URL을 `https://me2.do/example`과 같은 형태로 변환한 단축 URL 정보를 JSON 형식으로 반환합니다.
+
+#### 요청 URL
+
+```sh
+https://openapi.naver.com/v1/util/shorturl
 ```
 
-### 1.2. Intent Scheme(Android용)
+또는
 
-Android에서는 Intent Scheme을 사용할 수도 있습니다. 다음과 같은 형식의 Custom URL을 구성하면, 앱이 설치되어 있지 않을 때 자동으로 Google Play 설치 페이지로 이동합니다.
-
-```kotlin
-intent://{명령어}?{파라미터}={옵션}&version=1
-    #Intent;
-        scheme=naversearchapp;
-        action=android.intent.action.VIEW;
-        category=android.intent.category.BROWSABLE;
-        package=com.nhn.android.search;
-    end;
+```sh
+https://openapi.naver.com/v1/util/shorturl.json
 ```
 
-### 1.3. 중계 페이지
+#### 프로토콜
 
-네이버 앱을 호출하는 URL Scheme이 포함된 링크를 메일이나 문자 등으로 공유하고자 할 경우에는 중계 페이지를 사용할 수 있습니다. 아래 중계 페이지를 브라우저에서 열면, 네이버 앱이 설치된 경우 해당 기능이 자동으로 호출되며, 네이버 앱이 설치되지 않은 경우는 OS에 따라 네이버 앱 설치를 위한 안내 사항을 노출하게 됩니다.
+HTTP
 
-```swift
-http://naverapp.naver.com/{명령어}/?{파라미터}={옵션}&version={버전}
+#### HTTP 메서드
+
+* GET
+* POST
+
+#### 파라미터
+
+|파라미터|타입|필수 여부|설명|
+|---|---|:-:|----|
+|url|String|Y|단축할 원본 URL|
+
+#### 참고 사항
+
+API를 요청할 때 다음 예와 같이 HTTP 요청 헤더에 [클라이언트 아이디와 클라이언트 시크릿](/docs/common/openapiguide/#/appregister.md#클라이언트-아이디와-클라이언트-시크릿-확인)을 추가해야 합니다.
+
+```sh
+> POST /v1/util/shorturl HTTP/1.1
+> Host: openapi.naver.com
+> User-Agent: curl/7.49.1
+> Accept: */*
+> Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+> X-Naver-Client-Id: {애플리케이션 등록 시 발급받은 클라이언트 아이디 값}
+> X-Naver-Client-Secret: {애플리케이션 등록 시 발급받은 클라이언트 시크릿 값}
+> Content-Length: 42
 ```
 
-## 2. URL Scheme 적용 예제
+#### 요청 예
 
-### 2.1. 단순 호출
-
-|명령어|버전|OS|
-|---|:-:|---|
-|default|1|iOS|
-|default|5|Android|
-
-#### Sample
-
-- 기본 형식: `naversearchapp://default?version=1`(iOS)
-- 중계 페이지: `http://naverapp.naver.com/default/?version=5`(Android)
-
-### 2.2. 인식검색
-
-|기능|명령어|파라미터=옵션|버전|OS|
-|---|---|---|:-:|---|
-|음성인식|search|qmenu=voicerecg|1|공통|
-|음성인식|search|qmenu=music|1|공통|
-|코드인식|search|qmenu=qrcode|1|공통|
-|일본어인식|search|qmenu=japanese|1|공통|
-|와인라벨인식|search|qmenu=wine|1|공통|
-|한자필기인식|search|qmenu=hanja|2|공통|
-
-#### Sample
-
-- 기본 형식: `naversearchapp://search?qmenu=voicerecg&version=1`(음성검색)
-- 중계 페이지: `http://naverapp.naver.com/search/?qmenu=voicerecg&version=1`(음성검색)
-
-### 2.3. 인앱 브라우저로 열기
-
-네이버 앱 인앱 브라우저 형태로 특정 URL을 열 수 있습니다. URL 정보 입력 시 대체 URL 코드는 다음과 같습니다.
-
-|인코딩 문자|원본 문자|
-|:-:|:-:|
-|%26|&|
-|%2F|/|
-|%3A|:|
-|%3F|?|
-|%3D|=|
-
-|기능|명령어|파라미터=옵션|버전|OS|
-|---|---|---|:-:|---|
-|새창으로 추가|inappbrowser|url={주소 입력}&target=new|6|공통|
-|기존 창을 삭제하고 다시 만들어서 URL을 로딩|inappbrowser|url={주소 입력}&target=replace|6|공통|
-|마지막에 보던 창에 URL 로딩(히스토리에 추가됨)|inappbrowser|url={주소 입력}&target=inpage|6|공통|
-
-#### Sample
-
-- 기본 형식: `naversearchapp://inappbrowser?url=http%3A%2F%2Fm.naver.com&target=new&version=6`
-- 중계 페이지: `http://naverapp.naver.com/inappbrowser/?url=http%3A%2F%2Fm.naver.com&target=new&version=6`
-
-### 2.4. 단말 홈 화면에 바로가기 추가(Android용)
-
-|명령어|파라미터=옵션|버전|OS|
-|---|---|:-:|---|
-|addshortcut|url={클릭시 이동할 주소}&icon={등록할 아이콘의 주소}&title={한글 또는 영문 이름(UTF-8 코딩)}&serviceCode={서비스 코드(서비스 영문 이름)}|7|Android|
-
-#### Sample
-
-```kotlin
-* 기본 형식
-naversearchapp://addshortcut?url=http%3A%2F%2Fm.nstore.naver.com&icon=http%3A%2F%2Fstatic.naver.net%2Fwww%2Fu%2F2012%2F0604%2Fnmms_153256734.png&title=N%EC%8A%A4%ED%86%A0%EC%96%B4&serviceCode=nstore&version=7
+```sh
+curl "https://openapi.naver.com/v1/util/shorturl" \
+    -d "url=http://d2.naver.com/helloworld/4874130" \
+    -H "Content-Type: application/x-www-form-urlencoded; charset=UTF-8" \
+    -H "X-Naver-Client-Id: {애플리케이션 등록 시 발급받은 클라이언트 아이디 값}" \
+    -H "X-Naver-Client-Secret: {애플리케이션 등록 시 발급받은 클라이언트 시크릿 값}" -v
 ```
 
-## 3. 모바일 웹 페이지에서 URL Scheme 호출
+또는
 
-HTML hyperlink reference로 위에서 정의된 Custom URL을 입력합니다. 사용자가 해당 link 선택시 아래와 같이 분기할 수 있도록 HTML 페이지를 구성합니다.
+```sh
+curl "https://openapi.naver.com/v1/util/shorturl.json" \
+    -d "url=http://d2.naver.com/helloworld/4874130" \
+    -H "Content-Type: application/x-www-form-urlencoded; charset=UTF-8" \
+    -H "X-Naver-Client-Id: {애플리케이션 등록 시 발급받은 클라이언트 아이디 값}" \
+    -H "X-Naver-Client-Secret: {애플리케이션 등록 시 발급받은 클라이언트 시크릿 값}" -v
+```
 
-### 3.1. 앱이 설치되어 있을 경우
+#### 응답
 
-위에서 정의된 URL Scheme으로 앱 실행이 가능합니다.
+응답에 성공하면 결괏값을 JSON 형식으로 반환합니다.
 
-### 3.2. 앱이 설치되어 있지 않을 경우
+|속성|타입|설명|
+|---|---|----|
+|message|string|오류 메시지. 응답에 성공하면 `ok`를 반환합니다.|
+|code|string|HTTP 상태 코드|
+|result.hash|string|단축 URL의 해시 정보|
+|result.url|string|단축된 URL|
+|result.orgUrl|string|원본 URL|
 
-Android의 경우는 Intent Scheme을 사용할 경우 자동으로 Google Play로 이동하나 iOS에서는 시스템에서 해석 불가능한 URL로 인식하여 오류 팝업 또는 페이지가 나타납니다. 따라서 아래 "앱 미설치 시 처리 방법"을 참고하여 추가적인 처리가 필요합니다.
+#### 응답 예
 
-## 4. 타 앱을 통해 네이버 앱 연동하기
-
-타 앱에서 네이버 앱과 연동하는 경우에도 다음과 같은 방법으로 네이버 앱 기능을 호출할 수 있습니다. 네이버 앱 호출이 불가능한 경우에는 다음 링크로 이동시켜서 앱 설치를 유도하도록 합니다.
-
-- iOS: `http://itunes.apple.com/kr/app/id393499958?mt=8`
-- Android: `http://m.androidapp.naver.com/naverapp`
-
-### 4.1. iOS
-
-앱이 있을 때는 바로 실행 가능하지만, 없을 때는 JavaScript timer를 사용해 일정 시간 후 App Store로 분기시키는 방법을 사용합니다(앱 미설치 시 App Store로 이동 전에 잠시 오류 팝업이 보일 수 있습니다). 타이머 설정 시에 timeout ID를 `naverAppCheckTimer`에 할당해야 네이버 앱의 인앱에서도 제대로 처리될 수 있습니다. 아래는 스크립트 구성 예입니다.
-
-```html
-<script>
-var appstoreUrl = "http://itunes.apple.com/kr/app/id393499958?mt=8";
-
-//url은 “naversearchapp://search?qmenu=voicerecg&version=1”
-function onClickApp(url) {
-    var clickedAt = +new Date;
-
-    naverAppCheckTimer = setTimeout(function() {
-        if (+new Date - clickedAt < 2000){
-            if (window.confirm("네이버 앱 최신 버전이 설치되어 있지 않습니다.   \n설치 페이지로 이동하시겠습니까?"))
-            { location.href = appstoreUrl; }
-        }
-    }, 1500);
+```json
+< HTTP/1.1 200 OK
+< Server: nginx
+< Date: Wed, 28 Sep 2016 08:05:41 GMT
+< Content-Type: application/json;charset=utf-8
+< Content-Length: 139
+< Connection: keep-alive
+< Keep-Alive: timeout=5
+< Vary: Accept-Encoding
+<
+* Connection #0 to host openapi.naver.com left intact
+{
+    "message":"ok",
+    "result": {
+        "hash":"GyvykVAu",
+        "url":"https://me2.do/GyvykVAu",
+        "orgUrl":"http://d2.naver.com/helloworld/4874130"
+    }
+    ,"code":"200"
 }
-location.href = url;
-</script>
 ```
 
-### 4.2. Android
+### 단축 URL 요청(XML)
 
-Android도 iOS와 동일한 방식으로 앱 미설치 시 예외 처리를 할 수 있으나, 시스템 에러 메시지를 숨기기 위한 iframe 처리 등이 필요할 수 있습니다. Intent Scheme을 사용하면 앱 미설치 시 자동으로 Google Play로 이동하므로, 좀 더 단순한 처리가 가능합니다. Intent Scheme을 사용한 웹 페이지 구성 예는 아래와 같습니다.
+#### 설명
 
-```html
-<html>
-  <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width">
-  </head>
-  <body>
-    <h2>
-      <a id="applink" href="intent://qmenu=voicerecg&version=1#Intent;scheme=naversearchapp;action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;package=com.nhn.android.search;end">음성인식실행</a>
-   </h2>
-   <p>
-     <i>Only works on Android!</i>
-   </p>
-  </body>
-</html>
+원본 URL을 `https://me2.do/example`과 같은 형태로 변환한 단축 URL 정보를 XML 형식으로 반환합니다.
+
+#### 요청 URL
+
+```sh
+https://openapi.naver.com/v1/util/shorturl.xml
 ```
 
-## 5. Android 네이버 앱에서 URL Scheme 호출 시 이슈 처리 방법
+#### 프로토콜
 
-### 5.1. 이슈 환경
+HTTP
 
-- Android KitKat(API 수준 19) 이상이 적용된 기기
-- window open 또는 target으로 발생된 webview 창
+#### HTTP 메서드
 
-### 5.2. 이슈 내용
+* GET
+* POST
 
-- 네이버 앱은 기본적으로 window open 또는 target 방식으로 페이지를 슬라이드 창으로 표현해 줍니다.
-- 위와 같은 형태의 페이지 상에서 Android OS 이슈로 URL Scheme(Custom Scheme) 형태를 처리할 수 없습니다(Custom Scheme 예: `market://detail?id=com.android.xxxx`).
+#### 파라미터
 
-### 5.3. 이슈 처리
+|파라미터|타입|필수 여부|설명|
+|---|---|:-:|----|
+|url|String|Y|단축할 원본 URL|
 
-- 네이버 앱 처리  
-페이지 URL 로딩 전 URL을 handle하는 구간이 없기 때문에, 페이지 URL 로딩 중 URL을 handle하여 처리할 수 있습니다. 하지만 Custom Scheme은 'http' 형태의 valid한 URL이 아니므로, 알 수 없는 페이지로 로딩될 수 있습니다. 따라서, 각 웹 서비스 단에서는 아래 "웹 서비스 처리 가이드"와 같은 처리가 필요합니다.
-- 웹 서비스 처리 가이드  
-각 웹 서비스 단에서는 URL Scheme(Custom Scheme) 처리를 위해 영역이 없는 iframe을 통하여 호출하면, 알 수 없는 페이지 로딩 없이 URL Scheme(Custom Scheme) 기능을 수행할 수 있습니다. 아래는 스크립트 구성 예입니다.
+#### 참고 사항
 
-```html
-<html>
-<head>
- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- <meta name="viewport" content="width=device-width">
-</head>
-<body>
- <iframe id="uriFrame" src="notfound.html" height="0" width="0"></iframe>
- <a href ="callScheme()"> call scheme</a>
-</body>
-</html>
-<script>
-function callScheme(){
-    var ifr = document.all["uriFrame"];
-    if( ifr != null ){
-        ifr.src  = url;// url : URL Scheme(Custom scheme)
+API를 요청할 때 다음 예와 같이 HTTP 요청 헤더에 [클라이언트 아이디와 클라이언트 시크릿](/docs/common/openapiguide/#/appregister.md#클라이언트-아이디와-클라이언트-시크릿-확인)을 추가해야 합니다.
+
+```sh
+> POST /v1/util/shorturl.xml HTTP/1.1
+> Host: openapi.naver.com
+> User-Agent: curl/7.49.1
+> Accept: */*
+> Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+> X-Naver-Client-Id: {애플리케이션 등록 시 발급받은 클라이언트 아이디 값}
+> X-Naver-Client-Secret: {애플리케이션 등록 시 발급받은 클라이언트 시크릿 값}
+> Content-Length: 42
+```
+
+#### 요청 예
+
+```sh
+curl "https://openapi.naver.com/v1/util/shorturl.xml" \
+    -d "url=http://d2.naver.com/helloworld/4874130" \
+    -H "Content-Type: application/x-www-form-urlencoded; charset=UTF-8" \
+    -H "X-Naver-Client-Id: {애플리케이션 등록 시 발급받은 클라이언트 아이디 값}" \
+    -H "X-Naver-Client-Secret: {애플리케이션 등록 시 발급받은 클라이언트 시크릿 값}" -v
+```
+
+#### 응답
+
+응답에 성공하면 결괏값을 XML 형식으로 반환합니다.
+
+|요소|타입|설명|
+|---|---|----|
+|result/message|CDATA|오류 메시지. 응답에 성공하면 `ok`를 반환합니다.
+|result/code|CDATA|HTTP 상태 코드|
+|result/result/hash|CDATA|단축 URL의 해시 정보|
+|result/result/url|CDATA|단축된 URL|
+|result/result/orgUrl|CDATA|원본 URL|
+
+#### 응답 예
+
+```xml
+< HTTP/1.1 200 OK
+< Server: nginx
+< Date: Wed, 28 Sep 2016 09:54:21 GMT
+< Content-Type: text/xml;charset=utf-8
+< Content-Length: 284
+< Connection: keep-alive
+< Keep-Alive: timeout=5
+< Vary: Accept-Encoding
+<
+<?xml version="1.0" encoding="UTF-8"?>
+    <result>
+        <message><![CDATA[ok]]></message>
+        <result>
+            <hash><![CDATA[GyvykVAu]]></hash>
+            <url><![CDATA[https://me2.do/GyvykVAu]]></url>
+            <orgUrl><![CDATA[http://d2.naver.com/helloworld/4874130]]></orgUrl>
+        </result>
+        <code><![CDATA[200]]></code>
+    </result>
+```
+
+### 오류 코드
+
+단축 URL API의 주요 오류 코드는 다음과 같습니다.
+
+|오류 코드|HTTP 상태 코드|오류 메시지|설명|
+|---|---|----|----|
+|1403|403|Invalid url|요청 URL에 오류가 있습니다. 파라미터 이름과 파라미터 값을 확인해 주십시오.|
+|1500|500|Internal Server Error|서버 내부에 오류가 발생했습니다. "[개발자 포럼](https://developers.naver.com/forum)"에 오류를 신고해 주십시오.|
+|2403|403|Forbidden url|API를 사용할 권한이 없습니다. 네이버 개발자 센터의 [**Application &gt; 내 애플리케이션**](https://developers.naver.com/apps/#/list) 메뉴에서 애플리케이션의 **API 설정** 탭을 클릭한 다음 **단축 URL**이 선택돼 있는지 확인해 보십시오.|
+|3403|403|Unavailable url|단축할 원본 URL이 없는 페이지이거나 안전하지 않은 사이트입니다. 원본 URL 페이지의 상태를 점검해 주십시오.
+
+> **참고**  
+> 네이버 오픈API 공통 오류 코드는 "[API 공통 가이드](/docs/common/openapiguide/)"의 '[오류 코드](/docs/common/openapiguide/errorcode.md)'를 참고하십시오.  
+
+## 단축 URL API 구현 예제
+
+다음은 각 언어별 단축 URL API 구현 예제입니다.
+
+* [Java](#java)
+* [PHP](#php)
+* [Node.js](#node-js)
+* [Python](#python)
+* [C&num;](#c)
+
+> **참고**  
+> - 샘플 코드에서 `YOUR_CLIENT_ID` 또는 `YOUR-CLIENT-ID`에는 애플리케이션을 등록하고 발급받은 클라이언트 아이디 값을 입력합니다.  
+> - 샘플 코드에서 `YOUR_CLIENT_SECRET` 또는 `YOUR-CLIENT-SECRET`에는 애플리케이션을 등록하고 발급받은 클라이언트 시크릿 값을 입력합니다.  
+
+### Java
+
+```java
+// 네이버 검색 API 예제 - 단축 URL - GET
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+
+public class ApiExamShortenUrl {
+
+    public static void main(String[] args) {
+        String clientId = "YOUR_CLIENT_ID"; //애플리케이션 클라이언트 아이디값"
+        String clientSecret = "YOUR_CLIENT_SECRET"; //애플리케이션 클라이언트 시크릿값"
+
+        String originalURL = "https://developers.naver.com/notice";
+        String apiURL = "https://openapi.naver.com/v1/util/shorturl?url=" + originalURL;
+
+        Map<String, String> requestHeaders = new HashMap<>();
+        requestHeaders.put("X-Naver-Client-Id", clientId);
+        requestHeaders.put("X-Naver-Client-Secret", clientSecret);
+        String responseBody = get(apiURL,requestHeaders);
+
+        System.out.println(responseBody);
+    }
+
+    private static String get(String apiUrl, Map<String, String> requestHeaders){
+        HttpURLConnection con = connect(apiUrl);
+        try {
+            con.setRequestMethod("GET");
+            for(Map.Entry<String, String> header :requestHeaders.entrySet()) {
+                con.setRequestProperty(header.getKey(), header.getValue());
+            }
+
+            int responseCode = con.getResponseCode();
+            if (responseCode == HttpURLConnection.HTTP_OK) { // 정상 호출
+                return readBody(con.getInputStream());
+            } else { // 에러 발생
+                return readBody(con.getErrorStream());
+            }
+        } catch (IOException e) {
+            throw new RuntimeException("API 요청과 응답 실패", e);
+        } finally {
+            con.disconnect();
+        }
+    }
+
+    private static HttpURLConnection connect(String apiUrl){
+        try {
+            URL url = new URL(apiUrl);
+            return (HttpURLConnection)url.openConnection();
+        } catch (MalformedURLException e) {
+            throw new RuntimeException("API URL이 잘못되었습니다. : " + apiUrl, e);
+        } catch (IOException e) {
+            throw new RuntimeException("연결이 실패했습니다. : " + apiUrl, e);
+        }
+    }
+
+    private static String readBody(InputStream body){
+        InputStreamReader streamReader = new InputStreamReader(body);
+
+        try (BufferedReader lineReader = new BufferedReader(streamReader)) {
+            StringBuilder responseBody = new StringBuilder();
+
+            String line;
+            while ((line = lineReader.readLine()) != null) {
+                responseBody.append(line);
+            }
+
+            return responseBody.toString();
+        } catch (IOException e) {
+            throw new RuntimeException("API 응답을 읽는데 실패했습니다.", e);
+        }
     }
 }
-</script>
+
 ```
 
-iframe 영역에 history가 없을 경우 네이버 앱 6.6.1 미만에서는 오동작이 발생할 수 있습니다. 따라서, iframe src로 바로 Custom Scheme 호출 시에는 useragent를 참고하여 네이버 앱 6.6.1 이상에서 호출해 주시기 바랍니다.
+* [GitHub에서 보기](https://github.com/naver/naver-openapi-guide/blob/master/sample/java/APIExamShortenURL.java)
 
-```html
-<iframe src="url" height="0" width="0"></iframe> // url: URL Scheme(Custom Scheme)
+### PHP
+
+```php
+<?php
+  // 네이버 단축URL Open API 예제
+  $client_id = "YOUR_CLIENT_ID"; // 네이버 개발자센터에서 발급받은 CLIENT ID
+  $client_secret = "YOUR_CLIENT_SECRET";// 네이버 개발자센터에서 발급받은 CLIENT SECRET
+  $encText = urlencode("https://developers.naver.com/docs/utils/shortenurl");
+  $postvars = "url=".$encText;
+  //$url = "https://openapi.naver.com/v1/util/shorturl";
+  //$is_post = true;
+  $url = "https://openapi.naver.com/v1/util/shorturl?url=".$encText ;
+  $is_post = false;
+  $ch = curl_init();
+  curl_setopt($ch, CURLOPT_URL, $url);
+  curl_setopt($ch, CURLOPT_POST, $is_post);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  //curl_setopt($ch,CURLOPT_POSTFIELDS, $postvars);
+  $headers = array();
+  $headers[] = "X-Naver-Client-Id: ".$client_id;
+  $headers[] = "X-Naver-Client-Secret: ".$client_secret;
+  curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+  $response = curl_exec ($ch);
+  $status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+  echo "status_code:".$status_code."<br>";
+  curl_close ($ch);
+  if($status_code == 200) {
+    echo $response;
+  } else {
+    echo "Error 내용:".$response;
+  }
+?>
 ```
+
+* [GitHub에서 보기](https://github.com/naver/naver-openapi-guide/blob/master/sample/php/APIExamShortURL.php)
+
+### Node.js
+
+```js
+var express = require('express');
+var app = express();
+var client_id = 'YOUR_CLIENT_ID';//개발자센터에서 발급받은 Client ID
+var client_secret = 'YOUR_CLIENT_SECRET'; //개발자센터에서 발급받은 Client Secret
+var query = encodeURI("https://developers.naver.com/docs/utils/shortenurl");
+app.get('/url', function (req, res) {
+   var api_url = 'https://openapi.naver.com/v1/util/shorturl';
+   var request = require('request');
+   var options = {
+       url: api_url,
+       form: {'url':query},
+       headers: {'X-Naver-Client-Id':client_id, 'X-Naver-Client-Secret': client_secret}
+    };
+   request.post(options, function (error, response, body) {
+     if (!error && response.statusCode == 200) {
+       res.writeHead(200, {'Content-Type': 'text/json;charset=utf-8'});
+       res.end(body);
+     } else {
+       res.status(response.statusCode).end();
+       console.log('error = ' + response.statusCode);
+     }
+   });
+ });
+ app.listen(3000, function () {
+   console.log('http://127.0.0.1:3000/url app listening on port 3000!');
+ });
+```
+
+* [GitHub에서 보기](https://github.com/naver/naver-openapi-guide/blob/master/sample/nodejs/APIExamShortURL.js)
+
+### Python
+
+```python
+import os
+import sys
+import urllib.request
+client_id = "YOUR_CLIENT_ID" # 개발자센터에서 발급받은 Client ID 값
+client_secret = "YOUR_CLIENT_SECRET" # 개발자센터에서 발급받은 Client Secret 값
+encText = urllib.parse.quote("https://developers.naver.com/docs/utils/shortenurl")
+data = "url=" + encText
+url = "https://openapi.naver.com/v1/util/shorturl"
+request = urllib.request.Request(url)
+request.add_header("X-Naver-Client-Id",client_id)
+request.add_header("X-Naver-Client-Secret",client_secret)
+response = urllib.request.urlopen(request, data=data.encode("utf-8"))
+rescode = response.getcode()
+if(rescode==200):
+    response_body = response.read()
+    print(response_body.decode('utf-8'))
+else:
+    print("Error Code:" + rescode)
+```
+
+* [GitHub에서 보기](https://github.com/naver/naver-openapi-guide/blob/master/sample/python/APIExamShortURL.py)
+
+### C&num;
+
+```csharp
+using System;
+using System.Net;
+using System.Text;
+using System.IO;
+
+namespace NaverAPI_Guide
+{
+    public class APIExamURL
+    {
+        static void Main(string[] args)
+        {
+            string url = "https://openapi.naver.com/v1/util/shorturl";
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.Headers.Add("X-Naver-Client-Id", "YOUR_CLIENT_ID"); // 개발자센터에서 발급받은 Client ID
+            request.Headers.Add("X-Naver-Client-Secret", "YOUR_CLIENT_SECRET"); // 개발자센터에서 발급받은 Client Secret
+            request.Method = "POST";
+            string query = "https://developers.naver.com/notice"; // 단축할 URL 대상
+            byte[] byteDataParams = Encoding.UTF8.GetBytes("url=" + query);
+            request.ContentType = "application/x-www-form-urlencoded";
+            request.ContentLength = byteDataParams.Length;
+            Stream st = request.GetRequestStream();
+            st.Write(byteDataParams, 0, byteDataParams.Length);
+            st.Close();
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            Stream stream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(stream, Encoding.UTF8);
+            string text = reader.ReadToEnd();
+            stream.Close();
+            response.Close();
+            reader.Close();
+            Console.WriteLine(text);
+        }
+    }
+}
+```
+
+* [GitHub에서 보기](https://github.com/naver/naver-openapi-guide/blob/master/sample/c%23-asp.net/APIExamURL.cs)
