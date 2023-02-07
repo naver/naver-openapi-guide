@@ -3,8 +3,8 @@ title: 네이버 앱 URL Scheme 연동 가이드
 description: NAVER Developers - 네이버 앱 URL Scheme 연동 가이드
 ---
 
-네이버 앱 URL Scheme 연동
-====================
+# 네이버 앱 URL Scheme 연동
+
 
 <div class="table-of-contents">
   <ul>
