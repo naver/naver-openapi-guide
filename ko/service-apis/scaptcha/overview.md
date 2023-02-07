@@ -3,8 +3,7 @@ title: 음성 캡차 API 적용 가이드 - 개요
 description: 음성 캡차 API는 자동 입력 방지를 위해 숫자가 포함된 음성 메시지를 전송하고 입력값을 검증하는 RESTful API입니다.
 ---
 
-음성 캡차
-====================
+# 음성 캡차
 
 <div class="table-of-contents">
 <ul>
