@@ -1,6 +1,6 @@
 # Table of content
 
-* [데이터랩](datalab/search/search.md)
+* [데이터랩](datalab/search/search.md#통합-검색어-트렌드)
     * [통합 검색어 트렌드](datalab/search/search.md#통합-검색어-트렌드)
         * [통합 검색어 트랜드 개요](datalab/search/search.md#통합-검색어-트렌드-개요)
         * [통합 검색어 트렌드 API 레퍼런스](datalab/search/search.md#통합-검색어-트렌드-api-레퍼런스)
@@ -9,7 +9,7 @@
         * [쇼핑인사이트 개요](datalab/shopping/shopping.md#쇼핑인사이트-개요)
         * [쇼핑인사이트 API 레퍼런스](datalab/shopping/shopping.md#쇼핑인사이트-api-레퍼런스)
         * [쇼핑인사이트 API 구현 예제](datalab/shopping/shopping.md#쇼핑인사이트-api-구현-예제)
-* [검색](search/blog/blog.md)
+* [검색](search/blog/blog.md#블로그)
     * [블로그](search/blog/blog.md#블로그)
     * [뉴스](search/news/news.md#뉴스)
     * [책](search/book/book.md#책)
