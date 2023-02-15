@@ -40,7 +40,7 @@
         * [개요](scaptcha/overview.md)
         * [API 레퍼런스](scaptcha/reference.md)
         * [구현 예제](scaptcha/examples.md)
-    * [네이버 공유하기](share/navershare.md)
+    * [네이버 공유하기](/docs/share/navershare/)
     * [네이버 앱 연동](mobileapp/mobileapp.md)
-    * [네이버 오픈메인](openmain/openmain.md)
+    * [네이버 오픈메인](/docs/openmain/)
     
