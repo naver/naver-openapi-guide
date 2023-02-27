@@ -71,7 +71,7 @@ implementation 'com.airbnb.android:lottie:3.1.0'
 Android 프로젝트의 libs 폴더 밑에 oauth-5.4.0.aar 파일을 복사합니다.
 
 > **다운로드 링크** <br/>
-> [oauth-5.4.0.aar](https://search.maven.org/artifact/com.navercorp.nid/oauth/5.4.0/aar)
+> [oauth-5.4.0.aar](https://repo1.maven.org/maven2/com/navercorp/nid/oauth/5.4.0/oauth-5.4.0.aar)
 
 프로젝트의 build.gradle에 다음과 같이 추가합니다.
 
