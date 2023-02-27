@@ -887,7 +887,7 @@ NidOAuthLogin().callProfileApi(object : NidProfileCallback<NidProfileResponse> {
 ##### 11.4.1. setOAuthLogin(launcher)
 
 **설명** <br/>
-네이버 로그인 버튼을 클릭해 로그인하는 경우 OAuth 인증을 실행할 ActivityResultLauncher와 접근 토큰의 갱신이 성공했을 경우 실행될 Callback을 지정합니다.
+네이버 로그인 버튼을 클릭해 로그인하는 경우 OAuth 인증을 실행할 ActivityResultLauncher를 지정합니다.
 
 **구문**
 ```kt
