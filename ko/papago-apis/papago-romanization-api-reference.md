@@ -102,10 +102,8 @@ curl "https://openapi.naver.com/v1/krdict/romanization?query=%EA%B9%80%EC%A0%95%
 |072|403|HTTPS only allowed : Unsupported protocol (지원하지 않는 프로토콜입니다.)|API 요청 URL의 프로토콜이 HTTPS인지 확인합니다.|
 |051|404|API does not exist. (존재하지 않는 API입니다.)|API 요청 URL에 오류가 있는지 확인합니다.|
 
-<div class="note"><p><strong>403 오류</strong></p>
-<p>개발자 센터에 등록한 애플리케이션에서 한글 인명-로마자 변환을 사용하도록 설정하지 않았다면 'API 권한 없음'을 의미하는 403 오류가 발생할 수 있습니다. 403 오류가 발생했다면 네이버 개발자 센터의 <strong><a href="https://developers.naver.com/apps/#/list" target="_blank">Application &gt; 내 애플리케이션</a></strong> 메뉴에서 오류가 발생한 애플리케이션의 <strong>API 설정</strong> 탭을 클릭한 다음 <strong>한글인명-로마자변환</strong>이 선택돼 있는지 확인해 보십시오.</p>
-</div>
+> **403 오류**  
+> 개발자 센터에 등록한 애플리케이션에서 한글 인명-로마자 변환을 사용하도록 설정하지 않았다면 'API 권한 없음'을 의미하는 403 오류가 발생할 수 있습니다. 403 오류가 발생했다면 네이버 개발자 센터의 [**Application &gt; 내 애플리케이션**](https://developers.naver.com/apps/#/list) 메뉴에서 오류가 발생한 애플리케이션의 **API 설정** 탭을 클릭한 다음 **한글인명-로마자변환**<!-- -->이 선택돼 있는지 확인해 보십시오.
 
-<div class="info"><p><strong>참고</strong></p>
-<p>네이버 오픈API 공통 오류 코드는 "<a href="https://developers.naver.com/docs/common/openapiguide/" target="_blank">API 공통 가이드</a>"의 '<a href="https://developers.naver.com/docs/common/openapiguide/errorcode.md" target="_blank">오류 코드</a>'를 참고하십시오.</p>  
-</div>  
+> **참고**  
+> 네이버 오픈API 공통 오류 코드는 "[API 공통 가이드](https://developers.naver.com/docs/common/openapiguide/)"의 '[오류 코드](https://developers.naver.com/docs/common/openapiguide/errorcode.md)'를 참고하십시오.  
