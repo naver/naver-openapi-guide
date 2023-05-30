@@ -36,14 +36,14 @@ gradle 스크립트에 아래와 같이 추가하시면 사용할 수 있습니�
 
 ```groovy
 # groovy
-implementation 'com.navercorp.nid:oauth:5.5.0' // jdk 11
-implementation 'com.navercorp.nid:oauth-jdk8:5.5.0' // jdk 8
+implementation 'com.navercorp.nid:oauth:5.6.0' // jdk 11
+implementation 'com.navercorp.nid:oauth-jdk8:5.6.0' // jdk 8
 ```
 
 ```kt
 # kts
-implementation("com.navercorp.nid:oauth:5.5.0") // jdk 11
-implementation("com.navercorp.nid:oauth-jdk8:5.5.0") // jdk 8
+implementation("com.navercorp.nid:oauth:5.6.0") // jdk 11
+implementation("com.navercorp.nid:oauth-jdk8:5.6.0") // jdk 8
 ```
 
 네아로SDK에서 사용하는 라이브러리는 다음과 같습니다. 필요에 따라 exclude 하여 사용하시면 됩니다.
@@ -56,7 +56,7 @@ implementation 'androidx.legacy:legacy-support-core-utils:1.0.0'
 implementation 'androidx.browser:browser:1.0.0'
 implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-implementation 'androidx.security:security-crypto:1.1.0-alpha03'
+implementation 'androidx.security:security-crypto:1.1.0-alpha05'
 implementation 'androidx.core:core-ktx:1.3.0'
 implementation 'androidx.fragment:fragment-ktx:1.3.6'
 implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
@@ -68,24 +68,24 @@ implementation 'com.airbnb.android:lottie:3.1.0'
 ```
 
 #### 3.2. Gradle 에서 설정
-Android 프로젝트의 libs 폴더 밑에 oauth-5.5.0.aar 파일을 복사합니다.
+Android 프로젝트의 libs 폴더 밑에 oauth-5.6.0.aar 파일을 복사합니다.
 
 > **다운로드 링크** <br/>
-> [oauth-5.5.0.aar](https://repo1.maven.org/maven2/com/navercorp/nid/oauth/5.5.0/oauth-5.5.0.aar)
+> [oauth-5.6.0.aar](https://repo1.maven.org/maven2/com/navercorp/nid/oauth/5.6.0/oauth-5.6.0.aar)
 
 프로젝트의 build.gradle에 다음과 같이 추가합니다.
 
 ```groovy
 # groovy
 dependencies {
-  implementation files('libs/oauth-5.5.0.aar')
+  implementation files('libs/oauth-5.6.0.aar')
 }
 ```
 
 ```kt
 # kts
 dependencies {
-  implementation(files("libs/oauth-5.5.0.aar"))
+  implementation(files("libs/oauth-5.6.0.aar"))
 }
 ```
 
@@ -93,20 +93,20 @@ dependencies {
 1. [file]-[project structure] 실행
 1. 좌측 상단의 + 버튼 클릭
 1. jar/aar 모듈 추가 선택
-1. 다운받은 oauth-5.5.0.aar 선택
+1. 다운받은 oauth-5.6.0.aar 선택
 1. 프로젝트 build.gradle에 다음과 같이 추가
 
 ```groovy
 # groovy
 dependencies {
-  implementation project(path: ':oauth-5.5.0')
+  implementation project(path: ':oauth-5.6.0')
 }
 ```
 
 ```kt
 # kts
 dependencies {
-  implementation(project(":oauth-5.5.0"))
+  implementation(project(":oauth-5.6.0"))
 }
 ```
 
@@ -338,6 +338,8 @@ NidOAuthErrorCode 클래스에 있는 에러 코드는 다음과 같습니다.
 
 네아로 SDK v5.2.0 부터 WebView 가 제거되었습니다. WebView 로그인 모드로 인증을 시도할 경우 'WEB_VIEW_IS_DEPRECATED' 에러코드를 반환합니다.
 
+'NO_APP_FOR_AUTHENTICATION'는 인증을 진행할 수 있는 앱(네이버앱이나 커스텀탭)이 없는 경우 발생합니다.
+
 - NONE
 - SERVER_ERROR_INVALID_REQUEST
 - SERVER_ERROR_UNAUTHORIZED_CLIENT
@@ -357,6 +359,7 @@ NidOAuthErrorCode 클래스에 있는 에러 코드는 다음과 같습니다.
 - CLIENT_USER_CANCEL
 - ACTIVITY_IS_SINGLE_TASK
 - WEB_VIEW_IS_DEPRECATED
+- NO_APP_FOR_AUTHENTICATION
 
 NidOAuthErrorCode 클래스의 프로퍼티는 다음과 같습니다.
 
