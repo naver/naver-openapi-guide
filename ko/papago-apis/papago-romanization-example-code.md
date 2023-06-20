@@ -8,12 +8,9 @@
 - [Python](#python)
 - [C#](#c)
 
-<div class="note"><p><strong>참고</strong></p>
-<ul>  
-<li>샘플 코드에서 <code>YOUR_CLIENT_ID</code> 또는 <code>YOUR-CLIENT-ID</code>에는 애플리케이션을 등록하고 발급받은 클라이언트 아이디 값을 입력합니다.</li>  
-<li>샘플 코드에서 <code>YOUR_CLIENT_SECRET</code> 또는 <code>YOUR-CLIENT-SECRET</code>에는 애플리케이션을 등록하고 발급받은 클라이언트 시크릿 값을 입력합니다.</li>  
-</ul>  
-</div>  
+> **참고**  
+> - 샘플 코드에서 `YOUR_CLIENT_ID` 또는 `YOUR-CLIENT-ID`에는 애플리케이션을 등록하고 발급받은 클라이언트 아이디 값을 입력합니다.
+> - 샘플 코드에서 `YOUR_CLIENT_SECRET` 또는 `YOUR-CLIENT-SECRET`에는 애플리케이션을 등록하고 발급받은 클라이언트 시크릿 값을 입력합니다.
 
 ## Java
 

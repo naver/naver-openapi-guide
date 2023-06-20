@@ -139,14 +139,11 @@ curl "https://openapi.naver.com/v1/papago/n2mt" \
 |N2MT08|400|text parameter exceeds max length (text 파라미터가 최대 용량을 초과했습니다.)|
 |N2MT99|500|Internal server errors|
 
-<div class="note"><p><strong>Internal server errors</strong></p>
-<p>반환 받은 오류 메시지가 <strong>Internal server errors</strong>면 "<a href="https://developers.naver.com/forum" target="_blank">개발자 포럼</a>"에 오류를 신고해 주십시오.</p>  
-</div>  
+> **Internal server errors**  
+> 반환 받은 오류 메시지가 **Internal server errors**<!-- -->면 "[개발자 포럼](https://developers.naver.com/forum)"에 오류를 신고해 주십시오.
 
-<div class="note"><p><strong>403 오류</strong></p>
-<p>개발자 센터에 등록한 애플리케이션에서 Papago 번역을 사용하도록 설정하지 않았다면 'API 권한 없음'을 의미하는 403 오류가 발생할 수 있습니다. 403 오류가 발생했다면 네이버 개발자 센터의 <strong><a href="https://developers.naver.com/apps/#/list" target="_blank">Application &gt; 내 애플리케이션</a></strong> 메뉴에서 오류가 발생한 애플리케이션의 <strong>API 설정</strong> 탭을 클릭한 다음 <strong>Papago 번역</strong>이 선택돼 있는지 확인해 보십시오.</p>
-</div>
+> **403 오류**  
+> 개발자 센터에 등록한 애플리케이션에서 Papago 번역을 사용하도록 설정하지 않았다면 'API 권한 없음'을 의미하는 403 오류가 발생할 수 있습니다. 403 오류가 발생했다면 네이버 개발자 센터의 [**Application &gt; 내 애플리케이션**](https://developers.naver.com/apps/#/list) 메뉴에서 오류가 발생한 애플리케이션의 **API 설정** 탭을 클릭한 다음 **Papago 번역**<!-- -->이 선택돼 있는지 확인해 보십시오.
 
-<div class="info"><p><strong>참고</strong></p>
-<p>네이버 오픈API 공통 오류 코드는 "<a href="https://developers.naver.com/docs/common/openapiguide/" target="_blank">API 공통 가이드</a>"의 '<a href="https://developers.naver.com/docs/common/openapiguide/errorcode.md" target="_blank">오류 코드</a>'를 참고하십시오.</p>  
-</div>  
+> **참고**  
+> 네이버 오픈API 공통 오류 코드는 "[API 공통 가이드](https://developers.naver.com/docs/common/openapiguide/)"의 '[오류 코드](https://developers.naver.com/docs/common/openapiguide/errorcode.md)'를 참고하십시오.
