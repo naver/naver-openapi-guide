@@ -36,14 +36,14 @@ gradle 스크립트에 아래와 같이 추가하시면 사용할 수 있습니�
 
 ```groovy
 # groovy
-implementation 'com.navercorp.nid:oauth:5.6.0' // jdk 11
-implementation 'com.navercorp.nid:oauth-jdk8:5.6.0' // jdk 8
+implementation 'com.navercorp.nid:oauth:5.7.0' // jdk 11
+implementation 'com.navercorp.nid:oauth-jdk8:5.7.0' // jdk 8
 ```
 
 ```kt
 # kts
-implementation("com.navercorp.nid:oauth:5.6.0") // jdk 11
-implementation("com.navercorp.nid:oauth-jdk8:5.6.0") // jdk 8
+implementation("com.navercorp.nid:oauth:5.7.0") // jdk 11
+implementation("com.navercorp.nid:oauth-jdk8:5.7.0") // jdk 8
 ```
 
 네아로SDK에서 사용하는 라이브러리는 다음과 같습니다. 필요에 따라 exclude 하여 사용하시면 됩니다.
@@ -56,7 +56,7 @@ implementation 'androidx.legacy:legacy-support-core-utils:1.0.0'
 implementation 'androidx.browser:browser:1.0.0'
 implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-implementation 'androidx.security:security-crypto:1.1.0-alpha05'
+implementation 'androidx.security:security-crypto:1.1.0-alpha06'
 implementation 'androidx.core:core-ktx:1.3.0'
 implementation 'androidx.fragment:fragment-ktx:1.3.6'
 implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
@@ -68,24 +68,24 @@ implementation 'com.airbnb.android:lottie:3.1.0'
 ```
 
 #### 3.2. Gradle 에서 설정
-Android 프로젝트의 libs 폴더 밑에 oauth-5.6.0.aar 파일을 복사합니다.
+Android 프로젝트의 libs 폴더 밑에 oauth-5.7.0.aar 파일을 복사합니다.
 
 > **다운로드 링크** <br/>
-> [oauth-5.6.0.aar](https://repo1.maven.org/maven2/com/navercorp/nid/oauth/5.6.0/oauth-5.6.0.aar)
+> [oauth-5.7.0.aar](https://repo1.maven.org/maven2/com/navercorp/nid/oauth/5.7.0/oauth-5.7.0.aar)
 
 프로젝트의 build.gradle에 다음과 같이 추가합니다.
 
 ```groovy
 # groovy
 dependencies {
-  implementation files('libs/oauth-5.6.0.aar')
+  implementation files('libs/oauth-5.7.0.aar')
 }
 ```
 
 ```kt
 # kts
 dependencies {
-  implementation(files("libs/oauth-5.6.0.aar"))
+  implementation(files("libs/oauth-5.7.0.aar"))
 }
 ```
 
@@ -93,20 +93,20 @@ dependencies {
 1. [file]-[project structure] 실행
 1. 좌측 상단의 + 버튼 클릭
 1. jar/aar 모듈 추가 선택
-1. 다운받은 oauth-5.6.0.aar 선택
+1. 다운받은 oauth-5.7.0.aar 선택
 1. 프로젝트 build.gradle에 다음과 같이 추가
 
 ```groovy
 # groovy
 dependencies {
-  implementation project(path: ':oauth-5.6.0')
+  implementation project(path: ':oauth-5.7.0')
 }
 ```
 
 ```kt
 # kts
 dependencies {
-  implementation(project(":oauth-5.6.0"))
+  implementation(project(":oauth-5.7.0"))
 }
 ```
 
@@ -255,7 +255,7 @@ NaverIdLoginSDK.logout()
 연동을 해제하면 클라이언트에 저장된 토큰과 서버에 저장된 토큰이 모두 삭제됩니다.
 
 ```kt
-NidOAuthLogin().callDeleteTokenApi(context, object : OAuthLoginCallback {
+NidOAuthLogin().callDeleteTokenApi(object : OAuthLoginCallback {
     override fun onSuccess() {
         //서버에서 토큰 삭제에 성공한 상태입니다.
     }
@@ -340,6 +340,8 @@ NidOAuthErrorCode 클래스에 있는 에러 코드는 다음과 같습니다.
 
 'NO_APP_FOR_AUTHENTICATION'는 인증을 진행할 수 있는 앱(네이버앱이나 커스텀탭)이 없는 경우 발생합니다.
 
+'SDK_IS_NOT_INITIALIZED'는 SDK 초기화가 되지 않은 경우 발생합니다.
+
 - NONE
 - SERVER_ERROR_INVALID_REQUEST
 - SERVER_ERROR_UNAUTHORIZED_CLIENT
@@ -360,6 +362,7 @@ NidOAuthErrorCode 클래스에 있는 에러 코드는 다음과 같습니다.
 - ACTIVITY_IS_SINGLE_TASK
 - WEB_VIEW_IS_DEPRECATED
 - NO_APP_FOR_AUTHENTICATION
+- SDK_IS_NOT_INITIALIZED
 
 NidOAuthErrorCode 클래스의 프로퍼티는 다음과 같습니다.
 
@@ -771,13 +774,12 @@ NidOAuthLogin 클래스의 메서드는 다음과 같습니다.
 
 **구문**
 ```kt
-fun callDeleteTokenApi(context: Context, callback: OAuthLoginCallback)
+fun callDeleteTokenApi(callback: OAuthLoginCallback)
 ```
 
 **파라미터**
 | 파라미터 | 타입 | 필수 여부 | 설명 |
 |:--:|:--:|:--:|:--|
-|context|Context|Y|deleteToken API 호출에 필요한 파라미터에 접근할때 요구되는 Context|
 |callback|OAuthLoginCallback|Y|메서드가 끝나고 실행될 OAuthLoginCallback. OAuthLoginCallback에 관한 자세한 내용은 "OAuthLoginCallback"을 참고합니다.|
 
 **반환값** <br/>
@@ -785,7 +787,7 @@ fun callDeleteTokenApi(context: Context, callback: OAuthLoginCallback)
 
 **코드 예**
 ```kt
-NidOAuthLogin().callDeleteTokenApi(context, object : OAuthLoginCallback {
+NidOAuthLogin().callDeleteTokenApi(object : OAuthLoginCallback {
     override fun onSuccess() {
         // 서버에서 토큰 삭제에 성공한 상태입니다.
         updateView()
@@ -813,13 +815,12 @@ NidOAuthLogin().callDeleteTokenApi(context, object : OAuthLoginCallback {
 
 **구문**
 ```kt
-fun callRefreshAccessTokenApi(context: Context, callback: OAuthLoginCallback)
+fun callRefreshAccessTokenApi(callback: OAuthLoginCallback)
 ```
 
 **파라미터**
 | 파라미터 | 타입 | 필수 여부 | 설명 |
 |:--:|:--:|:--:|:--|
-|context|Context|Y|requestRefreshToken API 호출에 필요한 파라미터에 접근할때 요구되는 Context|
 |callback|OAuthLoginCallback|Y|메서드가 끝나고 실행될 OAuthLoginCallback. OAuthLoginCallback에 관한 자세한 내용은 "OAuthLoginCallback"을 참고합니다.|
 
 **반환값** <br/>
@@ -827,7 +828,7 @@ fun callRefreshAccessTokenApi(context: Context, callback: OAuthLoginCallback)
 
 **코드 예**
 ```kt
-NidOAuthLogin().callRefreshAccessTokenApi(context, object : OAuthLoginCallback {
+NidOAuthLogin().callRefreshAccessTokenApi(object : OAuthLoginCallback {
     override fun onSuccess() {
         // 접근 토큰 갱신에 성공한 경우 수행할 코드 추가
         updateView()
