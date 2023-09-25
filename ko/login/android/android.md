@@ -36,24 +36,24 @@ gradle 스크립트에 아래와 같이 추가하시면 사용할 수 있습니�
 
 ```groovy
 # groovy
-implementation 'com.navercorp.nid:oauth:5.7.0' // jdk 11
-implementation 'com.navercorp.nid:oauth-jdk8:5.7.0' // jdk 8
+implementation 'com.navercorp.nid:oauth:5.8.0' // jdk 11
+implementation 'com.navercorp.nid:oauth-jdk8:5.8.0' // jdk 8
 ```
 
 ```kt
 # kts
-implementation("com.navercorp.nid:oauth:5.7.0") // jdk 11
-implementation("com.navercorp.nid:oauth-jdk8:5.7.0") // jdk 8
+implementation("com.navercorp.nid:oauth:5.8.0") // jdk 11
+implementation("com.navercorp.nid:oauth-jdk8:5.8.0") // jdk 8
 ```
 
 네아로SDK에서 사용하는 라이브러리는 다음과 같습니다. 필요에 따라 exclude 하여 사용하시면 됩니다.
 
 ```groovy
-implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.6.10'
+implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.6.21'
 implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
 implementation 'androidx.appcompat:appcompat:1.3.1'
 implementation 'androidx.legacy:legacy-support-core-utils:1.0.0'
-implementation 'androidx.browser:browser:1.0.0'
+implementation 'androidx.browser:browser:1.4.0'
 implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 implementation 'androidx.security:security-crypto:1.1.0-alpha06'
@@ -68,24 +68,24 @@ implementation 'com.airbnb.android:lottie:3.1.0'
 ```
 
 #### 3.2. Gradle 에서 설정
-Android 프로젝트의 libs 폴더 밑에 oauth-5.7.0.aar 파일을 복사합니다.
+Android 프로젝트의 libs 폴더 밑에 oauth-5.8.0.aar 파일을 복사합니다.
 
 > **다운로드 링크** <br/>
-> [oauth-5.7.0.aar](https://repo1.maven.org/maven2/com/navercorp/nid/oauth/5.7.0/oauth-5.7.0.aar)
+> [oauth-5.8.0.aar](https://repo1.maven.org/maven2/com/navercorp/nid/oauth/5.8.0/oauth-5.8.0.aar)
 
 프로젝트의 build.gradle에 다음과 같이 추가합니다.
 
 ```groovy
 # groovy
 dependencies {
-  implementation files('libs/oauth-5.7.0.aar')
+  implementation files('libs/oauth-5.8.0.aar')
 }
 ```
 
 ```kt
 # kts
 dependencies {
-  implementation(files("libs/oauth-5.7.0.aar"))
+  implementation(files("libs/oauth-5.8.0.aar"))
 }
 ```
 
@@ -93,20 +93,20 @@ dependencies {
 1. [file]-[project structure] 실행
 1. 좌측 상단의 + 버튼 클릭
 1. jar/aar 모듈 추가 선택
-1. 다운받은 oauth-5.7.0.aar 선택
+1. 다운받은 oauth-5.8.0.aar 선택
 1. 프로젝트 build.gradle에 다음과 같이 추가
 
 ```groovy
 # groovy
 dependencies {
-  implementation project(path: ':oauth-5.7.0')
+  implementation project(path: ':oauth-5.8.0')
 }
 ```
 
 ```kt
 # kts
 dependencies {
-  implementation(project(":oauth-5.7.0"))
+  implementation(project(":oauth-5.8.0"))
 }
 ```
 
@@ -282,10 +282,12 @@ NidOAuthLogin().callDeleteTokenApi(object : OAuthLoginCallback {
 
 
 ### 9. 프로필 API 호출
-접근 토큰으로 프로필 정보를 가져올 때는 `NidOAuthLogin().callProfileApi()` 메서드를 사용합니다.
+접근 토큰으로 프로필 정보를 가져올 때는 `NidOAuthLogin().callProfileApi()` 혹은 `NidOAuthLogin().getProfileMap()` 메서드를 사용합니다.
 
 ```kt
 NidOAuthLogin().callProfileApi(nidProfileCallback)
+
+NidOAuthLogin().getProfileMap(nidProfileCallback)
 ```
 
 ### 10. 기타 설정
@@ -766,6 +768,7 @@ NidOAuthLogin 클래스의 메서드는 다음과 같습니다.
 - callDeleteTokenApi()
 - callRefreshAccessTokenApi()
 - callProfileApi()
+- getProfileMap()
 
 ##### 11.3.1. callDeleteTokenApi()
 
@@ -848,7 +851,7 @@ NidOAuthLogin().callRefreshAccessTokenApi(object : OAuthLoginCallback {
 ##### 11.3.3. callProfileApi()
 
 **설명** <br/>
-GET 메서드로 API를 호출합니다. 성공하면 `NidProfileCallback.onSuccess()`가 실행됩니다.
+회원 프로필 조회 API를 호출합니다. 성공하면 `NidProfileCallback.onSuccess()`가 실행됩니다.
 
 **구문**
 ```kt
@@ -876,6 +879,45 @@ NidOAuthLogin().callProfileApi(object : NidProfileCallback<NidProfileResponse> {
         Toast.makeText(context, "errorCode: $errorCode, errorDesc: $errorDesc", Toast.LENGTH_SHORT).show()
         binding.tvApiResult.text = ""
     }
+    override fun onError(errorCode: Int, message: String) {
+        onFailure(errorCode, message)
+    }
+})
+```
+
+##### 11.3.4. getProfileMap()
+
+**설명** <br/>
+회원 프로필 조회 API를 호출합니다. API 명세에 정의된 값 외의 다른 값도 함께 map 형태로 받을 수 있습니다. 성공하면 `NidProfileCallback.onSuccess()`가 실행됩니다.
+
+**구문**
+```kt
+fun getProfileMap(callback: NidProfileCallback<NidProfileMap>)
+```
+
+**파라미터**
+| 파라미터 | 타입 | 필수 여부 | 설명 |
+|:--:|:--:|:--:|:--|
+|callback|NidProfileCallback<NidProfileMap>|Y|메서드가 끝나고 실행될 NidProfileCallback. NidProfileCallback에 관한 자세한 내용은 "NidProfileCallback"을 참고합니다.|
+
+**반환값** <br/>
+없음
+
+**코드 예**
+```kt
+NidOAuthLogin().getProfileMap(object : NidProfileCallback<NidProfileMap> {
+    override fun onSuccess(result: NidProfileMap) {
+        Toast.makeText(context,"$result",Toast.LENGTH_SHORT).show()
+        binding.tvApiResult.text = result.toString()
+    }
+
+    override fun onFailure(httpStatus: Int, message: String) {
+        val errorCode = NaverIdLoginSDK.getLastErrorCode().code
+        val errorDescription = NaverIdLoginSDK.getLastErrorDescription()
+        Toast.makeText(context, "errorCode: $errorCode, errorDesc: $errorDesc", Toast.LENGTH_SHORT).show()
+        binding.tvApiResult.text = ""
+    }
+
     override fun onError(errorCode: Int, message: String) {
         onFailure(errorCode, message)
     }
