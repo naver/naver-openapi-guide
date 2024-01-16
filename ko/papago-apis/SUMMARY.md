@@ -10,7 +10,3 @@
   - [개요](papago-detectlangs-overview.md)
   - [API 레퍼런스](papago-detectlangs-api-reference.md)
   - [구현 예제](papago-detectlangs-example-code.md)
-  <!-- * [한글 인명-로마자 변환](papago-romanization-overview.md)
-  - [개요](papago-romanization-overview.md)
-  - [API 레퍼런스](papago-romanization-api-reference.md)
-  - [구현 예제](papago-romanization-example-code.md) -->
