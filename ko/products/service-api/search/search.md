@@ -11,7 +11,7 @@
     </p>
     <div class="cont_intro search search1">
         <h3 class="h_sub">네이버 검색 결과 컨텐츠</h3>
-        <p class="p_desc">웹 서비스 또는 모바일 앱에 네이버 웹문서/블로그/뉴스/책/영화/카페글/지식iN/쇼핑/이미지/백과사전/전문자료 분야에 대한 검색 결과를 보여 줄 수 있습니다.</p>
+        <p class="p_desc">웹 서비스 또는 모바일 앱에 네이버 웹문서/블로그/뉴스/책/카페글/지식iN/쇼핑/이미지/백과사전/전문자료 분야에 대한 검색 결과를 보여 줄 수 있습니다.</p>
     </div>
     <div class="cont_intro search search2">
     <h3 class="h_sub">지역 검색</h3>

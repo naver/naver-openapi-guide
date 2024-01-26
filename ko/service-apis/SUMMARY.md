@@ -16,7 +16,6 @@
     * [책](search/book/book.md#책)
     * [성인 검색어 판별](search/adult/adult.md#성인검색어판별)
     * [백과사전](search/encyclopedia/encyclopedia.md#백과사전)
-    * [영화](search/movie/movie.md#영화)
     * [카페글](search/cafearticle/cafearticle.md#카페글)
     * [지식iN](search/kin/kin.md#지식iN)
     * [지역](search/local/local.md#지역)
