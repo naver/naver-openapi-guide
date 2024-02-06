@@ -29,7 +29,7 @@ public class ApiExamMemberProfile {
     public static void main(String[] args) {
         String token = "YOUR_ACCESS_TOKEN"; // 네이버 로그인 접근 토큰;
         String header = "Bearer " + token; // Bearer 다음에 공백 추가
-        String apiURL = "https://openapi.naver.com/v1/naverpay/address";
+        String apiURL = "https://openapi.naver.com/v1/nid/payaddress";
 
         Map<String, String> requestHeaders = new HashMap<>();
         requestHeaders.put("Authorization", header);
@@ -92,7 +92,7 @@ public class ApiExamMemberProfile {
 <?php
   $token = "YOUR_ACCESS_TOKEN";
   $header = "Bearer ".$token; // Bearer 다음에 공백 추가
-  $url = "https://openapi.naver.com/v1/naverpay/address";
+  $url = "https://openapi.naver.com/v1/nid/payaddress";
   $is_post = false;
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_URL, $url);
@@ -122,7 +122,7 @@ var app = express();
 var token = "YOUR_ACCESS_TOKEN";
 var header = "Bearer " + token; // Bearer 다음에 공백 추가
 app.get('/member', function (req, res) {
-   var api_url = 'https://openapi.naver.com/v1/naverpay/address';
+   var api_url = 'https://openapi.naver.com/v1/nid/payaddress';
    var request = require('request');
    var options = {
        url: api_url,
@@ -155,7 +155,7 @@ import sys
 import urllib.request
 token = "YOUR_ACCESS_TOKEN"
 header = "Bearer " + token # Bearer 다음에 공백 추가
-url = "https://openapi.naver.com/v1/naverpay/address"
+url = "https://openapi.naver.com/v1/nid/payaddress"
 request = urllib.request.Request(url)
 request.add_header("Authorization", header)
 response = urllib.request.urlopen(request)
@@ -184,7 +184,7 @@ namespace NaverAPI_Guide
         {
             string token = "YOUR-ACCESS-TOKEN";// 네이버 로그인 접근 토큰;
             string header = "Bearer " + token; // Bearer 다음에 공백 추가
-            string apiURL = "https://openapi.naver.com/v1/naverpay/address";
+            string apiURL = "https://openapi.naver.com/v1/nid/payaddress";
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(apiURL);
             request.Headers.Add("X-Naver-Client-Id", "YOUR-CLIENT-ID");
             request.Headers.Add("X-Naver-Client-Secret", "YOUR-CLIENT-SECRET");
@@ -218,7 +218,7 @@ namespace NaverAPI_Guide
 
 |메서드| 인증	| 요청 URL|	출력 포맷|	설명|
 |---|---|---|---|---|
-|GET|	OAuth 2.0|	https://openapi.naver.com/v1/naverpay/address|JSON|	네이버 페이 배송지 정보 조회|
+|GET|	OAuth 2.0|	https://openapi.naver.com/v1/nid/payaddress|JSON|	네이버 페이 배송지 정보 조회|
 
 ### 3. 요청 변수
 
@@ -269,7 +269,7 @@ Authorization: Bearer AAAAOLtP40eH6P5S4Z4FpFl77n3FD5I+W3ost3oDZq/nbcS+7MAYXwXbT3
 #### REQUEST
 
 ```
-> GET /v1/naverpay/address HTTP/2
+> GET /v1/nid/payaddress HTTP/2
 > Host: openapi.naver.com
 > User-Agent: curl/7.64.1
 > Accept: */*
