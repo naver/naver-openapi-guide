@@ -324,9 +324,7 @@ String encTxt = URLEncoder.encode("인코딩할 한글문자열", "UTF-8");
 </pre>
                 <br>
                 - PHP에서 URL 인코딩 방법:
-<pre>
-$encText = urlencode("인코딩할 한글문자열");
-</pre>
+<pre>$encText = urlencode("인코딩할 한글문자열");</pre>
             </dd>
             <dt>Q 로컬 PC에서는 잘 동작하던 오픈 API가 서버에 업로드한 이후부터 동작하지 않습니다. 어떻게 된것인가요?</dt>
             <dd>
