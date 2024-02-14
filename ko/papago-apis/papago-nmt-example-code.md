@@ -1,5 +1,11 @@
 # Papago 번역 API 구현 예제
 
+> **지원 종료 안내**
+>
+> Papago 번역 기능의 지원이 **2024년 2월 29일(목)**<!-- -->부로 종료됩니다.
+> 
+> - [공지 사항 보기](https://developers.naver.com/notice/article/14501)
+
 다음은 각 언어별 Papago 번역 API 구현 예제입니다.
 
 - [Java](#java)
