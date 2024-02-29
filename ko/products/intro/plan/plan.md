@@ -40,11 +40,6 @@
             <td class="left">없음</td>
         </tr>
         <tr>
-            <td class="left">Papago 번역</td>
-            <td class="left">Papago 번역 인공신경망 기반 기계 번역</td>
-            <td class="left">10,000글자/일</td>
-        </tr>
-        <tr>
             <td class="left">CLOVA Face Recognition</td>
             <td class="left">입력된 사진을 입력받아 얼굴윤곽/부위/표정/유명인 닮음도를 리턴</td>
             <td class="left">1,000건/일</td>
