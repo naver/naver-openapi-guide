@@ -404,7 +404,7 @@ public class ApiExamShortenUrl {
 
 ```
 
-* [GitHub에서 보기](https://github.com/naver/naver-openapi-guide/blob/master/sample/java/APIExamShortenURL.java)
+* [GitHub에서 보기](https://github.com/naver/naver-openapi-guide/blob/master/sample/java/ApiExamShortenUrl.java)
 
 ### PHP
 
