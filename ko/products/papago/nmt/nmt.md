@@ -1,5 +1,11 @@
 # Neural Machine Translation
 
+> **지원 종료 안내**
+>
+> Papago NMT 기능의 지원이 **2024년 2월 29일(목)**<!-- -->부로 종료됐습니다.
+> 
+> - [공지 사항 보기](https://developers.naver.com/notice/article/14501)
+
 <html lang="ko">
 <head>
     <title>NAVER Developers - Papago 소개</title>

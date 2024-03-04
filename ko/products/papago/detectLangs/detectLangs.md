@@ -1,5 +1,11 @@
 # 언어감지 API 소개
 
+> **지원 종료 안내**
+>
+> 언어 감지 기능의 지원이 **2024년 2월 29일(목)**<!-- -->부로 종료됩니다.
+> 
+> - [공지 사항 보기](https://developers.naver.com/notice/article/14501)
+
 <html lang="ko">
 <head>
     <title>NAVER Developers - Papago 언어감지 API 소개</title>
