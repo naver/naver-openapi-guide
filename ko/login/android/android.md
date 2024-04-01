@@ -36,14 +36,14 @@ gradle 스크립트에 아래와 같이 추가하시면 사용할 수 있습니�
 
 ```groovy
 # groovy
-implementation 'com.navercorp.nid:oauth:5.9.0' // jdk 11
-implementation 'com.navercorp.nid:oauth-jdk8:5.9.0' // jdk 8
+implementation 'com.navercorp.nid:oauth:5.9.1' // jdk 11
+implementation 'com.navercorp.nid:oauth-jdk8:5.9.1' // jdk 8
 ```
 
 ```kt
 # kts
-implementation("com.navercorp.nid:oauth:5.9.0") // jdk 11
-implementation("com.navercorp.nid:oauth-jdk8:5.9.0") // jdk 8
+implementation("com.navercorp.nid:oauth:5.9.1") // jdk 11
+implementation("com.navercorp.nid:oauth-jdk8:5.9.1") // jdk 8
 ```
 
 네아로SDK에서 사용하는 라이브러리는 다음과 같습니다. 필요에 따라 exclude 하여 사용하시면 됩니다.
@@ -67,24 +67,24 @@ implementation 'com.airbnb.android:lottie:3.1.0'
 ```
 
 #### 3.2. Gradle 에서 설정
-Android 프로젝트의 libs 폴더 밑에 oauth-5.9.0.aar 파일을 복사합니다.
+Android 프로젝트의 libs 폴더 밑에 oauth-5.9.1.aar 파일을 복사합니다.
 
 > **다운로드 링크** <br/>
-> [oauth-5.9.0.aar](https://repo1.maven.org/maven2/com/navercorp/nid/oauth/5.9.0/oauth-5.9.0.aar)
+> [oauth-5.9.1.aar](https://repo1.maven.org/maven2/com/navercorp/nid/oauth/5.9.1/oauth-5.9.1.aar)
 
 프로젝트의 build.gradle에 다음과 같이 추가합니다.
 
 ```groovy
 # groovy
 dependencies {
-  implementation files('libs/oauth-5.9.0.aar')
+  implementation files('libs/oauth-5.9.1.aar')
 }
 ```
 
 ```kt
 # kts
 dependencies {
-  implementation(files("libs/oauth-5.9.0.aar"))
+  implementation(files("libs/oauth-5.9.1.aar"))
 }
 ```
 
@@ -92,20 +92,20 @@ dependencies {
 1. [file]-[project structure] 실행
 1. 좌측 상단의 + 버튼 클릭
 1. jar/aar 모듈 추가 선택
-1. 다운받은 oauth-5.9.0.aar 선택
+1. 다운받은 oauth-5.9.1.aar 선택
 1. 프로젝트 build.gradle에 다음과 같이 추가
 
 ```groovy
 # groovy
 dependencies {
-  implementation project(path: ':oauth-5.9.0')
+  implementation project(path: ':oauth-5.9.1')
 }
 ```
 
 ```kt
 # kts
 dependencies {
-  implementation(project(":oauth-5.9.0"))
+  implementation(project(":oauth-5.9.1"))
 }
 ```
 
