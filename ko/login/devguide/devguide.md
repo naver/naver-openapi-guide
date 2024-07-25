@@ -1096,7 +1096,7 @@ https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=CLIENT_ID&
 연동 해제 API를 통해 성공적으로 연동이 해제되면 다음과 같이 변경사항이 적용됩니다.
 
 * 앞서 발급받은 접근토큰과 갱신토큰은 API호출 즉시 만료처리됩니다. (더이상 접근토큰 및 갱신토큰을 이용할 수 없습니다.)
-* 네이버의 "내정보>보안설정>외부사이트연결관리" 의 네이버 로그인 연동 목록에서 항목이 제거됩니다.
+* 네이버의 "내정보 > 연결된 서비스 관리" 의 네이버 로그인 연동 목록에서 항목이 제거됩니다.
 * 연동 해제 이후 사용자가 다시 연동을 수행할 수 있으며 연동 과정에서 사용자 동의를 새로이 받게 됩니다.
 
 연동 해제는 아래와 같이 이용 가능합니다.
@@ -1135,6 +1135,287 @@ https://nid.naver.com/oauth2.0/token?grant_type=delete&client_id=CLIENT_ID&clien
 
 연동 해제 API에 사용되는 접근토큰은 반드시 유효한 접근토큰을 이용하여야 합니다.(만료된 토큰이나 존재하지 않는 토큰으로 연동해제 불가)<br/>
 따라서 연동 해제를 수행하기 전에 접근토큰의 유효성을 점검하고 5.1의 접근토큰 갱신 과정에 따라 접근토큰을 갱신하는것을 권장합니다.
+
+## 5.4 네이버 로그인 연결 끊기 알림 받기
+
+네이버 로그인 연동 사용자가 다음의 유형으로 서비스를 더이상 이용하지 않을때, 서비스에서는 사용자의 연동 해제 상태에 대한 알림을 받을 수 있습니다.
+
+* 네이버의 "내정보 > 연결된 서비스 관리" 의 네이버 로그인 연동 목록에서 연동된 항목에 대해 "서비스 동의 철회"를 수행하는 경우
+* 네이버 회원 서비스를 탈퇴하는 경우
+
+연결 끊기 알림은 API의 형태로 발송이 되며, 알림을 받기 위해서는 다음의 사항을 충족해야합니다.
+
+* 네이버 개발자센터 > 애플리케이션 > API 설정 > 연결끊기 Callback URL 항목에 알림을 받을 API의 주소를 설정해야합니다.
+* 연결 끊기 API에 대한 처리가 구현이 되어야합니다.
+
+### 5.4.1 네이버 로그인 연결 끊기 알림 API 명세 
+
+아래의 규격에 따라 API를 개발하여, 네이버에 제공해야합니다. 네이버는 제공된 URL정보를 통해 API를 호출합니다.
+
+***요청 URL 정보***
+
+| 메서드 | 요청 URL | 출력 포맷 | 설명 | 
+| :--: | ----- | :--: | --- |
+| POST   | 네이버 개발자센터의 API설정을 통해 등록된 Callback URL |  N/A (204 No Content 처리)  | 네이버 로그인 연결 끊기 알림  |
+
+***요청 Content-Type***
+
+application/x-www-form-urlencoded
+
+***요청 변수 정보***
+
+| 요청 변수명 |타입 |필수 여부 |기본값 |설명 |
+| :---: | :---: | :---: | :---: | ---------- |
+| clientId |string |Y |- |애플리케이션 등록 시 발급받은 Client ID 값 |
+| encryptUniqueId |string |Y |- |암호화처리된 이용자 고유 식별자. 관련 규격은 Appendix 를 참고하시기 바랍니다. |
+| timestamp |string |Y |- |요청 시점의 unix epoch time (second)|
+| signature |string |Y |- | 요청 검증을 위한 서명값. 관련 규격은 Appendix 를 참고하시기 바랍니다. |
+
+***요청문 샘플***
+
+```text
+> POST /v1/naver/deauthorize?
+  clientId=someClientId&encryptUniqueId=hjDkQ1h_FNFiklPyEKBZwbwE
+  &timestamp=1693877406&signature=XUGURE_KaNSs-Y0 HTTP/1.1
+> Host: some.domain
+> Accept: */*
+> Content-Type: application/x-www-form-urlencoded
+>
+< HTTP/1.1 204 No Content
+```
+
+***응답***
+
+응답의 경우 HTTP Status Code로 표현합니다. 별도의 응답 본문은 설정하지 않습니다.
+
+> **_주의_**: 네이버에서는 실패 요청에 대해서 재시도를 수행하지 않습니다.
+
+***응답 HTTP Status Code***
+
+|HTTP Status Code| Status | 설명 |
+|---|---|---|
+|204| No Content | API처리 성공. ResponseBody는 no content로 전송되어야합니다.|
+|400| BadRequest | 잘못된 요청 | 
+|403| Forbidden | 권한이 없는 URL로 접근한 경우 |
+|404| Not Found | URL Resource 가 존재하지 않는 경우|
+|50x| Internal Server Error | 내부 서버 오류로 인한 호출 실패 |
+
+
+### 5.4.2 이용자 고유 식별정보 암호화 전송
+
+네이버 로그인 연결 끊기 알림 API호출에 사용되는 정보는 이용자 고유 식별정보를 담고있기때문에, 암호화를 통해 안전하게 처리된 후 전송합니다.
+전달된 정보는 미리 정해진 규약을 통해 복호화 처리 후 이용 가능합니다.
+
+***암호화 알고리즘***
+
+AES128 / CBC / PKCS5Padding
+
+***암호화 키 규격***
+
+암호화 키에 대해서는 다음의 규칙에 의거하여 생성합니다.
+
+~~~java
+encryptKey (16byte) = byte.subarray( md5( CLIENT_SECRET ) , 0, 16 )
+~~~
+
+***암호화 키 생성 예제 (JAVA)***
+
+~~~java
+static int BLOCK_SIZE = 16;
+final String clientId = "네이버에서발급받은 ClientID정보";
+final String clientSecret = "네이버에서 발급받은 ClientSecret정보";
+
+final byte[] key = generateKey(clientSecret);
+
+private static byte[] generateKey(final String clientSecret) 
+		throws NoSuchAlgorithmException {
+	final MessageDigest md = MessageDigest.getInstance("MD5");
+	md.update(clientSecret.getBytes());
+	return Arrays.copyOfRange(md.digest(), 0, BLOCK_SIZE);
+}
+~~~
+
+
+***IV 규격***
+
+IV(Initialization Vector)에 대해서는 다음의 규칙에 의거하여 생성합니다. 
+
+~~~java
+iv (16byte) = byte( random.generate(16) );
+~~~
+
+***IV 생성 예제 (JAVA)***
+
+~~~java
+static int BLOCK_SIZE = 16;
+final byte[] iv = generateIv();
+
+private static byte[] generateIv(){
+	final byte[] iv = new byte[BLOCK_SIZE];
+	final SecureRandom random = new SecureRandom();
+	random.nextBytes(iv);
+	return iv;
+}
+~~~
+
+***암호화 규격*** 
+
+상기 암호화 키 규격과, IV규격으로 생성된 값들을 이용하여 AES128 / CBC / PKCS5Padding 방식으로 암호화를 수행합니다.
+원문에 대한 정보는 암호화 절차를 반대로 수행하여 획득 가능합니다.
+
+~~~java
+encryptUniqueId = base64( iv + aes128cbc_pkcs5( plaintext, key) )
+~~~
+
+***암호화 처리 예제 (JAVA)***
+
+~~~java
+static final String ALGORITHM_AES_CBC_PKCS5 = "AES/CBC/PKCS5Padding";
+static final String ALGORITHM_AES = "AES";
+static int BLOCK_SIZE = 16;
+
+final String clientId = "네이버에서발급받은 ClientID정보";
+final String clientSecret = "네이버에서 발급받은 ClientSecret정보";
+final String uniqueId = "SOME_NAVER_LOGIN_UNIQUE_ID";
+
+final byte[] key = generateKey(clientSecret);
+
+//암호화 처리
+final String encrypted = doEncryptWithPkcs5(uniqueId, key, iv);
+
+//복호화 처리
+final String decrypted = doDecryptWithPkcs5(encrypted, key);
+
+Assert.assertEquals(decrypted, uniqueId);
+
+private static byte[] generateKey(final String clientSecret) 
+		throws NoSuchAlgorithmException {
+	final MessageDigest md = MessageDigest.getInstance("MD5");
+	md.update(clientSecret.getBytes());
+	return Arrays.copyOfRange(md.digest(), 0, BLOCK_SIZE);
+}
+//암호화 처리
+public static String doEncryptWithPkcs5(final String plainText, 
+		final  byte[] aesKey, final byte[] iv) throws Exception {
+	final byte[] src = plainText.getBytes();
+	final SecretKeySpec skeySpec = new SecretKeySpec(aesKey, ALGORITHM_AES);
+	final Cipher cipher = Cipher.getInstance(ALGORITHM_AES_CBC_PKCS5);
+	final IvParameterSpec ivspec = new IvParameterSpec(iv);
+
+	cipher.init(Cipher.ENCRYPT_MODE, skeySpec, ivspec);
+
+	final byte[] encrypted = cipher.doFinal(src);
+	final byte[] encryptedWithIV = new byte[BLOCK_SIZE + encrypted.length];
+
+	System.arraycopy(iv, 0, encryptedWithIV, 0, BLOCK_SIZE);
+	System.arraycopy(encrypted, 0, encryptedWithIV, BLOCK_SIZE, encrypted.length);
+
+	return Base64.encodeBase64URLSafeString(encryptedWithIV);
+}
+
+//복호화 처리
+public static String doDecryptWithPkcs5(final String encrypted, 
+		final byte[] aesKey) throws Exception {
+
+	final byte[] encryptedWithIV = Base64.decodeBase64(encrypted);
+	final byte[] iv = Arrays.copyOfRange(encryptedWithIV, 0, BLOCK_SIZE);
+	final byte[] encryptedUniqueId = 
+		Arrays.copyOfRange(encryptedWithIV, BLOCK_SIZE, encryptedWithIV.length);
+
+	final SecretKeySpec skeySpec = new SecretKeySpec(aesKey, ALGORITHM_AES);
+	final Cipher cipher = Cipher.getInstance(ALGORITHM_AES_CBC_PKCS5);
+	final IvParameterSpec ivspec = new IvParameterSpec(iv);
+
+	cipher.init(Cipher.DECRYPT_MODE, skeySpec, ivspec);
+
+	final byte[] decrypted = cipher.doFinal(encryptedUniqueId);
+	return new String(decrypted, StandardCharsets.UTF_8);
+}
+
+~~~
+
+### 5.4.3 네이버 로그인 연결 끊기 알림 API 위변조 방지를 위한 HMAC 처리
+
+네이버 로그인 연결 끊기 알림 API 요청에 대한 위/변조 방지 및 무결성 검증을 위하여 HMAC Signature를 추가로 파라미터로 전달합니다. 서명값 검증을 통해 안전하게 처리하도록 합니다.
+
+***서명 알고리즘***
+
+HmacSHA256 (HS256)
+
+***시크릿 키 규격***
+
+시크릿 키에 대해서는 다음의 규칙에 의거하여 생성합니다. (암호화 키 규격과 동일)
+
+~~~java
+encryptKey (16byte) = byte.subarray( md5( CLIENT_SECRET ) , 0, 16 )
+~~~
+
+***시크릿 키 생성 예제 (JAVA)***
+
+~~~java
+static int BLOCK_SIZE = 16;
+final String clientId = "네이버에서발급받은 ClientID정보";
+final String clientSecret = "네이버에서 발급받은 ClientSecret정보";
+
+final byte[] key = generateKey(clientSecret);
+
+private static byte[] generateKey(final String clientSecret)
+		throws NoSuchAlgorithmException {
+	final MessageDigest md = MessageDigest.getInstance("MD5");
+	md.update(clientSecret.getBytes());
+	return Arrays.copyOfRange(md.digest(), 0, BLOCK_SIZE);
+}
+~~~
+
+***서명 원문 규격***
+
+서명 원문 규격은 다음과 같습니다. (QueryParameter 규격)
+
+~~~java
+final String clientId = "네이버에서발급받은 ClientID정보";
+final String encryptUniqueId = "파라미터로 전달된 encryptUniqueId";
+final String timestamp = "파라미터로 전달된 timestamp";
+final String baseStringFmt = "clientId=%s&encryptUniqueId=%s&timestamp=%s";
+
+final String signatureBaseString = 
+	String.format(baseStringFmt, clientId, encryptUniqueId, timestamp);
+~~~
+
+
+***HMAC 서명 검증***
+
+API 요청으로 전달된 파라미터 정보를 토대로 요청 정보가 무결한지 검증합니다.
+
+***HMAC 서명 검증 예제 (JAVA)***
+
+~~~java
+static final String ALGORITHM_HS256 = "HmacSHA256";
+
+final String clientId = "네이버에서발급받은 ClientID정보";
+final String encryptUniqueId = "파라미터로 전달된 encryptUniqueId";
+final String timestamp = "파라미터로 전달된 timestamp";
+final String signature = "파라미터로 전달된 signature";
+final String baseStringFmt = "clientId=%s&encryptUniqueId=%s&timestamp=%s";
+
+final String signatureBaseString = 
+	String.format(baseStringFmt, clientId, encryptUniqueId, timestamp);
+final byte[] key = generateKey(clientSecret);
+
+final String generatedSignature = generateMac(signatureBaseString, key);
+
+Assert.assertEquals(generatedSignature, signature);
+
+public static String generateMac(final String signatureBaseString, 
+		final byte[] key) throws Exception{
+	final SecretKeySpec secretKey = new SecretKeySpec(key, ALGORITHM_HS256);
+	final Mac mac = Mac.getInstance(ALGORITHM_HS256);
+	mac.init(secretKey);
+	final byte[] hash = mac.doFinal(signatureBaseString.getBytes());
+	return Base64.encodeBase64URLSafeString(hash);
+}
+~~~
+
+
 
 # 6. 네이버 로그인 부가 기능
 
