@@ -5,6 +5,11 @@ description: 단축 URL API는 원본 URL을 `https://me2.do/example`과 같은 
 
 # 단축 URL API 튜토리얼
 
+> **지원 종료 안내**
+>
+> 단축 URL 기능의 지원이 **2024년 10월 7일(월)**<!-- -->부로 종료됩니다.
+> 
+> - [공지 사항 보기](https://developers.naver.com/notice/article/17062)
 
 * [개요](#개요)
 * [개발 환경](#개발-환경)
