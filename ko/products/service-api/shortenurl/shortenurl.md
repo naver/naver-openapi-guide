@@ -1,5 +1,11 @@
 # 단축URL
 
+> **지원 종료 안내**
+>
+> 단축 URL 기능의 지원이 **2024년 11월 28일(목)**<!-- -->부로 종료됩니다.
+> 
+> - [공지 사항 보기](https://developers.naver.com/notice/article/17062)
+
 <html lang="ko">
 <head>
     <title>NAVER Developers - 단축URL API 소개</title>

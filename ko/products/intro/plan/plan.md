@@ -75,7 +75,7 @@
             <td class="left">200회/일</td>
         </tr>
         <tr>
-            <td class="left">단축URL</td>
+            <td class="left">_삭제_단축URL</td>
             <td class="left">입력된 URL을 me2.do 형태의 짧은 URL로 변환</td>
             <td class="left">25,000회/일</td>
         </tr>
