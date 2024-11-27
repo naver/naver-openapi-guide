@@ -47,7 +47,6 @@
 
 - [데이터랩](https://developers.naver.com/docs/serviceapi/datalab/search/search.md): [네이버 데이터랩](https://datalab.naver.com/)의 [검색어 트렌드](https://datalab.naver.com/keyword/trendSearch.naver)와 [쇼핑인사이트](https://datalab.naver.com/shoppingInsight/sCategory.naver)를 API로 실행할 수 있게 하는 API입니다.
 - [검색](https://developers.naver.com/docs/serviceapi/search/blog/blog.md): 네이버 검색 결과를 뉴스, 백과사전, 블로그, 쇼핑, 웹 문서, 전문정보, 지식iN, 책, 카페글 등 분야별로 볼 수 있는 API입니다. 그 외에 지역 검색 결과와 성인 검색어 판별 기능, 오타 변환 기능을 제공합니다.
-- [단축URL](https://developers.naver.com/docs/utils/shortenurl/): 원본 URL을 `https://me2.do/example`과 같은 형태의 짧은 URL로 반환받을 수 있는 API입니다.
 - [이미지 캡차](https://developers.naver.com/docs/utils/captcha/overview/): 네이버 서비스에서 사용하는 이미지 캡차 기능을 외부 서비스에 사용할 수 있게 하는 API입니다.
 - [음성 캡차](https://developers.naver.com/docs/utils/scaptcha/overview/): 네이버 서비스에서 사용하는 음성 캡차 기능을 외부 서비스에 사용할 수 있게 하는 API입니다.
 - [네이버 공유하기](https://developers.naver.com/docs/share/navershare/): 콘텐츠를 네이버 블로그, 네이버 카페, PHOLAR에 공유할 수 있게 하는 API입니다.
@@ -89,14 +88,6 @@
 |`https://openapi.naver.com/v1/search/adult`|GET|JSON, XML|입력한 검색어가 성인 검색어인지 판별한 결과를 반환합니다.|
 |`https://openapi.naver.com/v1/search/errata`|GET|JSON, XML|입력한 검색어의 한영 오류를 변환한 결과를 반환합니다.|
 |`https://openapi.naver.com/v1/search/local`|GET|JSON, XML|네이버 지역 서비스에 등록된 지역별 업체 및 상호 검색 결과를 반환합니다.|
-
-### 단축URL
-
-다음은 단축URL API에서 사용하는 주요 요청 URL과 메서드, 응답 형식입니다.
-
-|요청 URL|메서드|응답 형식|설명|
-|------|--|--|------|
-|`https://openapi.naver.com/v1/util/shorturl`|GET/POST|JSON, XML|입력된 URL을 `https://me2.do/example`과 같은 형태의 짧은 URL로 변환한 결과를 반환합니다.|
 
 ### 이미지 캡차
 
