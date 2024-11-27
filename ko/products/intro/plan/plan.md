@@ -75,11 +75,6 @@
             <td class="left">200회/일</td>
         </tr>
         <tr>
-            <td class="left">_삭제_단축URL</td>
-            <td class="left">입력된 URL을 me2.do 형태의 짧은 URL로 변환</td>
-            <td class="left">25,000회/일</td>
-        </tr>
-        <tr>
             <td class="left">공유하기</td>
             <td class="left">네이버 블로그, 카페 공유하기</td>
             <td class="left">없음</td>
