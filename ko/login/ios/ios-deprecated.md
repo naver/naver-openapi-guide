@@ -1,5 +1,9 @@
 # IOS
 
+> 위 문서는 네이버 아이디로 로그인 iOS SDK 구버전(5.0.0 버전 미만)에 대한 가이드를 제공합니다.
+> 구버전 SDK 지원이 종료될 예정이니, 신버전 SDK를 사용해주시길 바랍니다.
+> [신버전 가이드](ios.md)
+
 <html lang="ko">
 <head>
     <title>NAVER Developers - 네이버 로그인 iOS 개발가이드</title>
