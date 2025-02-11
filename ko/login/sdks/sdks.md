@@ -120,6 +120,17 @@
         <tbody>
         <tr>
             <td class="left">
+                <a href="https://github.com/naver/naveridlogin-sdk-ios-swift">Github 지원 (신버전)</a>
+            </td>
+            <td class="left">2025.02.11</td>
+            <td class="left">Github 배포</td>
+            <td class="left">
+              	<strong>신버전 추가</strong>
+              	<p>네아로 iOS SDK Swift 버전 추가</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="left">
                 <a href="https://github.com/naver/naveridlogin-sdk-ios">Github 지원</a>
             </td>
             <td class="left">2017.11.10</td>
