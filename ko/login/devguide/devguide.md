@@ -604,250 +604,11 @@ curl  -XGET "https://openapi.naver.com/v1/nid/me" \
 [캘린더 오픈 API 개발가이드 바로가기 >](/calendar-api/calendar-api.md)
 
 
-# 4. 시스템에 네이버 로그인 정보 유지
+# 4. 네이버 로그인 사용자 프로필 갱신 및 재인증
 
-## 4.1 기존 로그인 시스템에 네이버 로그인 적용하기
+## 4.1 네이버 로그인 사용자의 프로필 갱신
 
-많은 서비스들이 이미 회원 체계와 로그인 시스템을 가지고 있습니다. 이러한 환경에서도 네이버 로그인을 적용하여 기존의 로그인과 동일하게 동작하도록 처리할 수 있습니다. 
-
-### 4.1.1 Database의 구성
-
-일반적인 회원 시스템은 사용자 개인정보와 아이디 비밀번호를 지닌 구조일 것입니다.<br/>
-네이버 로그인은 아이디/비밀번호를 통해 인증을 수행하는 구조가 아니기때문에 기존 회원 시스템을 변경해야할 필요가 있습니다.<br/>
-네이버 로그인 사용자 정보를 기존 회원정보 시스템에 저장하기 위해서는 다음과 같이 데이터베이스 변경작업이 필요합니다.
-
-
-***일반적인 회원 데이터베이스 구조***
-
-![simple_login_database_model.png](./images/simple_login_database_model.png)
-
-***테이블 구조 및 테이블 생성 SQL예시(MYSQL)***
-
-```sql
-CREATE  TABLE `USERS` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `username` VARCHAR(50) NULL ,
-  `password` VARCHAR(50) NULL ,
-  `email` VARCHAR(100) NULL ,
-  `nickname` VARCHAR(50) NULL ,
-  `mobile` VARCHAR(20) NULL ,
-  `create_date` DATETIME NULL ,
-  `modify_date` DATETIME NULL ,
-  PRIMARY KEY (`id`) ,
-  INDEX `idx1_username` (`username` ASC) ,
-  INDEX `idx2_email` (`email` ASC) 
-);
-```
-
-```shell
-mysql> desc USERS;
-+-------------+--------------+------+-----+---------+----------------+
-| Field       | Type         | Null | Key | Default | Extra          |
-+-------------+--------------+------+-----+---------+----------------+
-| id          | int(11)      | NO   | PRI | NULL    | auto_increment |
-| username    | varchar(50)  | YES  | MUL | NULL    |                |
-| password    | varchar(50)  | YES  |     | NULL    |                |
-| email       | varchar(100) | YES  | MUL | NULL    |                |
-| nickname    | varchar(50)  | YES  |     | NULL    |                |
-| mobile      | varchar(20)  | YES  |     | NULL    |                |
-| create_date | datetime     | YES  |     | NULL    |                |
-| modify_date | datetime     | YES  |     | NULL    |                |
-+-------------+--------------+------+-----+---------+----------------+
-8 rows in set (0.00 sec)
-```
-
-***회원 가입 및 회원정보 조회 SQL***
-
-```html
-  <select id="selectUserById" resultMap="userResultMap">
-    select id, username, password, email, nickname, mobile from users
-    where id = #{id}
-  </select>
-
-  <select id="selectUserByUserName" resultMap="userResultMap">
-    select id, username, password, email, nickname, mobile from users
-    where username = #{userName}
-  </select>
-  
-  <insert id="insertNormalUser" parameterType="User">
-    insert into  users(username, password, email, nickname, mobile, create_date, modify_date )
-      values  (#{userName}, #{password},#{email}, #{nickName}, #{mobile}, now(), now())
-    <selectKey resultType="int" keyProperty="id" order="AFTER">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-  </insert>
-```
-
-네이버 로그인을 적용하게 되면 위의 회원 정보 데이터베이스 환경에서 네이버 로그인 사용자 정보를 연동할수 있는 별도의 테이블 구성이 필요합니다.<br/>
-네이버 로그인 연동 사용자의 프로필 정보를 이용하여 기존 사용자 정보를 매핑하거나 신규 사용자로 등록하는것이 가능합니다.<br/>
-데이터베이스는 일반적으로 아래와 같이 구성이 가능합니다.
-
-***네이버 로그인 연동을 위한 테이블 구성***
-
-![extern_table_for_sns_login.png](./images/extern_table_for_sns_login.png)
-
-
-***네이버 로그인 사용자 정보를 저장하기 위한 테이블 구조 및 생성 SQL예시(MYSQL)***
-
-```sql
-CREATE TABLE `SNS_INFO` (
-  `id` int(11) NOT NULL,
-  `sns_id` varchar(255) NOT NULL,
-  `sns_type` varchar(10)  NULL,
-  `sns_name` varchar(255)  NULL,
-  `sns_profile` varchar(255)  NULL,
-  `sns_connect_date` datetime  NULL,
-  KEY `idx01_id` (`id`),
-  KEY `idx02_sns_id` (`sns_id`),
-  CONSTRAINT `id` FOREIGN KEY (`id`) REFERENCES `USERS` (`id`)
-);
-```
-
-```shell
-mysql> desc SNS_INFO;
-+------------------+--------------+------+-----+---------+-------+
-| Field            | Type         | Null | Key | Default | Extra |
-+------------------+--------------+------+-----+---------+-------+
-| id               | int(11)      | NO   | MUL | NULL    |       |
-| sns_id           | varchar(255) | NO   | MUL | NULL    |       |
-| sns_type         | varchar(10)  | YES  |     | NULL    |       |
-| sns_name         | varchar(255) | YES  |     | NULL    |       |
-| sns_profile      | varchar(255) | YES  |     | NULL    |       |
-| sns_connect_date | datetime     | YES  |     | NULL    |       |
-+------------------+--------------+------+-----+---------+-------+
-6 rows in set (0.01 sec)
-```
-
-
-### 4.1.2 사용자 연동 처리 및 로그인 처리
-
-네이버 로그인을 적용하였다면 ID/PW 대신 네이버 로그인을 통해서 로그인 처리가 가능합니다.<br/>
-프로필 정보로 전달받은 사용자 유니크 ID정보를 앞서 데이터베이스에 저장하였고 또 이 정보를 데이터베이스의 키로 사용하였기때문에 아래와 같이 사용자 유니크 ID정보로 사용자 정보를 조회할 수 있습니다.
-```html
-  <select id="selectSnsUserBySnsId" resultMap="snsUserResultMap">
-    select a.username,
-    a.email,
-    a.nickname,
-    a.create_date,
-    a.modify_date,
-    b.sns_id,
-    b.sns_type,
-    b.sns_name,
-    b.sns_profile,
-    b.sns_connect_date
-    from users a,
-    sns_info b
-    where
-    a.id = b.id
-    AND b.sns_id = #{snsId}
-  </select>
-```
-
-사용자에 대한 인증은 네이버 로그인을 통한 인증으로 대체가 되었기 때문에 비밀번호에 대한 검증이 추가로 필요하지 않습니다.<br/>
-사용자에 대한 조회가 완료되었을 경우 세션에 로그인 정보를 발행하거나 쿠키로 로그인 정보를 발행하여 로그인 상태로 만들 수 있습니다.
-
-## 4.2 신규 시스템에 네이버 로그인 적용하기
-
-### 4.2.1 Database의 구성
-
-신규 서비스에 네이버 로그인을 통한 회원 체계를 구성하기 위해서는 회원 정보를 저장할 데이터베이스가 마련이 되어야합니다.<br/>
-회원 정보를 저장하거나 조회할수 있는 기능이 기본적으로 구현이 되어있어야 하기때문에 아래와 같은 형태의 간단한 회원정보 데이터 베이스를 구성을 하고 필요에 따라 또는 서비스의 정책에 따라 변경하면 됩니다.
-
-***네이버 로그인 연동을 위한 테이블 구성***
-
-![db_scheme_01.png](./images/db_scheme_01.png)
-
-***네이버 로그인 사용자 정보를 저장하기 위한 테이블 구조 및 생성 SQL예시(MYSQL)***
-
-```sql
-CREATE  TABLE `USERS` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `username` VARCHAR(50) NULL ,
-  `email` VARCHAR(100) NULL ,
-  `nickname` VARCHAR(50) NULL ,
-  `sns_id` VARCHAR(255) NULL ,
-  `sns_type` varchar(10)  NULL,
-  `sns_profile` varchar(255)  NULL,
-  `create_date` DATETIME NULL ,
-  `modify_date` DATETIME NULL ,
-  PRIMARY KEY (`id`) ,
-  INDEX `idx1_username` (`username` ASC) ,
-  INDEX `idx2_email` (`email` ASC),
-  INDEX `idx3_sns_id` (`sns_id` ASC), 
-);
-```
-
-```shell
-mysql> desc USERS;
-+-------------+--------------+------+-----+---------+----------------+
-| Field       | Type         | Null | Key | Default | Extra          |
-+-------------+--------------+------+-----+---------+----------------+
-| id          | int(11)      | NO   | PRI | NULL    | auto_increment |
-| username    | varchar(50)  | YES  | MUL | NULL    |                |
-| email       | varchar(100) | YES  | MUL | NULL    |                |
-| nickname    | varchar(50)  | YES  |     | NULL    |                |
-| sns_id      | varchar(255  | YES  |     | NULL    |                |
-| sns_type    | varchar(10)  | YES  |     | NULL    |                |
-| sns_profile | varchar(255) | YES  |     | NULL    |                |
-| create_date | datetime     | YES  |     | NULL    |                |
-| modify_date | datetime     | YES  |     | NULL    |                |
-+-------------+--------------+------+-----+---------+----------------+
-8 rows in set (0.00 sec)
-```
-
-
-### 4.2.2 네이버 로그인을 통한 회원 가입
-
-네이버 로그인을 통하여 얻은 사용자 프로필 정보 중 사용자 유니크 ID 정보를 이용하여 사용자를 식별할 수 있습니다.<br/>
-이 식별값은 사용자가 이미 가입한 사용자인지 신규 연동 사용자인지 확인할수 있는 중요한 정보로써 데이터베이스의 키로 사용할 수 있습니다.
-
-```html
-  <insert id="insertSnsUser" parameterType="SnsUser">
-    insert into
-    sns_info(id, sns_id, sns_type, sns_name, sns_profile,
-    sns_connect_date)
-    values (#{id}, #{snsId}, #{snsType}, #{snsName}, #{snsProfile}, now() )
-  </insert>
-```
-
-네이버 로그인 프로필 정보는 사용자 정보를 대체할수 있는 정보로 활용할 수 있으며 추가적으로 필요한 정보는 별도의 입력화면을 통해 입력 받는것도 가능합니다.
-
-
-### 4.2.3 네이버 로그인을 통한 로그인 / 로그아웃의 구현 
-
-네이버 로그인을 적용하였다면 ID/PW 대신 네이버 로그인을 통해서 로그인 처리가 가능합니다.<br/>
-프로필 정보로 전달받은 사용자 유니크 ID정보를 앞서 데이터베이스에 저장하였고 또 이 정보를 데이터베이스의 키로 사용하였기때문에 아래와 같이 사용자 유니크 ID정보로 사용자 정보를 조회할 수 있습니다.
-
-```html
-  <select id="selectSnsUserBySnsId" resultMap="snsUserResultMap">
-    select a.username,
-    a.email,
-    a.nickname,
-    a.create_date,
-    a.modify_date,
-    b.sns_id,
-    b.sns_type,
-    b.sns_name,
-    b.sns_profile,
-    b.sns_connect_date
-    from users a,
-    sns_info b
-    where
-    a.id = b.id
-    AND b.sns_id = #{snsId}
-  </select>
-```
-
-사용자에 대한 인증은 네이버 로그인을 통한 인증으로 대체가 되었기 때문에 비밀번호에 대한 검증이 추가로 필요하지 않습니다.<br/>
-사용자에 대한 조회가 완료되었을 경우 세션에 로그인 정보를 발행하거나 쿠키로 로그인 정보를 발행하여 로그인 상태로 만들 수 있습니다.
-
-
-
-# 5. 네이버 로그인 사용자 프로필 갱신 및 재인증
-
-## 5.1 네이버 로그인 사용자의 프로필 갱신
-
-### 5.1.1 접근 토큰에 대하여
+### 4.1.1 접근 토큰에 대하여
 
 접근 토큰 발급 API를 통하여 접근 토큰 및 갱신 토큰을 발급받을수 있습니다.<br/>
 접근 토큰은 다음과 같은 형식으로 이루어져 있습니다.<br/>
@@ -902,7 +663,7 @@ Authorization: Bearer ACCESS_TOKEN
 ```
 
 
-### 5.1.2 갱신 토큰에 대하여
+### 4.1.2 갱신 토큰에 대하여
 
 접근 토큰은 접근 토큰 발급API를 통해 발급받은 시점부터 expires_in(초) 만큼만 유효합니다.<br/>
 즉 발급 후 expires_in( 기본 3600초/ 1시간) 이내에만 사용이 가능하며 expires_in(초) 만큼의 시간이 지나게 되면 해당 접근 토큰은 더 이상 사용할 수 없습니다.
@@ -943,7 +704,7 @@ https://nid.naver.com/oauth2.0/token?grant_type=refresh_token&client_id=CLIENT_I
 |token_type|String|Y|토큰 타입 (bearer) |
 |expires_in|String|Y|접근토큰 유효성 체크 결과 메시지|
 
-### 5.1.3 접근 토큰 만료와 갱신 주기. 프로필 정보의 갱신
+### 4.1.3 접근 토큰 만료와 갱신 주기. 프로필 정보의 갱신
 
 접근 토큰은 만료일자에 따라 또는 접근 토큰 갱신, 삭제 등의 동작에 따라 유효하지 않게 될 수 있습니다.<br/>
 유효하지 않은 접근 토큰으로는 프로필 정보를 조회하거나 로그인 OpenAPI를 호출할 수 없습니다.<br/>
@@ -989,7 +750,7 @@ curl  -XGET "https://openapi.naver.com/v1/nid/verify" \
 
 
 
-### 5.1.4 프로필의 갱신       
+### 4.1.4 프로필의 갱신       
 
 네이버 로그인 사용자의 프로필 정보는 네이버 사용자의 정보 변경 여부에 따라 일부 정보가 변경될 수 있습니다.<br/>
 변경이 가능한 정보는 다음과 같습니다.
@@ -1007,7 +768,7 @@ curl  -XGET "https://openapi.naver.com/v1/nid/verify" \
 사용자 정보가 변경이 되는 경우 네이버에서는 서비스에게 이 사실을 별도로 알려주지는 않고 있습니다.<br/>
 따라서 주기적으로 또는 사용자 로그인이 발생할 때마다 프로필 정보를 조회하여 갱신하는것을 권장하고 있습니다.
 
-### 5.1.5 사용자가 거부한 프로필 권한에 대하여 다시 동의를 수행하는 경우 
+### 4.1.5 사용자가 거부한 프로필 권한에 대하여 다시 동의를 수행하는 경우 
 
 사용자는 네이버 로그인 최초 연동 동의과정에서 특정 프로필 항목에 대하여 ***제공하지않음***으로 선택할 수 있습니다. 이러한 경우 제공이 거부된 프로필 항목에 대해서는 프로필 조회로 정보를 얻을 수 없습니다. <br />
 제공이 거부된 프로필 항목이 서비스 이용에 반드시 필요한 항목일 경우에는 사용자로 하여금 다시한번 동의로 선택하도록 **재동의**를 수행하는것이 가능합니다. 
@@ -1039,9 +800,9 @@ https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=CLIENT_ID&
 위의 동작은 사용자가 권한을 거부한 경우에 대하여 다시한번 확인을 요청하는것이기 때문에 서비스에서 우선적으로 ***해당 항목이 반드시 필요한 사유***에 대해 충분히 고지하고 인증을 요청하시기 바랍니다.
 
 
-## 5.2 재인증
+## 4.2 재인증
 
-### 5.2.1 사용자 재인증이 필요한 경우
+### 4.2.1 사용자 재인증이 필요한 경우
 
 접근 토큰이 유효하더라도 사용자로 하여금 다시한번 인증을 수행하여 계정보안 수준을 높이고자 할때, 
 네이버 로그인 재인증을 통해서 네이버 사용자 인증을 수행할수 있습니다.
@@ -1086,9 +847,9 @@ https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=CLIENT_ID&
 이후 용법은 네이버 로그인 인증과 동일합니다.<br/>
 네이버 로그인 인증 명세 바로가기
 
-## 5.3 네이버 로그인 연동 해제 
+## 4.3 네이버 로그인 연동 해제 
 
-### 5.3.1 네이버 로그인 연동 해제가 필요한 경우
+### 4.3.1 네이버 로그인 연동 해제가 필요한 경우
 
 사용자가 서비스를 더이상 이용하지 않거나 (서비스 탈퇴) 네이버 로그인의 연동을 더이상 이용하지 않을 경우 (연동 해제)<br/>
 네이버 로그인 연동 해제 API를 통해 연결 관계를 끊을 수 있습니다.
@@ -1136,7 +897,7 @@ https://nid.naver.com/oauth2.0/token?grant_type=delete&client_id=CLIENT_ID&clien
 연동 해제 API에 사용되는 접근토큰은 반드시 유효한 접근토큰을 이용하여야 합니다.(만료된 토큰이나 존재하지 않는 토큰으로 연동해제 불가)<br/>
 따라서 연동 해제를 수행하기 전에 접근토큰의 유효성을 점검하고 5.1의 접근토큰 갱신 과정에 따라 접근토큰을 갱신하는것을 권장합니다.
 
-## 5.4 네이버 로그인 연결 끊기 알림 받기
+## 4.4 네이버 로그인 연결 끊기 알림 받기
 
 네이버 로그인 연동 사용자가 다음의 유형으로 서비스를 더이상 이용하지 않을때, 서비스에서는 사용자의 연동 해제 상태에 대한 알림을 받을 수 있습니다.
 
@@ -1148,7 +909,7 @@ https://nid.naver.com/oauth2.0/token?grant_type=delete&client_id=CLIENT_ID&clien
 * 네이버 개발자센터 > 애플리케이션 > API 설정 > 연결끊기 Callback URL 항목에 알림을 받을 API의 주소를 설정해야합니다.
 * 연결 끊기 API에 대한 처리가 구현이 되어야합니다.
 
-### 5.4.1 네이버 로그인 연결 끊기 알림 API 명세 
+### 4.4.1 네이버 로그인 연결 끊기 알림 API 명세 
 
 아래의 규격에 따라 API를 개발하여, 네이버에 제공해야합니다. 네이버는 제공된 URL정보를 통해 API를 호출합니다.
 
@@ -1201,7 +962,7 @@ application/x-www-form-urlencoded
 |50x| Internal Server Error | 내부 서버 오류로 인한 호출 실패 |
 
 
-### 5.4.2 이용자 고유 식별정보 암호화 전송
+### 4.4.2 이용자 고유 식별정보 암호화 전송
 
 네이버 로그인 연결 끊기 알림 API호출에 사용되는 정보는 이용자 고유 식별정보를 담고있기때문에, 암호화를 통해 안전하게 처리된 후 전송합니다.
 전달된 정보는 미리 정해진 규약을 통해 복호화 처리 후 이용 가능합니다.
@@ -1334,7 +1095,7 @@ public static String doDecryptWithPkcs5(final String encrypted,
 
 ~~~
 
-### 5.4.3 네이버 로그인 연결 끊기 알림 API 위변조 방지를 위한 HMAC 처리
+### 4.4.3 네이버 로그인 연결 끊기 알림 API 위변조 방지를 위한 HMAC 처리
 
 네이버 로그인 연결 끊기 알림 API 요청에 대한 위/변조 방지 및 무결성 검증을 위하여 HMAC Signature를 추가로 파라미터로 전달합니다. 서명값 검증을 통해 안전하게 처리하도록 합니다.
 
@@ -1417,11 +1178,11 @@ public static String generateMac(final String signatureBaseString,
 
 
 
-# 6. 네이버 로그인 부가 기능
+# 5. 네이버 로그인 부가 기능
 
-## 6.1 네이버앱에서 서비스 자동로그인 처리
+## 5.1 네이버앱에서 서비스 자동로그인 처리
 
-### 6.1.1 서비스 자동로그인이란
+### 5.1.1 서비스 자동로그인이란
 
 네이버 로그인을 통해 서비스를 이용한적이 있는 사용자가 네이버앱에서 서비스를 접근하는 경우, 사용자의 이용편의를 위하여 서비스에 자동으로 로그인된 상태로 전환하는 기능입니다.  
 
@@ -1439,11 +1200,11 @@ public static String generateMac(final String signatureBaseString,
 4. 로그인 완료
 
 
-### 6.1.2 제약사항
+### 5.1.2 제약사항
 
 본 기능은 "네이버앱"에서 서비스의 웹페이지를 접근하는 경우에만 수행이 가능한 기능합니다.
 
-### 6.1.3 네이버앱 판별 조건 
+### 5.1.3 네이버앱 판별 조건 
 
 네이버앱의 경우 특정 형식의 User-Agent를 지니고 있습니다. 따라서, 요청헤더의 User-Agent헤더를 통해 네이버앱 여부를 판별 가능합니다.
 
@@ -1459,7 +1220,7 @@ User-Agent 에 다음의 문자열이 포함되는지 확인
 Mozilla/5.0 (iPhone; CPU iPhone OS like Mac OS X) AppleWebKit/605.1.15 NAVER(inapp; search; 620; 10.10.2; XR)
 ```
 
-### 6.1.4 서비스 자동 로그인 명세
+### 5.1.4 서비스 자동 로그인 명세
 
 6.1.3의 조건에 부합하는 경우, 서비스에서는 302 redirect 처리 또는 javascript location replace 처리 등으로 사용자를 인증페이지로 이동시킵니다.
 
@@ -1487,7 +1248,7 @@ https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=CLIENT_ID&
 
 요청이 정상적으로 처리되면 recirect_uri (callback url) 로 처리 결과를 포함하여 페이지 Redirect 처리 됩니다. 정상적으로 자동로그인 대상으로 처리가 된 경우, 네이버 로그인 연동 callback 처리와 동일하게 처리하면 됩니다. (access token 발급 처리 후 로그인 처리)
 
-### 6.1.5 오류 상태와 오류 코드 정의
+### 5.1.5 오류 상태와 오류 코드 정의
 
 정상적으로 자동로그인을 처리할 수 없는 경우에는 callback 페이지에 오류 코드를 파라미터로 전달합니다.
 
@@ -1509,24 +1270,24 @@ https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=CLIENT_ID&
 자동 로그인 처리 실패에 대한 오류코드를 콜백으로 전달받은 경우, 기존과 동일하게 로그인 버튼을 통해 로그인 할 수 있도록 처리가 필요합니다.
 
 
-## 6.2 네이버 로그인 플러스
+## 5.2 네이버 로그인 플러스
 
 '네이버 로그인 플러스'는 서비스 가입에 필요한 약관 동의 대행 기능과 회원에게 마케팅 메시지 발송을 위한 톡톡 채널 연결까지 한번에 할 수 있는 기능입니다. 네이버 로그인 플러스를 적용하면 복잡한 가입 절차 없이 손쉽게 회원을 확보하고, 확보한 회원을 대상으로 네이버 톡톡을 이용해 다양한 마케팅/광고 메시지를 보낼 수 있습니다.
 
 
-### 6.2.1 서비스 약관 동의 대행
-#### 6.2.1.1 서비스 약관 동의 대행 기능이란?
+### 5.2.1 서비스 약관 동의 대행
+#### 5.2.1.1 서비스 약관 동의 대행 기능이란?
 
 네이버 로그인은 사용자 로그인 연동 외에 서비스의 이용에 필수적으로 필요한 "약관동의" 절차를 대행하는 기능을 제공하고 있습니다. 복잡한 동의 과정을 네이버 로그인을 통해 쉽고 편하게 제공하여 사용자의 편의를 높일 수 있습니다.
 
-#### 6.2.1.2 약관 동의 대행 연동 전 확인 사항
+#### 5.2.1.2 약관 동의 대행 연동 전 확인 사항
 
 - 개발가이드를 숙지하여, 네이버 로그인  연동에 필요한 사항들을 미리 점검합니다.
 - 네이버 개발자센터를 통해 애플리케이션을 등록합니다. 
 - 개발자센터의 "서비스 약관정보" 메뉴를 통해 약관동의 대행에 필요한 정보를 등록할 수 있습니다.
 - 서비스 약관 정보가 허위로 등록되거나 실제 서비스의 약관과 다를 경우 검수가 반려될 수 있으며, 또한 이미 서비스 이용중이더라도 "적용사"의 귀책사유로 이용이 제한될 수 있습니다.
 
-#### 6.2.1.3 주요 설정 정보
+#### 5.2.1.3 주요 설정 정보
 
 * 만 14세 이상만 가입 가능 
 	* 만 14세 미만 사용자에게 서비스를 제공하지 않는 경우 '만 14세 이상만 가입 가능' 설정을 할 수 있습니다.
@@ -1538,17 +1299,17 @@ https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=CLIENT_ID&
 	* 약관 태그 : 약관을 구분하는데 필요한 값
 	* 필수/선택 여부 : '필수동의'는 사용자가 동의하지 않을 경우 가입이 불가하며, '선택동의'는 사용자가 동의하지 않아도 가입을 진행할 수 있습니다.
 
-### 6.2.1.4 약관 동의 대행 설정 화면 예시
+### 5.2.1.4 약관 동의 대행 설정 화면 예시
 
 ![img_set_agreement_01.png](./images/img_set_agreement_01.png)
 
 
-### 6.2.1.5 약관 동의 대행 이용 화면 예시
+### 5.2.1.5 약관 동의 대행 이용 화면 예시
 
 ![img_agreement_example.png](./images/img_agreement_example.png)
 
 
-### 6.2.1.6 약관 동의 대행 사용자의 동의 여부 확인
+### 5.2.1.6 약관 동의 대행 사용자의 동의 여부 확인
 
 네이버 로그인 연동 이용자의 서비스 약관동의 상태 정보를 조회합니다. 약관 동의 대행을 설정한 애플리케이션에 한하여 조회기능을 제공합니다.
 
@@ -1664,9 +1425,9 @@ curl  -XGET "https://openapi.naver.com/v1/nid/agreement" \
 }
 ```
 
-### 6.2.2 네이버 톡톡 연결을 통한 마케팅 정보 수신 동의 기능
+### 5.2.2 네이버 톡톡 연결을 통한 마케팅 정보 수신 동의 기능
 
-#### 6.2.2.1 네이버 톡톡 연결 기능이란?
+#### 5.2.2.1 네이버 톡톡 연결 기능이란?
 
 네이버 로그인 애플리케이션과 네이버 톡톡 계정을 연결하면, 네이버 로그인 동의창에서 톡톡 ‘알림받기’에 대한 동의(마케팅 정보 수신 동의)를 한번에 받을 수 있고, ‘알림받기’에 동의한 사용자들에게 [톡톡파트너센터](https://partner.talk.naver.com/)에서 서비스 소식 및 마케팅 메시지를 발송할 수 있습니다. 이제 네이버 로그인-톡톡 연결을 통해 마케팅 정보 수신 동의 고객을 효율적으로 모으고 마케팅 메시지를 보내보세요! 
 
@@ -1674,13 +1435,13 @@ curl  -XGET "https://openapi.naver.com/v1/nid/agreement" \
 [톡톡파트너센터에서 마케팅 메시지 발송하는 법 바로가기 >](https://blog.naver.com/naver_talk/220544102116)
 
 
-#### 6.2.2.2 톡톡 연결 전 확인 사항
+#### 5.2.2.2 톡톡 연결 전 확인 사항
 
 * 개발가이드를 숙지하여, 네이버 로그인 연동에 필요한 사항들을 미리 점검합니다.
 * 네이버 개발자센터를 통해 애플리케이션을 등록합니다.
 * 네이버 [톡톡파트너센터](https://partner.talk.naver.com/)를 통해 톡톡 계정을 생성합니다. 기존에 사용중인 톡톡 계정이 있다면 해당 계정 정보를 확인하여 연결을 준비합니다.
 
-#### 6.2.2.3 주요 설정 방법
+#### 5.2.2.3 주요 설정 방법
 
 네이버 개발자센터와 톡톡파트너센터에서 네이버 로그인 애플리케이션과 톡톡 계정을 연결할 수 있습니다. 두 센터 중 한 곳에서만 연결해도 연결 정보가 연동되어 노출됩니다.
 
