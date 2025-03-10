@@ -432,7 +432,6 @@ namespace NaverAPI_Guide
 |expires_in|integer|접근 토큰의 유효 기간(초 단위)|
 |error|string|에러 코드|
 |error_description|string|에러 메시지|
-|id_token|string|open id를 사용하는 경우 인증 토큰 발급|
 
 ### 4.3. 접근 토큰 갱신 요청
 
