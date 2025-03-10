@@ -581,11 +581,146 @@ curl  -XGET "https://openapi.naver.com/v1/nid/me" \
 |response/expire_date |String |Y |접근토큰만료시각|
 |response/allowed_profile |String |Y |허용 프로필 항목(쉼표로 구분)|
 
+## 3.5 Open ID Connect로 네이버 로그인 연동하기
 
-## 3.5 네이버의 로그인오픈 API의 이용
+### 3.5.1 개발하기에 앞서
+
+기존에 제공하고 있는 OAuth2.0 API와 별도로 분리하여 기능을 제공하고 있는 형태입니다.
+다음 설명에서 기존 API와 유사하지만 다른 path로 제공하고 있는 점과 요청 파라메터와 응답값이 유사하지만 일부 다른 형태를 띄고있음을 유의하시기 바랍니다.
+
+Open ID Connect(ODIC)를 사용하여 id_token 발급을 추가로 받는 경우 기존과 다른 API 사용이 필요합니다.
+본문에서 앞으로 Open ID Connect는 OIDC로 표기합니다.
+
+### 3.5.2 OIDC configuration 정보 조회
+
+OIDC에서 제공하고 있는 API와 메타 정보 조회를 위한 API입니다.
+OIDC를 구현한 client side framework를 사용하는 경우 해당 URL을 설정하여 손쉽게 OIDC를 적용할 수 있습니다. 
+
+***요청 URL 정보***
+
+| 메서드 | 요청 URL | 출력 포맷 | 설명 | 
+|:--:| ---- |:--:|:--:|
+| GET |https://nid.naver.com/.well-known/openid-configuration |  JSON   | OIDC 메타 정보 |
+
+***요청문 샘플***
+
+```text
+https://nid.naver.com/.well-known/openid-configuration
+```
+
+### 3.5.3 jwk key 발급
+
+id_token 생성과 시그니처 검증에 사용될 key를 발급 하는 API.
+초기화 과정에서 OIDC용 jwk key가 존재 하지 않느다면 요청하여 key를 설정합니다. 
+
+***요청 URL 정보***
+
+| 메서드 | 요청 URL | 출력 포맷 | 설명 | 
+|:--:| ---- |:--:|:--:|
+| GET |https://nid.naver.com/oauth2/jwks |  JSON   | id_token 발급, 검증시에 사용할 키 정보 |
+
+***요청문 샘플***
+
+```text
+https://nid.naver.com/oauth2/jwks
+```
+
+### 3.5.3 네이버 로그인 연동 URL 생성하기
+
+3.4.2 내용과 동일
+
+***요청 URL 정보***
+
+| 메서드 | 요청 URL | 출력 포맷 | 설명 | 
+|:--:| ---- |:--:|:--:|
+| GET / POST   |https://nid.naver.com/oauth2/authorize |  URL 리다이렉트   | 네이버 로그인 인증 요청|
+
+***요청 변수 정보***
+
+| 요청 변수명 |타입 |필수 여부 |기본값 |설명 |
+|:--:|:-:|:-:|:-:|-----|
+| response_type |string |Y |code |인증 과정에 대한 내부 구분값으로 'code'로 전송해야 함 |
+| client_id |string |Y |- |애플리케이션 등록 시 발급받은 Client ID 값 |
+| redirect_uri |string |Y |- |애플리케이션을 등록 시 입력한 Callback URL 값으로 URL 인코딩을 적용한 값 |
+| state |string |Y |- |사이트 간 요청 위조(cross-site request forgery) 공격을 방지하기 위해 애플리케이션에서 생성한 상태 토큰값으로 URL 인코딩을 적용한 값을 사용 |
+| scope |string |Y |- | 'openid' scope 필수|
+|code_challenge|string|N|-|해시처리된 PKCE value|
+|code_challenge_method|string|N|S256|PKCE 알고리즘|
+
+***요청문 샘플***
+
+```text
+https://nid.naver.com/oauth2/authorize?response_type=code&client_id=CLIENT_ID&state=STATE_STRING&redirect_uri=CALLBACK_URL&scope=openid&code_challenge=CODE_CHALLENGE&code_challenge_method=S256
+```
+
+### 3.5.4 네이버 로그인 연동 결과 Callback 정보
+
+네이버 로그인 인증 요청 API를 호출했을 때 사용자가 네이버로 로그인하지 않은 상태이면 네이버 로그인 화면으로 이동하고, 사용자가 네이버에 로그인한 상태이면 기본 정보 제공 동의 확인 화면으로 이동합니다.<br/>
+네이버 로그인과 정보 제공 동의 과정이 완료되면 콜백 URL에 code값과 state 값이 URL 문자열로 전송됩니다. code 값은 접근 토큰 발급 요청에 사용합니다.<br/>
+API 요청 실패시에는 에러 코드와 에러 메시지가 전송됩니다.
+
+***Callback 응답 정보***
+
+* API 요청 성공시 : http://콜백URL/redirect?code={code값}&state={state값}
+* API 요청 실패시 : http://콜백URL/redirect?state={state값}&error={에러코드값}&error_description={에러메시지}
+
+|필드|타입|설명|
+|:--:|:-:|-------|
+|code|string|네이버 로그인 인증에 성공하면 반환받는 인증 코드, 접근 토큰(access token) 발급에 사용|
+|state|string|사이트 간 요청 위조 공격을 방지하기 위해 애플리케이션에서 생성한 상태 토큰으로 URL 인코딩을 적용한 값|
+|error|string|네이버 로그인 인증에 실패하면 반환받는 에러 코드|
+|error_description|string|네이버 로그인 인증에 실패하면 반환받는 에러 메시지|
+
+### 3.5.5 접근 토큰 발급 요청
+
+Callback으로 전달받은 정보를 이용하여 접근 토큰을 발급받을 수 있습니다. 접근 토큰은 사용자가 인증을 완료했다는 것을 보장할 수 있는 인증 정보입니다.<br/>
+이 접근 토큰을 이용하여 프로필 API를 호출하거나 오픈API를 호출하는것이 가능합니다.
+
+Callback으로 전달받은 'code' 값을 이용하여 '접근토큰발급API'를 호출하게 되면 API 응답으로 접근토큰에 대한 정보를 받을 수 있습니다.<br/>
+'code' 값을 이용한 API호출은 최초 1번만 수행할 수 있으며 접근 토큰 발급이 완료되면 사용된 'code'는 더 이상 재사용할수 없습니다.
+
+***요청 URL 정보***
+
+| 메서드 | 요청 URL | 출력 포맷 | 설명 | 
+|:--:|-----|:-:| --- |
+| POST   |https://nid.naver.com/oauth2/token |  json    | 접근토큰 발급 요청|
+
+***요청 변수 정보***
+
+|요청 변수명 |타입 |필수 여부 |기본값 |설명|
+|:--:|:-:|:-:|:-:|-----|
+|grant_type |string |Y |- |인증 과정에 대한 구분값<br>1) 발급:'authorization_code'<br>2) 갱신:'refresh_token'<br>3) 삭제: 'delete'|
+|client_id |string |Y |- |애플리케이션 등록 시 발급받은 Client ID 값|
+|client_secret |string |Y |- |애플리케이션 등록 시 발급받은 Client secret 값|
+|code |string |발급 때 필수 |- |로그인 인증 요청 API 호출에 성공하고 리턴받은 인증코드값 (authorization code)|
+|state |string |발급 때 필수 |- |사이트 간 요청 위조(cross-site request forgery) 공격을 방지하기 위해 애플리케이션에서 생성한 상태 토큰값으로 URL 인코딩을 적용한 값을 사용|
+|refresh_token |string |갱신 때 필수 |- |네이버 사용자 인증에 성공하고 발급받은 갱신 토큰(refresh token)|
+|access_token |string |삭제 때 필수 |- |기 발급받은 접근 토큰으로 URL 인코딩을 적용한 값을 사용|
+|service_provider |string |삭제 때 필수 |'NAVER' |인증 제공자 이름으로 'NAVER'로 세팅해 전송|
+|code_verifier |string |N |- |PKCE로 동작하는 경우 추가|
+
+***요청문 샘플***
+
+```text
+https://nid.naver.com/oauth2/token?grant_type=authorization_code&client_id=jyvqXeaVOVmV&client_secret=527300A0_COq1_XV33cf&code=EIc5bFrl4RibFls1&state=9kgsGTfH4j7IyAkg&code_verifier=CODE_VERIFIER  
+```
+
+***응답 정보***
+
+|필드 |타입 |설명|
+|:--:|:--:|-----|
+|access_token |string |접근 토큰, 발급 후 expires_in 파라미터에 설정된 시간(초)이 지나면 만료됨|
+|refresh_token |string |갱신 토큰, 접근 토큰이 만료될 경우 접근 토큰을 다시 발급받을 때 사용|
+|token_type |string |접근 토큰의 타입으로 Bearer와 MAC의 두 가지를 지원|
+|expires_in |integer |접근 토큰의 유효 기간(초 단위)|
+|id_token |integer |id token, 사용자 인증시 사용|
+|error |string |에러 코드|
+|error_description |string |에러 메시지|
+
+## 3.6 네이버의 로그인오픈 API의 이용
 로그인을 해야 사용할 수 있는 네이버의 다양한 오픈 API들을 사용할 수 있습니다. 여기에서는 그 중 주요 세 가지 로그인 오픈 API 에 대해 설명합니다.
 
-### 3.5.1 카페 오픈 API
+### 3.6.1 카페 오픈 API
 
 이제 카페 API를 통해 서비스에서부터 공식카페까지 자연스럽게 연결할 수 있습니다.<br/>
 대한민국 대표 커뮤니티, 네이버 카페의 접근성을 높여 운영하시는 서비스의 커뮤니티를 더욱 알차게 만들어 보세요! 
@@ -594,7 +729,7 @@ curl  -XGET "https://openapi.naver.com/v1/nid/me" \
 
 [카페 오픈 API 개발가이드 바로가기 >](/cafe-api/cafe-api.md)
 
-### 3.5.2 캘린더 오픈 API
+### 3.6.2 캘린더 오픈 API
 
 캘린더 API를 통해 네이버 로그인 연동 유저의 네이버 캘린더에 일정을 등록하고 일정 미리 알림을 받을 수 있습니다.<br/>
 1200만 다운로드에 빛나는 1위 캘린더앱 ‘네이버 캘린더’를 통해 유저에게 주요 일정도 홍보하고 서비스 참여도도 높이세요! 
@@ -827,6 +962,7 @@ https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=CLIENT_ID&
 | 메서드 | 요청 URL | 출력 포맷 | 설명 | 
 | :--: | ----- | :--: | --- |
 | GET / POST   |https://nid.naver.com/oauth2.0/authorize |  URL 리다이렉트   | 네이버 로그인 인증 요청|
+| GET / POST   |https://nid.naver.com/oauth2/authorize |  URL 리다이렉트   | OIDC 네이버 로그인 인증 요청|
 
 ***요청 변수 정보***
 

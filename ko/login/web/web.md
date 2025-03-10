@@ -775,5 +775,158 @@ naver_id_login.init_naver_id_login();
     <br>
     <br>
 </div>
+    <h3 class="h_sub">3. Java / Spring Boot, OAuth2으로 OIDC 적용시</h3>
+    <p class="p_desc">OIDC를 구현하고 하고 있는 client framework중 spring security의 OAuth2를 사용하는 경우 적용 예 입니다.</p>
+    <h4 class="h_subsub">3.1. 요구 사항 및 의존성 추가</h4>
+    <p class="p_desc">
+        Java 17 이상, Spring boot 3.x 이상
+    </p>
+<h5>gradle 의존성</h5></h5>
+<pre class="prettyprint">
+implementation 'org.springframework.boot:spring-boot-starter-security'
+implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+</pre>
+    <h4 class="h_subsub">3.2. Spring Boot 설정</h4>
+    <p class="p_desc">
+        application.yml 또는 application.properties 설정
+        Spring Security는 설정 파일에서 OIDC 제공자 정보를 읽어 자동으로 연동합니다.
+    </p>
+<p class="p_desc">
+application.yml 또는 application.properties 설정
+Spring Security는 설정 파일에서 OIDC 제공자 정보를 읽어 자동으로 연동합니다.
+</p>
+<pre class="prettyprint">
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          naver:  # 제공자 이름 (임의로 지정 가능)
+            provider: naver
+            client-id: your-naver-client-id
+            client-secret: your-naver-client-secret
+            scope: openid,profile
+            client-authentication-method: client_secret_post
+            authorization-grant-type: authorization_code
+            redirect-uri: https://example.com/login/oauth2/code/{registrationId} # 개발자센터에 해당 URL 등록 https://example.com/login/oauth2/code/naver
+            scope: openid, profile
+        provider:
+          naver:
+            issuer-uri: https://nid.naver.com  # Naver의 Issuer URI
+</pre>
+<p class="p_desc">
+기본 설정
+Spring Boot는 최소 설정으로 OIDC를 자동 구성합니다. 기본 동작:
+/login 경로로 접근 시 OIDC 제공자의 로그인 페이지로 리디렉션.
+인증 후 기본 리디렉션 경로는 /.
+사용자 정의 설정
+
+Spring Boot 3.x (SecurityFilterChain 사용)
+Spring Boot 3.x에서는 WebSecurityConfigurerAdapter가 제거되었으므로, SecurityFilterChain을 사용합니다:
+</p>
+<pre class="prettyprint">
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.web.SecurityFilterChain;
+
+@Configuration
+public class SecurityConfig {
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+            .authorizeHttpRequests(authorize -> authorize
+                .requestMatchers("/public/**").permitAll()
+                .anyRequest().authenticated()
+            )
+            .oauth2Login(oauth2 -> oauth2
+                .loginPage("/login")
+                .defaultSuccessUrl("/home", true)
+            )
+            .logout(logout -> logout
+                .logoutSuccessUrl("/login?logout")
+            );
+        return http.build();
+    }
+    @Bean
+	OAuth2UserService<OidcUserRequest, OidcUser> oAuth2UserService() {
+		OidcUserService oidcUserService = new OidcUserService();
+		oidcUserService.setOauth2UserService(new NaverOAuth2UserService());
+		return oidcUserService;
+	}
+}
+</pre>
+<p class="p_desc">
+access token으로 사용자 정보 요청처리를 하는 NaverOAuth2UserService 클래스를 추가합니다.
+</p>
+<div class="code_area">
+<pre class="prettyprint">
+public class NaverOAuth2UserService extends DefaultOAuth2UserService {
+	private final RestClient restClient = RestClient.create();
+	public NaverOAuth2UserService() {
+		super();
+	}
+	@Override
+	public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
+		if (userRequest.getClientRegistration().getRegistrationId().equals("naver")) {
+			String userInfoUri = userRequest.getClientRegistration()
+				.getProviderDetails()
+				.getUserInfoEndpoint()
+				.getUri();
+			String tokenValue = userRequest.getAccessToken()
+				.getTokenValue();
+			ResponseEntity<NaverUserInfoDto> response = restClient.get()
+				.uri(userInfoUri)
+				.headers(httpHeaders -> httpHeaders.setBearerAuth(tokenValue))
+				.retrieve()
+				.toEntity(NaverUserInfoDto.class);
+			if (response.hasBody()) {
+				NaverUserInfoDto oauthResponse = response.getBody();
+                if (oauthResponse != null && oauthResponse.response() instanceof Map userAttributes) {
+					userAttributes.computeIfAbsent(StandardClaimNames.SUB, key -> userAttributes.get("id"));
+					userAttributes.remove("id");
+					Set<GrantedAuthority> authorities = new LinkedHashSet<>();
+					authorities.add(new OAuth2UserAuthority(userAttributes));
+					OAuth2AccessToken token = userRequest.getAccessToken();
+					for (String authority : token.getScopes()) {
+						authorities.add(new SimpleGrantedAuthority("SCOPE_" + authority));
+					}
+					return new DefaultOAuth2User(authorities, userAttributes, "name");
+				}
+			}
+		}
+		return super.loadUser(userRequest);
+	}
+	private record NaverUserInfoDto(
+		String resultcode,
+		String message,
+		Map response) {
+	}
+}
+</pre>
+</div>
+    <h4 class="h_subsub">3.3. 동작 확인</h4>
+    <p class="p_desc">
+        애플리케이션을 실행합니다.
+        브라우저에서 http://localhost:8080에 접속하면 /login으로 리디렉션되고, 네이버 로그인 페이지로 이동합니다.
+        로그인 후 /home으로 리디렉션되며, 인증된 사용자 정보는 SecurityContextHolder에서 확인 가능합니다.
+        사용자 정보 확인 예시
+    </p>
+<div class="code_area">
+<pre class="prettyprint">
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HomeController {
+    @GetMapping("/home")
+    public String home(@AuthenticationPrincipal OidcUser user) {
+        return "Welcome, " + user.getSubject() + ", profile : " + user.getProfile();
+    }
+}
+</pre>
+</div>
 </body>
 </html>
