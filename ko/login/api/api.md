@@ -366,9 +366,10 @@ namespace NaverAPI_Guide
 |GET / POST|OAuth 2.0|https://nid.naver.com/oauth2.0/token|json|접근 토큰 발급/갱신/삭제 요청|
 
 
+
 ## 3. 요청 변수
 
-### 3.1. 네이버 로그인 인가 요청
+### 3.1. 네이버 로그인 인증 요청
 
 |요청 변수명|타입|필수 여부|기본값|설명|
 |--|--|-|-|---|
@@ -376,9 +377,7 @@ namespace NaverAPI_Guide
 |client_id|string|Y|-|애플리케이션 등록 시 발급받은 Client ID 값|
 |redirect_uri|string|Y|-|애플리케이션을 등록 시 입력한 Callback URL 값으로 URL 인코딩을 적용한 값|
 |state|string|Y|-|사이트 간 요청 위조(cross-site request forgery) 공격을 방지하기 위해 애플리케이션에서 생성한 상태 토큰값으로 URL 인코딩을 적용한 값을 사용|
-|scope|string|N|-|접근 허용 범위를 처리하기 위한 내부 구분값으로 전송할 필요 없음, Open ID Connect를 사용하는 경우 openid 추가|
-|code_challenge|string|N|-|해시처리된 PKCE value|
-|code_challenge_method|string|N|S256|PKCE 알고리즘|
+|scope|string|N|-|접근 허용 범위를 처리하기 위한 내부 구분값으로 전송할 필요 없음|
 
 ### 3.2. 접근 토큰 발급/갱신/삭제 요청
 
@@ -408,7 +407,7 @@ namespace NaverAPI_Guide
 
 ## 4. 출력 결과
 
-### 4.1. 네이버 로그인 인가 요청
+### 4.1. 네이버 로그인 인증 요청
 
 네이버 로그인 인증 요청 API를 호출했을 때 사용자가 네이버로 로그인하지 않은 상태이면 네이버 로그인 화면으로 이동하고, 사용자가 네이버에 로그인한 상태이면 기본 정보 제공 동의 확인 화면으로 이동합니다. 네이버 로그인과 정보 제공 동의 과정이 완료되면 콜백 URL에 code값과 state 값이 URL 문자열로 전송됩니다. code 값은 접근 토큰 발급 요청에 사용합니다. API 요청 실패시에는 에러 코드와 에러 메시지가 전송됩니다.
 
@@ -478,7 +477,7 @@ namespace NaverAPI_Guide
 
 AccessToken 값은 일부 특수문자가 포함되어 있기 때문에 GET Parameter를 통하여 데이터를 전달하는 경우, AccessToken 값을 반드시 URL Encode 처리한 후에 전송하여야합니다.
 
-#### 6.1.1. 네이버 로그인 인가 요청
+#### 6.1.1. 네이버 로그인 인증 요청
 
 ```sh
 https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=jyvqXeaVOVmV&redirect_uri=http%3A%2F%2Fservice.redirect.url%2Fredirect&state=hLiDdL2uhPtsftcU
