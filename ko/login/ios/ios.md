@@ -329,7 +329,7 @@ struct LoginResult {
 
 `NidError`는 열거형 타입으로 발생한 에러에 대한 정의가 포함되어 있습니다.
 
-> **참고**<br> [NidError](ios-api-reference.md#6-niderror)
+> **참고**<br> [NidError](ios-api-reference.md#6--niderror)
 
 
 
@@ -362,9 +362,9 @@ var refreshToken: RefreshToken? { get }
 
 > **참고**<br>
 >
-> [AccessToken](ios-api-reference.md#4-accesstoken) <br>
+> [AccessToken](ios-api-reference.md#4--accesstoken) <br>
 >
-> [RefreshToken](ios-api-reference.md#5-refreshtoken)
+> [RefreshToken](ios-api-reference.md#5--refreshtoken)
 
 
 
@@ -501,7 +501,7 @@ func reauthenticate(callback: @escaping LoginResultCompletion)
 
 > **참고**<br>
 >
-> [인증 방식 설정](#52-인증-방식-설정)
+> [인증 방식 설정](#5-2-인증-방식-설정)
 
 
 
@@ -544,7 +544,7 @@ func getUserProfile(
 
 > **참고**<br>
 >
-> [프로필 API 필드](../profile/profile.md#5-출력-결과)
+> [프로필 API 필드](../profile/profile.md)
 
 
 
