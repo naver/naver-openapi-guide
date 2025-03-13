@@ -97,9 +97,9 @@ func handleURL(_ url: URL) -> Bool
 
 **파라미터**
 
-| 파라미터 | 타입  | 필수 여부 |      설명      |
-| :------: | :---: | :-------: | :------------: |
-|   Url    | `URL` |     Y     | 반환받은 `url` |
+| 파라미터 | 타입 | 필수 여부 | 설명 |
+|:--:|:--:|:--:|:--|
+| Url | `URL` | Y | 반환받은 `url` |
 
 **반환값**
 
@@ -121,9 +121,9 @@ func setLoginBehavior(_ behavior: LoginBehavior)
 
 **파라미터**
 
-| 파라미터 |      타입       | 필수 여부 |                             설명                             |
-| :------: | :-------------: | :-------: | :----------------------------------------------------------: |
-| behavior | `LoginBehavior` |     Y     | 설정할 인증 방식<br />기본 값: `appPreferredWithInAppBrowserFallback` |
+| 파라미터 | 타입 | 필수 여부 | 설명 |
+|:--:|:--:|:--:|:--|
+| behavior | `LoginBehavior` | Y | 설정할 인증 방식<br />기본 값: `appPreferredWithInAppBrowserFallback` |
 
 **반환값**
 
@@ -147,9 +147,9 @@ func requestLogin(callback: @escaping LoginResultCompletion)
 
 **파라미터**
 
-| 파라미터 |          타입           | 필수 여부 |                           설명                            |
-| :------: | :---------------------: | :-------: | :-------------------------------------------------------: |
-| callback | `LoginResultCompletion` |     Y     | 로그인 프로세스가 끝난 후 결과를 전달할 클로져(`Closure`) |
+| 파라미터 | 타입 | 필수 여부 | 설명 |
+|:--:|:--:|:--:|:--|
+| callback | `LoginResultCompletion` | Y | 로그인 프로세스가 끝난 후 결과를 전달할 클로져(`Closure`) |
 
 **반환값**
 
@@ -196,9 +196,9 @@ func disconnect(callback: @escaping (Result<Void, NidError>) -> Void)
 
 **파라미터**
 
-| 파라미터 |                타입                | 필수 여부 |                             설명                             |
-| :------: | :--------------------------------: | :-------: | :----------------------------------------------------------: |
-| callback | `(Result<Void, NidError>) -> Void` |     Y     | 연동 해제 프로세스가 끝난 후 결과를 전달할 클로져(`Closure`) |
+| 파라미터 | 타입 | 필수 여부 | 설명 |
+|:--:|:--:|:--:|:--|
+| callback | `(Result<Void, NidError>) -> Void` | Y | 연동 해제 프로세스가 끝난 후 결과를 전달할 클로져(`Closure`) |
 
 **반환값**
 
@@ -222,11 +222,10 @@ func getUserProfile(
 ```
 
 **파라미터**
-
-|  파라미터   |                      타입                       | 필수 여부 |                             설명                             |
-| :---------: | :---------------------------------------------: | :-------: | :----------------------------------------------------------: |
-| accessToken |                    `String`                     |     Y     |      로그인 결과로 받은  `AccessToken`의 `tokenString`       |
-|  callback   | `(Result<[String : String], NidError>) -> Void` |     Y     | 가져온 프로필 항목에 대한 결과를 전달할 클로져(`Closure`)<br />프로필 항목 이름과 이에 대한 값이 `Dictionary` 타입으로 전달됨 |
+| 파라미터 | 타입 | 필수 여부 | 설명 |
+|:--:|:--:|:--:|:--|
+| accessToken | `String` | Y | 로그인 결과로 받은  `AccessToken`의 `tokenString` |
+| callback | `(Result<[String : String], NidError>) -> Void` | Y | 가져온 프로필 항목에 대한 결과를 전달할 클로져(`Closure`)<br />프로필 항목 이름과 이에 대한 값이 `Dictionary` 타입으로 전달됨 |
 
 **반환값**
 
@@ -250,9 +249,9 @@ func reauthenticate(callback: @escaping LoginResultCompletion)
 
 **파라미터**
 
-| 파라미터 |          타입           | 필수 여부 |                           설명                            |
-| :------: | :---------------------: | :-------: | :-------------------------------------------------------: |
-| callback | `LoginResultCompletion` |     Y     | 로그인 프로세스가 끝난 후 결과를 전달할 클로져(`Closure`) |
+| 파라미터 | 타입 | 필수 여부 | 설명 |
+|:--:|:--:|:--:|:--|
+| callback | `LoginResultCompletion` | Y | 로그인 프로세스가 끝난 후 결과를 전달할 클로져(`Closure`) |
 
 **반환값**
 
@@ -273,10 +272,9 @@ func repromptPermissions(callback: @escaping LoginResultCompletion)
 ```
 
 **파라미터**
-
-| 파라미터 |          타입           | 필수 여부 |                           설명                            |
-| :------: | :---------------------: | :-------: | :-------------------------------------------------------: |
-| callback | `LoginResultCompletion` |     Y     | 로그인 프로세스가 끝난 후 결과를 전달할 클로져(`Closure`) |
+| 파라미터 | 타입 | 필수 여부 | 설명 |
+|:--:|:--:|:--:|:--|
+| callback | `LoginResultCompletion` | Y | 로그인 프로세스가 끝난 후 결과를 전달할 클로져(`Closure`) |
 
 **반환값**
 
@@ -301,10 +299,10 @@ func verifyAccessToken(
 
 **파라미터**
 
-|  파라미터   |                타입                | 필수 여부 |                          설명                           |
-| :---------: | :--------------------------------: | :-------: | :-----------------------------------------------------: |
-| accessToken |              `String`              |     Y     |    로그인 결과로 받은  `AccessToken`의 `tokenString`    |
-|  callback   | `(Result<Bool, NidError>) -> Void` |     Y     | 접근 토큰의 유효성 검사 결과를 처리할 클로져(`Closure`) |
+| 파라미터 | 타입 | 필수 여부 | 설명 |
+|:--:|:--:|:--:|:--|
+| accessToken | `String` | Y |    로그인 결과로 받은  `AccessToken`의 `tokenString` |
+| callback | `(Result<Bool, NidError>) -> Void` | Y | 접근 토큰의 유효성 검사 결과를 처리할 클로져(`Closure`) |
 
 **반환값**
 
