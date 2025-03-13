@@ -4,9 +4,15 @@
 
 네이버 아이디로 로그인 iOS SDK는 서드파티 애플리케이션에서 네이버에서 제공하는 로그인, 로그아웃, 토큰 관리 등의 기능을 쉽게 구현할 수 있게 합니다.
 
+<div class="con">
+    <div class="buttons2">
+        <a class="btn_b_hi3" href="https://github.com/naver/naveridlogin-sdk-ios-swift">라이브러리 및 샘플앱 보기 &gt;</a>
+        <a class="btn_b_hi3" href="https://github.com/naver/naveridlogin-sdk-ios-swift/issues">이슈 등록 &gt;</a>
+        <a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
+    </div>
+</div>
 
 
-[라이브러리 및 샘플앱 보기 >](https://github.com/naver/naveridlogin-sdk-ios-swift) [이슈 등록 >](https://github.com/naver/naveridlogin-sdk-ios-swift/issues) [오픈 API 이용 신청 >](https://developers.naver.com/apps/#/register?api=nvlogin)
 
 라이브러리 및 샘플앱 보기를 통해 소스코드를 참고할 수 있습니다.
 
@@ -39,9 +45,11 @@
 - `NidThirdPartyLogin`: 네아로 SDK
 - `NidThirdPartyLoginSample`: 네아로 SDK를 사용하는 예제 프로젝트
 
-[라이브러리 및 샘플앱 보기 >](https://github.com/naver/naveridlogin-sdk-ios-swift) 
-
-
+<div class="con">
+    <div class="buttons2">
+        <a class="btn_b_hi3" href="https://github.com/naver/naveridlogin-sdk-ios-swift">라이브러리 및 샘플앱 보기 &gt;</a>
+    </div>
+</div>
 
 
 
@@ -96,7 +104,7 @@ $ pod install
 
 로그인을 수행하기 전 아래 항목들을 `Info.plist`에 작성해야합니다.
 
-애플리케이션 설정 값은 [오픈 API 이용 신청 >](https://developers.naver.com/apps/#/register?api=nvlogin) 후, `Application` > `내 애플리케이션` > 앱 선택을 통해 확인할 수 있습니다.
+애플리케이션 설정 값은 <a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>후, `Application` > `내 애플리케이션` > 앱 선택을 통해 확인할 수 있습니다.
 
 
 
