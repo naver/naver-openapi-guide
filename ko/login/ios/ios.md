@@ -80,7 +80,7 @@ https://github.com/naver/naveridlogin-sdk-ios-swift
 use_frameworks!
 
 target 'YOUR_APP_TARGET' do
-	pod 'NidThirdPartyLogin'
+  pod 'NidThirdPartyLogin'
 end
 ```
 
@@ -122,13 +122,13 @@ $ pod install
 ```Swift
 <dict>
   <key>NidAppName</key>
-	<string>{애플리케이션 이름}</string>
-	<key>NidClientID</key>
-	<string>{클라이언트 아이디}</string>
-	<key>NidClientSecret</key>
-	<string>{클라이언트 시크릿}</string>
-	<key>NidUrlScheme</key>
-	<string>{콜백 URL Scheme}</string>
+  <string>{애플리케이션 이름}</string
+  <key>NidClientID</key>
+  <string>{클라이언트 아이디}</string
+  <key>NidClientSecret</key>
+  <string>{클라이언트 시크릿}</string
+  <key>NidUrlScheme</key>
+  <string>{콜백 URL Scheme}</string>
 </dict>
 ```
 
@@ -148,16 +148,16 @@ $ pod install
 
 ```Swift
 <key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleURLName</key>
-			<string>{URL Scheme Identifier}</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>{콜백 URL Scheme}</string>
-			</array>
-		</dict>
-	</array>
+  <array>
+    <dict>
+      <key>CFBundleURLName</key>
+      <string>{URL Scheme Identifier}</string>
+      <key>CFBundleURLSchemes</key>
+      <array>
+      	<string>{콜백 URL Scheme}</string>
+      </array>
+    </dict>
+  </array>
 ```
 
 
@@ -173,8 +173,8 @@ $ pod install
 ```Swift
 <key>LSApplicationQueriesSchemes</key>
   <array>
-      <string>naversearchapp</string>
-      <string>naversearchthirdlogin</string>
+    <string>naversearchapp</string>
+    <string>naversearchthirdlogin</string>
   </array>
 ```
 
@@ -195,8 +195,8 @@ $ pod install
 import NidThirdPartyLogin
 
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    NidOAuth.shared.initialize()
-    return true
+  NidOAuth.shared.initialize()
+  return true
 }
 ```
 
@@ -256,14 +256,14 @@ deployment target이 iOS 13.0 이상이라면, 기본적으로  `SceneDelegate`�
 ```Swift
 // SceneDelegate.swift
 func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-		if let url = URLContexts.first?.url {
-      if (NidOAuth.shared.handleURL(url) == true) { // 네이버앱에서 전달된 Url인 경우
-        return
-      }
-      
-      // 다른 앱에서 들어온 Url 처리
+  if let url = URLContexts.first?.url {
+    if (NidOAuth.shared.handleURL(url) == true) { // 네이버앱에서 전달된 Url인 경우
+      return
     }
-  	...
+    
+    // 다른 앱에서 들어온 Url 처리
+  }
+  ...
 }
 ```
 
@@ -274,13 +274,13 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
 ```Swift
 // AppDelegate.swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-    if (NidOAuth.shared.handleURL(url) == true) { // 네이버앱에서 전달된 Url인 경우
-      return true
-    }
+  if (NidOAuth.shared.handleURL(url) == true) { // 네이버앱에서 전달된 Url인 경우
+    return true
+  }
 		
-  	// 다른 앱에서 들어온 url 처리
+  // 다른 앱에서 들어온 url 처리
   
-    return false
+  return false
 }
 ```
 
@@ -322,8 +322,8 @@ typealias LoginResultCompletion = (Result<LoginResult, NidError>) -> Void
 
 ```Swift
 struct LoginResult {
-	let accessToken: AccessToken
-	let refreshToken: RefreshToken
+  let accessToken: AccessToken
+  let refreshToken: RefreshToken
 }
 ```
 
@@ -345,12 +345,12 @@ struct LoginResult {
 
 ```Swift
 NidOAuth.shared.requestLogin { result in
-	switch result {
-	case .success(let loginResult):
-		print("Access Token: ", loginResult.accessToken.tokenString)
-	case .failure(let error):
-		print("Error: ", error.localizedDescription)
-	}
+  switch result {
+  case .success(let loginResult):
+    print("Access Token: ", loginResult.accessToken.tokenString)
+  case .failure(let error):
+    print("Error: ", error.localizedDescription)
+  }
 }
 ```
 
@@ -418,13 +418,13 @@ func verifyAccessToken(
 
 ```Swift
 if let accessToken = NidOAuth.shared.accessToken(),
-    !accessToken.isExpired {
-     print("AccessToken: " accessToken.tokenString)
+     !accessToken.isExpired {
+  print("AccessToken: " accessToken.tokenString)
 } else {
-     // AccessToken이 없거나 유효하지 않은 경우
-     NidOAuth.shared.requestLogin {
-        ...
-     }
+  // AccessToken이 없거나 유효하지 않은 경우
+  NidOAuth.shared.requestLogin {
+    ...
+  }
 }
 ```
 
@@ -543,8 +543,8 @@ func repromptPermissions(callback: @escaping LoginResultCompletion)
 
 ```Swift
 func getUserProfile(
-    accessToken: String,
-    callback: @escaping (Result<[String : String], NidError>) -> Void
+  accessToken: String,
+  callback: @escaping (Result<[String : String], NidError>) -> Void
 )
 ```
 
@@ -560,18 +560,18 @@ func getUserProfile(
 
 ```Swift
 func getUserProfile() {
-    if let accessToken = NidOAuth.shared.accessToken(),
-       !accessToken.isExpired { // 접근 토큰이 유효하다면 바로 프로필 API 호출
-        fetchUserProfile(accessToken: accessToken)
-    } else {
-        // AccessToken이 없거나 유효하지 않은 경우
-        NidOAuth.shared.requestLogin { result in
-        case .success(let loginResult):
-            fetchUserProfile(accessToken: loginResult.accessToken)
-        case .failure(let error):
-            print("Error: ", error.localizedDescription)
-        }
+  if let accessToken = NidOAuth.shared.accessToken(),
+    !accessToken.isExpired { // 접근 토큰이 유효하다면 바로 프로필 API 호출
+    fetchUserProfile(accessToken: accessToken)
+  } else {
+    // AccessToken이 없거나 유효하지 않은 경우
+    NidOAuth.shared.requestLogin { result in
+    case .success(let loginResult):
+      fetchUserProfile(accessToken: loginResult.accessToken)
+    case .failure(let error):
+      print("Error: ", error.localizedDescription)
     }
+  }
 }
 
 func fetchUserProfile(accessToken: AccessToken) {
