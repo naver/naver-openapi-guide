@@ -1,5 +1,61 @@
 # 네이버 로그인 라이브러리 API Reference
 
+## 목차
+
+* [1. NidOAuth](#1--nidoauth)
+   
+   * [Type Properties](#type-properties)
+      * [1.1. shared](#1-1--shared)
+   * [Instance Properties](#instance-properties)
+      * [1.2. accessToken](#1-2--accesstoken)
+      * [1.3. refreshToken](#1-3--refreshtoken)
+   * [Instance Methods](#instance-methods)
+      * [1.4. initialize()](#1-4--initialize)
+      * [1.5. handleURL(_ url:)](#1-5--handleurl-url:)
+      * [1.6. setLoginBehavior(_:)](#1-6--setloginbehavior-:)
+      * [1.7. requestLogin(callback:)](#1-7--requestlogincallback:)
+      * [1.8. logout()](#1-8--logout)
+      * [1.9. disconnect(callback:)](#1-9--disconnectcallback:)
+      * [1.10. getUserProfile(accessToken:callback:)](#1-10--getuserprofileaccesstoken:callback:)
+      * [1.11. reauthenticate(callback:)](#1-11--reauthenticatecallback:)
+      * [1.12. repromptPermissions(callback:)](#1-12--repromptpermissionscallback:)
+      * [1.13 verifyAccessToken(_:callback:)](#1-13--verifyaccesstoken-callback:)
+   * [Type Aliases](#type-aliases)
+      * [1.14. LoginResultCompletion](#1-14--loginresultcompletion)
+   
+* [2. LoginBehavior](#2--loginbehavior)
+  
+  * [2.1. app](#2-1--app)
+  * [2.2. inAppBroswer](#2-2--inappbroswer)
+  * [2.3. appPreferredWithInAppBrowserFallback](#2-3--apppreferredwithinappbrowserfallback)
+  
+* [3. LoginResult](#3--loginresult)
+  
+  * [3.1. accessToken](#3-1--accesstoken)
+  * [3.2. refreshToken](#3-2--refreshtoken)
+  
+* [4. AccessToken](#4--accesstoken)
+  
+  * [4.1. tokenString](#4-1--tokenstring)
+  * [4.2. expiresAt](#4-2--expiresat)
+  * [4.3. isExpired](#4-3--isexpired)
+  
+* [5. RefreshToken](#5--refreshtoken)
+  
+      * [5.1. tokenString](#5-1--tokenstring)
+  
+* [6. NidError](#6--niderror)
+  
+  * [6.1. clientError(NidError.ClientErrorDetail)](#6-1--clienterrorniderror-clienterrordetail)
+  
+  * [6.2. serverError(NidError.ServerErrorDetail)](#6-2--servererrorniderror-servererrordetail)
+  
+      * [6.3. ClientErrorDetail](#6-3--clienterrordetail)
+  
+      * [6.4. ServerErrorDetail](#6-4--servererrordetail)
+  
+      
+
 ## 1. `NidOAuth`
 
 ```Swift
@@ -41,7 +97,7 @@ var accessToken: AccessToken? { get }
 ```
 
 > **참고** <br/>
-> [AccessToken](#4-accesstoken)
+> [AccessToken](#4--accesstoken)
 
 
 #### 1.3. `refreshToken`
@@ -57,7 +113,7 @@ var refreshToken: RefreshToken? { get }
 ```
 
 > **참고** <br/>
-> [RefreshToken](#5-refreshtoken)
+> [RefreshToken](#5--refreshtoken)
 
 ### Instance Methods
 
@@ -97,9 +153,9 @@ func handleURL(_ url: URL) -> Bool
 
 **파라미터**
 
-| 파라미터 | 타입  | 필수 여부 |      설명      |
-| :------: | :---: | :-------: | :------------: |
-|   Url    | `URL` |     Y     | 반환받은 `url` |
+| 파라미터 | 타입 | 필수 여부 | 설명 |
+|:--:|:--:|:--:|:--|
+| Url | `URL` | Y | 반환받은 `url` |
 
 **반환값**
 
@@ -121,15 +177,15 @@ func setLoginBehavior(_ behavior: LoginBehavior)
 
 **파라미터**
 
-| 파라미터 |      타입       | 필수 여부 |                             설명                             |
-| :------: | :-------------: | :-------: | :----------------------------------------------------------: |
-| behavior | `LoginBehavior` |     Y     | 설정할 인증 방식<br />기본 값: `appPreferredWithInAppBrowserFallback` |
+| 파라미터 | 타입 | 필수 여부 | 설명 |
+|:--:|:--:|:--:|:--|
+| behavior | `LoginBehavior` | Y | 설정할 인증 방식<br />기본 값: `appPreferredWithInAppBrowserFallback` |
 
 **반환값**
 
 없음
 
->  **참고** <br/>[LoginBehavior](#2-loginbehavior)
+>  **참고** <br/>[LoginBehavior](#2--loginbehavior)
 
 
 
@@ -147,16 +203,16 @@ func requestLogin(callback: @escaping LoginResultCompletion)
 
 **파라미터**
 
-| 파라미터 |          타입           | 필수 여부 |                           설명                            |
-| :------: | :---------------------: | :-------: | :-------------------------------------------------------: |
-| callback | `LoginResultCompletion` |     Y     | 로그인 프로세스가 끝난 후 결과를 전달할 클로져(`Closure`) |
+| 파라미터 | 타입 | 필수 여부 | 설명 |
+|:--:|:--:|:--:|:--|
+| callback | `LoginResultCompletion` | Y | 로그인 프로세스가 끝난 후 결과를 전달할 클로져(`Closure`) |
 
 **반환값**
 
 없음
 
 > **참고** <br/>
-> [LoginResultCompletion](#114-loginresultcompletion)
+> [LoginResultCompletion](#1-14--loginresultcompletion)
 
 
 
@@ -196,9 +252,9 @@ func disconnect(callback: @escaping (Result<Void, NidError>) -> Void)
 
 **파라미터**
 
-| 파라미터 |                타입                | 필수 여부 |                             설명                             |
-| :------: | :--------------------------------: | :-------: | :----------------------------------------------------------: |
-| callback | `(Result<Void, NidError>) -> Void` |     Y     | 연동 해제 프로세스가 끝난 후 결과를 전달할 클로져(`Closure`) |
+| 파라미터 | 타입 | 필수 여부 | 설명 |
+|:--:|:--:|:--:|:--|
+| callback | `(Result<Void, NidError>) -> Void` | Y | 연동 해제 프로세스가 끝난 후 결과를 전달할 클로져(`Closure`) |
 
 **반환값**
 
@@ -222,11 +278,10 @@ func getUserProfile(
 ```
 
 **파라미터**
-
-|  파라미터   |                      타입                       | 필수 여부 |                             설명                             |
-| :---------: | :---------------------------------------------: | :-------: | :----------------------------------------------------------: |
-| accessToken |                    `String`                     |     Y     |      로그인 결과로 받은  `AccessToken`의 `tokenString`       |
-|  callback   | `(Result<[String : String], NidError>) -> Void` |     Y     | 가져온 프로필 항목에 대한 결과를 전달할 클로져(`Closure`)<br />프로필 항목 이름과 이에 대한 값이 `Dictionary` 타입으로 전달됨 |
+| 파라미터 | 타입 | 필수 여부 | 설명 |
+|:--:|:--:|:--:|:--|
+| accessToken | `String` | Y | 로그인 결과로 받은  `AccessToken`의 `tokenString` |
+| callback | `(Result<[String : String], NidError>) -> Void` | Y | 가져온 프로필 항목에 대한 결과를 전달할 클로져(`Closure`)<br />프로필 항목 이름과 이에 대한 값이 `Dictionary` 타입으로 전달됨 |
 
 **반환값**
 
@@ -250,9 +305,9 @@ func reauthenticate(callback: @escaping LoginResultCompletion)
 
 **파라미터**
 
-| 파라미터 |          타입           | 필수 여부 |                           설명                            |
-| :------: | :---------------------: | :-------: | :-------------------------------------------------------: |
-| callback | `LoginResultCompletion` |     Y     | 로그인 프로세스가 끝난 후 결과를 전달할 클로져(`Closure`) |
+| 파라미터 | 타입 | 필수 여부 | 설명 |
+|:--:|:--:|:--:|:--|
+| callback | `LoginResultCompletion` | Y | 로그인 프로세스가 끝난 후 결과를 전달할 클로져(`Closure`) |
 
 **반환값**
 
@@ -273,10 +328,9 @@ func repromptPermissions(callback: @escaping LoginResultCompletion)
 ```
 
 **파라미터**
-
-| 파라미터 |          타입           | 필수 여부 |                           설명                            |
-| :------: | :---------------------: | :-------: | :-------------------------------------------------------: |
-| callback | `LoginResultCompletion` |     Y     | 로그인 프로세스가 끝난 후 결과를 전달할 클로져(`Closure`) |
+| 파라미터 | 타입 | 필수 여부 | 설명 |
+|:--:|:--:|:--:|:--|
+| callback | `LoginResultCompletion` | Y | 로그인 프로세스가 끝난 후 결과를 전달할 클로져(`Closure`) |
 
 **반환값**
 
@@ -301,10 +355,10 @@ func verifyAccessToken(
 
 **파라미터**
 
-|  파라미터   |                타입                | 필수 여부 |                          설명                           |
-| :---------: | :--------------------------------: | :-------: | :-----------------------------------------------------: |
-| accessToken |              `String`              |     Y     |    로그인 결과로 받은  `AccessToken`의 `tokenString`    |
-|  callback   | `(Result<Bool, NidError>) -> Void` |     Y     | 접근 토큰의 유효성 검사 결과를 처리할 클로져(`Closure`) |
+| 파라미터 | 타입 | 필수 여부 | 설명 |
+|:--:|:--:|:--:|:--|
+| accessToken | `String` | Y |    로그인 결과로 받은  `AccessToken`의 `tokenString` |
+| callback | `(Result<Bool, NidError>) -> Void` | Y | 접근 토큰의 유효성 검사 결과를 처리할 클로져(`Closure`) |
 
 **반환값**
 
@@ -404,7 +458,7 @@ let accessToken: AccessToken
 
 **참고** <br/>
 
-[AccessToken](#4-accesstoken)
+[AccessToken](#4--accesstoken)
 
 #### 3.2. `refreshToken`
 
@@ -420,7 +474,7 @@ let refreshToken: RefreshToken
 
 **참고** <br/>
 
-[RefreshToken](#5-refreshtoken)
+[RefreshToken](#5--refreshtoken)
 
 ## 4. `AccessToken`
 
@@ -646,7 +700,7 @@ case unsupportedResponseType
 enum ServerErrorDetail
 ```
 
-#### 
+
 
 ##### 6.4.1. `authError`
 
