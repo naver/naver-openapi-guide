@@ -3,7 +3,6 @@
 ## 목차
 
 * [1. NidOAuth](#1--nidoauth)
-   
    * [Type Properties](#type-properties)
       * [1.1. shared](#1-1--shared)
    * [Instance Properties](#instance-properties)
@@ -24,37 +23,27 @@
       * [1.14. LoginResultCompletion](#1-14--loginresultcompletion)
    
 * [2. LoginBehavior](#2--loginbehavior)
-  
   * [2.1. app](#2-1--app)
   * [2.2. inAppBroswer](#2-2--inappbroswer)
   * [2.3. appPreferredWithInAppBrowserFallback](#2-3--apppreferredwithinappbrowserfallback)
   
 * [3. LoginResult](#3--loginresult)
-  
   * [3.1. accessToken](#3-1--accesstoken)
   * [3.2. refreshToken](#3-2--refreshtoken)
   
 * [4. AccessToken](#4--accesstoken)
-  
   * [4.1. tokenString](#4-1--tokenstring)
   * [4.2. expiresAt](#4-2--expiresat)
   * [4.3. isExpired](#4-3--isexpired)
   
 * [5. RefreshToken](#5--refreshtoken)
-  
-      * [5.1. tokenString](#5-1--tokenstring)
+  * [5.1. tokenString](#5-1--tokenstring)
   
 * [6. NidError](#6--niderror)
-  
   * [6.1. clientError(NidError.ClientErrorDetail)](#6-1--clienterrorniderror-clienterrordetail)
-  
   * [6.2. serverError(NidError.ServerErrorDetail)](#6-2--servererrorniderror-servererrordetail)
-  
-      * [6.3. ClientErrorDetail](#6-3--clienterrordetail)
-  
-      * [6.4. ServerErrorDetail](#6-4--servererrordetail)
-  
-      
+  * [6.3. ClientErrorDetail](#6-3--clienterrordetail)
+  * [6.4. ServerErrorDetail](#6-4--servererrordetail)    
 
 ## 1. `NidOAuth`
 
