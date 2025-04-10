@@ -611,7 +611,7 @@ https://nid.naver.com/.well-known/openid-configuration
 ### 3.5.3 jwk key 발급
 
 id_token 생성과 시그니처 검증에 사용될 key를 발급 하는 API.
-초기화 과정에서 OIDC용 jwk key가 존재 하지 않느다면 요청하여 key를 설정합니다. 
+초기화 과정에서 OIDC용 jwk key가 존재 하지 않는다면 요청하여 key를 설정합니다. 
 
 ***요청 URL 정보***
 
@@ -625,7 +625,7 @@ id_token 생성과 시그니처 검증에 사용될 key를 발급 하는 API.
 https://nid.naver.com/oauth2/jwks
 ```
 
-### 3.5.3 네이버 로그인 연동 URL 생성하기
+### 3.5.4 네이버 로그인 연동 URL 생성하기
 
 3.4.2 내용과 동일
 
@@ -653,7 +653,7 @@ https://nid.naver.com/oauth2/jwks
 https://nid.naver.com/oauth2/authorize?response_type=code&client_id=CLIENT_ID&state=STATE_STRING&redirect_uri=CALLBACK_URL&scope=openid&code_challenge=CODE_CHALLENGE&code_challenge_method=S256
 ```
 
-### 3.5.4 네이버 로그인 연동 결과 Callback 정보
+### 3.5.5 네이버 로그인 연동 결과 Callback 정보
 
 네이버 로그인 인증 요청 API를 호출했을 때 사용자가 네이버로 로그인하지 않은 상태이면 네이버 로그인 화면으로 이동하고, 사용자가 네이버에 로그인한 상태이면 기본 정보 제공 동의 확인 화면으로 이동합니다.<br/>
 네이버 로그인과 정보 제공 동의 과정이 완료되면 콜백 URL에 code값과 state 값이 URL 문자열로 전송됩니다. code 값은 접근 토큰 발급 요청에 사용합니다.<br/>
@@ -671,7 +671,7 @@ API 요청 실패시에는 에러 코드와 에러 메시지가 전송됩니다.
 |error|string|네이버 로그인 인증에 실패하면 반환받는 에러 코드|
 |error_description|string|네이버 로그인 인증에 실패하면 반환받는 에러 메시지|
 
-### 3.5.5 접근 토큰 발급 요청
+### 3.5.6 접근 토큰 발급 요청
 
 Callback으로 전달받은 정보를 이용하여 접근 토큰을 발급받을 수 있습니다. 접근 토큰은 사용자가 인증을 완료했다는 것을 보장할 수 있는 인증 정보입니다.<br/>
 이 접근 토큰을 이용하여 프로필 API를 호출하거나 오픈API를 호출하는것이 가능합니다.
