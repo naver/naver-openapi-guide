@@ -136,8 +136,8 @@ curl "https://openapi.naver.com/v1/search/local.xml?query=%EC%A3%BC%EC%8B%9D&dis
 |rss/channel/item/telephone|String|값을 반환하지 않는 요소. 하위 호환성을 유지하기 위해 있는 요소입니다.|
 |rss/channel/item/address|String|업체, 기관명의 지번 주소|
 |rss/channel/item/roadAddress|String|업체, 기관명의 도로명 주소|
-|rss/channel/item/mapx|integer|업체, 기관이 위치한 장소의 x 좌표(KATECH 좌표계 기준). [네이버 지도 API](https://www.ncloud.com/product/applicationService/maps)에서 사용할 수 있습니다.|
-|rss/channel/item/mapy|integer|업체, 기관이 위치한 장소의 y 좌표(KATECH 좌표계 기준). [네이버 지도 API](https://www.ncloud.com/product/applicationService/maps)에서 사용할 수 있습니다.|
+|rss/channel/item/mapx|integer|업체, 기관이 위치한 장소의 x 좌표(WGS84 좌표계 기준).|
+|rss/channel/item/mapy|integer|업체, 기관이 위치한 장소의 y 좌표(WGS84 좌표계 기준)|
 
 #### 응답 예
 
