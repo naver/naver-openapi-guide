@@ -738,7 +738,7 @@ fun initialize(
 **파라미터**
 | 파라미터 | 타입 | 필수 여부 | 설명 |
 |:--:|:--:|:--:|:--|
-|context|Context|Y|shared Preference를 초기화 할 때 사용할 Context 객체|
+|context|Context|Y|내부 저장소를 초기화 할 때 사용할 Context 객체|
 |clientId|String|Y|애플리케이션 등록 후 발급받은 클라이언트 아이디|
 |clientSecret|String|Y|애플리케이션 등록 후 발급받은 클라이언트 시크릿|
 |clientName|String|Y|네이버 앱의 로그인 화면에 표시할 애플리케이션 이름(모바일 웹의 로그인 화면을 사용할 때는 서버에 저장된 애플리케이션 이름이 표시됨)|
