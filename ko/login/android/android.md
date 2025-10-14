@@ -80,7 +80,6 @@
 - **Samples**: 네아로SDK를 사용하는 예제 프로젝트 
 
 ### 1.3. 개발 환경 설정
-#### 1.3.1. Maven repository 사용하기
 
 gradle 스크립트에 아래와 같이 추가하시면 사용할 수 있습니다.
 
@@ -115,49 +114,6 @@ implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 implementation 'com.squareup.moshi:moshi-kotlin:1.15.2'
 implementation 'com.squareup.okhttp3:logging-interceptor:4.2.1'
 implementation 'com.airbnb.android:lottie:3.1.0'
-```
-
-#### 1.3.2. Gradle 에서 설정
-Android 프로젝트의 libs 폴더 밑에 oauth-5.11.0.aar 파일을 복사합니다.
-
-> **다운로드 링크** <br/>
-> [oauth-5.11.0.aar](https://repo1.maven.org/maven2/com/navercorp/nid/oauth/5.11.0/oauth-5.11.0.aar)
-
-프로젝트의 build.gradle에 다음과 같이 추가합니다.
-
-```groovy
-# groovy
-dependencies {
-  implementation files('libs/oauth-5.11.0.aar')
-}
-```
-
-```kt
-# kts
-dependencies {
-  implementation(files("libs/oauth-5.11.0.aar"))
-}
-```
-
-#### 1.3.3. Android Studio 프로젝트 설정
-1. [file]-[project structure] 실행
-1. 좌측 상단의 + 버튼 클릭
-1. jar/aar 모듈 추가 선택
-1. 다운받은 oauth-5.11.0.aar 선택
-1. 프로젝트 build.gradle에 다음과 같이 추가
-
-```groovy
-# groovy
-dependencies {
-  implementation project(path: ':oauth-5.11.0')
-}
-```
-
-```kt
-# kts
-dependencies {
-  implementation(project(":oauth-5.11.0"))
-}
 ```
 
 ## 2. 기본 기능
