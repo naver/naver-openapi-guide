@@ -410,13 +410,7 @@ NidOAuth.setLogEnabled(true)
 
 | 리소스 명 | 기본 설정 |
 | :-- | :-- |
-| use_application | 사용할 어플리케이션 |
-| retry | 재시도 |
 | naveroauthlogin_string_getting_token | 네이버 아이디로 로그인 중입니다. |
-| naveroauthlogin_string_network_state_not_available | 네트워크에 접속할 수 없습니다. 네트워크 연결상태를 확인해 주세요. |
-| naveroauthlogin_string_group_id_not_available | 단체아이디는 네이버 아이디로 로그인이 지원되지 않습니다. 개인아이디로 로그인 해 주세요. |
-| naveroauthlogin_string_update_naverapp | 네이버 앱 업데이트 후 이용할 수 있는 서비스입니다. |
-
 
 ### 4. 네아로SDK API 상세 설명
 #### 4.1. NidOAuthErrorCode
