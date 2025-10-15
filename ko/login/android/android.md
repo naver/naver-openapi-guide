@@ -198,11 +198,11 @@ private val launcher = registerForActivityResult<Intent, ActivityResult>(Activit
         when (result.resultCode) {
             RESULT_OK -> {
                 // 네이버 로그인 인증이 성공할 떄 수행할 코드 추가
-                // ex. access token, refresh token에 접근 등
-                updateView()
+                binding.tvAccessToken.text = NidOAuth.getAccessToken()
+                binding.tvRefreshToken.text = NidOAuth.getRefreshToken()
             }
             RESULT_CANCELED -> {
-                // 실패 or 에러
+                // 실패 or 에러 발생할 경우 수행할 코드 추가
                 val errorCode = NidOAuth.getLastErrorCode().code
                 val errorDescription = NidOAuth.getLastErrorDescription()
                 Toast.makeText(context, "errorCode:$errorCode, errorDesc:$errorDescription", Toast.LENGTH_SHORT).show()
@@ -217,20 +217,20 @@ NidOAuth.requestLogin(context, launcher)
 val nidOAuthCallback = object : NidOAuthCallback {
     override fun onSuccess() {
         // 네이버 로그인 인증이 성공했을 때 수행할 코드 추가
-        // ex. access token, refresh token에 접근 등
-        updateView()
+        binding.tvAccessToken.text = NidOAuth.getAccessToken()
+        binding.tvRefreshToken.text = NidOAuth.getRefreshToken()
     }
 
     override fun onFailure(
         errorCode: String,
         errorDesc: String,
     ) {
+        // 실패 or 에러 발생할 경우 수행할 코드 추가
         Toast.makeText(
             context,
             "errorCode:$errorCode, errorDesc:$errorDesc",
             Toast.LENGTH_SHORT,
         ).show()
-        updateView()
     }
 }
 
