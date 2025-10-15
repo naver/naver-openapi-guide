@@ -67,7 +67,7 @@
 ### 1.1. 요구사항
 네아로SDK를 사용하려면 다음과 같은 환경이 필요합니다.
 - SDK: Android API 21 이상
-- JDK: JDK 17 이상
+- JDK: JDK 11 이상
 - IDE: Android Studio
 
 > **참고** <br/>
