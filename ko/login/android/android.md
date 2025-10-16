@@ -259,7 +259,8 @@ NidOAuth.getAccessToken()
 val nidOAuthCallback = object : NidOAuthCallback {
     override fun onSuccess() {
         //클라이언트에서 토큰 삭제를 성공한 상태입니다.
-        updateView()
+        binding.tvAccessToken.text = NidOAuth.getAccessToken()
+        binding.tvRefreshToken.text = NidOAuth.getRefreshToken()
     }
 
     override fun onFailure(
@@ -272,7 +273,6 @@ val nidOAuthCallback = object : NidOAuthCallback {
             "errorCode:$errorCode, errorDesc:$errorDesc",
             Toast.LENGTH_SHORT,
         ).show()
-        updateView()
     }
 }
 
@@ -296,7 +296,8 @@ NidOAuth.logout(callback)
 val nidOAuthCallback = object : NidOAuthCallback {
     override fun onSuccess() {
         //클라이언트 및 서버에서 토큰 삭제에 성공한 상태입니다.
-        updateView()
+        binding.tvAccessToken.text = NidOAuth.getAccessToken()
+        binding.tvRefreshToken.text = NidOAuth.getRefreshToken()
     }
 
     override fun onFailure(
@@ -309,7 +310,6 @@ val nidOAuthCallback = object : NidOAuthCallback {
             "errorCode:$errorCode, errorDesc:$errorDesc",
             Toast.LENGTH_SHORT,
         ).show()
-        updateView()
     }
 }
 
@@ -1053,8 +1053,8 @@ private val launcher = registerForActivityResult<Intent, ActivityResult>(Activit
         when(result.resultCode) {
             RESULT_OK -> {
                 // 네이버 로그인 인증이 성공했을 때 수행할 코드 추가
-                // ex. access token, refresh token에 접근 등
-                updateView()
+                binding.tvAccessToken.text = NidOAuth.getAccessToken()
+                binding.tvRefreshToken.text = NidOAuth.getRefreshToken()
             }
             RESULT_CANCELED -> {
                 // 실패 or 에러
@@ -1091,8 +1091,8 @@ fun setOAuthLogin(oauthLoginCallback: NidOAuthCallback)
 val nidOAuthCallback = object : NidOAuthCallback {
     override fun onSuccess() {
         // 네이버 로그인 인증이 성공했을 때 수행할 코드 추가
-        // ex. access token, refresh token에 접근 등
-        updateView()
+        binding.tvAccessToken.text = NidOAuth.getAccessToken()
+        binding.tvRefreshToken.text = NidOAuth.getRefreshToken()
     }
 
     override fun onFailure(
@@ -1104,7 +1104,6 @@ val nidOAuthCallback = object : NidOAuthCallback {
             "errorCode:$errorCode, errorDesc:$errorDesc",
             Toast.LENGTH_SHORT,
         ).show()
-        updateView()
     }
 }
 
@@ -1146,8 +1145,8 @@ fun onSuccess()
 val nidOAuthCallback = object : NidOAuthCallback {
     override fun onSuccess() {
         // 네이버 로그인 인증이 성공했을 때 수행할 코드 추가
-        // ex. access token, refresh token에 접근 등
-        updateView()
+        binding.tvAccessToken.text = NidOAuth.getAccessToken()
+        binding.tvRefreshToken.text = NidOAuth.getRefreshToken()
     }
 
     override fun onFailure(
@@ -1159,7 +1158,6 @@ val nidOAuthCallback = object : NidOAuthCallback {
             "errorCode:$errorCode, errorDesc:$errorDesc",
             Toast.LENGTH_SHORT,
         ).show()
-        updateView()
     }
 }
 
