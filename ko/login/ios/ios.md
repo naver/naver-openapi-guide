@@ -36,8 +36,6 @@
 
 
 
-
-
 ## 2. 네이버 아이디로 로그인 SDK 구성
 
 네이버 아이디로 로그인 iOS SDK는 다음과 같이 이루어져있습니다.
@@ -104,45 +102,7 @@ $ pod install
 
 로그인을 수행하기 전 아래 항목들을 `Info.plist`에 작성해야합니다.
 
-애플리케이션 설정 값은 <a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>후, `Application` > `내 애플리케이션` > 앱 선택을 통해 확인할 수 있습니다.
-
-
-
-|        Key        |                             설명                             | 확인 방법                                                    |
-| :---------------: | :----------------------------------------------------------: | :------------------------------------------------------------ |
-|    NidAppName     |      네이버 앱의 로그인 화면에 표시할 애플리케이션 이름      | 직접 입력                                                    |
-|    NidClientID    |       애플리케이션 등록 후 발급받은 클라이언트 아이디        | `애플리케이션 정보`                                          |
-|  NidClientSecret  |       애플리케이션 등록 후 발급받은 클라이언트 시크릿        | `애플리케이션 정보`                                          |
-|   NidUrlScheme    | 애플리케이션을 등록할 때 입력한 URL Scheme으로,<br /> OAuth 2.0 로그인 프로세스가 완료되고 난 뒤 콜백을 받을 URL Scheme | `API 설정` > `로그인 오픈 API 서비스 환경` > `iOS` > `URL Scheme` |
-
-
-
-`Info.plist` 를 `Open As` > `Source Code`로 연 후, `<dict>...</dict>`에 다음과 같은 형태로 애플리케이션 설정 값들을 입력합니다.
-
-```Swift
-<dict>
-  <key>NidAppName</key>
-  <string>{애플리케이션 이름}</string
-  <key>NidClientID</key>
-  <string>{클라이언트 아이디}</string
-  <key>NidClientSecret</key>
-  <string>{클라이언트 시크릿}</string
-  <key>NidUrlScheme</key>
-  <string>{콜백 URL Scheme}</string>
-</dict>
-```
-
-
-
-> **참고**<br>
->
->
-> 콜백 URL Scheme은 서비스 앱에서 유니크한 값을 사용해야합니다.
-> 위 값이 사용자 기기에 설치된 다른 앱과 중복될 경우, 해당 기능이 비정상적으로 동작할 수 있습니다.<br>이를 방지하려면 단순한 값보다는 앱 이름, bundle identifier 등 고유 정보를 포함한 형식의 URL Scheme을 사용하는 것이 좋습니다.
-
-
-
-### 4.2 URL Scheme 등록
+### 4.1 URL Scheme 등록
 
 네이버앱을 통한 로그인 후, 서드파티 앱으로 돌아올 때 필요한 커스텀 URL Scheme을 `Info.plist`에 등록합니다.
 
@@ -162,12 +122,6 @@ $ pod install
 
 
 
-> **참고**<br>
->
-> `NidUrlScheme` 의 값과 `CFBundleURLSchemes`에 작성된 콜백 URL Scheme 값은 동일해야합니다.
-
-
-
 서드파티 앱에서 네이버앱을 실행할 수 있도록  `Queried Url Schemes`에 다음과 같이 네이버앱 URL Scheme을 작성합니다.
 
 ```Swift
@@ -180,13 +134,35 @@ $ pod install
 
 
 
+> **참고**<br>
+>
+> **콜백 URL Scheme은 서비스 앱에서 유니크한 값을 사용**해야합니다.
+> 위 값이 사용자 기기에 설치된 다른 앱과 중복될 경우, 해당 기능이 비정상적으로 동작할 수 있습니다.<br>이를 방지하려면 단순한 값보다는 앱 이름, bundle identifier 등 고유 정보를 포함한 형식의 URL Scheme을 사용하는 것이 좋습니다.
+
 
 
 ## 5. 기본 설정
 
 ### 5.1 `NidOAuth` 초기화
 
-`AppDelegate`의 `application(_:didFinishLaunchingWithOptions:)` 에서 `NidOAuth`의 `initialize()` 메서드를 호출해서 `NidOAuth` 객체를 초기화합니다.
+`AppDelegate`의  `application(_:didFinishLaunchingWithOptions:)` 에서 아래 메소드를 호출해서 `NidOAuth` 객체 초기화 및 애플리케이션 설정값들을 주입합니다.
+
+```Swift
+func initialize(appName: String, clientId: String, clientSecret: String, urlScheme: String)
+```
+
+
+
+위 메소드 인자로 넘기는 애플리케이션 설정 값들은 <a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>후, `Application` > `내 애플리케이션` > 앱 선택을 통해 확인할 수 있습니다.
+
+|  파라미터명  |                             설명                             | 확인 방법                                                    |
+| :----------: | :----------------------------------------------------------: | :----------------------------------------------------------- |
+|   appName    |      네이버 앱의 로그인 화면에 표시할 애플리케이션 이름      | 직접 입력                                                    |
+|   clientId   |       애플리케이션 등록 후 발급받은 클라이언트 아이디        | `애플리케이션 정보`                                          |
+| clientSecret |       애플리케이션 등록 후 발급받은 클라이언트 시크릿        | `애플리케이션 정보`                                          |
+|  urlScheme   | 애플리케이션을 등록할 때 입력한 URL Scheme으로,<br /> OAuth 2.0 로그인 프로세스가 완료되고 난 뒤 콜백을 받을 URL Scheme | `API 설정` > `로그인 오픈 API 서비스 환경` > `iOS` > `URL Scheme` |
+
+
 
 **예제 코드**
 
@@ -195,12 +171,22 @@ $ pod install
 import NidThirdPartyLogin
 
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-  NidOAuth.shared.initialize()
+  NidOAuth.shared.initialize(
+    appName: "{애플리케이션 이름}",
+    clientId: "{클라이언트 아이디}",
+    clientSecret: "{클라이언트 시크릿}",
+    urlScheme: "{콜백 URL Scheme}"
+  )
+  
   return true
 }
 ```
 
 
+
+> **참고**<br>
+>
+> `NidOAuth.initalize()` 메서드 인자로 넘긴 `urlScheme` 의 값과 `Info.plist`내 `CFBundleURLSchemes`에 작성된 콜백 URL Scheme 값은 동일해야합니다.
 
 
 
