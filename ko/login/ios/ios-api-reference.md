@@ -9,7 +9,7 @@
       * [1.2. `accessToken`](#1-2--accesstoken)
       * [1.3. `refreshToken`](#1-3--refreshtoken)
    * [Instance Methods](#instance-methods)
-      * [1.4. ` initialize(appName:clientId:clientSecret:urlScheme:)`](#1-4--initializeappname:clientid:clientsecret:urlscheme:))
+      * [1.4. `initialize(appName:clientId:clientSecret:urlScheme:)`](#1-4--initializeappname:clientid:clientsecret:urlscheme:))
       * [1.5. `handleURL(_ url:)`](#1-5--handleurl-url:)
       * [1.6. `setLoginBehavior(_:)`](#1-6--setloginbehavior:)
       * [1.7. `requestLogin(callback:)`](#1-7--requestlogincallback:)
