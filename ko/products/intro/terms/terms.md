@@ -3,7 +3,7 @@ title: NAVER API 서비스 이용약관
 ---
 NAVER API 서비스 이용약관
 ====================
-**2018년 7월 18일 개정**  
+**2025년 5월 27일 개정**  
   
 [[TOC]]
 ## 가. 일반조건
@@ -100,7 +100,7 @@ API서비스의 종류 및 내용은 개발자센터에서 정한 바에 따릅�
 
 ⑧   어플리케이션 등에서 API서비스를 모방하거나, 회사의 브랜드를 모방, 도용하는 행위
 
-⑨   네이버의 BI 가이드(https://developers.naver.com/products/bi_guide)에 반하여 API서비스를 이용하는 행위
+⑨   [네이버의 BI 가이드](https://developers.naver.com/products/intro/bi_guide/bi_guide.md)에 반하여 API서비스를 이용하는 행위
 
 ⑩   API서비스를 이용하여 네이버 서비스를 이용하는 자가 의도하지 않는 기능 또는 화면을 추가하는 등 임의로 네이버 서비스를 변경하는 행위
 
