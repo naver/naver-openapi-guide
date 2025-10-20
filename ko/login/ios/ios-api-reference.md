@@ -9,7 +9,7 @@
       * [1.2. `accessToken`](#1-2--accesstoken)
       * [1.3. `refreshToken`](#1-3--refreshtoken)
    * [Instance Methods](#instance-methods)
-      * [1.4. `initialize()`](#1-4--initialize)
+      * [1.4. ` initialize(appName:clientId:clientSecret:urlScheme:)`](#1-4--initializeappname:clientid:clientsecret:urlscheme:))
       * [1.5. `handleURL(_ url:)`](#1-5--handleurl-url:)
       * [1.6. `setLoginBehavior(_:)`](#1-6--setloginbehavior:)
       * [1.7. `requestLogin(callback:)`](#1-7--requestlogincallback:)
@@ -106,21 +106,26 @@ var refreshToken: RefreshToken? { get }
 
 ### Instance Methods
 
-#### 1.4. `initialize()`
+#### 1.4. `initialize(appName:clientId:clientSecret:urlScheme:)`
 
 **설명**
 
-`NidOAuth` 싱글턴 인스턴스를 초기화합니다. `NidOAuth` 를 사용하기 전에 `AppDelegate`의 `application(_:didFinishLaunchingWithOptions:)` 에서 해당 메서드를 호출해야합니다. 
+`NidOAuth` 싱글턴 인스턴스 초기화 및 애플리케이션 설정값들을 주입합니다. `NidOAuth` 를 사용하기 전에 `AppDelegate`의 `application(_:didFinishLaunchingWithOptions:)` 에서 해당 메서드를 호출해야합니다. 
 
 **구문**
 
 ```Swift
-func initialize()
+func initialize(appName: String, clientId: String, clientSecret: String, urlScheme: String)
 ```
 
 **파라미터**
 
-없음
+|   파라미터   |   타입   | 필수 여부 | 설명                                                         |
+| :----------: | :------: | :-------: | :----------------------------------------------------------- |
+|   appName    | `String` |     Y     | 네이버 앱의 로그인 화면에 표시할 애플리케이션 이름           |
+|   clientId   | `String` |     Y     | 애플리케이션 등록 후 발급받은 클라이언트 아이디              |
+| clientSecret | `String` |     Y     | 애플리케이션 등록 후 발급받은 클라이언트 시크릿              |
+|  urlScheme   | `String` |     Y     | 애플리케이션을 등록할 때 입력한 URL Scheme으로,<br /> OAuth 2.0 로그인 프로세스가 완료되고 난 뒤 콜백을 받을 URL Scheme |
 
 **반환값**
 
