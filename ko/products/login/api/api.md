@@ -34,13 +34,13 @@
                         <div>
                             <p class="service_text">
                                 업그레이드 된 네이버 로그인 플러스를 만나보세요.<br><br>
-                                한번의 가입으로,</p>
+                                간단한 설정으로,</p>
                             <ul class="service_list">
                                 <li>네이버 로그인 동의창에서 사이트 가입에 필요한 약관동의를 한번에</li>
                                 <li>네이버 톡톡을 통해 사이트의 소식과 다양한 마케팅 메시지 발송을</li>
                                 <li>스마트스토어나 쇼핑라이브 운영 중이라면 알림받기까지!</li>
                             </ul>
-                            <p class="service_text">위와 같은 혜택을 누려보세요.</p>
+                            <p class="service_text">위와 같은 편의를 제공할 수 있습니다.</p>
                         </div>
                     </div>
                 </dd>
@@ -67,7 +67,7 @@
                         <div class="service_intro">
                             <strong class="sub_title">
                                 네이버 앱 로그인 유지 기능
-                                <a href="https://developers.naver.com/docs/login/devguide/devguide.md#5-1-1-서비스-자동로그인이란" class="link">자세히 보기 &gt;</a>
+                                <a href="https://developers.naver.com/docs/login/devguide/devguide.md#5-1-네이버앱에서-서비스-자동로그인-처리" class="link">자세히 보기 &gt;</a>
                             </strong>
                             <p class="service_text">사이트에 한 번 로그인하면, 네이버 검색 및 디스플레이 광고를 통해 사이트에 재방문 시 다시 로그인할 필요가 없어요.</p>
                         </div>
@@ -103,7 +103,7 @@
                         <div class="service_intro">
                             <strong class="sub_title">
                                 SDK
-                                <a href="https://developers.naver.com/docs/login/devguide/devguide.md#3-2-5-네이버-로그인-sdk를-이용해-개발하세요" class="link">자세히 보기 &gt;</a>
+                                <a href="https://developers.naver.com/docs/login/sdks/sdks.md" class="link">자세히 보기 &gt;</a>
                             </strong>
                             <p class="service_text">네이버 앱 호출을 통해 빠른 로그인이 가능해요.</p>
                         </div>
@@ -122,7 +122,7 @@
                     </div>
                     <div class="service_box">
                         <div class="service_img">
-                            <img src="./images/img_service_08.svg" alt="">
+                            <img src="./images/img_service_08.png" width="80" height="80" alt="">
                         </div>
                         <div class="service_intro">
                             <strong class="sub_title">주요 호스팅사 자동 연결</strong>
@@ -131,7 +131,7 @@
                     </div>
                     <div class="service_box">
                         <div class="service_img">
-                            <img src="./images/img_service_09.svg" alt="">
+                            <img src="./images/img_service_09.png" width="80" height="80" alt="">
                         </div>
                         <div class="service_intro">
                             <strong class="sub_title">
