@@ -30,7 +30,7 @@
                 <dd>
                     <div class="flex_box">
                         <div class="service_img">
-                            <img src="./images/img_service_01.svg" alt="">
+                            <img src="./images/img_service_01_en.svg" alt="">
                         </div>
                         <div>
                             <p class="service_text">
@@ -68,7 +68,7 @@
                         <div class="service_intro">
                             <strong class="sub_title">
                                 Staying logged in NAVER App(Android, iOS)
-                                <a href="https://developers.naver.com/docs/login/devguide/devguide.md#5-1-1-서비스-자동로그인이란" class="link">more details &gt;</a>
+                                <a href="https://developers.naver.com/docs/login/devguide/devguide.md#5-1-네이버앱에서-서비스-자동로그인-처리" class="link">more details &gt;</a>
                             </strong>
                             <p class="service_text">Once logged in, there is no need to log in again when coming back to the site through NAVER search or display ad.</p>
                         </div>
@@ -104,7 +104,7 @@
                         <div class="service_intro">
                             <strong class="sub_title">
                                 SDK
-                                <a href="https://developers.naver.com/docs/login/devguide/devguide.md#3-2-5-네이버-로그인-sdk를-이용해-개발하세요" class="link">more details &gt;</a>
+                                <a href="https://developers.naver.com/docs/login/sdks/sdks.md" class="link">more details &gt;</a>
                             </strong>
                             <p class="service_text">Fast login is available via NAVER app call.</p>
                         </div>
@@ -123,7 +123,7 @@
                     </div>
                     <div class="service_box">
                         <div class="service_img">
-                            <img src="./images/img_service_08.svg" alt="">
+                            <img src="./images/img_service_08.png" width="80" height="80" alt="">
                         </div>
                         <div class="service_intro">
                             <strong class="sub_title">Automatic integration with major hosting companies</strong>
@@ -132,7 +132,7 @@
                     </div>
                     <div class="service_box">
                         <div class="service_img">
-                            <img src="./images/img_service_09.svg" alt="">
+                            <img src="./images/img_service_09.png" width="80" height="80" alt="">
                         </div>
                         <div class="service_intro">
                             <strong class="sub_title">
