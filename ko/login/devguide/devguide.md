@@ -40,7 +40,7 @@ description: 네이버 로그인 개발가이드
 네이버의 4,200만 사용자가 여러분과 함께 할 고객입니다.<br/>
 쉽고 간편한 로그인을 제공하여 사용자에게 편리함을 선물하세요.
 
-![social_login.png](./images/social_login.png)
+![img_naverid_19](./images/img_naverid_19.png)
 
 
 ### 2.2.2 로그인 연동 회원 프로필 조회
@@ -63,13 +63,13 @@ description: 네이버 로그인 개발가이드
 
 네이버 로그인을 적용할 경우 별도의 통계정보를 구축하지 않더라도 개발자센터의 로그인 통계 메뉴를 통해서 간편하게 서비스 이용 통계를 확인할 수 있습니다.
 
-![statistics.png](./images/statistics.png)
+![img_naverid_20](./images/img_naverid_20.png)
 
 ### 2.2.5 네이버 로그인 뱃지
 
 애플리케이션 등록 시 서비스 URL과 네이버 검색에 노출되는 사이트 URL이 동일하면 아래 그림과 같이 네이버 검색결과에서 네이버 로그인 뱃지가 노출됩니다.
 
-![badge.png](./images/badge.png)
+![img_naverid_21](./images/img_naverid_21.png)
 
 네이버 로그인 뱃지 적용을 통해 사용자로 하여금 안심하여 이용 가능한 서비스임을 알리고 또한 네이버 검색을 통한 사용자 유입의 증대를 기대할 수 있습니다.
 
@@ -182,7 +182,7 @@ oAuth2.0 오픈소스 라이브러리를 이용하여 다양한 개발 환경에
 
 ### 3.2.1  네이버 로그인 적용 사이트 A,B 왜 이렇게 다를까요?
 
-![img_intro_naveridlogin01.png](./images/img_intro_naveridlogin01.png)
+![img_naverid_22](./images/img_naverid_22.png)
 
 두 업체 모두 네이버 로그인을 적용했지만 적용 효과는 확연히 차이가 납니다.</br>
 업체 B는 사용자가 소셜로그인에 기대하는 핵심 가치를 제대로 구현하지 않았기 때문입니다.</br>
@@ -194,23 +194,23 @@ oAuth2.0 오픈소스 라이브러리를 이용하여 다양한 개발 환경에
 사용자는 로그인 창에서 아이디와 비밀번호를 입력하는 데 집중하기 때문에 주변의 요소는 잘 인지하지 못합니다.<br/>
 네이버 로그인 버튼이 로그인 페이지에서 눈에 띄게 드러나지 않는다면 사용자는 네이버 아이디로 간편하게 로그인할 수 있다는 것을 알지 못하기 때문에, 적용할 때 기대했던 서비스 활성화 효과를 얻지 못하게 됩니다. 
 
-![img_intro_naveridlogin02.png](./images/img_intro_naveridlogin02.png)
+![img_naverid_23](./images/img_naverid_23.png)
 
 **그럼 로그인 페이지를 어떻게 디자인 해야 하나요?**
 
 ***독립적인 로그인 화면으로 공간이 넉넉한 경우***
  
-![img_intro_naveridlogin03.png](./images/img_intro_naveridlogin03.png)
+![img_naverid_24](./images/img_naverid_24.png)
 
 
 ***공간에 제약이 있는 경우***
 
-![img_intro_naveridlogin04.png](./images/img_intro_naveridlogin04.png)
+![img_naverid_25](./images/img_naverid_25.png)
 
 
 ***PC와 모바일 환경 모두에 네이버 로그인 버튼을 사용합니다.***  
 
-![img_intro_naveridlogin05.png](./images/img_intro_naveridlogin05.png)
+![img_naverid_26](./images/img_naverid_26.png)
 
 
 ### 3.2.3 가입 과정에서 정보는 최소한으로 수집하세요
@@ -222,7 +222,7 @@ oAuth2.0 오픈소스 라이브러리를 이용하여 다양한 개발 환경에
 또한 이미 네이버 아이디와 패스워드를 입력해 로그인 했는데 별도의 아이디와 패스워드를 한번 더 만들도록 요구한다면 사용자를 매우 불편하게 만드는 절차입니다.  다른 정보에 비해 아이디와 패스워드는 입력 조건이 까다로워 사용자는 더 번거롭게 느낄 수 있습니다.<br/>
 ‘네이버 로그인’ 연결에 대한 동의 절차에 바로 이어지는 회원 가입 페이지에서 별도의 비밀번호를 입력 받지 않도록 하세요. 이는 매우 중요한 부분이며 미준수시 이용이 제한될 수 있습니다.
 
-![img_intro_naveridlogin07.png](./images/img_intro_naveridlogin07.png)
+![img_naverid_27](./images/img_naverid_27.png)
 
 ### 3.2.4 네이버 로그인을 가입과 로그인에 모두 적용하세요 
 
@@ -230,7 +230,7 @@ oAuth2.0 오픈소스 라이브러리를 이용하여 다양한 개발 환경에
 
 사이트에 처음 방문한 사용자는 일반적으로 ‘가입하기’를 클릭하기 때문에, 로그인 화면에만 네이버 로그인을 적용한다면 네이버 로그인의 효과는 떨어질 수 밖에 없습니다. 가입 화면과 로그인 화면에 모두 네이버 로그인을 적용해 어디로 접근하든 네이버 로그인을 이용할 수 있게 하세요. 
 
-![img_intro_naveridlogin10.png](./images/img_intro_naveridlogin10.png)
+![img_naverid_28](./images/img_naverid_28.png)
 
 
 ### 3.2.5 네이버 로그인 SDK를 이용해 개발하세요
@@ -338,19 +338,15 @@ iOS SDK 또는 Android SDK를 이용하여 네이버 로그인을 적용한 경�
 
 ### 3.3.4 사용자 프로필 항목 선택적 제공에 대하여 
 
-네이버 로그인을 이용하여 로그인 연동을 수행한 사용자가 최초 연동 시점에서 특정 프로필 항목에 대하여 ***제공하지않음***으로 선택할 수 있습니다. 
+네이버 로그인을 이용하여 로그인 연동을 수행한 사용자가 최초 연동 시점에 프로필 항목에 대한 제공 여부를 선택할 수 있습니다.네이버에서 제공받을 항목은 애플리케이션 API 설정 메뉴에서 선택할 수 있습니다.
 
-![naveridlogin_user_profile_2018.png](./images/naveridlogin_user_profile_2018.png)
+필수 제공 항목은 사용자가 내 서비스를 사용함에 있어 반드시 제공 받아야 하는 정보로만 설정해야 하며, 추가 제공 항목은 사용자에게 추가적으로 제공 받기를 원하는 정보로 설정할 수 있습니다.
 
-네이버에서 기본으로 제공하는 프로필 항목은 ***이용자 식별자***이며 기본 제공항목을 제외한 프로필 항목은 모두 사용자 선택에 따라 프로필 정보 조회 API응답으로 전달될지 결정이 됩니다. 
+다만, 추가 제공 항목은 사용자가 제공 여부를 선택할 수 있으며, 사용자의 선택에 따라 프로필 정보 조회 API응답으로 전달될지 결정이 됩니다.
 
-애플리케이션에서도 제공받을 프로필 항목을 "내 애플리케이션" 메뉴를 통해서 선택이 가능합니다. 해당 메뉴를 통해 제공을 원치 않는 프로필 항목에 대해서 ***제공받지않음***으로 선택할 수 있습니다.
+![img_naverid_29](./images/img_naverid_29.png)
 
-각 프로필 항목별로 ***필수 제공 항목***과 ***추가 제공 항목*** 중에 선택할 수 있는데요. ***필수 제공 항목***은 사용자가 내 서비스를 사용함에 있어 반드시 제공 받아야 하는 정보입니다.
-네이버 로그인에서는 ***이용자 식별자***을 제외한 모든 프로필 항목을 사용자가 선택적으로 제공하도록 되어 있는데요. 적어도 필수적으로 받아야 하는 항목을 사용자에게 노출시킴으로서 제공이 거부되지 않도록 하고 있습니다. 
-다만 이 때에도 사용자는 각 항목에 대해 제공 여부를 선택할 수 있으며, 기본적으로 각 항목이 ***체크(제공)*** 상태로 노출됩니다. ***추가 제공 항목***은 사용자에게 추가적으로 제공 받기를 원하는 정보이며, 기본적으로 각 항목이 ***체크 해제(제공하지않음)*** 상태로 노출됩니다.
-
-![naveridlogin_user_profile_setting_2018.png](./images/naveridlogin_user_profile_setting_2018.png)
+![img_naverid_30](./images/img_naverid_30.png)
 
 
 ### 3.3.5 사용자가 거부한 프로필 권한에 대한 처리
@@ -394,7 +390,7 @@ Client Secret의 유출이 의심되면 재발급을 통해 도용을 방지할 
 API 권한 설정을 하지 않았거나 네이버 로그인 시 사용자가 권한동의를 하지 않을 경우 API호출이 실패할 수 있습니다.<br/>
 이에따라 원활한 API이용을 위해서는 권한 설정을 반드시 체크하여야 합니다.
 
-![naveridlogin_user_profile_setting_2018.png](./images/naveridlogin_user_profile_setting_2018.png)
+![img_naverid_31](./images/img_naverid_31.png)
 
 **등록정보가 올바르지 않을 경우**
 
@@ -402,7 +398,7 @@ API 권한 설정을 하지 않았거나 네이버 로그인 시 사용자가 �
 등록정보와 일치하지 않는 환경에서 네이버 로그인을 시도하는 경우 다음과 같이 로그인 과정에서 오류가 발생할 수 있습니다.<br/>
 따라서 서비스 적용 전 반드시 등록정보가 올바르게 적용이 되어있는지 테스트를 수행하여야 합니다.
 
-![invalid_login](./images/invalid_login.png)
+![img_naverid_32](./images/img_naverid_32.png)
 
 
 ### 3.4.2 네이버 로그인 연동 URL 생성하기
@@ -1439,12 +1435,12 @@ https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=CLIENT_ID&
 
 ### 5.2.1.4 약관 동의 대행 설정 화면 예시
 
-![img_set_agreement_01.png](./images/img_set_agreement_01.png)
+![img_naverid_33](./images/img_naverid_33.png)
 
 
 ### 5.2.1.5 약관 동의 대행 이용 화면 예시
 
-![img_agreement_example.png](./images/img_agreement_example.png)
+![img_naverid_34](./images/img_naverid_34.png)
 
 
 ### 5.2.1.6 약관 동의 대행 사용자의 동의 여부 확인
@@ -1585,7 +1581,7 @@ curl  -XGET "https://openapi.naver.com/v1/nid/agreement" \
 
 **1) 네이버 개발자센터에서 톡톡 계정 연결하기**
 
-![img_talktalk_channel.png](./images/img_talktalk_channel.png)
+![img_naverid_35](./images/img_naverid_35.png)
 
 * 1. API 설정 > ‘네이버 로그인 플러스’ > ‘네이버 톡톡 연결 및 서비스 노출 설정’ 영역에서 네이버 톡톡 연결하기 버튼을 클릭합니다.
 * 2. 톡톡 간편연결 팝업에서 톡톡 계정을 선택합니다. 
@@ -1594,7 +1590,7 @@ curl  -XGET "https://openapi.naver.com/v1/nid/agreement" \
 
 **2) 톡톡파트너센터에서 로그인 애플리케이션 연결하기**
 
-![img_talktalk_center.png](./images/img_talktalk_center.png)
+![img_naverid_36](./images/img_naverid_36.png)
 
 * 1. 톡톡파트너센터 > 설정 > 서비스 연결 메뉴에 접속합니다.
 * 2. 서비스 연결 버튼을 클릭합니다.
