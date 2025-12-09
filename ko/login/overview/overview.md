@@ -18,14 +18,23 @@
         <a class="btn_b_hi3" href="https://developers.naver.com/apps/#/register?api=nvlogin">오픈 API 이용 신청 &gt;</a>
     </div>
     <br>
-    <div class="img_area"><img alt="" src="./images/img_naverid01.png"></div>
+    <div class="img_area"><img alt="" src="./images/img_naverid_01.png" width="880"></div>
     <p class="p_desc">네이버 로그인을 통해 로그인하는 기본 절차는 다음과 같습니다.</p>
-    <div class="img_area"><img alt="" src="./images/img_naverid02.png"></div>
-    <ol class="blind">
-        <li>로그인. 네이버 로그인 창이 뜸! 간편로그인 또는 인앱 브라우저 로그인. 이미 로그인 된 상태라면 Skip!</li>
-        <li>제삼자 동의. 네이버 제삼자 동의 창이 뜸! 이미 동의받은 사용자라면 Skip!</li>
-        <li>Access Token 발급. 해지된 네이버 로그인 완료!</li>
-    </ol>
+    <div class="img_area"><img alt="" src="./images/img_naverid_02.png" width="880"></div>
+    <div class="blind">
+        <ol>
+            <li>1. 네아로 로그인 버튼 클릭: 네이버 로그인 버튼을 클릭하면 네이버 로그인 화면으로 이동해요.</li>
+            <li>2. 로그인: 간편 로그인 또는 아이디/비밀번호를 입력하여 로그인해요. 이미 로그인 된 상태라면 스킵이 가능해요.</li>
+            <li>3. 제 3자 정보 제공 동의: 네이버 제 3자 동의창이 뜨게 돼요. 이미 동의 받은 사용자라면 해당 프로세스도 스킵 가능해요.(애플리케이션에 등록한 '로고 이미지'가 그대로 노출돼요.)</li>
+            <li>4. Access Token 발급: 네이버로 로그인이 완료돼요.</li>
+        </ol>
+        <ol>
+            <li>1. 애플리케이션에서 네이버 로그인 버튼을 클릭하면 네이버 로그인 화면으로 이동해요.</li>
+            <li>2. 모바일 애플리케이션에서는 네이버 앱의 간편 로그인 기능으로 로그인해요. 네이버 앱이 설치되지 않았다면 애플리케이션에서 인앱 브라우저가 실행되고 네이버 로그인 화면으로 이동하여 아이디, 비밀번호를 입력하고 로그인해요.</li>
+            <li>3. 사용자가 네이버로 로그인하면 사용자 정보 제공에 동의하는 화면으로 이동해요.</li>
+            <li>4. 사용자가 정보 제공에 동의하면 콜백 URL로 애플리케이션에 접근 토큰(access token)이 발급돼요. 발급받은 접근 토큰을 이용해 OAuth 2.0을 지원하는 네이버의 오픈 API를 사용하거나 사용자의 정보를 얻어 올 수 있어요.</li>
+        </ol>
+    </div>
     <h3 class="h_sub">1. 특징</h3>
     <h4 class="h_subsub">1.1. 불필요한 회원 정보 입력 과정을 없애 주는 프로필 조회 API 제공</h4>
     <p class="p_desc">네이버 로그인한 사용자의 이름, 메일 주소, 휴대전화번호, 생일, 성별, 연령대 등 필요한 정보를 사용자 동의하에 API로 조회할 수 있습니다.
