@@ -85,14 +85,14 @@ gradle 스크립트에 아래와 같이 추가하시면 사용할 수 있습니�
 
 ```groovy
 # groovy
-implementation 'com.navercorp.nid:oauth:5.11.0' // jdk 17
-implementation 'com.navercorp.nid:oauth-jdk8:5.11.0' // jdk 8
+implementation 'com.navercorp.nid:oauth:5.11.0' // jdk 11
+implementation 'com.navercorp.nid:oauth-jdk8:5.11.1' // jdk 8
 ```
 
 ```kts
 # kts
-implementation("com.navercorp.nid:oauth:5.11.0") // jdk 17
-implementation("com.navercorp.nid:oauth-jdk8:5.11.0") // jdk 8
+implementation("com.navercorp.nid:oauth:5.11.0") // jdk 11
+implementation("com.navercorp.nid:oauth-jdk8:5.11.1") // jdk 8
 ```
 
 네아로SDK에서 사용하는 라이브러리는 다음과 같습니다. 필요에 따라 exclude 하여 사용하시면 됩니다.
