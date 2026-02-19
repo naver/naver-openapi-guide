@@ -19,49 +19,49 @@
 ## 목차
 
 ### 1. 시작하기
-- [1.1. 요구사항](#11-요구사항)
-- [1.2. 안드로이드용 네아로SDK 구성](#12-안드로이드용-네아로sdk-구성)
-- [1.3. 개발 환경 설정](#13-개발-환경-설정)
+- [1.1. 요구사항](#1-1--요구사항)
+- [1.2. 안드로이드용 네아로SDK 구성](#1-2--안드로이드용-네아로sdk-구성)
+- [1.3. 개발 환경 설정](#1-3--개발-환경-설정)
 
 ### 2. 기본 기능
-- [2.1. SDK 초기화](#21-sdk-초기화)
-- [2.2. 로그인](#22-로그인)
-  - [2.2.1. NidLoginButton 객체로 버튼 추가](#221-nidloginbutton-객체로-버튼-추가)
-  - [2.2.2. requestLogin() 메서드를 이용한 로그인](#222-requestlogin-메서드를-이용한-로그인)
-- [2.3. 접근 토큰 얻기](#23-접근-토큰-얻기)
-- [2.4. 로그아웃](#24-로그아웃)
-- [2.5. 연동 해제](#25-연동-해제)
-- [2.6. 프로필 API 호출](#26-프로필-api-호출)
+- [2.1. SDK 초기화](#2-1--sdk-초기화)
+- [2.2. 로그인](#2-2--로그인)
+  - [2.2.1. NidLoginButton 객체로 버튼 추가](#2-2-1--nidloginbutton-객체로-버튼-추가)
+  - [2.2.2. requestLogin() 메서드를 이용한 로그인](#2-2-2--requestlogin-메서드를-이용한-로그인)
+- [2.3. 접근 토큰 얻기](#2-3--접근-토큰-얻기)
+- [2.4. 로그아웃](#2-4--로그아웃)
+- [2.5. 연동 해제](#2-5--연동-해제)
+- [2.6. 프로필 API 호출](#2-6--프로필-api-호출)
 
 ### 3. 기타 설정
-- [3.1. 로그 설정](#31-로그-설정)
-- [3.2. 문구 변경](#32-문구-변경)
+- [3.1. 로그 설정](#3-1--로그-설정)
+- [3.2. 문구 변경](#3-2--문구-변경)
 
 ### 4. 네아로SDK API 상세 설명
-  - [4.1. NidOAuthErrorCode](#41-nidoautherrorcode)
-  - [4.2. NidOAuth](#42-nidoauth)
-    - [getAccessToken()](#421-getaccesstoken)
-    - [getExpiresAt()](#422-getexpiresat)
-    - [getLastErrorCode()](#423-getlasterrorcode)
-    - [getLastErrorDescription()](#424-getlasterrordescription)
-    - [getRefreshToken()](#425-getrefreshtoken)
-    - [getState()](#426-getstate)
-    - [getTokenType()](#427-gettokentype)
-    - [getVersion()](#428-getversion)
-    - [initialize(context, clientId, clientSecret, clientName, callback)](#429-initializecontext-clientid-clientsecret-clientname-callback)
-    - [requestlogin(context, launcher)](#4210-requestlogincontext-launcher)
-    - [requestlogin(context, callback)](#4211-requestlogincontext-callback)
-    - [repromptpermissions(context, launcher)](#4212-repromptpermissionscontext-launcher)
-    - [repromptpermissions(context, callback)](#4213-repromptpermissionscontext-callback)
-    - [logout(callback)](#4214-logoutcallback)
-    - [disconnect(callback)](#4215-disconnectcallback)
-    - [getUserProfile(callback)](#4216-getuserprofilecallback)
-    - [getUserProfileMap(callback)](#4217-getuserprofilemapcallback)
-  - [4.3. NidLoginButton](#43-nidloginbutton)
-  - [4.4. NidOAuthCallback](#44-nidoauthcallback)
-  - [4.5. NidProfileCallback](#45-nidprofilecallback)
-  - [4.6. NidOAuthIntializingCallback](#46-nidoauthinitializingcallback)
-  - [4.7 NidOAuthLoginState](#47-nidoauthloginstate)
+  - [4.1. NidOAuthErrorCode](#4-1--nidoautherrorcode)
+  - [4.2. NidOAuth](#4-2--nidoauth)
+    - [getAccessToken()](#4-2-1--getaccesstoken)
+    - [getExpiresAt()](#4-2-2--getexpiresat)
+    - [getLastErrorCode()](#4-2-3--getlasterrorcode)
+    - [getLastErrorDescription()](#4-2-4--getlasterrordescription)
+    - [getRefreshToken()](#4-2-5--getrefreshtoken)
+    - [getState()](#4-2-6--getstate)
+    - [getTokenType()](#4-2-7--gettokentype)
+    - [getVersion()](#4-2-8--getversion)
+    - [initialize(context, clientId, clientSecret, clientName, callback)](#4-2-9--initializecontext-clientid-clientsecret-clientname-callback)
+    - [requestlogin(context, launcher)](#4-2-10--requestlogincontext-launcher)
+    - [requestlogin(context, callback)](#4-2-11--requestlogincontext-callback)
+    - [repromptpermissions(context, launcher)](#4-2-12--repromptpermissionscontext-launcher)
+    - [repromptpermissions(context, callback)](#4-2-13--repromptpermissionscontext-callback)
+    - [logout(callback)](#4-2-14--logoutcallback)
+    - [disconnect(callback)](#4-2-15--disconnectcallback)
+    - [getUserProfile(callback)](#4-2-16--getuserprofilecallback)
+    - [getUserProfileMap(callback)](#4-2-17--getuserprofilemapcallback)
+  - [4.3. NidLoginButton](#4-3--nidloginbutton)
+  - [4.4. NidOAuthCallback](#4-4--nidoauthcallback)
+  - [4.5. NidProfileCallback](#4-5--nidprofilecallback)
+  - [4.6. NidOAuthIntializingCallback](#4-6--nidoauthinitializingcallback)
+  - [4.7 NidOAuthLoginState](#4-7-nidoauthloginstate)
 
 ## 1. 시작하기
 ### 1.1. 요구사항
@@ -662,7 +662,7 @@ NidOAuthLoginState 타입의 종류
 - NidOAuthLoginState.NEED_REFRESH_TOKEN
 - NidOAuthLoginState.OK
 
-NidOAuthLoginState 클래스에 관한 자세한 내용은 [NidOAuthLoginState](#47-nidoauthloginstate)를 참고합니다.
+NidOAuthLoginState 클래스에 관한 자세한 내용은 [NidOAuthLoginState](#4-7-nidoauthloginstate)를 참고합니다.
 
 **코드 예**
 ```kt
@@ -736,7 +736,7 @@ fun initialize(
 |clientId|String|Y|애플리케이션 등록 후 발급받은 클라이언트 아이디|
 |clientSecret|String|Y|애플리케이션 등록 후 발급받은 클라이언트 시크릿|
 |clientName|String|Y|네이버 앱의 로그인 화면에 표시할 애플리케이션 이름(모바일 웹의 로그인 화면을 사용할 때는 서버에 저장된 애플리케이션 이름이 표시됨)|
-|callback|NidOAuthInitializingCallback|N|초기화 완료 및 실패에 대한 callback. NidOAuthInitializingCallback에 관한 자세한 내용은 [NidOAuthInitializingCallback](#46-nidoauthinitializingcallback)을 참고합니다.|
+|callback|NidOAuthInitializingCallback|N|초기화 완료 및 실패에 대한 callback. NidOAuthInitializingCallback에 관한 자세한 내용은 [NidOAuthInitializingCallback](#4-6--nidoauthinitializingcallback)을 참고합니다.|
 
 **반환값** <br/>
 없음
@@ -805,7 +805,7 @@ fun requestLogin(
 | 파라미터 | 타입 | 필수 여부 | 설명 |
 |:--:|:--:|:--:|:--|
 |context|Context|Y|메서드를 호출한 Activity의 Context 객체|
-|callback|NidOAuthCallback|Y|메서드가 끝나고 실행될 callback. NidOAuthCallback에 관한 자세한 내용은 [NidOAuthCallback](#44-nidoauthcallback)을 참고합니다.|
+|callback|NidOAuthCallback|Y|메서드가 끝나고 실행될 callback. NidOAuthCallback에 관한 자세한 내용은 [NidOAuthCallback](#4-4--nidoauthcallback)을 참고합니다.|
 
 **반환값** <br/>
 없음
@@ -871,7 +871,7 @@ fun repromptPermissions(
 | 파라미터 | 타입 | 필수 여부 | 설명 |
 |:--:|:--:|:--:|:--|
 |context|Context|Y|메서드를 호출한 Activity의 Context 객체|
-|callback|NidOAuthCallback|Y|메서드가 끝나고 실행될 callback. NidOAuthCallback에 관한 자세한 내용은 [NidOAuthCallback](#44-nidoauthcallback)을 참고합니다.|
+|callback|NidOAuthCallback|Y|메서드가 끝나고 실행될 callback. NidOAuthCallback에 관한 자세한 내용은 [NidOAuthCallback](#4-4--nidoauthcallback)을 참고합니다.|
 
 **반환값** <br/>
 없음
@@ -894,7 +894,7 @@ fun logout(callback: NidOAuthCallback)
 **파라미터** <br/>
 | 파라미터 | 타입 | 필수 여부 | 설명 |
 |:--:|:--:|:--:|:--|
-|callback|NidOAuthCallback|Y|메서드가 끝나고 실행될 callback. NidOAuthCallback에 관한 자세한 내용은 [NidOAuthCallback](#44-nidoauthcallback)을 참고합니다.|
+|callback|NidOAuthCallback|Y|메서드가 끝나고 실행될 callback. NidOAuthCallback에 관한 자세한 내용은 [NidOAuthCallback](#4-4--nidoauthcallback)을 참고합니다.|
 
 **반환값** <br/>
 없음
@@ -919,7 +919,7 @@ fun disconnect(callback: NidOAuthCallback)
 **파라미터**
 | 파라미터 | 타입 | 필수 여부 | 설명 |
 |:--:|:--:|:--:|:--|
-|callback|NidOAuthCallback|Y|메서드가 끝나고 실행될 callback. NidOAuthCallback에 관한 자세한 내용은 [NidOAuthCallback](#44-nidoauthcallback)을 참고합니다.|
+|callback|NidOAuthCallback|Y|메서드가 끝나고 실행될 callback. NidOAuthCallback에 관한 자세한 내용은 [NidOAuthCallback](#4-4--nidoauthcallback)을 참고합니다.|
 
 **반환값** <br/>
 없음
@@ -942,7 +942,7 @@ fun getUserProfile(callback: NidProfileCallback<NidProfile>)
 **파라미터**
 | 파라미터 | 타입 | 필수 여부 | 설명 |
 |:--:|:--:|:--:|:--|
-|callback|NidProfileCallback<NidProfile>|Y|메서드가 끝나고 실행될 callback. NidProfileCallback에 관한 자세한 내용은 [NidProfileCallback](#45-nidprofilecallback)을 참고합니다.|
+|callback|NidProfileCallback<NidProfile>|Y|메서드가 끝나고 실행될 callback. NidProfileCallback에 관한 자세한 내용은 [NidProfileCallback](#4-5--nidprofilecallback)을 참고합니다.|
 
 **반환값** <br/>
 없음
@@ -990,7 +990,7 @@ fun getUserProfileMap(callback: NidProfileCallback<NidProfileMap>)
 **파라미터**
 | 파라미터 | 타입 | 필수 여부 | 설명 |
 |:--:|:--:|:--:|:--|
-|callback|NidProfileCallback<NidProfileMap>|Y|메서드가 끝나고 실행될 callback. NidProfileCallback에 관한 자세한 내용은 [NidProfileCallback](#45-nidprofilecallback)을 참고합니다.|
+|callback|NidProfileCallback<NidProfileMap>|Y|메서드가 끝나고 실행될 callback. NidProfileCallback에 관한 자세한 내용은 [NidProfileCallback](#4-5--nidprofilecallback)을 참고합니다.|
 
 **반환값** <br/>
 없음
@@ -1081,7 +1081,7 @@ fun setOAuthLogin(oauthLoginCallback: NidOAuthCallback)
 **파라미터**
 | 파라미터 | 타입 | 필수 여부 | 설명 |
 |:--:|:--:|:--:|:--|
-|oauthLoginCallback|NidOAuthCallback|Y|버튼을 눌러서 로그인 요청이 완료되면 수행할 Callback. NidOAuthCallback 관한 자세한 내용은 [NidOAuthCallback](#44-nidoauthcallback)를 참고합니다.|
+|oauthLoginCallback|NidOAuthCallback|Y|버튼을 눌러서 로그인 요청이 완료되면 수행할 Callback. NidOAuthCallback 관한 자세한 내용은 [NidOAuthCallback](#4-4--nidoauthcallback)를 참고합니다.|
 
 **반환값** <br/>
 없음
