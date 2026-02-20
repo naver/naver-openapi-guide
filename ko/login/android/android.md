@@ -61,7 +61,7 @@
   - [4.4. NidOAuthCallback](#4-4--nidoauthcallback)
   - [4.5. NidProfileCallback](#4-5--nidprofilecallback)
   - [4.6. NidOAuthIntializingCallback](#4-6--nidoauthinitializingcallback)
-  - [4.7 NidOAuthLoginState](#4-7-nidoauthloginstate)
+  - [4.7 NidOAuthLoginState](#4-7--nidoauthloginstate)
 
 ## 1. 시작하기
 ### 1.1. 요구사항
@@ -662,7 +662,7 @@ NidOAuthLoginState 타입의 종류
 - NidOAuthLoginState.NEED_REFRESH_TOKEN
 - NidOAuthLoginState.OK
 
-NidOAuthLoginState 클래스에 관한 자세한 내용은 [NidOAuthLoginState](#4-7-nidoauthloginstate)를 참고합니다.
+NidOAuthLoginState 클래스에 관한 자세한 내용은 [NidOAuthLoginState](#4-7--nidoauthloginstate)를 참고합니다.
 
 **코드 예**
 ```kt
