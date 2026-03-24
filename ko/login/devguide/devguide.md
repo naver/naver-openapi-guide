@@ -118,10 +118,6 @@ oAuth2.0 오픈소스 라이브러리를 이용하여 다양한 개발 환경에
 * 지원 iOS 버전
   * iOS 7 버전 이상
 
-***개발 환경에 따라서 다양한 3rdParty opensource library가 제공되고 있습니다.***
-
-[3rdParty opensource library 바로가기 >](/sdks_external/sdks_external.md)
-
 # 3. 네이버 로그인 적용
 
 ## 3.1 네이버 로그인 적용 전 점검 사항
