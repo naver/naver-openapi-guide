@@ -573,66 +573,6 @@ curl  -XGET "https://openapi.naver.com/v1/nid/me" \
 |response/expire_date |String |Y |접근토큰만료시각|
 |response/allowed_profile |String |Y |허용 프로필 항목(쉼표로 구분)|
 
-### 3.4.7 토큰 만료 처리
-
-RFC 7009 규격에 따라 발급된 접근 토큰(access_token) 또는 갱신 토큰(refresh_token)을 폐기할 수 있습니다.<br/>
-폐기 대상 토큰을 `token_type_hint` 파라미터로 지정하면, 네이버 서버는 해당 토큰뿐 아니라 연결된 쌍의 토큰까지 함께 폐기(cascade) 처리합니다.
-
-* `token_type_hint=access_token` (또는 미지정): 입력한 token을 access_token으로 간주하여 폐기. 연결된 refresh_token도 함께 폐기됨
-* `token_type_hint=refresh_token`: 입력한 token을 refresh_token으로 간주하여 폐기. 연결된 access_token도 함께 폐기됨
-
-기존의 `/oauth2.0/token?grant_type=delete` 방식(4.3 참조)도 그대로 지원하며, 본 API는 표준 호환을 위한 신규 엔드포인트입니다.
-
-***요청 URL 정보***
-
-| 메서드 | 요청 URL | 출력 포맷 | 설명 |
-|:--:|-----|:-:| --- |
-| POST | https://nid.naver.com/oauth2.0/revoke | JSON | RFC 7009 호환 토큰 폐기 요청 |
-
-***요청 변수 정보***
-
-| 요청 변수명 | 타입 | 필수 여부 | 기본값 | 설명 |
-| :---: | :---: | :---: | :---: | ---------- |
-| client_id | string | Y | - | 애플리케이션 등록 시 발급받은 Client ID 값 |
-| client_secret | string | Y | - | 애플리케이션 등록 시 발급받은 Client Secret 값 |
-| token | string | Y | - | 폐기 대상 토큰(access_token 또는 refresh_token) |
-| token_type_hint | string | N | access_token | 폐기 대상 토큰의 타입 힌트. `access_token` 또는 `refresh_token` 지정 가능. 미지정 시 `access_token`으로 간주 |
-
-***요청문 샘플***
-
-```shell
-curl -X POST "https://nid.naver.com/oauth2.0/revoke" \
-     -d "client_id=CLIENT_ID" \
-     -d "client_secret=CLIENT_SECRET" \
-     -d "token=ACCESS_TOKEN_OR_REFRESH_TOKEN" \
-     -d "token_type_hint=access_token"
-```
-
-***응답 정보***
-
-RFC 7009 §2.2에 따라 정상 처리 시 본문 없이 HTTP 200을 반환합니다. 폐기에 실패하거나 입력값이 유효하지 않은 경우 HTTP 상태 코드와 함께 `error`, `error_description` 필드를 JSON 본문으로 반환합니다.
-
-| 상태 코드 | error | 설명 |
-| :---: | :--- | :--- |
-| 200 | - | 폐기 성공. 또는 token이 이미 폐기되었거나 존재하지 않는 경우(RFC 7009 §2.2에 따라 정상 응답) |
-| 400 | invalid_request | 필수 파라미터 누락 등 요청 형식이 유효하지 않은 경우 |
-| 401 | unauthorized_client | client_id/client_secret 인증 실패 |
-| 503 | temporarily_unavailable | 일시적 인프라 장애. 재시도 가능 |
-
-***응답 본문 예시 (실패 시)***
-
-```json
-{
-  "error": "unauthorized_client",
-  "error_description": "Client authentication failed."
-}
-```
-
-**중요**
-
-* 본 API는 입력한 토큰의 유효성과 무관하게, 폐기 자체가 정상 수행되면 200을 반환합니다. 따라서 클라이언트는 응답 본문이 아닌 HTTP 상태 코드를 기준으로 결과를 판단해야 합니다.
-* `token_type_hint`를 잘못 지정하더라도 서버는 실제 토큰 타입을 기준으로 폐기를 시도합니다. 다만 정확한 힌트를 전달하면 처리 효율이 높아집니다.
-
 ## 3.5 Open ID Connect로 네이버 로그인 연동하기
 
 ### 3.5.1 개발하기에 앞서
@@ -1050,7 +990,70 @@ https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=CLIENT_ID&
 * 네이버의 "내정보 > 연결된 서비스 관리"에서 해당 서비스의 로그인 연동 항목이 삭제됩니다.
 * 연동 해제 이후 사용자는 다시 연동을 수행할 수 있으며, 연동 과정에서 새로운 사용자 동의 절차가 진행됩니다.
 
-Token Revocation(토큰폐기)는 아래와 같이 이용할 수 있습니다.
+Token Revocation(토큰폐기)는 아래 두 가지 엔드포인트로 이용할 수 있으며, 어느 쪽을 사용해도 동일하게 토큰이 폐기됩니다.
+
+* `/oauth2.0/revoke`: access_token 또는 refresh_token을 선택해 폐기할 수 있는 표준 호환 엔드포인트
+* `/oauth2.0/token?grant_type=delete`: 접근토큰을 이용한 기존 엔드포인트
+
+### 4.3.2 토큰 폐기 (`/oauth2.0/revoke`)
+
+발급된 접근 토큰(access_token) 또는 갱신 토큰(refresh_token)을 폐기할 수 있습니다.<br/>
+폐기 대상 토큰을 `token_type_hint` 파라미터로 지정하면, 네이버 서버는 해당 토큰뿐 아니라 연결된 쌍의 토큰까지 함께 폐기(cascade) 처리합니다.
+
+* `token_type_hint=access_token` (또는 미지정): 입력한 token을 access_token으로 간주하여 폐기. 연결된 refresh_token도 함께 폐기됨
+* `token_type_hint=refresh_token`: 입력한 token을 refresh_token으로 간주하여 폐기. 연결된 access_token도 함께 폐기됨
+
+***요청 URL 정보***
+
+| 메서드 | 요청 URL | 출력 포맷 | 설명 |
+|:--:|-----|:-:| --- |
+| POST | https://nid.naver.com/oauth2.0/revoke | JSON | 토큰 폐기 요청 |
+
+***요청 변수 정보***
+
+| 요청 변수명 | 타입 | 필수 여부 | 기본값 | 설명 |
+| :---: | :---: | :---: | :---: | ---------- |
+| client_id | string | Y | - | 애플리케이션 등록 시 발급받은 Client ID 값 |
+| client_secret | string | Y | - | 애플리케이션 등록 시 발급받은 Client Secret 값 |
+| token | string | Y | - | 폐기 대상 토큰(access_token 또는 refresh_token) |
+| token_type_hint | string | N | access_token | 폐기 대상 토큰의 타입 힌트. `access_token` 또는 `refresh_token` 지정 가능. 미지정 시 `access_token`으로 간주 |
+
+***요청문 샘플***
+
+```shell
+curl -X POST "https://nid.naver.com/oauth2.0/revoke" \
+     -d "client_id=CLIENT_ID" \
+     -d "client_secret=CLIENT_SECRET" \
+     -d "token=ACCESS_TOKEN_OR_REFRESH_TOKEN" \
+     -d "token_type_hint=access_token"
+```
+
+***응답 정보***
+
+정상 처리 시 본문 없이 HTTP 200을 반환합니다. 폐기에 실패하거나 입력값이 유효하지 않은 경우 HTTP 상태 코드와 함께 `error`, `error_description` 필드를 JSON 본문으로 반환합니다.
+
+| 상태 코드 | error | 설명 |
+| :---: | :--- | :--- |
+| 200 | - | 폐기 성공. 또는 token이 이미 폐기되었거나 존재하지 않는 경우 |
+| 400 | invalid_request | 필수 파라미터 누락 등 요청 형식이 유효하지 않은 경우 |
+| 401 | unauthorized_client | client_id/client_secret 인증 실패 |
+| 503 | temporarily_unavailable | 일시적 인프라 장애. 재시도 가능 |
+
+***응답 본문 예시 (실패 시)***
+
+```json
+{
+  "error": "unauthorized_client",
+  "error_description": "Client authentication failed."
+}
+```
+
+**중요**
+
+* 본 API는 입력한 토큰의 유효성과 무관하게, 폐기 자체가 정상 수행되면 200을 반환합니다. 따라서 클라이언트는 응답 본문이 아닌 HTTP 상태 코드를 기준으로 결과를 판단해야 합니다.
+* `token_type_hint`를 잘못 지정하더라도 서버는 실제 토큰 타입을 기준으로 폐기를 시도합니다. 다만 정확한 힌트를 전달하면 처리 효율이 높아집니다.
+
+### 4.3.3 토큰 폐기 (`/oauth2.0/token?grant_type=delete`)
 
 ***요청 URL 정보***
 
