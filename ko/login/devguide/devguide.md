@@ -990,10 +990,10 @@ https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=CLIENT_ID&
 * 네이버의 "내정보 > 연결된 서비스 관리"에서 해당 서비스의 로그인 연동 항목이 삭제됩니다.
 * 연동 해제 이후 사용자는 다시 연동을 수행할 수 있으며, 연동 과정에서 새로운 사용자 동의 절차가 진행됩니다.
 
-Token Revocation(토큰폐기)는 아래 두 가지 엔드포인트로 이용할 수 있으며, 어느 쪽을 사용해도 동일하게 토큰이 폐기됩니다.
+Token Revocation(토큰폐기)는 아래 엔드포인트로 이용할 수 있습니다.
 
-* `/oauth2.0/revoke`: access_token 또는 refresh_token을 선택해 폐기할 수 있는 표준 호환 엔드포인트
-* `/oauth2.0/token?grant_type=delete`: 접근토큰을 이용한 기존 엔드포인트
+* `/oauth2.0/revoke`: access_token 또는 refresh_token을 선택해 폐기할 수 있는 신규 엔드포인트 (권장)
+* `/oauth2.0/token?grant_type=delete`: 접근토큰을 이용한 기존 엔드포인트 (**Deprecated** - 신규 연동 시 위 엔드포인트 사용 권장)
 
 ### 4.3.2 토큰 폐기 (`/oauth2.0/revoke`)
 
@@ -1053,7 +1053,9 @@ curl -X POST "https://nid.naver.com/oauth2.0/revoke" \
 * 본 API는 입력한 토큰의 유효성과 무관하게, 폐기 자체가 정상 수행되면 200을 반환합니다. 따라서 클라이언트는 응답 본문이 아닌 HTTP 상태 코드를 기준으로 결과를 판단해야 합니다.
 * `token_type_hint`를 잘못 지정하더라도 서버는 실제 토큰 타입을 기준으로 폐기를 시도합니다. 다만 정확한 힌트를 전달하면 처리 효율이 높아집니다.
 
-### 4.3.3 토큰 폐기 (`/oauth2.0/token?grant_type=delete`)
+### 4.3.3 토큰 폐기 (`/oauth2.0/token?grant_type=delete`) — Deprecated
+
+> **Deprecated**: 이 엔드포인트는 더 이상 권장되지 않습니다. 신규 연동 및 통합 시에는 4.3.2 `/oauth2.0/revoke` 엔드포인트를 사용해 주세요. 기존 연동 호환을 위해 당분간 유지됩니다.
 
 ***요청 URL 정보***
 
