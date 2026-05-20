@@ -460,14 +460,12 @@ Callback으로 전달받은 'code' 값을 이용하여 '접근토큰발급API'�
 
 |요청 변수명 |타입 |필수 여부 |기본값 |설명|
 |:--:|:-:|:-:|:-:|-----|
-|grant_type |string |Y |- |인증 과정에 대한 구분값<br>1) 발급:'authorization_code'<br>2) 갱신:'refresh_token'<br>3) 삭제: 'delete'|
+|grant_type |string |Y |- |인증 과정에 대한 구분값<br>1) 발급:'authorization_code'<br>2) 갱신:'refresh_token'|
 |client_id |string |Y |- |애플리케이션 등록 시 발급받은 Client ID 값|
 |client_secret |string |Y |- |애플리케이션 등록 시 발급받은 Client secret 값|
 |code |string |발급 때 필수 |- |로그인 인증 요청 API 호출에 성공하고 리턴받은 인증코드값 (authorization code)|
 |state |string |발급 때 필수 |- |사이트 간 요청 위조(cross-site request forgery) 공격을 방지하기 위해 애플리케이션에서 생성한 상태 토큰값으로 URL 인코딩을 적용한 값을 사용|
 |refresh_token |string |갱신 때 필수 |- |네이버 사용자 인증에 성공하고 발급받은 갱신 토큰(refresh token)|
-|access_token |string |삭제 때 필수 |- |기 발급받은 접근 토큰으로 URL 인코딩을 적용한 값을 사용|
-|service_provider |string |삭제 때 필수 |'NAVER' |인증 제공자 이름으로 'NAVER'로 세팅해 전송|
 
 ***요청문 샘플***
 
@@ -681,14 +679,12 @@ Callback으로 전달받은 'code' 값을 이용하여 '접근토큰발급API'�
 
 |요청 변수명 |타입 |필수 여부 |기본값 |설명|
 |:--:|:-:|:-:|:-:|-----|
-|grant_type |string |Y |- |인증 과정에 대한 구분값<br>1) 발급:'authorization_code'<br>2) 갱신:'refresh_token'<br>3) 삭제: 'delete'|
+|grant_type |string |Y |- |인증 과정에 대한 구분값<br>1) 발급:'authorization_code'<br>2) 갱신:'refresh_token'|
 |client_id |string |Y |- |애플리케이션 등록 시 발급받은 Client ID 값|
 |client_secret |string |Y |- |애플리케이션 등록 시 발급받은 Client secret 값|
 |code |string |발급 때 필수 |- |로그인 인증 요청 API 호출에 성공하고 리턴받은 인증코드값 (authorization code)|
 |state |string |발급 때 필수 |- |사이트 간 요청 위조(cross-site request forgery) 공격을 방지하기 위해 애플리케이션에서 생성한 상태 토큰값으로 URL 인코딩을 적용한 값을 사용|
 |refresh_token |string |갱신 때 필수 |- |네이버 사용자 인증에 성공하고 발급받은 갱신 토큰(refresh token)|
-|access_token |string |삭제 때 필수 |- |기 발급받은 접근 토큰으로 URL 인코딩을 적용한 값을 사용|
-|service_provider |string |삭제 때 필수 |'NAVER' |인증 제공자 이름으로 'NAVER'로 세팅해 전송|
 |code_verifier |string |N |- |PKCE로 동작하는 경우 추가|
 
 ***요청문 샘플***
@@ -990,14 +986,7 @@ https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=CLIENT_ID&
 * 네이버의 "내정보 > 연결된 서비스 관리"에서 해당 서비스의 로그인 연동 항목이 삭제됩니다.
 * 연동 해제 이후 사용자는 다시 연동을 수행할 수 있으며, 연동 과정에서 새로운 사용자 동의 절차가 진행됩니다.
 
-Token Revocation(토큰폐기)는 아래 엔드포인트로 이용할 수 있습니다.
-
-* `/oauth2.0/revoke`: access_token 또는 refresh_token을 선택해 폐기할 수 있는 신규 엔드포인트 (권장)
-* `/oauth2.0/token?grant_type=delete`: 접근토큰을 이용한 기존 엔드포인트 (**Deprecated** - 신규 연동 시 위 엔드포인트 사용 권장)
-
-### 4.3.2 토큰 폐기 (`/oauth2.0/revoke`)
-
-발급된 접근 토큰(access_token) 또는 갱신 토큰(refresh_token)을 폐기할 수 있습니다.<br/>
+Token Revocation(토큰폐기)는 `/oauth2.0/revoke` 엔드포인트로 이용할 수 있습니다. 발급된 접근 토큰(access_token) 또는 갱신 토큰(refresh_token)을 폐기할 수 있습니다.<br/>
 폐기 대상 토큰을 `token_type_hint` 파라미터로 지정하면, 네이버 서버는 해당 토큰뿐 아니라 연결된 쌍의 토큰까지 함께 폐기(cascade) 처리합니다.
 
 * `token_type_hint=access_token` (또는 미지정): 입력한 token을 access_token으로 간주하여 폐기. 연결된 refresh_token도 함께 폐기됨
@@ -1052,45 +1041,6 @@ curl -X POST "https://nid.naver.com/oauth2.0/revoke" \
 
 * 본 API는 입력한 토큰의 유효성과 무관하게, 폐기 자체가 정상 수행되면 200을 반환합니다. 따라서 클라이언트는 응답 본문이 아닌 HTTP 상태 코드를 기준으로 결과를 판단해야 합니다.
 * `token_type_hint`를 잘못 지정하더라도 서버는 실제 토큰 타입을 기준으로 폐기를 시도합니다. 다만 정확한 힌트를 전달하면 처리 효율이 높아집니다.
-
-### 4.3.3 토큰 폐기 (`/oauth2.0/token?grant_type=delete`) — Deprecated
-
-> **Deprecated**: 이 엔드포인트는 더 이상 권장되지 않습니다. 신규 연동 및 통합 시에는 4.3.2 `/oauth2.0/revoke` 엔드포인트를 사용해 주세요. 기존 연동 호환을 위해 당분간 유지됩니다.
-
-***요청 URL 정보***
-
-| 메서드 | 요청 URL | 출력 포맷 | 설명 | 
-| :--: | ----- | :--: | --- |
-| GET / POST   |https://nid.naver.com/oauth2.0/token |  JSON  | 접근토큰을 이용한 연결해제 요청  |
-
-***요청 변수 정보***
-
-| 요청 변수명 |타입 |필수 여부 |기본값 |설명 |
-| :---: | :---: | :---: | :---: | ---------- |
-| client_id |string |Y |- |애플리케이션 등록 시 발급받은 Client ID 값 |
-| client_secret |string |Y |- |애플리케이션 등록 시 발급받은 Client Secret 값 |
-| access_token |string |Y |- |유효한 접근토큰 값|
-| grant_type |string |Y |- | 요청 타입. delete 으로 설정 |
-
-
-***요청문 샘플***
-
-```text
-https://nid.naver.com/oauth2.0/token?grant_type=delete&client_id=CLIENT_ID&client_secret=CLIENT_SECRET&access_token=ACCESS_TOKEN
-```
-
-***출력 결과***
-
-|필드|타입|필수 여부|설명|
-|:---:|:---:|:---:|----------|
-|access_token|String|Y|삭제처리된 접근토큰  |
-|result|String|Y| 처리결과 (success) |
-
-
-**중요**
-
-연동 해제 API에 사용되는 접근토큰은 반드시 유효한 접근토큰을 이용하여야 합니다.(만료된 토큰이나 존재하지 않는 토큰으로 연동해제 불가)<br/>
-따라서 연동 해제를 수행하기 전에 접근토큰의 유효성을 점검하고 5.1의 접근토큰 갱신 과정에 따라 접근토큰을 갱신하는것을 권장합니다.
 
 ## 4.4 네이버 로그인 연결 끊기 알림 받기
 
