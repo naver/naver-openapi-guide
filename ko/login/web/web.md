@@ -548,27 +548,23 @@ Authorization: Bearer AAAAOLtP40eH6P5S4Z4FpFl77n3FD5I+W3ost3oDZq/nbcS+7MAYXwX<br
 }
 </pre>
     </div>
-    <h4 class="h_subsub">1.8. 접근 토큰 삭제</h4>
-    <p class="p_desc">발급받은 접근 토큰을 더 이상 사용하지 않거나 사용자가 애플리케이션과의 연동을 해제할 때에는 접근 토큰의 삭제를 요청합니다.</p>
-    <p class="p_desc">1.8.1. 접근 토큰 삭제 요청문 형식</p>
+    <h4 class="h_subsub">1.8. 토큰 폐기</h4>
+    <p class="p_desc">발급받은 접근 토큰을 더 이상 사용하지 않거나 사용자가 애플리케이션과의 연동을 해제할 때에는 토큰 폐기 API를 호출합니다. 접근 토큰(access_token) 또는 갱신 토큰(refresh_token)을 폐기할 수 있으며, 한 토큰이 폐기되면 연결된 쌍의 토큰도 함께 폐기됩니다.</p>
+    <p class="p_desc">1.8.1. 토큰 폐기 요청문 형식</p>
     <div class="code_area">
-        <pre class="prettyprint">https://nid.naver.com/oauth2.0/token?grant_type=delete&amp;client_id={클라이언트 아이디}&amp;client_secret={클라이언트 시크릿}&amp;access_token={접근 토큰}&amp;service_provider=NAVER</pre>
+<pre class="prettyprint">curl -X POST "https://nid.naver.com/oauth2.0/revoke" \
+     -d "client_id={클라이언트 아이디}" \
+     -d "client_secret={클라이언트 시크릿}" \
+     -d "token={폐기 대상 토큰}" \
+     -d "token_type_hint=access_token"</pre>
     </div>
     <ul class="list_type1">
-        <li>grant_type: 인증 타입에 대한 구분값. delete로 값이 고정돼 있습니다.</li>
         <li>client_id: 애플리케이션 등록 후 발급받은 클라이언트 아이디</li>
         <li>client_secret: 애플리케이션 등록 후 발급받은 클라이언트 시크릿</li>
-        <li>access_token: 발급받은 접근 토큰. URL 인코딩을 적용한 값을 사용합니다.</li>
-        <li>service_provider: 인증 제공자 이름. NAVER로 값이 고정돼 있습니다.</li>
+        <li>token: 폐기 대상 토큰 (access_token 또는 refresh_token)</li>
+        <li>token_type_hint: 폐기 대상 토큰의 타입 힌트. access_token 또는 refresh_token. 미지정 시 access_token으로 간주합니다.</li>
     </ul>
-    <p class="p_desc">접근 토큰 삭제 요청에 성공하면 다음과 같은 JSON 형식의 결괏값을 반환받습니다.</p>
-    <div class="code_area">
-<pre class="prettyprint">{
-    "access_token":"c8ceMEjfnorlQwEisqemfpM1Wzw7aGp7JnipglQipkOn5Zp3tyP7dHQoP0zNKHUq2gY",
-    "result":"success"
-}
-</pre>
-    </div>
+    <p class="p_desc">토큰 폐기 요청이 정상 처리되면 본문 없이 HTTP 200을 반환합니다. 클라이언트는 응답 본문이 아닌 HTTP 상태 코드를 기준으로 결과를 판단해야 합니다.</p>
     <h3 class="h_sub">2. JavaScript로 네이버 로그인 적용하기</h3>
     <p class="p_desc">네이버 로그인은 손쉽게 웹 애플리케이션에 네이버 로그인을 적용할 수 있게 JavaScript용 네이버 로그인 라이브러리를 제공합니다. JavaScript용 라이브러리를 사용하면 HTML 페이지 내부에 JavaScript 코드를 삽입하는 것만으로도 네이버 로그인을 적용할 수 있습니다.</p>
     <ul class="list_type1">

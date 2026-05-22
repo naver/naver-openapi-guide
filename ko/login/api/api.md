@@ -363,7 +363,8 @@ namespace NaverAPI_Guide
 |메서드|인증|요청 URL|출력 포맷|설명|
 |-|-|----|-|--|
 |GET / POST|OAuth 2.0|https://nid.naver.com/oauth2.0/authorize|URL 리다이렉트|네이버 로그인 인증 요청|
-|GET / POST|OAuth 2.0|https://nid.naver.com/oauth2.0/token|json|접근 토큰 발급/갱신/삭제 요청|
+|GET / POST|OAuth 2.0|https://nid.naver.com/oauth2.0/token|json|접근 토큰 발급/갱신 요청|
+|POST|OAuth 2.0|https://nid.naver.com/oauth2.0/revoke|json|토큰 폐기 요청 (access_token / refresh_token)|
 
 
 
@@ -379,31 +380,36 @@ namespace NaverAPI_Guide
 |state|string|Y|-|사이트 간 요청 위조(cross-site request forgery) 공격을 방지하기 위해 애플리케이션에서 생성한 상태 토큰값으로 URL 인코딩을 적용한 값을 사용|
 |scope|string|N|-|접근 허용 범위를 처리하기 위한 내부 구분값으로 전송할 필요 없음|
 
-### 3.2. 접근 토큰 발급/갱신/삭제 요청
-
-***접근 토큰 갱신 / 삭제 요청시 access_token 값은 URL 인코딩하셔야 합니다***
+### 3.2. 접근 토큰 발급/갱신 요청
 
 ***로그아웃 관련***
 
 네이버 로그아웃에 대한 별도의 api가 없으며 사용자가 직접 네이버 서비스에서 로그아웃 하도록 처리하셔야 합니다.
 이유는 이용자 보호를 위해 정책상 네이버 이외의 서비스에서 네이버 로그아웃을 수행하는 것을 허용하지 않고 있는 점 양해 부탁드립니다.
 
-***로그인 연동 해제 관련***
-
-로그인 연동해제를 할 경우 입력한 토큰이 유효한 토큰일 경우 정상적으로 연동해제가 됩니다.
-주의 하실 점은 토큰이 유효하지 않을 경우에도 결과가 'success'값으로 리턴되므로 토큰이 유효한지 먼저 검증한 다음 유효한 토큰으로 갱신하여 연동해제 처리를 하시면 됩니다.
-연동해제를 확인하려면 delete token 이후, 기존 발급 refresh token을 이용하여 더이상 token refresh를 할 수 없을 경우 정상 연동해지가 되었다고 판단하시는 방법이 있습니다.
-
 |요청 변수명|타입|필수 여부|기본값|설명|
 |--|--|-|-|---|
-|grant_type|string|Y|code|인증 과정에 대한 구분값 <br>1. 발급:'authorization_code' <br> 2. 갱신:'refresh_token'<br>3. 삭제: 'delete'|
+|grant_type|string|Y|code|인증 과정에 대한 구분값 <br>1. 발급:'authorization_code' <br> 2. 갱신:'refresh_token'|
 |client_id|string|Y|-|애플리케이션 등록 시 발급받은 Client ID 값|
 |client_secret|string|Y|-|애플리케이션 등록 시 발급받은 Client secret 값|
 |code|string|발급 때 필수|-|로그인 인증 요청 API 호출에 성공하고 리턴받은 인증코드값 (authorization code)|
 |state|string|발급 때 필수|-|사이트 간 요청 위조(cross-site request forgery) 공격을 방지하기 위해 애플리케이션에서 생성한 상태 토큰값으로 URL 인코딩을 적용한 값을 사용|
 |refresh_token|string|갱신 때 필수|-|네이버 사용자 인증에 성공하고 발급받은 갱신 토큰(refresh token)|
-|access_token|string|삭제 때 필수|-|발급받은 접근 토큰으로 *URL 인코딩*을 적용한 값을 사용|
-|service_provider|string|삭제 때 필수|'NAVER'|인증 제공자 이름으로 'NAVER'로 세팅해 전송|
+
+### 3.3. 토큰 폐기 요청 (/oauth2.0/revoke)
+
+발급된 접근 토큰(access_token) 또는 갱신 토큰(refresh_token)을 폐기할 수 있습니다.<br/>
+폐기 대상 토큰을 `token_type_hint` 파라미터로 지정하면, 네이버 서버는 해당 토큰뿐 아니라 연결된 쌍의 토큰까지 함께 폐기(cascade) 처리합니다.
+
+* `token_type_hint=access_token` (또는 미지정): 입력한 token을 access_token으로 간주하여 폐기. 연결된 refresh_token도 함께 폐기됨
+* `token_type_hint=refresh_token`: 입력한 token을 refresh_token으로 간주하여 폐기. 연결된 access_token도 함께 폐기됨
+
+|요청 변수명|타입|필수 여부|기본값|설명|
+|--|--|-|-|---|
+|client_id|string|Y|-|애플리케이션 등록 시 발급받은 Client ID 값|
+|client_secret|string|Y|-|애플리케이션 등록 시 발급받은 Client Secret 값|
+|token|string|Y|-|폐기 대상 토큰(access_token 또는 refresh_token)|
+|token_type_hint|string|N|access_token|폐기 대상 토큰의 타입 힌트. `access_token` 또는 `refresh_token` 지정 가능. 미지정 시 `access_token`으로 간주|
 
 ## 4. 출력 결과
 
@@ -443,15 +449,18 @@ namespace NaverAPI_Guide
 |error|string|에러 코드|
 |error_description|string|에러 메시지|
 
-### 4.4. 접근 토큰 삭제 요청
+### 4.4. 토큰 폐기 요청
 
-|필드|타입|설명|
-|--|----|----|
-|access_token|string|삭제 처리된 접근 토큰 값|
-|result|string|처리 결과가 성공이면 'success'가 리턴|
-|expires_in|integer|접근 토큰의 유효 기간(초 단위)|
-|error|string|에러 코드|
-|error_description|string|에러 메시지|
+정상 처리 시 본문 없이 HTTP 200을 반환합니다. 폐기에 실패하거나 입력값이 유효하지 않은 경우 HTTP 상태 코드와 함께 `error`, `error_description` 필드를 JSON 본문으로 반환합니다.
+
+|상태 코드|error|설명|
+|:-:|:--|:--|
+|200|-|폐기 성공. 또는 token이 이미 폐기되었거나 존재하지 않는 경우|
+|400|invalid_request|필수 파라미터 누락 등 요청 형식이 유효하지 않은 경우|
+|401|unauthorized_client|client_id/client_secret 인증 실패|
+|503|temporarily_unavailable|일시적 인프라 장애. 재시도 가능|
+
+본 API는 입력한 토큰의 유효성과 무관하게, 폐기 자체가 정상 수행되면 200을 반환합니다. 따라서 클라이언트는 응답 본문이 아닌 HTTP 상태 코드를 기준으로 결과를 판단해야 합니다.
 
 
  ## 5. 에러 코드
@@ -494,10 +503,14 @@ https://nid.naver.com/oauth2.0/token?grant_type=authorization_code&client_id=jyv
 https://nid.naver.com/oauth2.0/token?grant_type=refresh_token&client_id=jyvqXeaVOVmV&client_secret=527300A0_COq1_XV33cf&refresh_token=c8ceMEJisO4Se7uGCEYKK1p52L93bHXLn
 ```
 
-#### 6.1.4. 접근 토큰 삭제 요청
+#### 6.1.4. 토큰 폐기 요청
 
-```
-https://nid.naver.com/oauth2.0/token?grant_type=delete&client_id=jyvqXeaVOVmV&client_secret=527300A0_COq1_XV33cf&access_token=c8ceMEJisO4Se7uGCEYKK1p52L93bHXLnaoETis9YzjfnorlQwEisqemfpKHUq2gY&service_provider=NAVER
+```shell
+curl -X POST "https://nid.naver.com/oauth2.0/revoke" \
+     -d "client_id=jyvqXeaVOVmV" \
+     -d "client_secret=527300A0_COq1_XV33cf" \
+     -d "token=c8ceMEJisO4Se7uGCEYKK1p52L93bHXLnaoETis9YzjfnorlQwEisqemfpKHUq2gY" \
+     -d "token_type_hint=access_token"
 ```
 
 ### 6.2 응답 예시
@@ -530,11 +543,14 @@ http://콜백URL/redirect?code={code값}&state={state값}
 }
 ````
 
-#### 6.2.4. 접근 토큰 삭제 요청
+#### 6.2.4. 토큰 폐기 요청
+
+정상 처리 시 본문 없이 HTTP 200을 반환합니다. 실패 시 응답 예시는 다음과 같습니다.
+
 ````json
 {
-    "access_token":"c8ceMEjfnorlQwEisqemfpM1Wzw7aGp7JnipglQipkOn5Zp3tyP7dHQoP0zNKHUq2gY",
-    "result":"success"
+    "error": "unauthorized_client",
+    "error_description": "Client authentication failed."
 }
 ````
 
