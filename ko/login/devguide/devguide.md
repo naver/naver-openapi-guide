@@ -1610,3 +1610,245 @@ curl  -XGET "https://openapi.naver.com/v1/nid/agreement" \
 * 5. 네이버 로그인 애플리케이션과 톡톡계정 연결이 완료됩니다. 
 * 6. 연결된 로그인 애플리케이션 정보를 확인합니다.
 
+## 5.3 네이버앱 스킴 로그인
+
+### 5.3.1 개요
+
+네이버앱 스킴 로그인은 가맹점앱의 인앱 브라우저에서 기존 ID/PW 입력 방식 대신 '네이버 앱으로 자동로그인' 버튼을 눌러 로그인하는 기능입니다.
+
+네이버앱에 로그인된 계정 정보를 활용하므로 사용자에게 더 편리한 UX를 제공할 수 있습니다.
+
+### 5.3.2 적용 범위
+
+네이버앱 스킴 로그인은 아래 환경에서 동작합니다.
+
+#### 5.3.2.1 Android의 적용 범위
+
+* 지원되는 크로미움 기반 모바일 브라우저
+  + 구글 크롬
+  + 삼성 인터넷 브라우저
+  + 네이버 웨일 브라우저
+* 애플리케이션 개발 시
+  + Custom Tabs
+  + android.webkit.WebView
+  + 스킴 예외 처리 필요 (코드 연동 가이드 참고)
+* 네이버페이 결제 연동 시
+  + 스킴 예외 처리 필요 (코드 연동 가이드 참고)
+  + JavaScript SDK 사용 시: `useNaverAppLogin: true` 설정 시 활성화
+  + JavaScript SDK 미사용 시: `appscheme=true` 파라미터 추가 시 활성화
+  + [네이버페이 개발자 센터 바로가기 >](https://developers.pay.naver.com/)
+
+#### 5.3.2.2 iOS의 적용 범위
+
+* 모든 모바일 브라우저
+* 네이버페이 결제 연동 시
+  + 결제 URL에 `callbackurl={scheme}` 파라미터를 추가하면 로그인 성공·실패 이후 해당 앱을 호출합니다.
+  + [네이버페이 개발자 센터 바로가기 >](https://developers.pay.naver.com/)
+
+### 5.3.3 동작 순서
+
+네이버 스킴 로그인의 동작 순서를 단계별로 설명합니다.
+
+#### 5.3.3.1 로그인 요청 페이지
+
+가맹점앱에서 결제를 시도할 경우 다양한 결제 수단이 제시됩니다. 그 중 네이버페이를 사용하려면 네이버 회원 인증이 필요합니다.
+
+<img src="./images/img_naverid_37.png" width="200">
+
+#### 5.3.3.2 로그인 페이지(가맹점앱)
+
+네이버 로그인 페이지의 ID/PW 입력창 외에 [네이버 앱으로 자동 로그인] 버튼이 활성화됩니다. 버튼을 클릭하면 아래의 커스텀 스킴이 호출되어 네이버앱을 통한 로그인이 시도됩니다.
+
+**Android**
+
+```
+nidlogin://access.naver.com?session={session_id}&callback={callback_url}
+```
+
+**iOS**
+
+```
+naversearchthirdlogin://access.naver.com?session={session_id}&callbackurl={callback_url}
+```
+
+<img src="./images/img_naverid_38.png" width="200">
+
+#### 5.3.3.3 로그인 화면(네이버앱)
+
+커스텀 스킴으로 네이버앱에 로그인이 시도되면 현재 네이버앱의 로그인 상태에 따라 다음과 같이 처리됩니다.
+
+**a) 네이버앱에 로그인되어 있지 않은 경우**
+
+네이버앱에 이전에 로그인한 적이 없거나, 로그아웃 시 간편로그인 토큰을 삭제한 경우입니다. 네이버앱의 로그인 화면에서 ID/PW를 입력하여 로그인합니다.
+
+로그인 성공 시 네이버앱도 로그인 상태가 되며 간편로그인 계정으로 등록됩니다. 이후 로그인부터는 간편로그인 계정을 선택해 로그인 할 수 있습니다.
+
+<img src="./images/img_naverid_39.png" width="200">
+
+**b) 네이버앱에 로그아웃된 경우**
+
+이전에 네이버앱에 로그인한 적이 있고, 로그아웃 시 간편로그인 토큰을 유지한 경우입니다. 기존 간편로그인 계정을 선택하거나 [다른 아이디로] 기능으로 새로운 ID/PW를 입력하여 로그인할 수 있습니다.
+
+<img src="./images/img_naverid_40.png" width="200">
+
+**c) 네이버앱에 로그인되어 있는 경우**
+
+로그인된 계정이 1개이면 선택 화면 없이 바로 로그인 확인 화면이 노출됩니다. 로그인된 계정이 2개 이상이면 계정을 선택할 수 있는 화면이 노출됩니다.
+
+계정을 선택하거나 [다른 아이디로] 기능을 이용하여 로그인해도 네이버앱에 로그인된 계정 정보는 변경되지 않습니다.
+
+#### 5.3.3.4 로그인 확인화면(네이버앱)
+
+네이버앱에서 로그인 정보를 성공적으로 가져오면 사용자에게 로그인 정보를 제시합니다. 사용자는 확인 화면에 제시된 정보를 확인하여 의도한 로그인 시도인지 최종적으로 확인합니다.
+
+<img src="./images/img_naverid_41.png" width="200">
+
+#### 5.3.3.5 로그인 성공화면(가맹점앱)
+
+인증에 성공하면 인증 정보를 포함하여 타겟 페이지가 로딩됩니다. 스킴을 통해 callback URL이 전달된 경우 해당 URL이 로드됩니다. 전달되지 않은 경우 웹페이지 내 폴링을 통해 자동 갱신됩니다.
+
+<img src="./images/img_naverid_42.png" width="200">
+
+### 5.3.4 코드 연동 가이드
+
+#### 5.3.4.1 Android
+
+가맹점앱의 In-app WebView에서 `http(s)` 이외의 스킴을 처리할 수 있도록 설정이 필요합니다.
+
+대부분의 WebView 앱은 이미 커스텀 스킴 처리가 구현되어 있어 별도 처리가 필요 없을 수 있습니다. [네이버 앱으로 자동로그인] 버튼 클릭 시 반응이 없거나 WebView에 오류 화면이 표시된다면 아래 가이드를 참고하여 커스텀 스킴 처리를 추가하시기 바랍니다.
+
+```java
+public class MainActivity extends AppCompatActivity {
+    private WebView webView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        webView = findViewById(R.id.webView);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.setWebChromeClient(new WebChromeClient());
+        webView.setWebViewClient(new MyWebViewClient());
+        webView.loadUrl("https://nid.naver.com");
+    }
+
+    private class MyWebViewClient extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            Uri uri = Uri.parse(url);
+            String scheme = uri.getScheme();
+            if (!"http".equalsIgnoreCase(scheme) && !"https".equalsIgnoreCase(scheme)) {
+                // {{{ Handle unknown scheme
+                try {
+                    Intent intent = Intent.parseUri(url, Intent.URI_INTENT_SCHEME);
+                    if (intent.resolveActivity(getPackageManager()) != null) {
+                        startActivity(intent);
+                        return true;
+                    }
+                } catch (URISyntaxException e) {
+                    e.printStackTrace();
+                }
+                // }}} Handle unknown scheme
+            }
+            return super.shouldOverrideUrlLoading(view, url);
+        }
+    }
+}
+```
+
+커스텀 스킴을 처리하기 위한 최소한의 코드입니다.
+
+* WebView에 `setWebChromeClient()`, `setWebViewClient()`를 설정해야 합니다.
+* Custom WebViewClient의 `shouldOverrideUrlLoading()`을 오버라이딩합니다. `http(s)` 이외의 스킴 URL인 경우 Intent를 구성하여 `startActivity()`를 호출해야 합니다.
+
+Target API 30 이상인 경우 `AndroidManifest.xml`에 아래 항목을 추가해야 합니다.
+
+```xml
+<queries>
+    <package android:name="com.nhn.android.search"/>
+</queries>
+```
+
+#### 5.3.4.2 iOS
+
+가맹점앱의 WebView에서 `http(s)` 이외의 스킴 이동을 차단하고 있지는 않은지 확인이 필요합니다. 네이버앱 스킴 로그인은 웹 페이지에서 다음과 같은 커스텀 스킴으로 네이버앱을 호출하는 방식으로 동작합니다.
+
+```
+naversearchthirdlogin://...
+```
+
+`WKWebView`는 보안상의 이유로 허용되지 않은 스킴으로의 이동을 **기본적으로 차단(조용히 무시)** 합니다. 결과적으로 [네이버 앱으로 자동로그인] 버튼을 눌러도 아무 동작이 일어나지 않게 됩니다. 다음 두 가지 설정이 모두 필요합니다.
+
+##### (1) `WKNavigationDelegate` 구현 — 커스텀 스킴을 외부 앱으로 전달
+
+`decidePolicyFor navigationAction:`에서 URL 스킴을 확인해, `http` / `https` 이외의 경우 `UIApplication.open(_:)`으로 시스템에 넘겨주면 네이버앱이 호출됩니다.
+
+```swift
+import UIKit
+import WebKit
+
+final class WebViewController: UIViewController {
+    private let webView: WKWebView = {
+        let webView = WKWebView()
+        return webView
+    }()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        webView.navigationDelegate = self // ← 반드시 설정
+        // ... webView layout / load ...
+    }
+}
+
+// MARK: - WKNavigationDelegate
+extension WebViewController: WKNavigationDelegate {
+    func webView(
+        _ webView: WKWebView,
+        decidePolicyFor navigationAction: WKNavigationAction,
+        decisionHandler: @escaping (WKNavigationActionPolicy) -> Void
+    ) {
+        guard let url = navigationAction.request.url else {
+            decisionHandler(.allow)
+            return
+        }
+        // http / https / about 은 웹뷰가 로드
+        switch url.scheme?.lowercased() {
+        case "http", "https", "about":
+            decisionHandler(.allow)
+            return
+        default:
+            break
+        }
+        // 외 스킴(naversearchthirdlogin 등)은 외부 앱으로 전달
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:]) { success in
+                if !success {
+                    // 필요 시 폴백 처리 (App Store 이동 등)
+                }
+            }
+            decisionHandler(.cancel)
+            return
+        }
+        // 네이버앱이 설치되어 있지 않은 경우 등 필요시 App Store 유도
+        if url.scheme?.lowercased() == "naversearchthirdlogin",
+           let appStoreURL = URL(string: "itms-apps://itunes.apple.com/app/id393499958") {
+            UIApplication.shared.open(appStoreURL)
+        }
+        decisionHandler(.cancel)
+    }
+}
+```
+
+##### (2) `Info.plist` — `LSApplicationQueriesSchemes`에 스킴 등록
+
+iOS 9 이후 `UIApplication.canOpenURL(_:)`은 `Info.plist`에 선언된 스킴에 대해서만 정확한 결과를 반환합니다. 누락하면 네이버앱이 설치되어 있어도 항상 `false`를 반환해 외부 앱 호출이 동작하지 않습니다.
+
+```xml
+<key>LSApplicationQueriesSchemes</key>
+<array>
+    <string>naversearchthirdlogin</string>
+</array>
+```
+
+> App Store 이동을 위한 `itms-apps` 스킴은 별도 등록 없이 `canOpenURL`이 `true`를 반환합니다.
+
