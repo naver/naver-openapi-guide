@@ -1717,6 +1717,7 @@ naversearchthirdlogin://access.naver.com?session={session_id}&callbackurl={callb
 
 대부분의 WebView 앱은 이미 커스텀 스킴 처리가 구현되어 있어 별도 처리가 필요 없을 수 있습니다. [네이버 앱으로 자동로그인] 버튼 클릭 시 반응이 없거나 WebView에 오류 화면이 표시된다면 아래 가이드를 참고하여 커스텀 스킴 처리를 추가하시기 바랍니다.
 
+{% raw %}
 ```java
 public class MainActivity extends AppCompatActivity {
     private WebView webView;
@@ -1755,6 +1756,7 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
+{% endraw %}
 
 커스텀 스킴을 처리하기 위한 최소한의 코드입니다.
 
