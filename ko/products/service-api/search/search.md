@@ -22,9 +22,10 @@
         <p class="p_desc">검색 부가 기능으로 특정 검색어에 대해 성인검색어 여부를 알려주는 기능과 검색창에 입력된 오타를 바로 잡아주는 오타변환 기능을 제공합니다.<br><br>
             <em class="color_p3">* 처리한도 : 25,000/일</em></p>
     </div>
-    <div class="buttons buttons_center">
-        <a class="btn_b_hi" href="https://developers.naver.com/apps/#/register?defaultScope=search">오픈 API 이용 신청</a>
-        <a class="btn_b_hi" href="https://developers.naver.com/docs/serviceapi/search/blog/blog.md#블로그">개발 가이드 보기</a>
+    <div class="flex-button-container">
+        <a class="flex-button" href="https://www.ncloud.com/product/applicationService/naverApiHub" target="_blank"><span>NAVER API Hub<br/>이용신청 <span style="font-family:xeicon">&#xE980;</span></span></a>
+        <a class="flex-button" href="https://developers.naver.com/docs/serviceapi/search/blog/blog.md#블로그">개발 가이드 보기</a>
+        <a class="flex-button" href="https://blog.naver.com/n_cloudplatform" target="_blank"><span>NAVER API Hub<br/>이벤트 <span style="font-family:xeicon">&#xE980;</span></span></a>
     </div>
 </div>
 </body>
