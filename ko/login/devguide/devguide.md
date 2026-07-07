@@ -1653,7 +1653,7 @@ curl  -XGET "https://openapi.naver.com/v1/nid/agreement" \
 
 가맹점앱에서 결제를 시도할 경우 다양한 결제 수단이 제시됩니다. 그 중 네이버페이를 사용하려면 네이버 회원 인증이 필요합니다.
 
-<img src="./images/img_naverid_37.png" width="200">
+<img src="./images/img_naverid_37.png" width="300">
 
 #### 5.3.3.2 로그인 페이지(가맹점앱)
 
@@ -1671,7 +1671,7 @@ nidlogin://access.naver.com?session={session_id}&callback={callback_url}
 naversearchthirdlogin://access.naver.com?session={session_id}&callbackurl={callback_url}
 ```
 
-<img src="./images/img_naverid_38.png" width="200">
+<img src="./images/img_naverid_38.png" width="300">
 
 #### 5.3.3.3 로그인 화면(네이버앱)
 
@@ -1683,13 +1683,13 @@ naversearchthirdlogin://access.naver.com?session={session_id}&callbackurl={callb
 
 로그인 성공 시 네이버앱도 로그인 상태가 되며 간편로그인 계정으로 등록됩니다. 이후 로그인부터는 간편로그인 계정을 선택해 로그인 할 수 있습니다.
 
-<img src="./images/img_naverid_39.png" width="200">
+<img src="./images/img_naverid_39.png" width="300">
 
 **b) 네이버앱에 로그아웃된 경우**
 
 이전에 네이버앱에 로그인한 적이 있고, 로그아웃 시 간편로그인 토큰을 유지한 경우입니다. 기존 간편로그인 계정을 선택하거나 [다른 아이디로] 기능으로 새로운 ID/PW를 입력하여 로그인할 수 있습니다.
 
-<img src="./images/img_naverid_40.png" width="200">
+<img src="./images/img_naverid_40.png" width="300">
 
 **c) 네이버앱에 로그인되어 있는 경우**
 
@@ -1701,13 +1701,13 @@ naversearchthirdlogin://access.naver.com?session={session_id}&callbackurl={callb
 
 네이버앱에서 로그인 정보를 성공적으로 가져오면 사용자에게 로그인 정보를 제시합니다. 사용자는 확인 화면에 제시된 정보를 확인하여 의도한 로그인 시도인지 최종적으로 확인합니다.
 
-<img src="./images/img_naverid_41.png" width="200">
+<img src="./images/img_naverid_41.png" width="300">
 
 #### 5.3.3.5 로그인 성공화면(가맹점앱)
 
 인증에 성공하면 인증 정보를 포함하여 타겟 페이지가 로딩됩니다. 스킴을 통해 callback URL이 전달된 경우 해당 URL이 로드됩니다. 전달되지 않은 경우 웹페이지 내 폴링을 통해 자동 갱신됩니다.
 
-<img src="./images/img_naverid_42.png" width="200">
+<img src="./images/img_naverid_42.png" width="300">
 
 ### 5.3.4 코드 연동 가이드
 
