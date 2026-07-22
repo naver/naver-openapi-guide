@@ -1,0 +1,208 @@
+---
+title: 네이버 캘린더 API 튜토리얼
+description: 네이버 로그인 OAuth 인증과 캘린더 API를 활용해 일정을 추가하는 샘플 프로젝트(Spring Boot)를 단계별로 설명합니다.
+---
+
+# 캘린더 튜토리얼
+
+## 사전 준비
+
+아래 샘플 프로젝트는 JDK 1.7 / maven / Spring Boot 환경에서 실행 가능합니다.
+네이버 Open Api 사용을 위해서는 /myapps/new 페이지에서 사용하실 서비스 등록작업이 필요합니다. 등록하신 CLIENT_ID, CLIENT_SECRET, CALLBACK_URL 값을 샘플 프로젝트에 입력하시면 준비가 완료됩니다.
+Application.java의 main method를 실행 하시면 서버가 시작됩니다.
+
+<div class="ndc-cta">
+<a class="secondary" href="/inc/devcenter/lib/calendar_openApi_sample.tar.gz">샘플코드 다운로드</a>
+<a href="/myapps/new">오픈 API 이용 신청 &gt;</a>
+</div>
+
+## 1. 인증단계
+
+- 네이버 Open Api 사용을 위해서는 미리 2단계의 인증을 받아야 합니다.
+- 첫 번째. 로그인한 사용자에게 OAuth를 사용해서, 특정 서비스를 사용하겠다는 동의
+- 두 번째. 동의한 사용자인경우, 오픈 API를 사용하기 위한 accessToken 획득
+- 상세 설명은 ["네이버 로그인 개발가이드"](/docs/login/overview)로 대체합니다.
+
+## 2. 설명 (샘플 프로젝트 중 CalendarController.java 파일에 대한 설명입니다.)
+
+### 2.1. index.nhn – OAuth 인증이 없는 사용자가 접근할 경우, 인증 페이지로 redirect합니다.
+
+```java
+@RequestMapping("/index.nhn")
+public ModelAndView index(HttpServletRequest request, HttpServletResponse response, Model model) {
+	String authorizationCode = getParam(request, KEY_AUTH_RESPONSE_TYPE);
+	String accessToken = getParam(request, KEY_ACCESS_TOKEN);
+
+	// 회원 정보 동의얻는 화면으로 이동. 동의를 얻으면 다시 /index.nhn로 callBack
+	if (Strings.isNullOrEmpty(authorizationCode) && Strings.isNullOrEmpty(accessToken)) {
+	log.info("인증코드 미확인. 인증획득 화면으로 이동");
+	return redirectToAuthPage(response);
+	}
+
+	// accessToken이 없다면, accessToken을 획득한다.
+	if (Strings.isNullOrEmpty(accessToken)) {
+		log.info("access_token 획득 시도");
+		accessToken = getAccessToken(authorizationCode, getParam(request, KEY_STATE));
+		if (Strings.isNullOrEmpty(accessToken)) {
+			model.addAttribute(KEY_API_CALL_RESULT, "인증값 획득 실패!");
+			return new ModelAndView("callResult");
+		}
+	}
+	model.addAttribute(KEY_ACCESS_TOKEN, accessToken);
+	return inputSchedule(request, response, model);
+}
+```
+
+```java
+private ModelAndView redirectToAuthPage(HttpServletResponse response) {
+	String state = "stateVal" + new java.util.Random().nextInt();
+	response.addHeader(KEY_STATE, state);
+
+	String authUrl = AUTHORIZE_URL + "?client_id=" + CLIENT_ID + "&response_type=" + KEY_AUTH_RESPONSE_TYPE + "&redirect_uri=" + URLEncoder.encode(CALLBACK_URL) + "&state=" + state;
+	log.info(authUrl);
+
+	return new ModelAndView("redirect:" + authUrl);
+}
+```
+
+### 2.2. OAuth를 사용하는 애플리케이션에 대한 동의 절차 페이지
+
+![OAuth 동의 절차 1](./images/img_guide_calendar_tutorial1.gif)
+
+![OAuth 동의 절차 2](./images/img_guide_calendar_tutorial2.gif)
+
+### 2.3. 동의하기를 click 한 경우, redirect 시 설정한 CALLBACK_URL (예제에서는 index.nhn)를 호출하게 됩니다. Index.nhn에서는 OAuth 인증을 확인했으므로, AccessToken의 획득을 시도합니다.
+
+```java
+private String getAccessToken(String authCode, String state) {
+	String authUrl = "https://nid.naver.com/oauth2.0/token?client_id=" + CLIENT_ID + "&client_secret=" + CLIENT_SECRET + "&grant_type=authorization_code&response_type=authorization_code&state=" + state + "&code=" + authCode;
+	log.info(authUrl);
+
+	String result = callApiByGet(authUrl);
+
+	Map<String, Object> accessTokenMap;
+	try {
+		accessTokenMap = new ObjectMapper().readValue(result, HashMap.class);
+	} catch (Exception e) {
+		log.warn(e.getMessage(), e);
+		return null;
+	}
+
+	String tokenType = (String) accessTokenMap.get("token_type");
+	String accessToken = (String) accessTokenMap.get("access_token");
+
+	log.info("accessToken=" + accessToken);
+	log.info("token_type=" + tokenType);
+
+	return accessToken;
+}
+```
+
+### 2.4. AccessToken을 획득한 후, inputSchedule.nhn으로 화면을 넘깁니다.
+
+```java
+@RequestMapping("/inputSchedule.nhn")
+public ModelAndView inputSchedule(HttpServletRequest request, HttpServletResponse response, Model model) {
+	log.info("일정 등록 화면 로딩");
+	return new ModelAndView("inputSchedule");
+}
+```
+
+inputSchedule.nhn에 대한 설명입니다.
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Write API</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+	<!-- <p th:text="'access_token : ' + $access_token "/> -->
+
+	<form name="postWriteFrm" id="postWriteFrm" method="POST" action="createSchedule.nhn"
+          target="writeFrmGen" enctype="multipart/form-data">
+
+	<input type="hidden" name="access_token" th:value="$access_token"/>
+	<input type="submit" value="submit"/><br/>
+
+	<textarea name="scheduleIcalString" style="width: 500px; height: 700px;">
+		BEGIN:VCALENDAR
+		VERSION:2.0
+		PRODID:-uwiseOne Resource 1.0
+		CALSCALE:GREGORIAN
+		BEGIN:VTIMEZONE
+		TZID:Asia/Seoul
+		TZURL:http://tzurl.org/zoneinfo-outlook/Asia/Seoul
+		X-LIC-LOCATION:Asia/Seoul
+		BEGIN:STANDARD
+		TZOFFSETFROM:+0900
+		TZOFFSETTO:+0900
+		TZNAME:KST
+		DTSTART:19700101T000000
+		END:STANDARD
+		END:VTIMEZONE
+		BEGIN:VEVENT
+		SEQUENCE:0
+		CLASS:PUBLIC
+		TRANSP:OPAQUE
+		UID:1340700474631-sr00003-1420270192309
+		SUMMARY:rrule test2
+		DTSTART;TZID=Asia/Seoul:20150128T160000
+		DTEND;TZID=Asia/Seoul:20150128T163000
+		DESCRIPTION:desc Val~
+		LOCATION:localion Val~
+		RRULE:FREQ=MONTHLY;INTERVAL=1;UNTIL=20150904;BYSETPOS=1;BYDAY=WE;
+		ORGANIZER;CN=íê¸¸ë:MAILTO:hong@sample.com
+		CREATED:20150103T162952Z
+		DTSTAMP:20150103T162952Z
+		LAST-MODIFIED:20150103T162952Z
+		PRIORITY:0
+		END:VEVENT
+		END:VCALENDAR
+	</textarea>
+	</form>
+</body>
+</html>
+```
+
+![일정 입력 화면](./images/img_guide_calendar_tutorial3.gif)
+
+### 2.5. 일정 iCal을 입력 후, submit으로 createSchedule.nhn을 호출합니다.
+
+createSchedule은 From에서 parameter를 추출한 후, 일정 생성 openAPI https://openapi.naver.com/calendar/createSchedule.json를 호출합니다.
+
+```java
+@RequestMapping("/createSchedule.nhn")
+public ModelAndView createSchedule(HttpServletRequest request, HttpServletResponse response, Model model) {
+	log.info("일정 생성 요청 전송");
+	Map<String, String> param = new HashMap<String, String>();
+	param.put("calendarId", "defaultCalendarId");
+	param.put("scheduleIcalString", getParam(request, "scheduleIcalString"));
+	String result = callApi(CREATE_SCHEDULE_API_URL, param, getParam(request, KEY_ACCESS_TOKEN));
+	log.info("result=" + result);
+	model.addAttribute(KEY_API_CALL_RESULT, result);
+	return new ModelAndView("callResult");
+}
+```
+
+### 2.6. 호출 결과를 표시합니다. 새로운 일정 uuid를 사용하면 create, 같은 uuid로 생성을 시도하면 기존 일정을 수정한 modify가 반환됩니다.
+
+callResult.nhn에 대한 설명입니다.
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Call result</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+	<h3> api_call_result </h3>
+	<p th:text="$api_call_result"/>
+</body>
+</html>
+```
+
+![호출 결과 화면](./images/img_guide_calendar_tutorial4.gif)
