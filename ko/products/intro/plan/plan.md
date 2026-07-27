@@ -40,11 +40,6 @@
             <td class="left">없음</td>
         </tr>
         <tr>
-            <td class="left">CLOVA Face Recognition</td>
-            <td class="left">입력된 사진을 입력받아 얼굴윤곽/부위/표정/유명인 닮음도를 리턴</td>
-            <td class="left">1,000건/일</td>
-        </tr>
-        <tr>
             <td class="left">데이터랩(검색어트렌드)</td>
             <td class="left">통합검색어 트렌드 조회	</td>
             <td class="left">1,000회/일</td>

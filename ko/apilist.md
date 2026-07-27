@@ -51,7 +51,6 @@
 - [음성 캡차](https://developers.naver.com/docs/utils/scaptcha/overview/): 네이버 서비스에서 사용하는 음성 캡차 기능을 외부 서비스에 사용할 수 있게 하는 API입니다.
 - [네이버 공유하기](https://developers.naver.com/docs/share/navershare/): 콘텐츠를 네이버 블로그, 네이버 카페, PHOLAR에 공유할 수 있게 하는 API입니다.
 - [네이버 오픈메인](https://developers.naver.com/docs/openmain/): 웹 페이지를 네이버 메인에 추가할 수 있게 하는 플러그인입니다.
-- [Clova Face Recognition](https://developers.naver.com/products/clova/face/): 입력된 사진 이미지 속의 얼굴을 인식하거나 얼굴 감지를 이용한 애플리케이션을 만들 수 있게 하는 API입니다.
 
 ### 데이터랩
 
@@ -115,11 +114,3 @@
 |------|--|--|------|
 |`http://share.naver.com/web/shareView`|GET|-|콘텐츠를 네이버 블로그, 네이버 카페, PHOLAR에 공유합니다.|
 
-### Clova Face Recognition
-
-다음은 Clova Face Recognition API에서 사용하는 주요 요청 URL과 메서드, 응답 형식입니다.
-
-|요청 URL|메서드|응답 형식|설명|
-|------|--|--|------|
-|`https://openapi.naver.com/v1/vision/face`|POST|JSON|입력된 사진에서 얼굴 윤곽, 부위, 표정을 반환합니다.|
-|`https://openapi.naver.com/v1/vision/celebrity`|POST|JSON|입력된 사진과 닮은 유명인의 이름과 닮은 정도를 반환합니다.|
