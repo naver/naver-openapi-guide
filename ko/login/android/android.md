@@ -85,20 +85,20 @@ gradle 스크립트에 아래와 같이 추가하시면 사용할 수 있습니�
 
 ```groovy
 # groovy
-implementation 'com.navercorp.nid:oauth:5.11.2' // jdk 11
-implementation 'com.navercorp.nid:oauth-jdk8:5.11.2' // jdk 8
+implementation 'com.navercorp.nid:oauth:5.12.0' // jdk 11
+implementation 'com.navercorp.nid:oauth-jdk8:5.12.0' // jdk 8
 ```
 
 ```kts
 # kts
-implementation("com.navercorp.nid:oauth:5.11.2") // jdk 11
-implementation("com.navercorp.nid:oauth-jdk8:5.11.2") // jdk 8
+implementation("com.navercorp.nid:oauth:5.12.0") // jdk 11
+implementation("com.navercorp.nid:oauth-jdk8:5.12.0") // jdk 8
 ```
 
 네아로SDK에서 사용하는 라이브러리는 다음과 같습니다. 필요에 따라 exclude 하여 사용하시면 됩니다.
 
 ```groovy
-implementation 'org.jetbrains.kotlin:kotlin-stdlib:2.1.0'
+implementation 'org.jetbrains.kotlin:kotlin-stdlib:2.2.0'
 implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.0'
 implementation 'androidx.appcompat:appcompat:1.3.1'
 implementation 'androidx.legacy:legacy-support-core-utils:1.0.0'
