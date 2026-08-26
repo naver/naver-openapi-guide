@@ -283,14 +283,14 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 `NidOAuth` 객체 싱글톤 인스턴스의 다음 API를 호출해 접근 토큰(Access Token)을 요청합니다.
 
 ```Swift
-func requestLogin(from viewController: UIViewController? = nil, callback: @escaping LoginResultCompletion)
+func requestLogin(from viewController: UIViewController?, callback: @escaping LoginResultCompletion)
 ```
 
 API가 호출되면, 네이버앱 혹은 `SafariViewController`를 통해 로그인 프로세스가 시작됩니다.
 
 
 
-`from` 파라미터에는 로그인 화면을 표시할 화면을 전달합니다. 생략하면 화면이 표시된 활성 윈도우에서 SDK가 직접 찾습니다. 전달한 화면이 아직 표시되지 않았다면 다른 화면으로 대체하지 않고 `presentationAnchorNotFound` 에러를 반환합니다.
+`from` 파라미터에는 로그인 화면을 표시할 화면을 전달합니다. 생략하면 SDK에서 활성 윈도우를 찾아 화면을 노출합니다. 전달한 화면이 아직 표시되지 않은 상태라면 다른 화면으로 대체하지 않고 `presentationAnchorNotFound` 에러를 반환합니다.
 
 `reauthenticate()`, `repromptPermissions()` 도 같은 방식으로 `from` 파라미터를 받습니다.
 
@@ -381,7 +381,7 @@ var refreshToken: RefreshToken? { get }
 유효 기간이 만료되어서 접근 토큰 갱신이 필요한 경우, 최초 로그인 요청과 동일하게 아래 메서드를 호출해서 갱신이 가능합니다.
 
 ```Swift
-func requestLogin(from viewController: UIViewController? = nil, callback: @escaping LoginResultCompletion)
+func requestLogin(from viewController: UIViewController?, callback: @escaping LoginResultCompletion)
 ```
 
 
@@ -486,7 +486,7 @@ func disconnect(callback: @escaping (Result<Void, NidError>) -> Void)
 사용자 재인증 API는 `NidOAuth`의 `reauthenticate()` 메서드로 제공하고 있습니다.
 
 ```Swift
-func reauthenticate(from viewController: UIViewController? = nil, callback: @escaping LoginResultCompletion)
+func reauthenticate(from viewController: UIViewController?, callback: @escaping LoginResultCompletion)
 ```
 
 
@@ -516,7 +516,7 @@ func reauthenticate(from viewController: UIViewController? = nil, callback: @esc
 사용자 재동의 API는 `NidOAuth`의 `repromptPermissions()` 메서드로 제공하고 있습니다.
 
 ```Swift
-func repromptPermissions(from viewController: UIViewController? = nil, callback: @escaping LoginResultCompletion)
+func repromptPermissions(from viewController: UIViewController?, callback: @escaping LoginResultCompletion)
 ```
 
 

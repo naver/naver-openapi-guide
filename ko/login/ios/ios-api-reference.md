@@ -192,14 +192,14 @@ func setLoginBehavior(_ behavior: LoginBehavior)
 **구문**
 
 ```Swift
-func requestLogin(from viewController: UIViewController? = nil, callback: @escaping LoginResultCompletion)
+func requestLogin(from viewController: UIViewController?, callback: @escaping LoginResultCompletion)
 ```
 
 **파라미터**
 
 | 파라미터 | 타입 | 필수 여부 | 설명 |
 |:--:|:--:|:--:|:--|
-| from | `UIViewController?` | N | 로그인 화면을 표시할 화면. 생략하면 화면이 표시된 활성 윈도우에서 SDK가 직접 찾습니다. 전달한 화면이 아직 표시되지 않았다면 다른 화면으로 대체하지 않고 `presentationAnchorNotFound` 에러를 반환합니다 |
+| from | `UIViewController?` | N | 로그인 화면을 표시할 화면.<br>생략하면 SDK에서 활성 윈도우를 찾아 화면 노출.<br>전달한 화면이 아직 표시되지 않은 상태라면 다른 화면으로 대체하지 않고 `presentationAnchorNotFound` 에러 반환 |
 | callback | `LoginResultCompletion` | Y | 로그인 프로세스가 끝난 후 결과를 전달할 클로져(`Closure`) |
 
 **반환값**
@@ -295,14 +295,14 @@ func getUserProfile(
 **구문**
 
 ```Swift
-func reauthenticate(from viewController: UIViewController? = nil, callback: @escaping LoginResultCompletion)
+func reauthenticate(from viewController: UIViewController?, callback: @escaping LoginResultCompletion)
 ```
 
 **파라미터**
 
 | 파라미터 | 타입 | 필수 여부 | 설명 |
 |:--:|:--:|:--:|:--|
-| from | `UIViewController?` | N | 로그인 화면을 표시할 화면. 생략하면 화면이 표시된 활성 윈도우에서 SDK가 직접 찾습니다. 전달한 화면이 아직 표시되지 않았다면 다른 화면으로 대체하지 않고 `presentationAnchorNotFound` 에러를 반환합니다 |
+| from | `UIViewController?` | N | 로그인 화면을 표시할 화면.<br>생략하면 SDK에서 활성 윈도우를 찾아 화면 노출.<br>전달한 화면이 아직 표시되지 않은 상태라면 다른 화면으로 대체하지 않고 `presentationAnchorNotFound` 에러 반환 |
 | callback | `LoginResultCompletion` | Y | 로그인 프로세스가 끝난 후 결과를 전달할 클로져(`Closure`) |
 
 **반환값**
@@ -320,13 +320,13 @@ func reauthenticate(from viewController: UIViewController? = nil, callback: @esc
 **구문**
 
 ```Swift
-func repromptPermissions(from viewController: UIViewController? = nil, callback: @escaping LoginResultCompletion)
+func repromptPermissions(from viewController: UIViewController?, callback: @escaping LoginResultCompletion)
 ```
 
 **파라미터**
 | 파라미터 | 타입 | 필수 여부 | 설명 |
 |:--:|:--:|:--:|:--|
-| from | `UIViewController?` | N | 로그인 화면을 표시할 화면. 생략하면 화면이 표시된 활성 윈도우에서 SDK가 직접 찾습니다. 전달한 화면이 아직 표시되지 않았다면 다른 화면으로 대체하지 않고 `presentationAnchorNotFound` 에러를 반환합니다 |
+| from | `UIViewController?` | N | 로그인 화면을 표시할 화면.<br>생략하면 SDK에서 활성 윈도우를 찾아 화면 노출.<br>전달한 화면이 아직 표시되지 않은 상태라면 다른 화면으로 대체하지 않고 `presentationAnchorNotFound` 에러 반환 |
 | callback | `LoginResultCompletion` | Y | 로그인 프로세스가 끝난 후 결과를 전달할 클로져(`Closure`) |
 
 **반환값**
