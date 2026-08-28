@@ -12,12 +12,12 @@
       * [1.4. `initialize(appName:clientId:clientSecret:urlScheme:)`](#1-4--initializeappname:clientid:clientsecret:urlscheme:)
       * [1.5. `handleURL(_ url:)`](#1-5--handleurl-url:)
       * [1.6. `setLoginBehavior(_:)`](#1-6--setloginbehavior:)
-      * [1.7. `requestLogin(callback:)`](#1-7--requestlogincallback:)
+      * [1.7. `requestLogin(from:callback:)`](#1-7--requestloginfromcallback:)
       * [1.8. `logout()`](#1-8--logout)
       * [1.9. `disconnect(callback:)`](#1-9--disconnectcallback:)
       * [1.10. `getUserProfile(accessToken:callback:)`](#1-10--getuserprofileaccesstoken:callback:)
-      * [1.11. `reauthenticate(callback:)`](#1-11--reauthenticatecallback:)
-      * [1.12. `repromptPermissions(callback:)`](#1-12--repromptpermissionscallback:)
+      * [1.11. `reauthenticate(from:callback:)`](#1-11--reauthenticatefromcallback:)
+      * [1.12. `repromptPermissions(from:callback:)`](#1-12--repromptpermissionsfromcallback:)
       * [1.13. `verifyAccessToken(_:callback:)`](#1-13--verifyaccesstoken-callback:)
    * [Type Aliases](#type-aliases)
       * [1.14. `LoginResultCompletion`](#1-14--loginresultcompletion)
@@ -183,7 +183,7 @@ func setLoginBehavior(_ behavior: LoginBehavior)
 
 
 
-#### 1.7. `requestLogin(callback:)`
+#### 1.7. `requestLogin(from:callback:)`
 
 **설명**
 
@@ -192,13 +192,14 @@ func setLoginBehavior(_ behavior: LoginBehavior)
 **구문**
 
 ```Swift
-func requestLogin(callback: @escaping LoginResultCompletion)
+func requestLogin(from viewController: UIViewController?, callback: @escaping LoginResultCompletion)
 ```
 
 **파라미터**
 
 | 파라미터 | 타입 | 필수 여부 | 설명 |
 |:--:|:--:|:--:|:--|
+| from | `UIViewController?` | N | 로그인 화면을 표시할 화면.<br>생략하면 SDK에서 활성 윈도우를 찾아 화면 노출.<br>전달한 화면이 아직 표시되지 않은 상태라면 다른 화면으로 대체하지 않고 `presentationAnchorNotFound` 에러 반환 |
 | callback | `LoginResultCompletion` | Y | 로그인 프로세스가 끝난 후 결과를 전달할 클로져(`Closure`) |
 
 **반환값**
@@ -283,7 +284,7 @@ func getUserProfile(
 
 
 
-#### 1.11. `reauthenticate(callback:)`
+#### 1.11. `reauthenticate(from:callback:)`
 
 **설명**
 
@@ -294,13 +295,14 @@ func getUserProfile(
 **구문**
 
 ```Swift
-func reauthenticate(callback: @escaping LoginResultCompletion)
+func reauthenticate(from viewController: UIViewController?, callback: @escaping LoginResultCompletion)
 ```
 
 **파라미터**
 
 | 파라미터 | 타입 | 필수 여부 | 설명 |
 |:--:|:--:|:--:|:--|
+| from | `UIViewController?` | N | 로그인 화면을 표시할 화면.<br>생략하면 SDK에서 활성 윈도우를 찾아 화면 노출.<br>전달한 화면이 아직 표시되지 않은 상태라면 다른 화면으로 대체하지 않고 `presentationAnchorNotFound` 에러 반환 |
 | callback | `LoginResultCompletion` | Y | 로그인 프로세스가 끝난 후 결과를 전달할 클로져(`Closure`) |
 
 **반환값**
@@ -309,7 +311,7 @@ func reauthenticate(callback: @escaping LoginResultCompletion)
 
 
 
-#### 1.12. `repromptPermissions(callback:)`
+#### 1.12. `repromptPermissions(from:callback:)`
 
 **설명**
 
@@ -318,12 +320,13 @@ func reauthenticate(callback: @escaping LoginResultCompletion)
 **구문**
 
 ```Swift
-func repromptPermissions(callback: @escaping LoginResultCompletion)
+func repromptPermissions(from viewController: UIViewController?, callback: @escaping LoginResultCompletion)
 ```
 
 **파라미터**
 | 파라미터 | 타입 | 필수 여부 | 설명 |
 |:--:|:--:|:--:|:--|
+| from | `UIViewController?` | N | 로그인 화면을 표시할 화면.<br>생략하면 SDK에서 활성 윈도우를 찾아 화면 노출.<br>전달한 화면이 아직 표시되지 않은 상태라면 다른 화면으로 대체하지 않고 `presentationAnchorNotFound` 에러 반환 |
 | callback | `LoginResultCompletion` | Y | 로그인 프로세스가 끝난 후 결과를 전달할 클로져(`Closure`) |
 
 **반환값**
@@ -630,7 +633,7 @@ case initalizeNotCalled
 
 **설명**
 
-`Info.plist`에 작성한 값들이 유효한 포맷이지 않을 때 발생하는 에러입니다.
+`initialize()` 에 전달한 설정값으로 인가 요청 URL을 만들 수 없을 때 발생하는 에러입니다. `clientId`, `urlScheme` 등에 URL에 쓸 수 없는 문자가 들어갔는지 확인해주세요.
 
 **구문**
 
@@ -640,21 +643,35 @@ case invalidClientConfigurationFormat
 
 
 
-##### 6.3.4. `missingClientConfiguration(key: String)`
+##### 6.3.4. `missingClientConfiguration`
 
 **설명**
 
-`Info.plist`에 `key`에 해당하는 값이 없을 때 발생하는 에러입니다. `NidClientID`, `NidClientSecret`, `NidAppName`, `NidUrlScheme`이 `Info.plist`에 작성되어있는지 확인해주세요.
+애플리케이션 설정값이 주입되지 않은 상태에서 로그인을 요청했을 때 발생하는 에러입니다. `initialize()` 를 먼저 호출했는지 확인해주세요.
 
 **구문**
 
 ```Swift
-case missingClientConfiguration(key: String)
+case missingClientConfiguration
 ```
 
 
 
-##### 6.3.5. `naverAppNotInstalled`
+##### 6.3.5. `multipleInitalizationAttempt`
+
+**설명**
+
+`initialize()` 를 두 번 이상 호출했을 때 발생하는 에러입니다. 두 번째 호출부터는 아무 일도 하지 않고 로그만 남기며, 콜백으로 전달되지는 않습니다. 앱을 실행할 때 한 번만 호출해주세요.
+
+**구문**
+
+```Swift
+case multipleInitalizationAttempt
+```
+
+
+
+##### 6.3.6. `naverAppNotInstalled`
 
 **설명**
 
@@ -668,7 +685,21 @@ case naverAppNotInstalled
 
 
 
-##### 6.3.6. `unsupportedResponseType`
+##### 6.3.7. `presentationAnchorNotFound`
+
+**설명**
+
+로그인 화면을 표시할 윈도우를 찾지 못했을 때 발생하는 에러입니다. `from`을 생략하면 SDK에서 활성 윈도우를 찾는데, 앱이 백그라운드에 있어 활성 윈도우가 없으면 이 에러를 반환합니다. `from`으로 `UIViewController`를 전달했다면 그 `UIViewController`가 아직 화면에 표시되지 않은 경우 다른 화면으로 대체하지 않고 이 에러를 반환합니다.
+
+**구문**
+
+```Swift
+case presentationAnchorNotFound
+```
+
+
+
+##### 6.3.8. `unsupportedResponseType`
 
 **설명**
 
