@@ -12,13 +12,13 @@
       * [1.4. `initialize(appName:clientId:clientSecret:urlScheme:)`](#1-4--initializeappname:clientid:clientsecret:urlscheme:)
       * [1.5. `handleURL(_ url:)`](#1-5--handleurl-url:)
       * [1.6. `setLoginBehavior(_:)`](#1-6--setloginbehavior:)
-      * [1.7. `requestLogin(from:callback:)`](#1-7--requestloginfromcallback:)
+      * [1.7. `requestLogin(from:callback:)`](#1-7--requestloginfrom:callback:)
       * [1.8. `logout()`](#1-8--logout)
       * [1.9. `disconnect(callback:)`](#1-9--disconnectcallback:)
       * [1.10. `getUserProfile(accessToken:callback:)`](#1-10--getuserprofileaccesstoken:callback:)
-      * [1.11. `reauthenticate(from:callback:)`](#1-11--reauthenticatefromcallback:)
-      * [1.12. `repromptPermissions(from:callback:)`](#1-12--repromptpermissionsfromcallback:)
-      * [1.13. `verifyAccessToken(_:callback:)`](#1-13--verifyaccesstoken-callback:)
+      * [1.11. `reauthenticate(from:callback:)`](#1-11--reauthenticatefrom:callback:)
+      * [1.12. `repromptPermissions(from:callback:)`](#1-12--repromptpermissionsfrom:callback:)
+      * [1.13. `verifyAccessToken(_:callback:)`](#1-13--verifyaccesstoken:callback:)
    * [Type Aliases](#type-aliases)
       * [1.14. `LoginResultCompletion`](#1-14--loginresultcompletion)
    
@@ -335,7 +335,7 @@ func repromptPermissions(from viewController: UIViewController?, callback: @esca
 
 
 
-#### 1.13 `verifyAccessToken(_:callback:)`
+#### 1.13. `verifyAccessToken(_:callback:)`
 
 **설명**
 
