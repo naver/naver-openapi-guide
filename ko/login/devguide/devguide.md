@@ -636,11 +636,12 @@ https://nid.naver.com/oauth2/jwks
 | scope |string |Y |- | 'openid' scope 필수|
 |code_challenge|string|N|-|해시처리된 PKCE value|
 |code_challenge_method|string|N|S256|PKCE 알고리즘|
+|nonce|string|N|-|재전송 공격(replay attack)을 방지하기 위해 애플리케이션에서 생성한 임의의 문자열로, 전달한 값이 ID 토큰의 nonce 클레임에 그대로 담기므로 애플리케이션은 ID 토큰 검증 시 이 값을 비교하여 사용|
 
 ***요청문 샘플***
 
 ```text
-https://nid.naver.com/oauth2/authorize?response_type=code&client_id=CLIENT_ID&state=STATE_STRING&redirect_uri=CALLBACK_URL&scope=openid&code_challenge=CODE_CHALLENGE&code_challenge_method=S256
+https://nid.naver.com/oauth2/authorize?response_type=code&client_id=CLIENT_ID&state=STATE_STRING&redirect_uri=CALLBACK_URL&scope=openid&code_challenge=CODE_CHALLENGE&code_challenge_method=S256&nonce=NONCE_STRING
 ```
 
 ### 3.5.5 네이버 로그인 연동 결과 Callback 정보
@@ -683,14 +684,14 @@ Callback으로 전달받은 'code' 값을 이용하여 '접근토큰발급API'�
 |client_id |string |Y |- |애플리케이션 등록 시 발급받은 Client ID 값|
 |client_secret |string |Y |- |애플리케이션 등록 시 발급받은 Client secret 값|
 |code |string |발급 때 필수 |- |로그인 인증 요청 API 호출에 성공하고 리턴받은 인증코드값 (authorization code)|
-|state |string |발급 때 필수 |- |사이트 간 요청 위조(cross-site request forgery) 공격을 방지하기 위해 애플리케이션에서 생성한 상태 토큰값으로 URL 인코딩을 적용한 값을 사용|
+|redirect_uri |string |발급 때 필수 |- |로그인 인증 요청 시 전달한 redirect_uri와 동일한 값으로 URL 인코딩을 적용한 값|
 |refresh_token |string |갱신 때 필수 |- |네이버 사용자 인증에 성공하고 발급받은 갱신 토큰(refresh token)|
 |code_verifier |string |N |- |PKCE로 동작하는 경우 추가|
 
 ***요청문 샘플***
 
 ```text
-https://nid.naver.com/oauth2/token?grant_type=authorization_code&client_id=jyvqXeaVOVmV&client_secret=527300A0_COq1_XV33cf&code=EIc5bFrl4RibFls1&state=9kgsGTfH4j7IyAkg&code_verifier=CODE_VERIFIER  
+https://nid.naver.com/oauth2/token?grant_type=authorization_code&client_id=jyvqXeaVOVmV&client_secret=527300A0_COq1_XV33cf&code=EIc5bFrl4RibFls1&redirect_uri=CALLBACK_URL&code_verifier=CODE_VERIFIER  
 ```
 
 ***응답 정보***
