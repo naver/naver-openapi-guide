@@ -632,7 +632,7 @@ https://nid.naver.com/oauth2/jwks
 | response_type |string |Y |code |인증 과정에 대한 내부 구분값으로 'code'로 전송해야 함 |
 | client_id |string |Y |- |애플리케이션 등록 시 발급받은 Client ID 값 |
 | redirect_uri |string |Y |- |애플리케이션을 등록 시 입력한 Callback URL 값으로 URL 인코딩을 적용한 값 |
-| state |string |Y |- |사이트 간 요청 위조(cross-site request forgery) 공격을 방지하기 위해 애플리케이션에서 생성한 상태 토큰값으로 URL 인코딩을 적용한 값을 사용 |
+| state |string |N |- |사이트 간 요청 위조(cross-site request forgery) 공격을 방지하기 위해 애플리케이션에서 생성한 상태 토큰값으로 URL 인코딩을 적용한 값을 사용 |
 | scope |string |Y |- | 'openid' scope 필수|
 |code_challenge|string|N|-|해시처리된 PKCE value|
 |code_challenge_method|string|N|S256|PKCE 알고리즘|
@@ -682,7 +682,7 @@ Callback으로 전달받은 'code' 값을 이용하여 '접근토큰발급API'�
 |:--:|:-:|:-:|:-:|-----|
 |grant_type |string |Y |- |인증 과정에 대한 구분값<br>1) 발급:'authorization_code'<br>2) 갱신:'refresh_token'|
 |client_id |string |Y |- |애플리케이션 등록 시 발급받은 Client ID 값|
-|client_secret |string |Y |- |애플리케이션 등록 시 발급받은 Client secret 값|
+|client_secret |string |N |- |애플리케이션 등록 시 발급받은 Client secret 값|
 |code |string |발급 때 필수 |- |로그인 인증 요청 API 호출에 성공하고 리턴받은 인증코드값 (authorization code)|
 |redirect_uri |string |발급 때 필수 |- |로그인 인증 요청 시 전달한 redirect_uri와 동일한 값으로 URL 인코딩을 적용한 값|
 |refresh_token |string |갱신 때 필수 |- |네이버 사용자 인증에 성공하고 발급받은 갱신 토큰(refresh token)|
