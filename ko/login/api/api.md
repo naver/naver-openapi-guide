@@ -507,8 +507,8 @@ https://nid.naver.com/oauth2.0/token?grant_type=refresh_token&client_id=jyvqXeaV
 
 ```shell
 curl -X POST "https://nid.naver.com/oauth2.0/revoke" \
-     -d "client_id=jyvqXeaVOVmV" \
-     -d "client_secret=527300A0_COq1_XV33cf" \
+     -d "client_id=CLIENT_ID" \
+     -d "client_secret=CLIENT_SECRET" \
      -d "token=c8ceMEJisO4Se7uGCEYKK1p52L93bHXLnaoETis9YzjfnorlQwEisqemfpKHUq2gY" \
      -d "token_type_hint=access_token"
 ```
