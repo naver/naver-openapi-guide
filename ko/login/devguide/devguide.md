@@ -691,7 +691,7 @@ Callback으로 전달받은 'code' 값을 이용하여 '접근토큰발급API'�
 ***요청문 샘플***
 
 ```text
-https://nid.naver.com/oauth2/token?grant_type=authorization_code&client_id=jyvqXeaVOVmV&client_secret=527300A0_COq1_XV33cf&code=EIc5bFrl4RibFls1&redirect_uri=CALLBACK_URL&code_verifier=CODE_VERIFIER  
+https://nid.naver.com/oauth2/token?grant_type=authorization_code&client_id=CLIENT_ID&client_secret=CLIENT_SECRET&code=EIc5bFrl4RibFls1&redirect_uri=CALLBACK_URL&code_verifier=CODE_VERIFIER  
 ```
 
 ***응답 정보***
