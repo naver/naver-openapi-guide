@@ -702,9 +702,54 @@ https://nid.naver.com/oauth2/token?grant_type=authorization_code&client_id=jyvqX
 |refresh_token |string |갱신 토큰, 접근 토큰이 만료될 경우 접근 토큰을 다시 발급받을 때 사용|
 |token_type |string |접근 토큰의 타입으로 Bearer와 MAC의 두 가지를 지원|
 |expires_in |integer |접근 토큰의 유효 기간(초 단위)|
-|id_token |integer |id token, 사용자 인증시 사용|
+|id_token |string |id token, 사용자 인증시 사용|
 |error |string |에러 코드|
 |error_description |string |에러 메시지|
+
+### 3.5.7 ID 토큰 클레임 정보
+
+접근 토큰 발급 응답의 id_token은 RS256으로 서명된 JWT입니다. 서명은 3.5.3에서 조회한 jwk key 중 id_token 헤더의 `kid` 값과 일치하는 key로 검증합니다.<br/>
+id_token에 담기는 클레임 목록은 OIDC configuration 정보(3.5.2)의 `claims_supported` 항목으로도 확인할 수 있습니다.
+
+***ID 토큰 클레임***
+
+|클레임 |타입 |설명|
+|:--:|:--:|-----|
+|iss |string |토큰 발급자, `https://nid.naver.com` 값|
+|sub |string |동일인 식별 정보, 애플리케이션마다 다르게 발급되는 사용자 식별 값|
+|aud |string |토큰을 발급받은 애플리케이션의 Client ID|
+|exp |integer |토큰 만료 시각(Unix time, 초 단위)|
+|iat |integer |토큰 발급 시각(Unix time, 초 단위)|
+|jti |string |토큰 고유 식별자|
+|azp |string |토큰을 발급받은 애플리케이션의 Client ID|
+|nonce |string |인증 요청 시 전달한 nonce 값, 인증 요청에 nonce를 전달한 경우에만 포함|
+
+***ID 토큰 payload 샘플***
+
+```json
+{
+  "iss": "https://nid.naver.com",
+  "sub": "12345678",
+  "aud": "CLIENT_ID",
+  "azp": "CLIENT_ID",
+  "exp": 1792477612,
+  "iat": 1792475812,
+  "jti": "JTI_STRING",
+  "nonce": "NONCE_STRING"
+}
+```
+
+이름, 이메일 같은 회원 프로필 정보는 id_token에 담기지 않습니다. 프로필 정보가 필요하면 접근 토큰으로 프로필 API(3.4.5)를 호출합니다.
+
+***ID 토큰 검증***
+
+애플리케이션은 id_token을 받으면 다음 항목을 확인한 뒤 사용해야 합니다.
+
+* jwk key로 서명이 유효한지 확인합니다.
+* iss 값이 `https://nid.naver.com` 인지 확인합니다.
+* aud 값이 애플리케이션의 Client ID와 같은지 확인합니다.
+* exp 값으로 토큰이 만료되지 않았는지 확인합니다.
+* 인증 요청에 nonce를 전달했다면 nonce 값이 전달한 값과 같은지 확인합니다.
 
 ## 3.6 네이버의 로그인오픈 API의 이용
 로그인을 해야 사용할 수 있는 네이버의 다양한 오픈 API들을 사용할 수 있습니다. 여기에서는 그 중 주요 세 가지 로그인 오픈 API 에 대해 설명합니다.
