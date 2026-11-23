@@ -1130,7 +1130,6 @@ Open ID Connect(3.5)로 네이버 로그인을 연동한 애플리케이션은 `
 
 * 요청 URL의 path가 `/oauth2/revoke`입니다. 요청 URL은 OIDC configuration 정보(3.5.2)의 `revocation_endpoint` 항목으로도 확인할 수 있습니다.
 * 클라이언트 인증에 실패하면 `unauthorized_client`가 아닌 `invalid_client` 에러 코드를 반환합니다.
-* 폐기 처리에 실패하면 HTTP 503이 아닌 HTTP 400과 `server_error` 에러 코드를 반환합니다.
 
 ***요청 URL 정보***
 
@@ -1161,14 +1160,13 @@ curl -X POST "https://nid.naver.com/oauth2/revoke" \
 
 ***응답 정보***
 
-정상 처리 시 본문 없이 HTTP 200을 반환합니다. 요청이 거절되거나 폐기에 실패한 경우 HTTP 상태 코드와 함께 `error` 필드를 JSON 본문으로 반환합니다. `error_description` 필드는 에러에 따라 포함되지 않을 수 있습니다.
+정상 처리 시 본문 없이 HTTP 200을 반환합니다. 요청이 거절된 경우 HTTP 상태 코드와 함께 `error` 필드를 JSON 본문으로 반환합니다. `error_description` 필드는 에러에 따라 포함되지 않을 수 있습니다.
 
 | 상태 코드 | error | 설명 |
 | :---: | :--- | :--- |
 | 200 | - | 폐기 성공. 또는 token이 이미 폐기되었거나 존재하지 않는 경우 |
 | 400 | invalid_request | token 누락 등 요청 형식이 유효하지 않은 경우 |
 | 401 | invalid_client | client_id/client_secret 인증 실패. public client가 아닌 애플리케이션이 client_secret을 생략한 경우 포함 |
-| 400 | server_error | 폐기 처리 실패. 토큰이 폐기되지 않았으므로 재시도 필요 |
 
 ***응답 본문 예시 (실패 시)***
 
