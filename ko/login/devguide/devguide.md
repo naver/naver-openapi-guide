@@ -635,7 +635,7 @@ https://nid.naver.com/oauth2/jwks
 | state |string |N |- |사이트 간 요청 위조(cross-site request forgery) 공격을 방지하기 위해 애플리케이션에서 생성한 상태 토큰값으로 URL 인코딩을 적용한 값을 사용 |
 | scope |string |Y |- | 'openid' scope 필수|
 |code_challenge|string|N|-|해시처리된 PKCE value|
-|code_challenge_method|string|N|S256|PKCE 알고리즘|
+|code_challenge_method|string|N|-|PKCE 알고리즘으로 'S256'만 지원, code_challenge 전달 시 필수|
 |nonce|string|N|-|재전송 공격(replay attack)을 방지하기 위해 애플리케이션에서 생성한 임의의 문자열로, 전달한 값이 ID 토큰의 nonce 클레임에 그대로 담기므로 애플리케이션은 ID 토큰 검증 시 이 값을 비교하여 사용|
 
 ***요청문 샘플***
@@ -643,6 +643,39 @@ https://nid.naver.com/oauth2/jwks
 ```text
 https://nid.naver.com/oauth2/authorize?response_type=code&client_id=CLIENT_ID&state=STATE_STRING&redirect_uri=CALLBACK_URL&scope=openid&code_challenge=CODE_CHALLENGE&code_challenge_method=S256&nonce=NONCE_STRING
 ```
+
+***PKCE 적용 가이드***
+
+PKCE(Proof Key for Code Exchange, RFC 7636)는 인증 코드(code)가 탈취되더라도 인증을 요청한 애플리케이션만 접근 토큰을 발급받을 수 있도록 보호하는 방식입니다.<br/>
+Client secret을 안전하게 보관하기 어려운 모바일 앱이나 브라우저에서 동작하는 애플리케이션은 PKCE를 적용하는 것을 권장합니다.
+
+PKCE는 다음 순서로 적용합니다.
+
+1. 로그인 인증 요청마다 애플리케이션에서 임의의 문자열인 code_verifier를 새로 생성합니다. code_verifier는 영문 대소문자, 숫자, 특수문자 `-`, `.`, `_`, `~`로 구성한 43자 이상 128자 이하의 문자열이며, 암호학적으로 안전한 난수로 생성해야 합니다.
+2. code_verifier를 SHA-256으로 해시한 뒤, 패딩(`=`)이 없는 Base64 URL 인코딩을 적용하여 code_challenge를 생성합니다.
+3. 로그인 인증 요청에 code_challenge와 code_challenge_method를 함께 전달합니다. code_challenge_method는 'S256'만 지원하며, code_challenge를 전달할 때에는 code_challenge_method도 반드시 함께 전달해야 합니다.
+4. code_verifier는 접근 토큰 발급 요청까지 애플리케이션 내부에 보관합니다. code_verifier를 로그인 인증 요청이나 Callback URL에 노출해서는 안 됩니다.
+5. 접근 토큰 발급 요청(3.5.6)에 보관해 둔 code_verifier를 전달합니다. 로그인 인증 요청에 code_challenge를 전달했다면 code_verifier는 필수이며, 값이 없거나 code_challenge와 일치하지 않으면 접근 토큰이 발급되지 않습니다.
+
+***code_challenge 생성 샘플***
+
+```java
+SecureRandom secureRandom = new SecureRandom();
+byte[] randomBytes = new byte[32];
+secureRandom.nextBytes(randomBytes);
+String codeVerifier = Base64.getUrlEncoder().withoutPadding().encodeToString(randomBytes);
+
+MessageDigest sha256 = MessageDigest.getInstance("SHA-256");
+byte[] digest = sha256.digest(codeVerifier.getBytes(StandardCharsets.US_ASCII));
+String codeChallenge = Base64.getUrlEncoder().withoutPadding().encodeToString(digest);
+```
+
+생성한 값은 다음 예시로 검증할 수 있습니다.
+
+|항목 |값 |
+|:--:|-----|
+|code_verifier |dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk |
+|code_challenge |E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM |
 
 ### 3.5.5 네이버 로그인 연동 결과 Callback 정보
 
@@ -1087,6 +1120,61 @@ curl -X POST "https://nid.naver.com/oauth2.0/revoke" \
 
 * 본 API는 입력한 토큰의 유효성과 무관하게, 폐기 자체가 정상 수행되면 200을 반환합니다. 따라서 클라이언트는 응답 본문이 아닌 HTTP 상태 코드를 기준으로 결과를 판단해야 합니다.
 * `token_type_hint`를 잘못 지정하더라도 서버는 실제 토큰 타입을 기준으로 폐기를 시도합니다. 다만 정확한 힌트를 전달하면 처리 효율이 높아집니다.
+
+### 4.3.2 OIDC로 연동한 경우의 Token Revocation(토큰 폐기)
+
+Open ID Connect(3.5)로 네이버 로그인을 연동한 애플리케이션은 `/oauth2/revoke` 엔드포인트로 토큰을 폐기합니다.<br/>
+폐기 대상과 `token_type_hint`의 동작은 4.3.1과 동일합니다. 접근 토큰(access_token) 또는 갱신 토큰(refresh_token) 중 하나를 전달하면 연결된 쌍의 토큰까지 함께 폐기됩니다.
+
+4.3.1의 `/oauth2.0/revoke`와 다른 점은 다음과 같습니다.
+
+* 요청 URL의 path가 `/oauth2/revoke`입니다. 요청 URL은 OIDC configuration 정보(3.5.2)의 `revocation_endpoint` 항목으로도 확인할 수 있습니다.
+* 클라이언트 인증에 실패하면 `unauthorized_client`가 아닌 `invalid_client` 에러 코드를 반환합니다.
+
+***요청 URL 정보***
+
+| 메서드 | 요청 URL | 출력 포맷 | 설명 |
+|:--:|-----|:-:| --- |
+| POST | https://nid.naver.com/oauth2/revoke | JSON | 토큰 폐기 요청 |
+
+***요청 변수 정보***
+
+요청 변수는 `application/x-www-form-urlencoded` 형식의 요청 본문으로 전달합니다.
+
+| 요청 변수명 | 타입 | 필수 여부 | 기본값 | 설명 |
+| :---: | :---: | :---: | :---: | ---------- |
+| client_id | string | Y | - | 애플리케이션 등록 시 발급받은 Client ID 값 |
+| client_secret | string | N | - | 애플리케이션 등록 시 발급받은 Client Secret 값. public client로 등록된 애플리케이션은 생략 가능 |
+| token | string | Y | - | 폐기 대상 토큰(access_token 또는 refresh_token) |
+| token_type_hint | string | N | access_token | 폐기 대상 토큰의 타입 힌트. `access_token` 또는 `refresh_token` 지정 가능. 미지정 시 `access_token`으로 간주 |
+
+***요청문 샘플***
+
+```shell
+curl -X POST "https://nid.naver.com/oauth2/revoke" \
+     -d "client_id=CLIENT_ID" \
+     -d "client_secret=CLIENT_SECRET" \
+     -d "token=ACCESS_TOKEN_OR_REFRESH_TOKEN" \
+     -d "token_type_hint=access_token"
+```
+
+***응답 정보***
+
+정상 처리 시 본문 없이 HTTP 200을 반환합니다. 요청이 거절된 경우 HTTP 상태 코드와 함께 `error` 필드를 JSON 본문으로 반환합니다. `error_description` 필드는 에러에 따라 포함되지 않을 수 있습니다.
+
+| 상태 코드 | error | 설명 |
+| :---: | :--- | :--- |
+| 200 | - | 폐기 성공. 또는 token이 이미 폐기되었거나 존재하지 않는 경우 |
+| 400 | invalid_request | token 누락 등 요청 형식이 유효하지 않은 경우 |
+| 401 | invalid_client | client_id/client_secret 인증 실패. public client가 아닌 애플리케이션이 client_secret을 생략한 경우 포함 |
+
+***응답 본문 예시 (실패 시)***
+
+```json
+{
+  "error": "invalid_client"
+}
+```
 
 ## 4.4 네이버 로그인 연결 끊기 알림 받기
 
